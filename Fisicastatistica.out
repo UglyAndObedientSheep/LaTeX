@@ -1,0 +1,75 @@
+\BOOKMARK [0][-]{chapter.1}{Meccanica Statistica Classica}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Ensemble microcanonico}{chapter.1}% 2
+\BOOKMARK [2][-]{subsection.1.1.1}{Teorema di equipartizione}{section.1.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.2}{Gas perfetto classico}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.3}{Paradosso di Gibbs e conteggio corretto}{section.1.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Ensemble canonico}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.2.1}{Equivalenza ensemble microcanonico e canonico}{section.1.2}% 7
+\BOOKMARK [1][-]{section.1.3}{Ensemble grancanonico}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.3.1}{Equivalenza tra gli ensemble}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.2}{Gas perfetto classico}{section.1.3}% 10
+\BOOKMARK [2][-]{subsection.1.3.3}{Paramagnetismo in Meccanica Classica}{section.1.3}% 11
+\BOOKMARK [0][-]{chapter.2}{Meccanica Statistica Quantistica}{}% 12
+\BOOKMARK [1][-]{section.2.1}{Postulati}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.2}{Ensemble microcanonico}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.3}{Ensemble canonico}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.4}{Ensemble grancanonico}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.5}{Terzo principio della Termodinamica}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.6}{Gas perfetto quantistico nell'ensemble grancanonico}{chapter.2}% 18
+\BOOKMARK [2][-]{subsection.2.6.1}{Gas di Fermi}{section.2.6}% 19
+\BOOKMARK [2][-]{subsection.2.6.2}{Gas di Bose}{section.2.6}% 20
+\BOOKMARK [1][-]{section.2.7}{Seconda Quantizzazione}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.7.1}{Sistemi non interagenti}{section.2.7}% 22
+\BOOKMARK [0][-]{chapter.3}{Applicazioni della stastistica di Bose-Einstein}{}% 23
+\BOOKMARK [1][-]{section.3.1}{Corpo nero}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.2}{Gas di fononi e modello di Debye}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.3}{Gas ideale di Bose e condensazione di Bose-Einstein}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.4}{Quantit\340 termodinamiche di un condensato}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.5}{Gas ideale di Bose in dimensione arbitraria}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.6}{Limite di alta temperatura per d=3}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.7}{BEC in una trappola armonica}{chapter.3}% 30
+\BOOKMARK [0][-]{chapter.4}{Applicazioni della statistica di Fermi}{}% 31
+\BOOKMARK [1][-]{section.4.1}{Gas di Fermi ideale in tre dimensioni}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.2}{Gas di Fermi ideale in dimensione arbitraria}{chapter.4}% 33
+\BOOKMARK [1][-]{section.4.3}{Magnetismo}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.4}{Diamagnetismo di Landau}{chapter.4}% 35
+\BOOKMARK [2][-]{subsection.4.4.1}{Effetto De Haas - Van Alphen}{section.4.4}% 36
+\BOOKMARK [1][-]{section.4.5}{Paramagnetismo}{chapter.4}% 37
+\BOOKMARK [0][-]{chapter.5}{Transizioni di fase}{}% 38
+\BOOKMARK [1][-]{section.5.1}{Transizioni del primo ordine}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.2}{Transizioni del secondo ordine}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.3}{Modello di Ising}{chapter.5}% 41
+\BOOKMARK [2][-]{subsection.5.3.1}{Approssimazione di campo medio}{section.5.3}% 42
+\BOOKMARK [2][-]{subsection.5.3.2}{Campo medio in teoria di campo}{section.5.3}% 43
+\BOOKMARK [2][-]{subsection.5.3.3}{Funzione di correlazione e suscettivit\340}{section.5.3}% 44
+\BOOKMARK [2][-]{subsection.5.3.4}{Suscettivit\340}{section.5.3}% 45
+\BOOKMARK [1][-]{section.5.4}{Teoria di Landau-Ginzburg}{chapter.5}% 46
+\BOOKMARK [2][-]{subsection.5.4.1}{Teoria di Landau-Ginzburg per il modello di Ising}{section.5.4}% 47
+\BOOKMARK [1][-]{section.5.5}{Generalizzazioni del modello di Ising}{chapter.5}% 48
+\BOOKMARK [2][-]{subsection.5.5.1}{Teoria di Landau-Ginzburg per il modello O\(n\)}{section.5.5}% 49
+\BOOKMARK [1][-]{section.5.6}{Rottura spontanea di simmetria}{chapter.5}% 50
+\BOOKMARK [1][-]{section.5.7}{Esponenti critici}{chapter.5}% 51
+\BOOKMARK [2][-]{subsection.5.7.1}{Ipotesi di scaling}{section.5.7}% 52
+\BOOKMARK [2][-]{subsection.5.7.2}{Esponenti critici in campo medio}{section.5.7}% 53
+\BOOKMARK [2][-]{subsection.5.7.3}{Invarianza di scala}{section.5.7}% 54
+\BOOKMARK [2][-]{subsection.5.7.4}{Criterio di Ginzburg}{section.5.7}% 55
+\BOOKMARK [2][-]{subsection.5.7.5}{Esponenti critici al punto sella di L-G}{section.5.7}% 56
+\BOOKMARK [1][-]{section.5.8}{Modello cubico in approssimazione di campo medio}{chapter.5}% 57
+\BOOKMARK [1][-]{section.5.9}{Modello m6 e punto tricritico}{chapter.5}% 58
+\BOOKMARK [2][-]{subsection.5.9.1}{Esponenti critici al punto tricritico}{section.5.9}% 59
+\BOOKMARK [1][-]{section.5.10}{Argomento di Peierls}{chapter.5}% 60
+\BOOKMARK [1][-]{section.5.11}{Soluzione del modello di Ising 1D}{chapter.5}% 61
+\BOOKMARK [0][-]{chapter.6}{Il gruppo di Rinormalizzazione}{}% 62
+\BOOKMARK [1][-]{section.6.1}{Sistemi disordinati}{chapter.6}% 63
+\BOOKMARK [2][-]{subsection.6.1.1}{Trucco delle repliche}{section.6.1}% 64
+\BOOKMARK [1][-]{section.6.2}{Block spin scheme}{chapter.6}% 65
+\BOOKMARK [1][-]{section.6.3}{Modello di Ising 1D}{chapter.6}% 66
+\BOOKMARK [2][-]{subsection.6.3.1}{Lunghezza di correlazione}{section.6.3}% 67
+\BOOKMARK [1][-]{section.6.4}{Gruppo di Rinormalizzazione per d>1}{chapter.6}% 68
+\BOOKMARK [1][-]{section.6.5}{Teoria generale del Gruppo di Rinormalizzazione}{chapter.6}% 69
+\BOOKMARK [1][-]{section.6.6}{Energia libera ed esponenti critici in RG}{chapter.6}% 70
+\BOOKMARK [1][-]{section.6.7}{Ruolo di b}{chapter.6}% 71
+\BOOKMARK [1][-]{section.6.8}{Operatori di scala}{chapter.6}% 72
+\BOOKMARK [0][-]{chapter.7}{Transizioni di fase quantistiche}{}% 73
+\BOOKMARK [1][-]{section.7.1}{Modello di Ising}{chapter.7}% 74
+\BOOKMARK [1][-]{section.7.2}{Modello di Ising 1D quantistico in campo trasverso}{chapter.7}% 75
