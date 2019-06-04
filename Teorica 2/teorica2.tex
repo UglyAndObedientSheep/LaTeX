@@ -1,0 +1,3345 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{latexsym}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{quoting}
+\usepackage{booktabs}
+\usepackage{subfig}
+\usepackage{slashed}
+\usepackage{feynmp-auto}
+\theoremstyle{definition}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}{Definizione}[section]
+\newtheorem{exm}{Esempio}
+\newcommand{\pdev}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\dev}[3][]{\frac{\mathrm{d}^{#1} #2}{\mathrm{d} #3^{#1}}}
+\newcommand{\ham}{\mathcal{H}}
+\newcommand{\lag}{\mathcal{L}}
+\numberwithin{equation}{section}
+\newcommand{\Div}{\mathrm{div}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand{\diff}[1][]{\mathrm{d}#1}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\bnabla}{\boldsymbol{\nabla}}
+\newcommand{\Sch}{Schrödinger}
+\newcommand{\adj}[1]{#1^{\dagger}}
+\newcommand{\tr}{\mathrm{tr}}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\Huge \scshape{Fisica Teorica 2}}\\
+\vspace*{0.5cm}
+{\small Appunti (non rivisti) delle lezioni del professor Vicari}
+\vspace*{\stretch{0.5}} \\
+\includegraphics[width=250pt,keepaspectratio=true]{Addons/eigenLibrichiaro}
+\begin{center}
+un progetto di
+\end{center}
+\includegraphics[width=250pt,keepaspectratio=true]{Addons/eigenlabinvertito2.png} \\
+\url{www.eigenlab.org}
+\vspace*{\stretch{1}} \\
+{\small a cura di}\\
+\vspace*{0.5cm}
+{\normalsize Francesco Cicciarella\par}
+\end{titlepage}
+\pagebreak
+\pagenumbering{roman}
+
+\section*{Note legali}
+\begin{center}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{Addons/88x31.png}
+\end{figure}
+\vspace{0.5cm}
+Copyright \copyright \; 2014-2015 di Francesco Cicciarella \\
+\textit{Appunti di Fisica Teorica 2} \\	
+è rilasciato sotto i termini della licenza \\
+Creative Commons Attribuzione - Non commerciale - Condividi allo stesso modo 3.0 Italia. \\
+Per visionare una copia completa della licenza, visita \\
+\url{http://creativecommons.org/licenses/by-nc-sa/3.0/it/legalcode}
+\end{center}
+\section*{Liberatoria, mantenimento e segnalazione errori}
+Questo documento viene pubblicato, in formato elettronico, senza alcuna garanzia di correttezza del suo contenuto. Il testo, nella sua interezza, è opera di \\
+
+\vspace{0.3cm}
+\begin{flushleft}
+\texttt{Francesco Cicciarella}\\
+\texttt{<f[DOT]cicciarella[AT]inventati[DOT]org>}
+\end{flushleft}
+\vspace{0.3cm}
+e viene mantenuto dallo stesso, a cui possono essere inviate eventuali segnalazioni di errori.
+\vspace{1cm}
+\begin{flushright}
+Pisa, 20 Febbraio 2015
+\end{flushright}
+\pagebreak
+
+
+\tableofcontents
+\pagebreak
+\pagenumbering{arabic}
+\section{Seconda Quantizzazione}
+Il formalismo della teoria di campo quantistica (QFT) è utile a descrivere sistemi con infiniti gradi di libertà. Si può vedere che, oltre al Modello Standard, la QFT si presta a descrivere fenomeni profondamente diversi. Come esempio, possiamo considerare un metallo che schematizziamo come un reticolo unidimensionale, costituito da siti formati da uno ione positivo e un elettrone negativo, avente passo $a$. A questo sistema è associata un'Hamiltoniana $H$, che può essere scomposta come:
+$$
+H=H_i+H_e+H_{ei}\;,
+$$
+dove $H_i$ è l'Hamiltoniana relativa agli ioni reticolari, $H_e$ quella relativa agli elettroni e $H_{ei}$ descrive l'interazione Coulombiana tra ioni ed elettroni. Trascuriamo innanzitutto $H_{ei}$, assumendo interazioni a corto raggio, cioè solamente i siti immediatamente vicini interagiscono tra di loro, le Hamiltoniane degli ioni e degli elettroni saranno rispettivamente della forma:
+\begin{align}
+&H_i=\sum_{i=1}^N\left[\frac{p_i^2}{2M}+V(x_i-x_{i+1}+a)\right] \notag\;, \\
+&H_e=\sum_{j=1}^N\left[\frac{p_j^2}{2m_e}+V_{\mathrm{Coulomb}}\right]\;.
+\end{align}
+Con questo modello si può descrivere in prima approssimazione la propagazione del suono nel metallo (se trascuriamo $H_e$), oppure la conduzione (se trascuriamo $H_i$).
+\subsection{Propagazione del suono (classica)}
+Studiamo le eccitazioni a bassa energia degli ioni reticolari.
+\begin{equation}
+H=\sum_{i=1}^N\left[\frac{p_i^2}{2M}+V(x_i-x_{i+1}+a)\right]\;. \label{sec1_hamiltoniana}
+\end{equation}
+Sia $\overline{x}_i$ la posizione d'equilibrio dell'$i$-esimo ione. Se assumiamo piccoli spostamenti intorno alla posizione di equilibrio si ha $a\equiv \overline{x}_{i+1}-\overline{x}_i$. Introduciamo quindi la variabile $\phi_i\equiv x_i-\overline{x}_i$. Sviluppando il potenziale per $\phi_i\to 0$ otteniamo:
+\begin{equation}
+V(x_i-x_{i+1}+a)=V(\phi_i-\phi_{i+1})\simeq V_0+\frac{1}{2}\kappa_s\sum_i(\phi_{i+1}-\phi_i)^2\;.
+\end{equation}
+Il termine $V_0$ è una costante irrilevante. Inserendo lo sviluppo, troviamo:
+\begin{equation}
+H=\sum_{i=1}^N\left[\frac{p_i^2}{2M}+\frac{1}{2}\kappa_s(\phi_{i+1}-\phi_i)^2\right]\;.
+\end{equation}
+L'energia tipica delle eccitazioni sonore deve essere molto più piccola dell'energia tipica necessaria a distruggere il reticolo. Se alle eccitazioni associamo un impulso $k$, deve valere la condizione $k\ll 1/a$. Questo implica che la lunghezza d'onda delle eccitazioni, $\lambda\propto k^{-1}$, è molto maggiore del passo reticolare. Possiamo quindi usare il limite del continuo. Assumendo per semplicità una catena con condizioni periodiche al contorno avremo nel limite del continuo:
+\begin{align}
+\sum_{i=1}^n \qquad &\longrightarrow \qquad \frac{1}{a}\int\diff{x}\;, \notag \\
+\phi_i \qquad &\longrightarrow \qquad  \left(\frac{a}{M}\right)^{1/2}\phi(x)\;, \notag \\
+\phi_{i+1}-\phi_i \qquad &\longrightarrow \qquad \frac{a^{3/2}}{M^{1/2}}\pdev{\phi}{x}\;.
+\end{align}
+Prima di effettuare queste sostituzioni, passiamo al formalismo Lagrangiano. Una possibile Lagrangiana associata all'Hamiltoniana \eqref{sec1_hamiltoniana} è data da:
+\begin{equation}
+L=\sum_{i=1}^N\left[\frac{1}{2}M\dot{\phi}_i^2-\frac{1}{2}\kappa_s\Delta\phi_i^2\right]\;,
+\end{equation}
+che nel limite del continuo diventa:
+\begin{equation}
+L=\int_0^L\diff{x}\left[\frac{1}{2}\dot{\phi}^2(x,t)-\frac{1}{2}v^2(\partial_x\phi)^2\right],\qquad v\equiv a\sqrt{\frac{\kappa_s}{M}}\;.
+\end{equation}
+Le unità di misura possono essere riscalate in modo tale da avere $v=1$, ottenendo:
+$$
+L=\int\diff{x}\;\lag=\int\diff{x}\;\frac{1}{2}(\partial_{\mu}\phi)^2\;.
+$$
+Le eccitazioni sonore sono allora delle onde, dette \emph{fononi}. Notiamo che è emersa in modo naturale l'invarianza della Lagrangiana per $SO(1,1)$ (siamo in una dimensione spaziale). Dalle equazioni di Eulero-Lagrange:
+$$
+\partial_{\mu}\pdev{\lag}{\partial_{\mu}\phi}-\pdev{\lag}{\phi}=0\;,
+$$
+ricaviamo le equazioni del moto:
+\begin{equation}
+\partial^{\mu}\partial_{\mu}\phi=0\;,
+\end{equation}
+che ammettono come soluzione:
+\begin{equation}
+\phi(x,t)\equiv \phi(x\pm t)\;.
+\end{equation}
+Possiamo adesso ritornare all'Hamiltoniana, che nel continuo assume la forma:
+\begin{equation}
+H=\int\diff{x}\left[\frac{1}{2}\pi^2(x,t)+\frac{1}{2}(\partial_x\phi)^2\right],\qquad \pi\equiv\pdev{\lag}{\dot{\phi}}\;.
+\end{equation}
+A temperature sufficientemente basse, possiamo studiare la termodinamica del sistema definendo la funzione di partizione:
+\begin{equation}
+Z=\int\diff{\Gamma}\;e^{-\beta H}\;,
+\end{equation}
+da cui è possibile ricavare le osservabili. Per esempio, questo modello classico prevede un valore costante del calore specifico. In realtà gli esperimenti sono ben descritti da un andamento $T^d$ ($d$ è il numero di dimensioni) a basse temperature.
+\subsection{Propagazione del suono (quantistica)}
+Ripartiamo dall'Hamiltoniana:
+\begin{equation}
+H=\sum_{i=1}^N a^2\left[\frac{1}{2}\pi_i^2+v^2\left(\frac{\phi_{i+1}-\phi_i}{a}\right)^2\right]\;.
+\end{equation}
+Promuoviamo $\phi,\pi$ ad operatori $\hat{\phi}_i,\hat{\pi}_i$ che soddisfano le regole di commutazione:
+\begin{equation}
+[\hat{\phi}_i,\hat{\pi}_j]=i\hbar\delta_{ij},\quad [\hat{\phi}_i,\hat{\phi}_j]=[\hat{\pi}_i,\hat{\pi}_j]=0\;.
+\end{equation}
+Il sistema è invariante per traslazioni di multipli del passo reticolare. Possiamo quindi usare la trasformata di Fourier (nel limite del continuo):
+\begin{align}
+\hat{\phi}_k &\equiv \frac{1}{L^{1/2}}\int_0^L\diff{x}\;\hat{\phi}(x)e^{-ikx}\;, \notag \\
+\hat{\pi}_k &\equiv \frac{1}{L^{1/2}}\int_0^L\diff{x}\;\hat{\pi}(x)e^{-ikx}\;.
+\end{align}
+Inseriamo tutto dentro l'Hamiltoniana, ottenendo:
+\begin{equation}
+\hat{H}=\sum_k\left[\frac{1}{2}\hat{\pi}_k\hat{\pi}_{-k}+\frac{1}{2}\omega_k^2\hat{\phi}_k\hat{\phi}_{-k}\right],\qquad \omega_k^2=v^2k^2\;.
+\end{equation}
+L'Hamiltoniana ottenuta è adesso la somma di infiniti oscillatori armonici disaccoppiati. Questi descrivono oscillazioni collettive degli ioni. Gli autovalori di $\hat{H}$ saranno:
+\begin{equation}
+\epsilon_{n_k}=\sum_k\omega_k\left(n_k+\frac{1}{2}\right)\;.
+\end{equation}
+Vogliamo adesso passare dalla descrizione in termini di gradi di libertà legati ai siti microscopici a quella in termini di gradi di libertà relativi alle eccitazioni sonore (l'analogo quantistico dei modi normali). Definiamo gli operatori di annichilazione e creazione:
+\begin{align}
+&a_k\equiv\sqrt{\frac{\omega_k}{2}}\left(\hat{\phi}_k+\frac{i}{\omega_k}\hat{\pi}_k\right) \notag\;, \\
+&\adj{a}_k\equiv \sqrt{\frac{\omega_k}{2}}\left(\hat{\phi}_k-\frac{i}{\omega_k}\hat{\pi}_k\right)\;,
+\end{align}
+con $[a_k,\adj{a}_{k'}]=\delta_{kk'}$. A questo punto si trova che l'Hamiltoniana è diagonalizzata:
+\begin{equation}
+\hat{H}=\sum_k\omega_k\left[\adj{a}_ka_k+\frac{1}{2}\right]\;.
+\end{equation}
+$\adj{a}_ka_k\equiv \hat{n}_k$ è detto \emph{operatore numero di particelle}. Gli stati nello spazio di Fock si costruiscono secondo il solito schema:
+\begin{equation}
+|n_1,n_2,\ldots,n_m\ket\equiv\frac{(\adj{a}_1)^{n_1}}{\sqrt{n_1!}}\cdots \frac{(\adj{a}_m)^{n_m}}{\sqrt{n_m!}}|0\ket\;,
+\end{equation}
+e descrivono appunto delle particelle. Il vuoto $|0\ket$ è definito come lo stato annichilato da tutti gli $a_i$:
+\begin{equation}
+a_i|0\ket=0,\qquad \forall i\;.
+\end{equation}
+Se adesso scriviamo la funzione di partizione nell'ensemble grancanonico:
+\begin{equation}
+Z=\tr\, e^{-\beta\hat{H}-\mu\hat{N}}\;,
+\end{equation}
+dove $\mu$ è il potenziale chimico, che accoppia a:
+\begin{equation}
+\hat{N}\equiv\sum_k \hat{n}_k=\sum_k \adj{a}_ka_k\;,
+\end{equation}
+e calcoliamo la termodinamica, troviamo per il calore specifico l'andamento osservato sperimentalmente.
+%\subsection{Gas di $N$ particelle}
+%Consideriamo adesso un gas di $N$ particelle (bosoni o fermioni), trascurando interazioni a due corpi:
+%\begin{equation}
+%H=\sum_{i=1}^NH_i=\sum_{i=1}^N\left[\frac{p_i^2}{2m}+V(x_i)\right]
+%\end{equation}
+%Sia $\psi(x_i)$ la soluzione dell'equazione di\. \Sch di particella singola $(N=1)$, i.e.
+%$$
+%i\pdev{\psi(x_i)}{t}=H_i\psi(x_i)
+%$$
+%per $N>1$, la funzione d'onda complessiva è data dall'antisimmetrizzazione delle funzioni d'onda di singola particella per scambio tra qualunque coppia di particelle. Per $N=2$,
+%\begin{equation}
+%\Psi_{k_1,k_2}(x_1,x_2)=\frac{\psi_{k_1}(x_1)\psi_{k_2}(x_2)-\psi_{k_1}(x_2)\psi_{k_2}(x_1)}{\sqrt{2}}
+%\end{equation}
+%Per un generico $N$
+%\begin{equation}
+%\Psi_{k_1,\ldots,k_N}(x_1,\ldots,x_N)=\frac{1}{\sqrt{N!\prod_kn_k!}}\sum_{\mathrm{permutazioni}}(-1)^P\psi_{P_{k_1}}(x_1)\cdots\psi_{P_{k_N}}(x_N)
+%\end{equation}
+%(il fattore $(-1)^P$ compare solo nel caso fermionico) \\
+%Se passiamo in seconda quantizzazione, le cose si semplificano.
+%\begin{align*}
+%&\mathcal{H}=\bigoplus_{n=1}^N\mathcal{H}_n,\quad\mathcal{H}_n\;\mbox{spazio di Hilbert di particella singola} &\mbox{PRIMA QUANTIZZAZIONE} \\
+%&\mathcal{H}=\bigotimes_{n=1}^N \mathcal{V}_n,\quad\mathcal{V}_n\;\mbox{spazio relativo a stato di particella singola} & \mbox{SECONDA QUANTIZZAZIONE}
+%\end{align*}
+%L'idea è la stessa di quando si passa dal canonico al grancanonico, ossia assumere che il numero totale di particelle non sia conservato. \\
+%Gli operatori di creazione e distruzione sono definiti nel solito modo
+%\begin{align}
+%&\adj{a}_k|n_1,\ldots,n_k,\ldots\ket=\sqrt{n_k+1}|n_1,\ldots,n_k+1,\ldots\ket \notag \\
+%&a_k|n_1,\ldots,n_k,\ldots\ket=\sqrt{n_k}|n_1,\ldots,n_k-1,\ldots\ket
+%\end{align}
+%con un ulteriore fattore $(-1)^{S}, S=\sum_{i=1}^{k-1}n_i$ nel caso fermionico, oltre al fatto che in questo caso $n_k=\{0,1\}$. Gli operatori di creazione e distruzione soddisfano i commutatori $[a_k,\adj{a}_{k'}]=\delta_{kk'}$. Per particella singola, pertanto,
+%\begin{equation}
+%|n_k\ket=\frac{1}{\sqrt{n_k!}}(\adj{a}_k)^{n_k}|0\ket
+%\end{equation}
+%dove lo stato $|0\ket$, annichilato da tutti gli operatori di distruzione, prende solitamente il nome di \emph{ground state} in basse energie, o di \emph{vuoto} in alte energie. Generalizzando la precedente relazione otteniamo
+%\begin{equation}
+%|n_1,\ldots,n_k,\ldots\ket\equiv\bigotimes_i |n_i\ket=\prod_i\frac{1}{\sqrt{n_i!}}(\adj{a}_i)^{n_i}|0\ket
+%\end{equation}
+
+\section{Path integral}
+Consideriamo l'esperimento a doppia fenditura. Un fotone viene emesso in un punto $A$, passa attraverso una tra due fenditure, e poi finisce sullo schermo. Se consideriamo un certo punto $B$ sullo schermo, l'ampiezza di probabilità che un fotone emesso in $A$ arrivi in $B$ si può scrivere come:
+$$
+a_{\mathrm{tot}}=a_1+a_2=a_{A1}{B1}+a_{A2}a_{B2}\;.
+$$
+Se aumentiamo il numero delle pareti sempre di più otterremo qualcosa di quasi-continuo, $a_{\mathrm{tot}}=\sum a[P_{AB}]$, dove la somma è estesa a tutti i cammini possibili che da $A$ arrivano in $B$. I cammini devono essere discriminati da qualcosa, allora li pesiamo con l'azione:
+$$
+a[P_{AB}]\sim e^{iS(P_{AB})/\hbar}\;.
+$$
+In Meccanica Classica sceglievamo il cammino che minimizza l'azione. Nel caso quantistico, recuperiamo la Meccanica Classica nel limite $\hbar\to 0$: l'esponenziale è altamente oscillante, tutti i termini si mediano a zero e domina il termine che minimizza l'esponente.
+\begin{exm}[Sistema a due livelli - spin quantistico] 
+Consideriamo l'Hamiltoniana:
+\begin{equation}
+H=-J\sigma_1\;.
+\end{equation}
+L'Hamiltoniana è ovviamente diagonale nella base di autostati di $\sigma_1$ e avremo i due livelli:
+\begin{align}
+&|0\ket_x=\left(\begin{matrix}
+1 \\
+0
+\end{matrix}\right)_x,\qquad E_0=-J \notag \\
+&|1\ket_x=\left(\begin{matrix}
+0 \\
+1
+\end{matrix}\right)_x,\qquad E_1=J\;.
+\end{align}
+Nella base di autostati di $\sigma_3$ invece, lo stato fondamentale e quello eccitato saranno rispettivamente:
+\begin{equation}
+|0\ket=\frac{1}{\sqrt{2}}\left(\begin{matrix}
+1 \\
+1
+\end{matrix}\right)_x,\qquad |1\ket=\frac{1}{\sqrt{2}}\left(\begin{matrix}
+1 \\
+-1
+\end{matrix}\right)_x\;.
+\end{equation}
+Vogliamo adesso calcolare l'ampiezza di probabilità di misurare al tempo $t_f$ un valore dello spin $s_f$, sapendo che a $t_0$ il valore dello spin era $s_0$, cioè vogliamo calcolare:
+\begin{equation}
+\bra s_f|e^{-iH(t_f-t_0)}|s_0\ket\;.
+\end{equation}
+Oppue, ridefinendo lo zero temporale:
+\begin{equation}
+\bra s_f|e^{-iHt}|s_0\ket\;.
+\end{equation}
+Discretizziamo l'intervallo temporale $[0,t]$ in $N$ intervallini di ampiezza $a$ costante. Allora:
+\begin{equation}
+\bra s_f|e^{-iHt}|s_0\ket=\sum_{s_1=\pm 1}\cdots \sum_{s_i=\pm 1}\cdots \sum_{s_{N-1}=\pm 1}\bra s_f|e^{-iaH}|s_{N-1}\ket\cdots \bra s_{i+1}|e^{-iaH}|s_i\ket\cdots\bra s_1|e^{-iaH}|s_0\ket\;.
+\end{equation}
+Notiamo che gli elementi di matrice hanno tutti la stessa struttura. Concentriamoci allora su di uno generico $\bra s'|e^{-iaH}|s\ket$. Supponiamo che esista una funzione $A(s',s)$ (non un operatore) tale che:
+\begin{equation}
+\bra s'|e^{-iaH}|s\ket=e^{-iaA(s',s)}\;.
+\end{equation}
+Se questa funzione esiste, allora l'ampiezza si può scrivere come:
+\begin{equation}
+\bra s_f|e^{-iHt}|s_0\ket=\sum'_{\{s_i=\pm 1\}}\prod_{i=0}^{N-1}\bra s_{i+1}|e^{-iaH}|s_i\ket=\sum'_{\{s_i=\pm 1\}}\exp\left[-ia\sum_{i=0}^{N-1}A(s_{i+1},s_i)\right]\;,
+\end{equation}
+dove la somma primata include i vincoli $s_{i=0}=s_0,s_N=s_f$. Calcoliamo la funzione $A$ complicando un po' il sistema:
+\begin{equation}
+H=-J\sigma_1-h\sigma_3\;,
+\end{equation}
+con $[\sigma_i,\sigma_j]=i\epsilon_{ijk}\sigma_k, \sigma_3|s\ket=s|s\ket$. Ruotiamo adesso l'asse temporale, ossia effettuiamo la sostituzione:
+\begin{equation}
+t\longrightarrow -i\tau, \qquad \tau\in\mathbb{R}\;.
+\end{equation}
+Mediante gli stessi passaggi, otteniamo:
+\begin{equation}
+\bra s_f|e^{-H\tau}|s_0\ket=\sum_{\{s_i=\pm 1\}}\prod_{i=0}^{N-1}\bra s_{i+1}|e^{-aH}|s_i\ket\;.
+\end{equation}
+Il generico termine è dato da:
+\begin{equation*}
+\bra s'|e^{-a[-J\sigma_1-h\sigma_3]}|s\ket\;,
+\end{equation*}
+che riscriviamo usando la formula di Trotter:
+\begin{equation*}
+e^{aO_1}e^{aO_2}=e^{a(O_1+O_2)}\left(1+\mathcal{O}(a^2)\right)\;,
+\end{equation*}
+ottenendo:
+\begin{equation}
+\bra s'|e^{a[J\sigma_1+h\sigma_3]}|s\ket=\bra s'|e^{aJ\sigma_1}e^{ah\sigma_3}|s\ket=\bra s'|e^{aJ\sigma_1}|s\ket e^{ahs}\equiv e^{-A_E(s',s)}\;.
+\end{equation}
+Gli elementi di matrice nel penultimo membro sono dati da:
+\begin{equation}
+\bra s'|e^{aJ\sigma_1}|s\ket=\left(\begin{matrix}
+\cosh(aJ) & \sinh(aJ) \\
+\sinh(aJ) & \cosh(aJ)
+\end{matrix}\right)_{s's}\;.
+\end{equation}
+Per ricavare $A_E$ facciamo un ansatz, $A_E(s',s)=-[c_0+ks's+\bar{h}s]$. Allora per $s'=s=1$, dalla matrice otteniamo $\cosh(aJ)e^{ah}$, mentre dalla funzione otteniamo $e^{-(c_0+k+\bar{h})}$, per $s'=1,s=-1$, dalla matrice otteniamo $\sinh(aJ)e^{ah}$, mentre dalla funzione otteniamo $e^{-(c_0-k+\bar{h})}$. Otteniamo quindi il sistema:
+\begin{equation}
+\begin{cases}
+\cosh(aJ)e^{ah}=e^{-(c_0+k+\bar{h})}\;, \\
+\\
+\sinh(aJ)e^{ah}=e^{-(c_0-k+\bar{h})}\;,
+\end{cases}
+\end{equation}
+che ha come soluzione:
+\begin{align}
+&c_0=\frac{1}{2a}\ln[\sinh(aJ)\cosh(aJ)] \notag\;, \\
+&k=\frac{1}{2a}\ln\coth(aJ) \notag\;, \\
+&\bar{h}=h\;.
+\end{align}
+In conclusione:
+\begin{equation}
+\bra s_f|e^{-\tau H}|s_0\ket=\sum_{\{s_i=\pm 1\}}e^{-\beta H_{\mathrm{cl}}}\;.
+\end{equation}
+dove:
+\begin{equation}
+H_{\mathrm{cl}}=-\sum_i[c_0+ks_{i+1}s_i+hs_i]\;,
+\end{equation}
+è l'Hamiltoniana del modello di Ising classico in una dimensione.
+La cosa importante da notare è che siamo partiti da un sistema quantistico in zero dimensioni (uno spin in un solo punto) per arrivare ad un sistema classico in una dimensione.
+\end{exm}
+In Meccanica Statistica, si scrive quindi la funzione di partizione, da cui si ottiene l'energia libera. Nel caso quantistico:
+\begin{equation}
+Z_Q=\tr\, e^{-H/T}\qquad \Longrightarrow \qquad F=-T\ln Z_Q\;.
+\end{equation}
+Se nella nostra ampiezza di transizione poniamo $s_f=s_0=s$ e sommiamo su $s=\pm 1$, troviamo:
+\begin{equation}
+\sum_{\{s=\pm 1\}}\bra s|e^{-\tau H}|s\ket=\tr\, e^{-\tau H}\;,
+\end{equation}
+che è uguale a $Z_Q$ a patto di identificare $\tau=1/T$. Esplicitando il primo membro tramite la discretizzazione dell'intervallo temporale:
+\begin{equation}
+\sum_{\{s=\pm 1\}}\bra s|e^{-\tau H}|s\ket=\sum_{\{s_i=\pm 1\}, s_0=s_N}\prod_{i=0}^{N-1}\bra s_{i+1}|e^{-aH}|s_i\ket\;.
+\end{equation}
+Riprendendo il modello di Ising 1D classico:
+$$
+H_{\mathrm{cl}}=-k\sum_is_{i+1}s_i-h\sum_is_i\;,
+$$
+avevamo per la funzione di partizione classica:
+\begin{equation}
+Z_{\mathrm{cl}}=\sum_{\{s_i=\pm 1\}} e^{-\beta H_{\mathrm{cl}}}\;,
+\end{equation}
+che è uguale in forma a $Z_Q$. Da questo concludiamo che la funzione di partizione quantistico di un solo spin è uguale alla funzione di partizione classica di una catena di $N$ spin. \\
+Questo risultato si può generalizzare e prende il nome di \textbf{QUANTUM-CLASSICAL MAPPING}: la statistica di un sistema quantistico in $d$ dimensioni è equivalente alla statistica di un sistema classico in $d+1$ dimensioni.
+\begin{exm}
+Consideriamo un certo sistema quantistico descritto dall'Hamiltoniana $H$. Supponiamo che gli autostati di $H$ siano non degeneri. La funzione di partizione e l'energia libera saranno rispettivamente $Z_Q=\tr\, e^{-H/T}, F=-T\ln Z_Q$. Ci chiediamo cosa rappresenti
+$$
+\lim_{T\to 0} F\;.
+$$
+Per capirlo, scriviamo:
+$$
+Z_Q=\sum_n \bra n|e^{-H/T}|n\ket=e^{-E_0/T}\bra 0|0\ket+ e^{-E_1/T}\bra 1|1\ket+\cdots\;.
+$$
+Se assumiamo di aver correttamente normalizzato gli autostati, cioè $\bra n|n\ket=1$ $\forall n$, allora:
+$$
+Z_Q=e^{-E_0/T}+e^{-E_1/T}+\cdots = e^{-E_0/T}\left(1+ e^{-(E_1-E_0)/T}+\cdots\right)\;.
+$$
+Dato che $E_n>E_0$ per ogni $n>1$, tutti i termini della serie saranno soppressi esponenzialmente nel limite $T\to 0$, quindi teniamo solo il termine dominante. Otteniamo pertanto:
+\begin{equation*}
+\lim_{T\to 0}F=E_0\;,
+\end{equation*}
+cioè nel limite di temperatura nulla, l'energia libera coincide con l'energia dello stato fondamentale. Questo ci consente inoltre di scrivere:
+$$
+\lim_{\tau\to\infty} e^{-H\tau}=|0\ket\bra 0|e^{-E_0\tau}\;.
+$$
+\end{exm}
+\begin{exm} 
+Consideriamo il modello di Ising in assenza di campo esterno:
+$$
+H_I=-k\sum_i s_{i+1}s_i\;.
+$$
+Definiamo la \emph{funzione di correlazione}:
+\begin{equation}
+\bra s_ms_{\ell}\ket=\frac{1}{Z_I}\sum_{\{s_i=\pm 1\}}s_ms_{\ell}\,e^{-\beta H_I}\;.
+\end{equation}
+Come si interpreta la funzione di correlazione quantisticamente? Fissiamo innanzitutto $m>\ell$, e discretizziamo come al solito l'intervallo $[0,\tau]$ in modo che $\tau_{\ell}=\ell\cdot a,\tau_m=m\cdot a$. Allora:
+\begin{align*}
+\bra s_ms_{\ell}\ket &= \frac{1}{Z_I}\sum_{\{s_i=\pm 1\}}e^{-A_E(s_N,s_{N-1})}\cdots e^{-A_E(s_{m+1},s_m)}s_m\cdots e^{-A_E(s_{\ell+1},s_{\ell})}s_{\ell}\cdots e^{-A_E(s_1,s_0)} \\
+&= \frac{1}{Z_I}\sum_{\{s_i=\pm 1\}}\bra s_N|e^{-aH}|s_{N-1}\ket\cdots \bra s_{m+1}|e^{-aH}\sigma^3_m|s_m\ket\cdots \bra s_{\ell+1}|e^{-aH}\sigma^3_{\ell}|s_{\ell}\ket\cdots \bra s_1|e^{-aH}|s_0=s_N\ket \\
+&= \frac{1}{Z_Q}\tr\left[e^{-(N-m)aH}\sigma^3e^{-(m-\ell)aH}\sigma^3e^{-\ell aH}\right]\;,
+\end{align*}
+dove abbiamo usato le relazioni di completezza e il fatto che $Z_I\equiv Z_Q$. Nel limite $a\to 0, \ell,m,N\to \infty$:
+$$
+\bra s_ms_{\ell}\ket=\frac{1}{Z_Q}\tr\left[e^{-(\tau-\tau_m)H}\sigma^3e^{-(\tau_m-\tau_{\ell})H}\sigma^3e^{-\tau_{\ell}H}\right]\;.
+$$
+Passiamo in rappresentazione di Heisenberg $\sigma^i(t)=e^{iHt}\sigma^ie^{-iHt}$, estendendola a tempi immaginari:
+$$
+\sigma^i(\tau)=e^{H\tau}\sigma^ie^{-H\tau}\;.
+$$
+Troviamo quindi:
+$$
+\bra s_ms_{\ell}\ket=\frac{1}{Z_Q}\tr\left[e^{-\tau H}\sigma^3(\tau_m)\sigma^3(\tau_{\ell})\right]\;.
+$$
+Se $\ell>m$, avremmo ottenuto gli operatori in ordine inverso. Quindi, in generale, nel limite $\tau\to\infty$, usando l'esempio precedente, si ha:
+\begin{equation}
+\bra s_ms_{\ell}\ket=\bra 0|T\{\sigma^3(\tau_m)\sigma^3(\tau_{\ell})\}|0\ket\;,
+\end{equation}
+che ricorda una funzione di correlazione a due punti (propagatore).
+\end{exm}
+Adesso facciamo una trattazione più formale del path integral. Consideriamo un'Hamiltoniana generica $H$ non dipendente dal tempo e uno stato $|\psi\ket$ che soddisfa l'equazione di\, \Sch:
+$$
+i\hbar\frac{\partial}{\partial t}|\psi\ket=H|\psi\ket\;.
+$$
+Lo stato ad un generico istante $t'$ e legato al valore dello stato ad un istante $t<t'$ da un operatore unitario:
+\begin{equation}
+|\psi(t')\ket=U(t',t)|\psi(t)\ket\;. \label{sec2_psit}
+\end{equation}
+L'operatore di evoluzione temporale $U(t',t)$ nel caso di Hamiltoniana indipendente dal tempo è:
+\begin{equation}
+U(t',t)=e^{-iH(t'-t)}\;.
+\end{equation}
+Possiamo usare la rappresentazione spaziale per risolvere l'equazione di \, \Sch . Se $q$ è la nostra coordinata spaziale, la rappresentazione spaziale è definita come:
+\begin{equation}
+\psi(q)\equiv \bra q|\psi\ket,\qquad \hat{q}|q\ket=q|q\ket\;.
+\end{equation}
+L'operatore di evoluzione temporale nello spazio delle $q$ diventa:
+\begin{equation}
+U(q',t';q,t)=\bra q'|e^{-iH(t'-t)}|q\ket\;, \label{sec2_uspazioq}
+\end{equation}
+e la relazione \eqref{sec2_psit} si scrive:
+\begin{equation}
+\psi(q',t')=\int\diff{q}\;U(q',t';q,t)\psi(q,t)\;.
+\end{equation}
+Inseriamo nella \eqref{sec2_uspazioq} un set completo $\{|n\ket\}$ di autostati di $H$ usando la relazione di completezza,
+\begin{equation}
+U(q',t';q,t)= \bra q'|e^{-iH(t'-t)}\sum_n|n\ket\bra n|q\ket=\sum_n e^{-iE_n(t'-t)}\bra q'|n\ket\bra n|q\ket=\sum_n\psi_n^*(q')\psi_n(q)e^{-iE_n(t'-t)}\;.
+\end{equation}
+Per calcolare esplicitamente $U$, assumiamo che l'Hamiltoniana abbia la struttura $H=T+V$, dove $T$, energia cinetica, dipende solo da $p$ e $V$, energia potenziale, dipende solo da $q$. Poniamo $t=0, t'=t$ e discretizziamo l'intervallo $[0,t]$ in $N$ intervallini di ampiezza $\Delta$. Allora:
+\begin{equation}
+e^{-iHt}=\left[e^{-iH\Delta}\right]^N\;.
+\end{equation}
+Usando la formula di Trotter,
+\begin{equation}
+e^{-iH\Delta}=e^{-i(T+V)\Delta}\simeq e^{-iT\Delta}e^{-iV\Delta}\left(1+\mathcal{O}(\Delta^2)\right)\;,
+\end{equation}
+in quanto $[T,V]\ne 0$. Quello che ci interessa è un elemento di matrice della forma:
+\begin{equation}
+\bra q_{i+1}|e^{-iT\Delta}e^{-iV\Delta}|q_i\ket\;.
+\end{equation}
+Inseriamo in questa espressione un set completo di autostati dell'impulso:
+\begin{align}
+\bra q_{i+1}|e^{-iT\Delta}e^{-iV\Delta}|q_i\ket&=\int\diff{p_i}\,\bra q_{i+1}|e^{-iT\Delta}|p_i\ket\bra p_i|e^{-iV\Delta}|q_i\ket \notag \\
+&= \int\diff{p_i}\,e^{-ip_i^2\Delta/2m}\bra q_{i+1}|p_i\ket\bra p_i|e^{-iV\Delta}|q_i\ket \notag \\
+&=\int\diff{p_i}\,e^{-ip_i^2\Delta/2m}e^{-i\Delta V(q_i)}\bra q_{i+1}|p_i\ket\bra p_i|q_i\ket \notag \\
+&= \int\diff{p_i}\, e^{-ip_i^2\Delta/2m}e^{-i\Delta V(q_i)}e^{-i(q_{i+1}-q_i)p_i}\;.
+\end{align}
+Mettendo tutto insieme:
+\begin{equation}
+\bra q_f|e^{-iHt}|q_i\ket=\int\prod_{n=1}^{N-1}\diff{q_n}\prod_{n=1}^N\frac{\diff{p_n}}{2\pi\hbar}\exp\left\{-i\Delta\sum_{n=1}^{N-1}\left[V(q_n)+T(p_n)-p_n\frac{q_{n+1}-q_n}{\Delta}\right]\right\}\;.
+\end{equation}
+L'ultimo termine nell'esponente ci assicura che i cammini in $q$ siano continui, in quanto se la differenza $q_{n+1}-q_n$ fosse troppo grande, l'esponenziale sarebbe fortemente oscillante e si medierebbe a zero. In questa situazione, possiamo effettuare il limite del continuo $\Delta\to 0,N\to\infty$:
+$$
+\Delta\sum_n\to \int\diff{t},\qquad q_n\to q(t),\qquad p_n\to p(t),\qquad \frac{q_{n+1}-q_n}{\Delta}\to \dot{q}(t)\;,
+$$
+ottenendo un integrale funzionale:
+\begin{align}
+\bra q_f|e^{-iHt}|q_i\ket&=\int_{q(0)=q_i}^{q(t)=q_f}DqDp\, \exp\left\{-\frac{i}{\hbar}\int_0^t\diff{t'}[T[p(t)]+V[q(t)]-p\dot{q}]\right\} \notag \\
+&=\int_{q(0)=q_i}^{q(t)=q_f}DqDp\, \exp\left\{\frac{i}{\hbar}\int_0^t\diff{t'}[p\dot{q}-H(p,q)]\right\}\;.
+\end{align}
+Usando adesso l'ipotesi iniziale sulla forma di $H$, possiamo integrare via gli impulsi. Essendo $T=p^2/2m$, l'integrale in $p$ è di tipo gaussiano:
+\begin{equation}
+\int \diff{\mathbf{v}}\exp\left\{-\frac{1}{2}v_iA_{ij}v_j+J_iv_i\right\}=(2\pi)^{N/2}(\det A)^{1/2}\exp\left\{\frac{1}{2}J_i(A^{-1})_{ij}J_j\right\}\;.
+\end{equation}
+Svolgendo l'integrale, si ha:
+\begin{equation}
+\bra q_f|e^{-iHt}|q_i\ket=\int_{q(0)=q_i}^{q(t)=q_f}Dq\, \exp\left\{\frac{i}{\hbar}\int_0^t\diff{t'}\, L(q,\dot{q})\right\}\;,
+\end{equation}
+dove $L(q,\dot{q})$ è la Lagrangiana del sistema. In approssimazione di punto sella, l'esponenziale è dominato dal minimo della funzione ad esponente, e questa operazione coincide con il trovare le traiettorie classiche.
+\begin{exm}[Operatore evoluzione per una particella libera 1D] 
+$$
+H=\frac{p^2}{2m}\;.
+$$
+Questo calcolo può essere fatto immediatamente senza utilizzare il path integral. Infatti:
+\begin{align*}
+\bra x_f|e^{-iHt}|x_i\ket &= \int\diff{p}\bra x_f|e^{-iHt}|p\ket\bra p|x_i\ket=\int\diff{p}\, e^{-ip^2t/2m}\bra x_f|p\ket\bra p|x_i\ket \\
+&= \int \diff{p}\, e^{-ip^2t/2m}e^{-ip(x_f-x_i)} =\int\diff{p}\, \exp\left\{\frac{it}{2m}\left[-p^2+\frac{2m}{t}p(x_i-x_f)\right]\right\} \\
+&= \left(\frac{m}{2\pi it}\right)^{1/2} e^{im(x_f-x_i)^2/2t}\;.
+\end{align*}
+\end{exm}
+\begin{exm}[Oscillatore armonico]
+\begin{align*}
+H&=\frac{p^2}{2m}+\frac{1}{2}m\omega^2x^2\;, \\
+\bra x_f|e^{-iHt}|x_i\ket &= \int_{x(0)=x_i}^{x(t)=x_f}\diff{x}\, \exp\left\{i\int_0^t\diff{t'}\left[\frac{1}{2}m\dot{x}^2-\frac{1}{2}m\omega^2x^2\right]\right\}\;.
+\end{align*}
+Sviluppiamo intorno all'azione classica. La soluzione classica dell'oscillatore armonico è $x_{\mathrm{cl}}(t)=A\sin(\omega t)+B\cos(\omega t)$, con $A,B$ dati dalle condizioni al contorno:
+$$
+A=\frac{x_f}{\sin(\omega t)}-x_i\cot(\omega t),\qquad B=x_i\;.
+$$
+Alla traiettoria classica associamo l'azione classica $S_{\mathrm{cl}}$:
+$$
+S_{\mathrm{cl}}=\int_0^t\diff{t'}\left[\frac{1}{2}m\dot{x}^2_{\mathrm{cl}}(t)-\frac{1}{2}m\omega^2x^2_{\mathrm{cl}}(t)\right]=\frac{1}{2}m\omega\left[(x_f^2+x_i^2)\cot(\omega t)-\frac{2x_fx_i}{\sin(\omega t)}\right]\;.
+$$
+Quindi in prima approssimazione:
+$$
+\bra x_f|e^{-iHt}|x_i\ket=e^{iS_{\mathrm{cl}}}\;.
+$$
+Andiamo quindi all'ordine successivo: $S=S_{\mathrm{cl}}+S'$, cioè $x(t)=x_{\mathrm{cl}}(t)+r(t)$, con $r$ piccola correzione alla traiettoria classica. Allora:
+$$
+S[x(t)]=S[x_{\mathrm{cl}}(t)+r(t)]\simeq S_{\mathrm{cl}}+\frac{1}{2}\int\diff{t}\diff{t'}\, r(t')\left.\frac{\delta^2 S}{\delta r(t')\delta r(t)}\right|_{r=0} r(t)\;.
+$$
+Rimaniamo pertanto con:
+$$
+e^{iS_{\mathrm{cl}}}\int Dr\,\exp\left\{\frac{i}{2}\int\diff{t'}\diff{t}\, r(t')\left.\frac{\delta^2 S}{\delta r(t')\delta r(t)}\right|_{r=0}r(t)\right\}=\left(2\pi\det \left.\frac{\delta^2 S}{\delta r(t')\delta r(t)}\right|_{r=0}\right)^{-1/2}=(2\pi)^{-1/2}\prod_{n}\epsilon_n^{-1/2}\;,
+$$
+dove gli $\epsilon_n$ sono gli autovalori della matrice.
+\end{exm}
+\subsection{Path integral $\to$ Meccanica Statistica}
+Consideriamo un sistema quantistico descritto da un'Hamiltoniana $H$. La Meccanica Statistica segue dal paradigma di Gibbs:
+$$
+Z=\tr e^{-\beta H}=\sum_n e^{-\beta E_n},\qquad \beta=\frac{1}{T}\;.
+$$
+Osserviamo quindi che la funzione di partizione può essere scritta come un path integral. La connessione è data dal prolungamento analitico del tempo in Meccanica Quantistica Standard:
+\begin{equation}
+\begin{matrix}
+&t\to -i\tau\;, & e^{-iHt}\to e^{-H\tau}\;, & \mbox{con}\, \tau=\beta\;.
+\end{matrix}
+\end{equation}
+Sia $\hat{q}$ una coordinata continua con cui descriviamo il sistema, di cui conosciamo un set completo di autostati, $\hat{q}|q\ket=q|q\ket$. Allora:
+\begin{equation}
+Z=\int_{-\infty}^{\infty}\diff{q}\; \bra q|e^{-\beta H}|q\ket=\int_{-\infty}^{\infty}\bra q,-i\beta|e^{-\beta H}|q,0\ket\;\diff{q}\;.
+\end{equation}
+Assumendo sempre per semplicità $H=\dfrac{\hat{p}^2}{2m}+\hat{V}(\hat{q})$, con gli stessi passaggi si arriva a:
+\begin{equation}
+\boxed{
+Z=\int\prod_{i=1}^N\diff{q}_n\frac{\diff{p}_n}{2\pi}e^{-A_E(p_n,q_n)}
+}\;,
+\end{equation}
+dove $A_E(p_n,q_n)$ è una funzione definita nello spazio euclideo quadratica nelle $p$. Se è quadratica nelle $p$, posso come prima svolgere l'integrale gaussiano ed ottenere:
+\begin{equation}
+Z=K\int\prod_{i=1}^N\diff{q}_n\;\exp\left\{-\epsilon\sum_{n=1}^N\left[\frac{1}{2}m\left(\frac{q_n-q_{n-1}}{\epsilon}\right)^2+V(q_n)\right]\right\}\;,
+\end{equation}
+che presenta la stessa forma del caso dell'evoluzione temporale (a patto di identificare $\epsilon=-ia$). Nel limite $\epsilon\to0,N\to\infty$, otteniamo una sorta di azione euclidea:
+\begin{equation}
+S_E=\int\diff{\tau}\left[\frac{1}{2}mq^{'2}(\tau)+V(q(\tau))\right]\equiv\int\diff{\tau}\;\lag_E(q,q')\;.
+\end{equation}
+In sostanza è come se avessimo fatto la sostituzione $L(q,\dot{q})\to \lag_E(q,q')$, e di conseguenza:
+\begin{equation}
+Z=K\int\prod_{n=1}^N\diff{q}_n\;\exp\left[-\int_0^{\beta}\diff{\tau}\lag_E(q,q')\right],\qquad q(0)=q(\beta)\;.
+\end{equation}
+Il vantaggio di questa formulazione è che adesso l'esponenziale è reale, il che assicura una convergenza migliore rispetto all'esponenziale complesso. Il limite classico si recupera aumentando la temperatura: allora $\beta\to 0$, cioè gli intervallini in cui discretizzo sono già infinitesimi e quindi è sufficiente fare un singolo integrale per ottenere:
+\begin{equation}
+Z_{\mathrm{cl}}=\int\diff{q}\diff{p}\; e^{-\beta H_{\mathrm{cl}}(p,q)}\;.
+\end{equation}
+\subsection{Matrice densità}
+Sappiamo che il valor medio di un operatore su un ensemble statistico è dato da:
+\begin{equation}
+\bra O\ket=Z^{-1}\tr(Oe^{-\beta H})=Z^{-1}\sum_n e^{-\beta E_n}\bra n|O|n\ket\;.
+\end{equation}
+Ma è anche vero che:
+\begin{equation}
+\bra O \ket=Z^{-1}\sum_{q,q'}\bra q|O|q'\ket\bra q'|e^{-\beta H}|q\ket\;.
+\end{equation}
+Se definiamo a questo punto la \emph{matrice densità}:
+\begin{equation}
+\rho(q,q')\equiv Z^{-1}\bra q'|e^{-\beta H}|q\ket\;,
+\end{equation}
+otteniamo immediatamente che:
+\begin{equation}
+\bra O\ket=\tr(\rho O)\;.
+\end{equation}
+\begin{exm} 
+Per l'oscillatore armonico:
+$$
+\bra q'|e^{-iHt}|q\ket=\left(\frac{m\omega}{2\pi i\hbar\sin(\omega t)}\right)^{1/2}\exp\left\{\frac{i}{2}m\omega\left[(q^2+q^{'2})\cot(\omega t)-2\frac{qq'}{\sin(\omega t}\right]\right\}\;.
+$$
+Scriviamo quindi la matrice densità:
+$$
+\rho(q,q')=Z^{-1}\bra q'|e^{-\beta H}|q\ket=\left(\frac{m\omega}{2\pi\sinh(\omega\beta)}\right)^{1/2}\exp\left\{-\frac{1}{2}m\omega\left[(q^2+q^{'2})\coth(\omega\beta)-2\frac{qq'}{\sinh(\omega\beta)}\right]\right\}\;.
+$$
+Per $T\to 0$ ($\beta\to\infty$), la matrice densità diventa il proiettore sul ground state, quindi dobbiamo trovare:
+$$
+\psi_0^*(q)e^{-\beta E_0}\psi(q)\;,
+$$
+dove $\psi_0(q)$ è la funzione d'onda dello stato fondamentale dell'oscillatore armonico.
+\end{exm}
+\subsection{Proprietà generali del path integral}
+\begin{enumerate}
+\item La misura di integrazione $Dq$ è invariante per traslazione $q(t)\to q(t)+f(t)$.
+\item Fattorizzazione:
+$$
+\bra q_f,t|q,0\ket=\int\diff{q'}\;\bra q_f,t|q',t'\ket\bra q',t'|q,0\ket\;.
+$$
+Da ricordare che lo stato $|q,t\ket\equiv e^{iHt}|q\ket$ non è l'evoluto temporale di $|q\ket$, ma lo stato stesso in rappresentazione di Heisenberg. Se $\hat{q}|q\ket=q|q\ket$, allora, definendo $\hat{q}_H(t)\equiv e^{iHt}\hat{q}e^{-iHt}$ si ha:
+$$
+\hat{q}_H(t)|q,t\ket=e^{iHt}\hat{q}e^{-iHt}e^{iHt}|q\ket=e^{iHt}\hat{q}|q\ket=qe^{iHt}|q\ket=q|q,t\ket\;.
+$$
+Gli stati $|q,t\ket$ a $t$ fissato formano comunque un set completo.
+\item
+$$
+\bra q'|e^{-iH(t'-t'')}\hat{\mathcal{O}}e^{-iH(t''-t)}|q\ket\equiv \bra q',t'|\hat{\mathcal{O}}_H(t'')|q,t\ket\;,
+$$
+dove $\hat{\mathcal{O}}_H(t)$ denota la rappresentazione di Heisenberg dell'operatore $\hat{\mathcal{O}}$.
+\end{enumerate}
+Introduciamo due relazioni:
+\begin{itemize}
+\item \begin{equation}
+\int_{q(t)}^{q'(t')}Dq\; e^{iS}q'(t')=q'\bra q',t'|q,t\ket\;;
+\end{equation}
+\item \begin{equation}
+\int_{q(t)}^{q'(t')}Dq\; q(t'')e^{iS[q]}=\int\diff{q''}\int_{q(t)}^{q''(t'')}Dq\; e^{iS[q]}q(t'')\int_{q''(t'')}^{q'(t')}Dq\; e^{iS[q]}=\bra q',t'|\hat{q}(t'')|q,t\ket\;,
+\end{equation}
+se $t<t''<t'$. Estendendo a due operatori $q$:
+\begin{equation*}
+\int_{q(t)}^{q'(t')}Dq\; q(t_1)q(t_2)e^{iS[q]}=\bra q',t'|\hat{q}(t_2)\hat{q}(t_1)|q,t\ket,\qquad t'>t_2>t_1>t\;.
+\end{equation*}
+\end{itemize}
+In generale si ha:
+\begin{equation}
+\boxed{
+\int_{q(t)}^{q'(t')}Dq\; q(t_1)\cdots q(t_n)e^{iS[q]}=\bra q',t'|T\{\hat{q}(t_n)\cdots \hat{q}(t_1)\}|q,t\ket
+}\;.
+\end{equation}
+Il discorso può essere esteso a sistemi con più gradi di libertà discreti, a patto che la Lagrangiana sia della forma:
+\begin{equation}
+L(\mathbf{q},\dot{\mathbf{q}})=\frac{1}{2}\sum_{i,j}\dot{q}_iA_{ij}\dot{q}_j-V(\mathbf{q})\;,
+\end{equation}
+cioè il termine cinetico deve essere quadratico e la matrice $A$ non deve dipendere da $\mathbf{q}$.
+\subsection{Funzionali generatori}
+Particolare interesse in questo contesto assumono gli oggetti della forma:
+$$
+\bra 0|T\{\hat{q}(t_1)\cdots\hat{q}(t_n)\}|0\ket\;,
+$$
+detti \emph{correlatori}. Questi consentono di costruire la teoria perturbativa, e possono essere ricavati per un generico numero di operatori $\hat{q}$ a partire dalla conoscenza di funzionali detti \emph{funzionali generatori}. Partiamo dall'espressione:
+$$
+\bra q',t'|T\{\hat{q}(t_1)\cdots \hat{q}(t_n)\}|q,t\ket=\int Dq\; e^{iS}q(t_1)\cdots q(t_n)\;,
+$$
+e definiamo:
+\begin{equation}
+\bra q',t'|q,t\ket_J\equiv\int Dq\; e^{i[S+\int\diff{t}\; J(t)q(t)]}\;.
+\end{equation}
+Allora:
+\begin{equation}
+(-i)^n\left.\frac{\delta^n}{\delta J(t_1)\cdots \delta J(t_n)}\bra q',t'|q,t\ket\right|_{J=0}=\int Dq\; e^{iS}q(t_1)\cdots q(t_n)=\bra q',t'|T\{\hat{q}(t_1)\cdots \hat{q}(t_n)\}|q,t\ket\;.
+\end{equation}
+La funzione d'onda dello fondamentale è data da:
+\begin{equation}
+\phi_0(q,t)=e^{-iE_0t}\bra q|0\ket=\bra q|e^{-iHt}|0\ket\equiv \bra q,t|0\ket\;.
+\end{equation}
+Osserviamo che:
+\begin{align*}
+\bra 0|T\{\hat{q}(t_1)\hat{q}(t_2)\}|0\ket &= \int\diff{q}\diff{q'}\;\bra 0|q',t'\ket\bra q',t'|T\{\hat{q}(t_1)\hat{q}(t_2)\}|q,t\ket\bra q,t|0\ket \\
+&= \int \diff{q}\diff{q'}\; \phi_0^*(q',t')\bra q',t'|T\{\hat{q}(t_1)\hat{q}(t_2)\}|q,t\ket\phi_0(q,t)\;.
+\end{align*}
+Definiamo a questo punto il \emph{funzionale generatore delle funzioni di correlazione}:
+\begin{equation}
+\boxed{
+Z[J]\equiv\int\diff{q}\diff{q'}\;\phi_0^*(q,T')\bra q,T'|q,T\ket_J\;\phi_0(q,T)
+}\;.
+\end{equation}
+Il funzionale $Z[J]$ soddisfa la relazione:
+\begin{equation}
+\boxed{
+(-i)^n\left.\frac{\delta^nZ[J]}{\delta J(t_1)\cdots \delta J(t_n)}\right|_{J=0}=\bra 0|T\{\hat{q}(t_1)\cdots\hat{q}(t_n)\}|0\ket
+}\;.
+\end{equation}
+È possibile scrivere $Z[J]$ in termini di path integral osservando che:
+\begin{equation}
+Z[J]=\lim_{t\to -i\infty}\lim_{t'\to +\infty}\frac{e^{iE_0(t'-t)}}{\phi_0^*(q)\phi_0(q')}\bra q',t'|q,t\ket_J\;.
+\end{equation}
+Infatti:
+$$
+\bra q',t'|q,t\ket_J=\int\diff{q_T}\diff{q_{T'}}\;\bra q',t'|q_{T'},T'\ket\bra q_{T'},T'|q_T,T\ket\bra q_T,T|q,t\ket\;.
+$$
+Usando la relazione:
+$$
+\lim_{t'\to i\infty}\bra q',t'|q,T\ket=\lim_{t'\to i\infty}\bra q'|e^{-iH(t'-T)}|q\ket=\phi_0^*(q')\phi_0(q)e^{-iE_0T}e^{-E_0t'}\;,
+$$
+per tutti i prodotti all'interno dell'integrale otteniamo:
+\begin{equation}
+Z[J]=\mathcal{N}\lim_{t'\to i\infty}\lim_{t\to -i\infty}\int Dq\; e^{iS_J},\qquad S_J=\int_t^{t'}\diff{\stackrel{\sim}{t}}\; (L-Jq)\;,
+\end{equation}
+dove $\mathcal{N}$ è una normalizzazione irrilevante in quanto indipendente da $J$ e l'azione $S_J$ è definita nel Minkowski. È molto più comodo, tuttavia, lavorare direttamente nell'euclideo ($t=-i\tau$):
+\begin{align}
+&Z_E[J]=\lim_{\tau'\to\infty}\lim_{\tau\to-\infty}\int Dq\;\exp\left[-S_E[q]+\int_{\tau}^{\tau'}\diff{\stackrel{\sim}{\tau}}\;J(\stackrel{\sim}{\tau})q(\stackrel{\sim}{\tau})\right]\;, \\
+&S_E[q]=\int_{\tau}^{\tau'}\diff{\stackrel{\sim}{\tau}}\;\lag_E,\qquad \lag_E=\frac{1}{2}m\left(\dev{q}{\tau}\right)^2+V(q)\;,
+\end{align}
+con:
+\begin{equation}
+\frac{1}{Z_E[0]}\left.\frac{\delta^n Z_E[J]}{\delta J(\tau_1)\cdots\delta J(\tau_n)}\right|_{J=0}=\bra 0|T\{\hat{q}(\tau_1)\cdots\hat{q}(\tau_n)\}|0\ket\;,
+\end{equation}
+dove $\hat{q}(\tau_i)$ sono gli operatori di Heisenberg scritti con il tempo immaginario.
+\begin{exm}[Campo scalare reale libero] 
+$$
+L=\frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-\frac{1}{2}m^2\phi^2\;.
+$$
+Nell'euclideo:
+$$
+Z_E[J]=\int D\phi e^{-S_E+\int \diff{t}\; J\phi},\qquad S_E=\int\diff{t}\left[\frac{1}{2}\partial_{\mu}\phi\partial_{\mu}\phi+\frac{1}{2}m^2\phi^2\right]\;.
+$$
+Notiamo che possiamo scrivere:
+$$
+Z_E[J]=\mathcal{N}e^{\frac{1}{2}J\Delta_E J}\;,
+$$
+dove $\mathcal{N}$ è una normalizzazione,
+$$
+\Delta_E(x)=\int\frac{\diff^4{k}}{(2\pi)^4}\frac{e^{-ikx}}{k^2+m^2},\qquad k^2\equiv \mathbf{k}^2+k_4^2\;,
+$$
+e $J\Delta_EJ$ è una notazione compatta per:
+$$
+J\Delta_EJ\equiv\int\diff{x}\diff{y}\; J(x)\Delta_E(x-y)J(y)\;.
+$$
+Nel Minkowski:
+$$
+Z[J]=\mathcal{N'}e^{i(J\Delta J)/2},\qquad \Delta(x)=\int\frac{\diff^4{k}}{(2\pi)^4}\frac{e^{-ik_{\mu}x^{\mu}}}{k^2-m^2+i\epsilon}
+$$
+con $k^2=(k^0)^2-\mathbf{k}^2$.
+\end{exm}
+Possiamo pensare adesso di sviluppare $Z[J]$ formalmente in serie di Taylor:
+\begin{equation}
+Z[J]=\sum_{n=0}^{\infty}\frac{1}{n!}\int\diff{x_1}\cdots\diff{x_n}\;G^{(n)}(x_1,\ldots,x_n)J(x_1)\cdots J(x_n)\;,
+\end{equation}
+dove i coefficienti dello sviluppo $G^{(n)}(x_1,\ldots,x_n)\propto \bra 0|T\{\phi(x_1)\cdots\phi(x_n)\}|0\ket$, sono le funzioni di Green a $n$ punti della teoria. A partire da $Z[J]$ possiamo costruire un altro funzionale generatore mediante la definizione:
+\begin{equation}
+\boxed{
+Z[J]\equiv e^{W[J]/\hbar},\qquad\qquad W[J]\equiv\hbar\ln Z[J]
+}\;.
+\end{equation}
+$W[J]$ prende il nome di \emph{funzionale generatore delle funzioni di correlazione connesse}. Per $W$ vale uno sviluppo analogo a quello di $Z[J]$:
+\begin{equation}
+W[J]=\sum_{n=1}^{\infty}\frac{1}{n!}\int\diff{x_1}\cdots\diff{x_n}\; G_c^{(n)}(x_1,\ldots,x_n)J(x_1)\cdots J(x_n)\;,
+\end{equation}
+dove $G_c^{(n)}$ sono le funzioni di Green a $n$ punti connesse. Valgono le seguenti proprietà:
+\begin{itemize}
+\item $\bra \phi\ket_c=\bra \phi\ket$;
+\item $\bra \phi(x_1)\phi(x_2)\ket_c=\bra\phi(x_1)\phi(x_2)\ket-\bra\phi(x_1)\ket\bra\phi(x_2)\ket$.
+\end{itemize}
+\subsection{Azione efficace}
+A partire da $W$ si costruisce infine un funzionale più utile tramite la definizione:
+\begin{equation}
+\Gamma(\varphi)+W(J)-\int J\varphi =0\;,
+\end{equation}
+con la condizione di stazionarietà rispetto a $J$ a $\varphi$ fissato:
+\begin{equation}
+\frac{\delta W(J)}{\delta J}-\varphi=0\;.
+\end{equation}
+Usando queste due relazioni, si arriva a scrivere il funzionale $\Gamma$, detto \emph{azione efficace} come sviluppo in serie:
+\begin{equation}
+\Gamma(\varphi)=\sum_{n=1}^{\infty}\frac{1}{n!}\int\diff{x_1}\cdots\diff{x_n}\;\Gamma^{(n)}(x_1,\ldots,x_n)\chi(x_1)\cdots\chi(x_n)\;,
+\end{equation}
+dove $\chi(x)\equiv \varphi(x)-\bra\varphi(x)\ket$ e i coefficienti dello sviluppo $\Gamma^{(n)}$ rappresentano le somme dei diagrammi di Feynman a $n$ punti irriducibili a una particella (1PI). \\
+Definiamo infine le funzioni di Green connesse con gambe esterne amputate:
+\begin{equation}
+G_{c,\mathrm{amp}}^{(n)}(x_1,\ldots,x_n)=\int\diff{y_1}\cdots\diff{y_n}\;\prod_{i=1}^nS(x_i-y_i)G_c^{(n)}(y_1,\ldots,y_n)\;,
+\end{equation}
+dove $S(x_i-y_i)$ è l'inversa della funzione di Green connessa a due punti: $S(x_i-y_i)G_c^{(2)}(x_i,y_i)=1$.
+\subsection{Approssimazione semiclassica}
+Proviamo a calcolare qualcosa nel limite $\hbar\to 0$. Scegliamo un'azione del tipo (le integrazioni sono sottointese):
+$$
+S=\frac{1}{2}\phi K\phi+V(\phi),\qquad Z(J)=\int D\phi e^{-S+ J\phi}\;.
+$$
+Al punto sella:
+$$
+Z(J)\approx e^{-S(\overline{\phi})+J\overline{\phi}}\;,
+$$
+dove $\overline{\phi}$ è il minimo dell'esponente, detto anche \emph{soluzione classica} $\phi_{\mathrm{cl}}$, soluzione di:
+$$
+K\phi+\frac{\delta V}{\delta \phi}=J\;.
+$$
+Risolvendo perturbativamente quest'equazione si trova:
+$$
+\lim_{\hbar\to 0}\Gamma(\phi)=S(\phi_{\mathrm{cl}})\;.
+$$
+\section{Path integral e teoria delle perturbazioni}
+$$
+\bra \phi_2|e^{-(t_2-t_1)H}|\phi_1\ket=\int_{\substack{\phi(t_1)=\phi_1 \\ \phi(t_2)=\phi_2}} D\phi\; e^{-S(\phi)}, \quad S(\phi)=\int\diff^D{x}\left[\frac{1}{2}\partial_{E,\mu}\phi\partial_{E,\mu}\phi+\frac{1}{2}m^2\phi^2+V(\phi)\right]\;.
+$$
+Regolarizziamo la teoria discretizzando lo spazio-tempo: $\mathbb{R}^D\to\mathbb{Z}^D$. Scegliamo un passo reticolare unico $a$:
+$$
+S=a^D\sum_{i,\hat{\mu}}\left[\frac{(\phi_{i+\hat{\mu}}-\phi_i)^2}{a^2}+V(\phi_i)\right]\;,
+$$
+avendo inglobato la massa nel potenziale. Osserviamo che $S\propto a^{D-2}$: se $D>2$, nel limite $a\to 0$ non abbiamo garanzia che la differenza vada a zero. \\
+Per la teoria libera ($V=0$) avremo:
+\begin{equation}
+Z_0(J)=\int D\phi\; e^{-\frac{1}{2}\phi K\phi+J\phi},\qquad K(x-y)\equiv (-\square+m^2)\delta^{(4)}(x-y)\;.
+\end{equation}
+Il \emph{propagatore} $\Delta$ è l'inverso dell'operatore $K$, e ci consente di scrivere il funzionale libero usando gli integrali gaussiani come:
+\begin{equation}
+Z_0(J)=\mathcal{N}e^{\frac{1}{2}J\Delta J}\;.
+\end{equation}
+Si ha che:
+\begin{equation}
+\bra 0|T\{\hat{\phi}(x_1)\hat{\phi}(x_2)\}|0\ket\equiv \frac{1}{Z_0(0)}\frac{\delta^2 Z_0(J)}{\delta J(x_1)\delta J(x_2)}=\Delta(x_1-x_2)\;.
+\end{equation}
+Adesso aggiungiamo un termine di interazione:
+\begin{equation}
+V(\phi)=\int\frac{\lambda}{4!}\phi^4(x)\;\diff^D{x}\;,
+\end{equation}
+e scriviamo:
+\begin{equation}
+Z(J)=\int D\phi\, \exp\left\{-\left(\frac{1}{2}\phi K\phi-J\phi+V(\phi)\right)\right\}=\exp\left\{-\frac{\lambda}{4!}\int \diff^D{x}\left[\frac{\delta}{\delta J(x)}\right]^4\right\}\cdot Z_0(J)\;.
+\end{equation}
+La teoria delle perturbazioni segue dallo sviluppo in serie dell'esponenziale. Per far ciò, useremo le identità:
+\begin{align*}
+I(A,b)&=\int\prod_{i=1}^N\diff{x_i}\; \exp\left\{-\frac{1}{2}\sum_{i,j}x_iA_{ij}x_j+\sum_ib_ix_i\right\}=(2\pi)^{-N/2}(\det A)^{-1/2}\exp\left\{\frac{1}{2}\sum_{i,j}b_i(A^{-1})_{ij}b_j\right\}\;, \\
+\bra x_{k_1}\cdots x_{k_n}\ket &\equiv \frac{1}{I(A,0)}\int\diff{x_{k_1}}\cdots\diff{x_{k_n}}\, x_{k_1}\cdots x_{k_n}e^{-xAx/2}=\frac{1}{I(A,0)}\frac{\partial}{\partial b_{k_1}}\cdots \left.\frac{\partial}{\partial b_{k_n}}I(A,b)\right|_{b=0}\;,
+\end{align*}
+e il \emph{teorema di Wick}:
+\begin{align}
+&\bra x_{k_1}x_{k_2}\ket =A^{-1}_{k_1k_2} \notag\;, \\
+&\bra x_{k_1}x_{k_2}x_{k_3}x_{k_4}\ket=A^{-1}_{k_1k_2}A^{-1}_{k_3k_4}+A^{-1}_{k_1k_3}A^{-1}_{k_2k_4}+A^{-1}_{k_1k_4}A^{-1}_{k_2k_3}\;, \\
+& \cdots \notag\;.
+\end{align}
+Sviluppiamo quindi perturbativamente:
+\begin{equation}
+Z(J)=\left[1-\frac{\lambda}{4!}\int\diff{x}\left[\frac{\delta}{\delta J(x)}\right]^4+\frac{1}{2}\left(\frac{\lambda}{4!}\right)^2\int\diff{x_1}\diff{x_2}\left[\frac{\delta}{\delta J(x_1)}\right]^4\left[\frac{\delta}{\delta J(x_2)}\right]^4+\cdots\right]Z_0(J)\;.
+\end{equation}
+Allora:
+\begin{align*}
+\bra\phi(x_1)\phi(x_2)\ket\propto &\frac{1}{Z(0)}\frac{\delta}{\delta J(x_1)}\frac{\delta}{\delta J(x_2)}\left[1-\frac{\lambda}{4!}\int\diff{y}\left[\frac{\delta}{\delta J(y)}\right]^4+\frac{1}{2}\left(\frac{\lambda}{4!}\right)^2\int\diff{y_1}\diff{y_2}\left[\frac{\delta}{\delta J(y_1)}\right]^4\left[\frac{\delta}{\delta J(y_2)}\right]^4 \right.\\
+&+\left.\left.\cdots\right]Z_0(J)\right|_{J=0} \\
+=&\frac{1}{Z(0)}\left[Z_0(0)\Delta-\left.\frac{\lambda}{4!}\frac{\delta}{\delta J(x_1)}\frac{\delta}{\delta J(x_2)}\int\diff{y}\left[\frac{\delta}{\delta J(y)}\right]^4Z_0(J)\right|_{J=0}\right. \\
+&+\left.\left.\frac{1}{2}\left(\frac{\lambda}{4!}\right)^2\frac{\delta}{\delta J(x_1)}\frac{\delta}{\delta J(x_2)}\int\diff{y_1}\diff{y_2}\left[\frac{\delta}{\delta J(y_1)}\right]^4\left[\frac{\delta}{\delta J(y_2)}\right]^2Z_0(J)\right|_{J=0}+\cdots\right] \\
+=&\frac{1}{Z(0)}\left[Z_0(0)\Delta -\lambda\int\diff{y}\;\bra\phi(x_1)\phi(x_2)\phi^4(y)\ket Z_0(0)\right. \\
+&\left.+\lambda^2\int\diff{y_1}\diff{y_2}\;\bra\phi(x_1)\phi(x_2)\phi^4(y_1)\phi^4(y_2)\ket Z_0(0)+\cdots\right]\;.
+\end{align*}
+Assumiamo che  $Z(J)$ sia ben definito a partire dallo sviluppo perturbativo. Allora:
+\begin{equation}
+\int D\phi\;\frac{\delta}{\delta\phi}e^{-S+J\phi}=0\;, \label{sec3_null}
+\end{equation}
+da cui:
+\begin{equation}
+B(J)=\int D\phi\left[J-\frac{\delta S}{\delta\phi}\right]e^{-S+J\phi}=0\qquad \forall J\;,
+\end{equation}
+con:
+$$
+S=\frac{1}{2}\phi K\phi+V(\phi)\;.
+$$
+Ma se $B(J)$ è nullo, lo sarà automaticamente un qualunque numero di sue derivate rispettoa $J$. Da ciò otteniamo un numero infinito di relazioni tra le correlazioni quantistiche. L'equazione \eqref{sec3_null} può essere anche riscritta come:
+\begin{equation}
+\left[J-K\frac{\delta}{\delta J}+\pdev{V}{\phi}\left(\frac{\delta}{\delta J}\right)\right]Z(J)=0\;.
+\end{equation}
+Se effettuiamo la sostituzione $\phi(x)\to \chi(x)+\epsilon F(x;\chi)$, con $\epsilon\ll 1$ allora:
+$$
+S(\phi)\simeq S(\chi)+\epsilon\int\diff{x}\;\frac{\delta S}{\delta\chi(x)}F(x;\chi)\;.
+$$
+Nell'integrale funzionale dobbiamo però inserire lo Jacobiano della trasformazione:
+\begin{equation}
+\mathcal{J}=\det\frac{\delta\phi(x)}{\delta\chi(y)}=\det\left[\delta(x-y)+\epsilon\frac{\delta F(x;\chi)}{\delta\chi(y)}\right]\;.
+\end{equation}
+Usando l'identità $\ln\det M=\tr\ln M$:
+$$
+\ln\det\left[\delta(x-y)+\epsilon A(x,y;\chi)\right]=\tr\ln(1+\epsilon A)\simeq \epsilon\;\tr A\;,
+$$
+da cui:
+\begin{equation}
+\mathcal{J}\simeq \exp\left[\epsilon\;\tr\frac{\delta F}{\delta\chi}\right]\;,
+\end{equation}
+e di conseguenza:
+\begin{align}
+Z_{\phi}(J)\to Z_{\chi}(J) &= \int D\chi\left(1+\epsilon\;\tr\frac{\delta F(x;\chi)}{\delta\chi(y)}\right)e^{-S(\chi)}\left(1-\epsilon\int\diff{x}\frac{\delta S}{\delta\chi}F(x;\chi)\right)e^{J\chi}(1+\epsilon\; JF) \notag \\
+&=\int D\chi\left\{e^{-S(\chi)+J\chi}+\epsilon\left[\tr\frac{\delta F(x;\chi)}{\delta\chi(y)}-\int\diff{x}\frac{\delta S}{\delta\chi}F(x;\chi)+JF\right]e^{-S(\chi)+J\chi}+\mathcal{O}(\epsilon^2)\right\} \notag \\
+&= Z_{\phi}(J)+\epsilon\int D\chi\left[\tr\frac{\delta F(x;\chi)}{\delta\chi(y)}-\int\diff{x}\frac{\delta S}{\delta\chi}F(x;\chi)+JF\right]e^{-S(\chi)+J\chi}+\mathcal{O}(\epsilon^2)\;.
+\end{align}
+I termini in $\epsilon$ dovranno dunque annullarsi, pertanto:
+\begin{equation}
+\int D\chi\left[\tr\frac{\delta F}{\delta\chi}-\int\diff{x}\frac{\delta S}{\delta\chi}F(x,\chi)+JF\right]e^{-S(\chi)+J\chi}=0\;.
+\end{equation}
+\subsection{Approssimazione semiclassica - II}
+$$
+Z(J)=\int D\phi\; e^{-(S-J\phi)/\hbar}\stackrel{\hbar\to 0}{\approx}e^{-(S(\phi_{\mathrm{cl}})-J\phi_{\mathrm{cl}})/\hbar}\;,
+$$
+con:
+$$
+\left.\frac{\delta S}{\delta\phi}\right|_{\phi_{\mathrm{cl}}}=J\;.
+$$
+Per un'azione del tipo $S=\frac{1}{2}\phi K\phi+V(\phi)$ la relazione precedente diventa:
+\begin{equation}
+K\phi_{\mathrm{cl}}+\frac{\delta V}{\delta\phi}(\phi_{\mathrm{cl}})=J\;.
+\end{equation}
+Risolviamo perturbativamente questa equazione in $V$, prendendo come caso concreto $V=\lambda\phi^4/4!$. All'ordine zero in $V$:
+\begin{equation}
+K\phi_{\mathrm{cl}}^{(0)}=J\qquad \Longrightarrow\qquad \phi_{\mathrm{cl}}^{(0)}=K^{-1}J=\Delta_0J\;.
+\end{equation}
+All'ordine uno:
+\begin{equation}
+\phi_{\mathrm{cl}}^{(1)}=\Delta_0J-\frac{\lambda}{3!}K^{-1}(\phi_{\mathrm{cl}}^{(0)})^3=\Delta_0J-\frac{\lambda}{3!}\Delta_0(\Delta_0J)^3\;.
+\end{equation}
+Sempre all'ordine zero in $\hbar$, $W(J)=\hbar\ln Z(J)=-S(\phi_{\mathrm{cl}})+J\phi_{\mathrm{cl}}+\mathcal{O}(\hbar)$, con $\phi_{\mathrm{cl}}\equiv \phi_{\mathrm{cl}}(J)$. Adesso possiamo scrivere l'azione efficace:
+\begin{equation}
+\Gamma(\phi)=-W(J)+J\phi=S(\phi_{\mathrm{cl}})-J\phi_{\mathrm{cl}}+J\varphi\;,
+\end{equation}
+con la condizione di stazionarietà:
+\begin{equation}
+\varphi=\frac{\delta W}{\delta J}=\phi_{\mathrm{cl}}+\int \frac{\delta\phi_{\mathrm{cl}}}{\delta J}\frac{\delta}{\delta\phi_{\mathrm{cl}}}[-S(\phi_{\mathrm{cl}})+J\phi_{\mathrm{cl}}]=\phi_{\mathrm{cl}}\;,
+\end{equation}
+in quanto il termine in parentesi quadra corrisponde all'equazione classica, e quindi è nullo. Otteniamo pertanto:
+\begin{equation}
+\Gamma(\phi_{\mathrm{cl}})=S(\phi_{\mathrm{cl}})\;,
+\end{equation}
+cioè all'ordine zero in $\hbar$, l'azione efficace coincide con quella classica. Inoltre da:
+\begin{equation}
+\Gamma(\varphi)=\sum_n\frac{1}{n!}\int\diff{x_1}\cdots\diff{x_n}\;\Gamma^{(n)}(x_1,\ldots,x_n)\varphi(x_1)\cdots\varphi(x_n)\stackrel{!}{=}\frac{1}{2}\varphi K\varphi+V(\varphi)\;,
+\end{equation}
+possiamo estrarre le funzioni 1PI. Per esempio, $\Gamma^{(2)}=\Delta_0^{-1}=K$. In conclusione, la storia dei diagrammi all'ordine albero altro non è che il limite semiclassico della trattazione con l'azione efficace.
+\subsection{Ordine $\hbar$}
+All'ordine $\hbar$ scriviamo $\phi=\phi_{\mathrm{cl}}+\hbar^{1/2}\chi$, allora:
+\begin{equation}
+S(\phi)-J\phi=S(\phi_{\mathrm{cl}})-J\phi_{\mathrm{cl}}+\frac{\hbar}{2}\int\diff{x_1}\diff{x_2}\;\chi(x_1)\left.\frac{\delta^2 S}{\delta\phi(x_1)\delta\phi(x_2)}\right|_{\phi=\phi_{\mathrm{cl}}}\chi(x_2)\;,
+\end{equation}
+da cui:
+\begin{equation}
+Z(J)=Z_{\mathrm{cl}}(J)\int D\chi\;\exp\left[-\frac{1}{2}\chi\left.\frac{\delta^2S}{\delta \phi(x_1)\delta\phi(x_2)}\right|_{\phi=\phi_{\mathrm{cl}}}\chi\right]=Z_{\mathrm{cl}}(J)\left(\det\left.\frac{\delta^2 S}{\delta\phi\delta\phi}\right|_{\phi=\phi_{\mathrm{cl}}}\right)^{-1/2}\;,
+\end{equation}
+e:
+\begin{equation}
+W(J)=W_{\mathrm{cl}}(J)+\hbar W_1(J)+\mathcal{O}(\hbar^2)\;,
+\end{equation}
+dove:
+\begin{equation}
+\left.\frac{\delta^2 S}{\delta\phi\delta\phi}\right|_{\phi=\phi_{\mathrm{cl}}}=K(x_1-x_2)+\frac{\lambda}{2}\phi_{\mathrm{cl}}^2(x_1)\delta(x_1-x_2)\equiv A(x_1,x_2;J)\;,
+\end{equation}
+è una matrice continua che dipende da $x_1,x_2$ e $J$. Dobbiamo calcolarne il determinante: lo normalizziamo dividendo per $\det A(x_1,x_2;0)$. Allora:
+$$
+W_1(J)=\frac{1}{2}\tr\left[\ln\left.\frac{\delta^2 S}{\delta\phi\delta\phi}\right|_{\phi=\phi_{\mathrm{cl}}(J)}-\ln\left.\frac{\delta^2 S}{\delta\phi\delta\phi}\right|_{J=0}\right]=-\frac{1}{2}\tr\ln\left[\delta(x_1-x_2)+\frac{\lambda}{2}\Delta_0(x_1-x_2)\phi_{\mathrm{cl}}^2\right]\;.
+$$
+Sviluppando il logaritmo e facendo la traccia otteniamo:
+\begin{equation}
+W_1(J)\simeq-\frac{1}{2}\int\diff{x}\;\frac{\lambda}{2}\Delta(x,x)\phi_{\mathrm{cl}}^2(x)+\underbrace{\frac{1}{4}\frac{\lambda^2}{4}\int\diff{x_1}\diff{x_2}\;\Delta(x_1,x_2)\phi_{\mathrm{cl}}^2(x_2)\Delta(x_2,x_1)\phi_{\mathrm{cl}}^2(x_1)}_{\mbox{diagrammi a un loop}}\;.
+\end{equation}
+Infine $\Gamma(\varphi)=S(\varphi)+\hbar\Gamma_1(\varphi)$, con condizione di stazionarietà $\varphi=\delta W/\delta J$. $\varphi$ non riceve contributi lineari in $\hbar$, ma solo quadratici, quindi $\varphi=\phi_{\mathrm{cl}}(J)$ anche all'ordine $\hbar$, $\Gamma(\varphi)=J\varphi-W_0(J)-\hbar W_1(J)=S(\varphi)-\hbar W_1(J(\phi_{\mathrm{cl}}))$, quindi:
+\begin{equation}
+\Gamma_1(\varphi)=\frac{1}{2}\tr\ln\left[\delta(x_1-x_2)+\frac{\lambda}{2}\Delta(x_1,x_2)\phi_{\mathrm{cl}}^2\right]\;.
+\end{equation}
+Sviluppando $\Gamma_1$ perturbativamente in $\lambda$:
+$$
+\Gamma_1\sim\frac{1}{2}\frac{\lambda}{2}\int\Delta(x,x)\varphi(x)^2+C\int\Delta(x_1,x_2)\varphi^2(x_2)\Delta(x_2,x_1)\varphi^2(x_1)\;,
+$$
+otteniamo i diagrammi a 1 loop con gambe amputate, ossia i diagrammi a un loop 1PI. In generale, il numero di loops corrisponde alla potenza di $\hbar$ dell'ordine dello sviluppo. A ciascuna linea interna di un diagramma corrisponde un propagatore che porta una potenza di $\hbar$. Ogni vertice porta una potenza $\hbar^{-1}$ (dallo sviluppo dell'esponenziale). Un'ulteriore potenza di $\hbar$ vviene dalla definizione di $W$. Allora:
+\begin{equation}
+\boxed{
+\mbox{potenza di}\;\hbar=\hbar^{I-V+1}\;,
+}
+\end{equation}
+con $I$ numero di linee interne, $V$ numero di vertici. Quindi il numero $L$ di loops sarà dato da:
+\begin{equation}
+L=I-V+1\;.
+\end{equation}
+\section{Path integral in teoria fermionica}
+\subsection{Stati coerenti bosonici}
+Gli stati coerenti (per una teoria bosonica) sono definiti come gli autostati (nello spazio di Fock) dell'operatore di distruzione associato al campo:
+\begin{equation}
+a_i|\phi\ket=\phi_i|\phi\ket,\qquad |\phi\ket=e^{\sum\phi_i\adj{a}_i}|0\ket\;.
+\end{equation}
+Gli stati coerenti ci permettono di scrivere una relazione di completezza:
+\begin{equation}
+\int\prod_i\frac{\diff{\overline{\phi}_i}\diff{\phi_i}}{\pi}e^{\sum\overline{\phi}_i\phi_i}|\phi\ket\bra\phi|=1\;.
+\end{equation}
+\subsection{Stati coerenti fermionici}
+La derivazione degli stati coerenti per una teoria fermionica non è immediata come nel caso bosonico, in quanto gli operatori di distruzione anticommutano. Vogliamo risolvere l'equazione:
+$$
+a_i|\eta\ket=\eta_i|\eta\ket\;.
+$$
+Occorre però dare una struttura anticommutante agli autovalori:
+\begin{equation}
+\eta_i\eta_j+\eta_j\eta_i=0\;.
+\end{equation}
+Utilizziamo a questo scopo l'\emph{algebra di Grassmann}, le cui regole fondamentali sono:
+\begin{enumerate}
+\item se $f(\eta)$ è una funzione analitica di una variabile di Grassmann, allora:
+\begin{equation}
+f(\eta)=f(0)+\eta f'(0)\;,
+\end{equation}
+in quanto tutti i termini successivi sono nulli dato che $\eta^2=0$;
+\item l'operatore differenziale deve anticommutare con le variabili:
+\begin{equation}
+\frac{\partial}{\partial \eta_i}\eta_j=\delta_{ij}\;;
+\end{equation}
+\item regole di integrazione:
+\begin{equation}
+\int\diff{\eta}\;1=0,\qquad \int\diff{\eta}\;\eta=1\;,
+\end{equation}
+da cui segue che:
+\begin{equation}
+\int\diff{\eta}\;f(\eta)=f'(0)=\pdev{f(\eta)}{\eta}\;;
+\end{equation}
+\item se $A$ è una matrice, si ha:
+\begin{equation}
+\int\diff{(\overline{\eta}\eta)}\;e^{-\eta_iA_{ij}\eta_j}=\det A\;.
+\end{equation}
+\end{enumerate}
+Usando queste regole, è possibile costruire gli stati coerenti per i fermioni:
+\begin{equation}
+|\eta\ket=e^{-\sum\eta_i\adj{a}_i}|0\ket\qquad \Longrightarrow \qquad a_j|\eta\ket=\eta_j|\eta\ket\;.
+\end{equation}
+Costruiamo adesso il bra indipendentemente dal ket (per i bosoni era sufficiente fare l'hermitiano coniugato):
+\begin{equation}
+\bra\overline{\eta}|=\bra 0|e^{\sum \overline{\eta}_ia_i}\;.
+\end{equation}
+Le $\overline{\eta}_i$ non hanno alcun collegamento con le $\eta_i$ del ket. Calcoliamo a questo punto:
+$$
+\bra \overline{\eta}|\eta\ket=e^{\sum\overline{\eta}_i\eta_i}\;.
+$$
+Partendo da questa relazione, riusciamo a costruire una relazione di completezza analoga a quella bosonica:
+\begin{equation}
+\int\diff{\overline{\eta}}\diff{\eta}\; e^{-\overline{\eta}\eta}|\eta\ket\bra\overline{\eta}|=1\;.
+\end{equation}
+Infatti, prendendo il valor medio sul vuoto:
+\begin{align*}
+\int\diff{\overline{\eta}}\diff{\eta}\;e^{-\overline{\eta}\eta}\bra 0|\eta\ket\bra\overline{\eta}|0\ket &= 
+\int\diff{\overline{\eta}}\diff{\eta}\;e^{-\overline{\eta}\eta}\bra 0|\left[|0\ket -\sum_i\eta_i\adj{a}_i|0\ket\right]\cdot\left[\bra 0|+\bra 0|\sum_i\eta_ia_i\right]|0\ket\;.
+\end{align*}
+Usando che $\bra 0|\adj{a}_i=0, a_i|0\ket=0$,
+$$
+\int\diff{\overline{\eta}}\diff{\eta}\, e^{-\overline{\eta}\eta}\bra 0|\eta\ket\bra \overline{\eta}|0\ket=\int\diff{\overline{\eta}}\diff{\eta}e^{-\overline{\eta}\eta}=\int\diff{\overline{\eta}}\diff{\eta}(1-\overline{\eta}\eta)\;,
+$$
+dove abbiamo inserito lo sviluppo dell'esponenziale secondo le regole dell'algebra di Grassmann. Adesso, sfruttando le regole di integrazione (che annullano l'integrale della costante) più il fatto che le variabili di Grassmann anticommutano, otteniamo:
+$$
+\int\diff{\overline{\eta}}\diff{\eta}\, e^{-\overline{\eta}\eta}\bra 0|\eta|\ket\bra\overline{\eta}|0\ket=-\int\diff{\overline{\eta}}\diff{\eta}\;\overline{\eta}\eta=\int\diff{\overline{\eta}}\;\overline{\eta}\int\diff{\eta}\;\eta=1\;.
+$$
+\subsection{Path integral}
+\begin{equation}
+H=\sum_{i,j}\adj{a}_iT_{ij}a_j+\sum_{i,j,k,l}u_{ijkl}\adj{a}_i\adj{a}_ja_ka_l-\mu\sum_i\adj{a}_ia_i\;.
+\end{equation}
+Costruiamo l'integrale funzionale associato a questa teoria tramite la funzione di partizione. Inizialmente, consideriamo solo il primo ed il terzo termine:
+$$
+\rho=\frac{1}{Z}e^{-\beta H},\qquad Z=\tr\; e^{-\beta H}\;,
+$$
+da cui:
+\begin{align}
+&Z=\int_{\phi(0)=\phi(\beta)}D(\overline{\phi}\phi)\; e^{-S(\overline{\phi},\phi)}, & S=\int_0^{\beta}\diff{\tau}[\overline{\phi}\partial_{\tau}\phi+H(\overline{\phi},\phi)], \qquad\mbox{bosoni}\;, \label{sec4_bosons}\\
+&Z=\int_{\substack{\psi(0)=-\psi(\beta) \\ \overline{\psi}(0)=-\overline{\psi}(\beta)}}D(\overline{\psi}\psi)\;e^{-S(\overline{\psi},\psi)}, & S=\int_0^{\beta}\diff{\tau}[\overline{\psi}\partial_{\tau}\psi+H(\overline{\psi},\psi)], \qquad \mbox{fermioni}\;. \label{sec4_fermions}
+\end{align}
+Questi sono i risultati. Ricaviamoli: sia $|n\ket$ un set completo di autostati di $H$. Allora:
+$$
+Z=\sum_n\bra n|e^{-\beta H}|n\ket=\sum_n\int\prod_i\frac{\diff{\overline{\phi}_i}\diff{\phi_i}}{\pi}\bra n|\phi\ket\bra\phi|e^{-\beta H}|n\ket e^{-\overline{\phi}\phi}\;.
+$$
+Per completezza, $\sum_n |n\ket\bra n|=1$:
+\begin{equation}
+Z=\int\diff{(\overline{\phi}\phi)}\;e^{-\overline{\phi}\phi}\bra \phi|e^{-\beta H}|\phi\ket\;.
+\end{equation}
+La funzione di partizione è adesso espressa come una traccia in $\phi,\overline{\phi}$, pesata con un fattore esponenziale. Discretizziamo il tempo, $\beta=N\Delta t$, e quindi $e^{-N\Delta tH}=e^{-\Delta t H}\cdots e^{-\Delta t H}$ ($N$ volte). Inseriamo in mezzo ad ogni fattore un set completo di autostati:
+$$
+Z=\int\prod_{a=0}^{N-1}\diff{(\overline{\phi}_a\phi_a)}e^{-\sum_{a=0}^{N-1}\overline{\phi}_a\phi_a}\bra\phi|e^{-\Delta t H}|\phi_{N-1}\ket\cdots\bra \phi_1|e^{-\Delta t H}|\phi\ket\;,
+$$
+con $\phi_0=\phi_N\equiv\phi$. Si ha inoltre, in generale:
+\begin{equation}
+\bra\phi|e^{-\Delta t H(\adj{a},a)}|\phi'\ket=e^{-\Delta t H(\overline{\phi},\phi')}\bra\phi|\phi'\ket\;.
+\end{equation}
+Infatti, al primo ordine:
+$$
+\bra\phi|(1-\Delta t H(\adj{a},a))|\phi\ket=(1-\Delta t H(\overline{\phi},\phi'))\bra\phi|\phi'\ket\;.
+$$
+Per la $Z$ arriviamo quindi a:
+\begin{align*}
+Z &=\int\prod_{a=0}^{N-1}\diff{\overline{\phi}_a\phi_a}\;\exp\left\{-\sum_{a=0}^{N-1}\left[H(\overline{\phi}_{a+1}\phi_a)\Delta t+\overline{\phi}_{a+1}\phi_a-\overline{\phi}_a\phi_a\right]\right\} \\
+&= \int\prod_{a=0}^{N-1}\diff{\overline{\phi}_a\phi_a}\;\exp\left\{-\Delta t\sum_{a=0}^{N-1}\left[H(\overline{\phi}_{a+1},\phi_a)+\frac{\Delta\overline{\phi}_a\phi_a}{\Delta t}\right]\right\}\;,
+\end{align*}
+eseguendo adesso il limite del continuo $N\to\infty,\Delta t\to 0, \beta=N\Delta t=\mbox{cost.}$, otteniamo appunto l'espressione \eqref{sec4_bosons}. Concentriamoci adesso sull'Hamiltoniana, che ha la forma:
+$$
+H=\sum_{i,j}\adj{a}_ih_{ij}a_j-\mu\sum_i\adj{a}_ia_i\;.
+$$
+Diagonalizzando la matrice $h_{ij}$ troviamo i modi normali $b_a,\adj{b}_a$ e le relative autofrequenze $\omega_a$, per cui l'Hamiltoniana risulta diagonale:
+$$
+H=\sum_a(\omega_a-\mu)\adj{b}_ab_a\;.
+$$
+Il path integral ci dice quindi che l'azione sarà della forma:
+$$
+S=\int_0^{\beta}\diff{t}\sum_{i,j}\overline{\phi}_i[h_{ij}-\mu\delta_{ij}+\partial_t\delta_{ij}]\phi_j\;.
+$$
+Avendo condizioni periodiche al contorno su un intervallo finito possiamo passare in trasformata di Fourier:
+\begin{equation}
+\phi_i(t)=\frac{1}{\sqrt{\beta}}\sum_n\hat{\phi}_{i,n}e^{-i\omega_nt},\qquad \omega_n=\frac{2\pi n}{\beta}\;,
+\end{equation}
+da cui:
+\begin{align}
+S&=\sum_n\sum_{i,j}\hat{\overline{\phi}}_{i,n}(-i\omega_n\delta_{ij}+h'_{ij})\hat{\phi}_{j,n},\qquad h'_{ij}\equiv h_{ij}-\mu\delta_{ij} \notag \\
+Z &=\int\prod_n\diff{(\hat{\overline{\phi}}_n\hat{\phi}_n)}\exp\left[-\sum_n\sum_{i,j}\hat{\overline{\phi}}_{i,n}(-i\omega_n\delta_{ij}+h'_{ij})\hat{\phi}_{j,n}\right]\;.
+\end{align}
+Siano a questo punto $\eta_{n,a}$ gli autostati di $h'_{ij}$ ed $\epsilon_a$ i rispettivi autovalori. L'azione diventa:
+\begin{equation}
+S=\sum_n\sum_{a,b}\hat{\overline{\eta}}_{n,a}(-i\omega_n\delta_{ab}+\epsilon_a\delta_{ab})\eta_{n,b}=\sum_n\sum_a\hat{\overline{\eta}}_{n,a}(\epsilon_a-i\omega_n)\hat{\eta}_a\;,
+\end{equation}
+e di conseguenza nella $Z$ avremo solo integrali gaussiani:
+\begin{equation}
+Z=\int\prod_n\diff{(\overline{\eta}_n\eta_n)}\prod_a\exp\left[-\sum_n\hat{\overline{\eta}}_{n,a}(\epsilon_a-i\omega_n)\hat{\eta}_{n,a}\right]=\prod_a\prod_n\frac{\beta}{\epsilon_a-i\omega_n}\;.
+\end{equation}
+Dalla funzione di partizione ricaviamo l'energia libera:
+\begin{equation}
+F=-T\ln Z=+T\sum_a\sum_n\ln(\epsilon_a-i\omega_n)\;.
+\end{equation}
+Risolvendo prima la somma su $n$ ritroviamo il risultato noto dalla Statistica:
+$$
+F\propto\sum_a\ln(1+e^{-\beta\epsilon_a})\;.
+$$
+Passiamo ai fermioni. Usando la pseudo-relazione di completezza, arriviamo ad un'espressione molto simile al caso bosonico (i passaggi sono gli stessi):
+\begin{equation}
+Z=\int\diff{(\overline{\eta}\eta)}\bra -\overline{\eta}|e^{-\beta H}|\eta\ket\;e^{-\overline{\eta}\eta}\;.
+\end{equation}
+Il segno meno nel bra è la differenza fondamentale con il caso bosonico, che porterà alla fine ad avere condizioni antiperiodiche per i fermioni. La trattazione è quindi identica, con alcuni accorgimenti: le frequenze di Fourier sono date da:
+$$
+\omega_n=\frac{\pi(2n+1)}{\beta}\;,
+$$
+e l'espressione finale dell'energia libera diventa:
+\begin{equation}
+F=-T\sum_{a,n}\ln(\epsilon_a-i\omega_n)=-T\sum_a\ln(1+e^{-\beta\epsilon_a})\;.
+\end{equation}
+\section{Rinormalizzazione}
+\subsection{Divergenze nella teoria delle perturbazioni}
+Consideriamo un campo scalare reale (per esempio il $\pi^0$) descritto dalla Lagrangiana:
+\begin{equation}
+L=\frac{1}{2}\partial_{\mu}\varphi\partial^{\mu}\varphi-\frac{1}{2}m^2\varphi^2-\frac{\lambda}{4!}\varphi^4\;,
+\end{equation}
+e vogliamo calcolare la sezione d'urto del processo $\pi^0\pi^0\to\pi^0\pi^0$:
+$$
+\bra k_1k_2|S|p_1p_2\ket,\qquad S=T\; e^{-i\int\diff^4{x}\frac{\lambda}{4!}\varphi^4}\;.
+$$
+\begin{figure}[h]
+\begin{center}
+\begin{fmffile}{phiquattro1}
+\subfloat{
+\begin{fmfgraph*}(100,70)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain,label=$p_1$}{i1,v1}
+\fmf{plain,label=$p_2$}{i2,v1}
+\fmf{plain,label=$k_1$}{v1,o1}
+\fmf{plain,label=$k_2$}{v1,o2}
+\fmfdot{v1}
+\end{fmfgraph*}
+
+\begin{fmfgraph*}(100,70)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain,label=$p_1$}{i1,v1}
+\fmf{plain,label=$p_2$}{i2,v1}
+\fmf{plain,label=$k_2$}{v1,o1}
+\fmf{plain,label=$k_1$}{v1,o2}
+\end{fmfgraph*}
+
+\begin{fmfgraph*}(100,70)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain,label=$p_1$}{i1,v1}
+\fmf{plain,label=$p_2$}{i2,v1}
+\fmf{plain,left=0.5,tension=0.4,label=$q$}{v1,v2}
+\fmf{plain,right=0.5,tension=0.4,label=$q-p_1-p_2$}{v1,v2}
+\fmf{plain,label=$k_1$}{v2,o1}
+\fmf{plain,label=$k_2$}{v2,o2}
+\fmfdot{v1,v2}
+\end{fmfgraph*}
+
+\begin{fmfgraph*}(100,70)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain,label=$p_1$}{i1,v1}
+\fmf{plain,label=$p_2$}{i2,v1}
+\fmf{plain,left=0.5,tension=0.4,label=$q$}{v1,v2}
+\fmf{plain,right=0.5,tension=0.4,label=$q-p_1-p_2$}{v1,v2}
+\fmf{plain,label=$k_1$}{v2,o2}
+\fmf{plain,label=$k_2$}{v2,o1}
+\fmfdot{v1,v2}
+\end{fmfgraph*}
+}
+\end{fmffile}
+\end{center}
+\end{figure}
+A questi diagrammi possiamo associare le funzioni di correlazione connesse ed amputate a quattro punti:
+$$
+G_{c,\mathrm{amp}}^{(4)}(k_1,k_2,p_1,p_2)=\frac{G_c^{(4)}(k_1,k_2,p_1,p_2)}{\prod G_c^{(2)}}\;,
+$$
+dove la produttoria a denominatore è estesa ad ogni linea esterna. Proviamo a calcolare le funzioni connesse $G_c^{(4)}\equiv\bra 0|T\{\varphi(x_1)\varphi(x_2)\varphi(x_3)\varphi(x_4)\}|0\ket_c$. I contributi all'ordine albero e ad un loop saranno:
+
+\begin{figure}[h]
+\begin{minipage}[h]{0.5\linewidth}
+\hspace{0.5cm}
+\begin{fmffile}{phi4tree}
+\begin{fmfgraph*}(100,70)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain}{i1,v1,o1}
+\fmf{plain}{i2,v1,o2}
+\fmfdot{v1}
+\end{fmfgraph*}
+\end{fmffile}
+\end{minipage}
+\begin{minipage}[h]{0.5\linewidth}
+$\longrightarrow \qquad g\prod_{i=1}^4(k_i^2+m^2)^{-1}$
+\end{minipage}
+\end{figure}
+\begin{figure}[h]
+\begin{minipage}[h]{0.5\linewidth}
+\hspace{0.5cm}
+\begin{fmffile}{phi4loop}
+\begin{fmfgraph*}(100,70)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain}{i1,v1}
+\fmf{plain}{i2,v1}
+\fmf{plain,left=0.5,tension=0.4}{v1,v2}
+\fmf{plain,right=0.5,tension=0.4}{v1,v2}
+\fmf{plain}{v2,o1}
+\fmf{plain}{v2,o2}
+\fmfdot{v1,v2}
+\end{fmfgraph*}
+\end{fmffile}
+\end{minipage}
+\begin{minipage}[h]{0.5\linewidth}
+$\longrightarrow \qquad \Delta(x_1-x_2)^2$
+
+\end{minipage}
+
+\end{figure}
+In trasformata di Fourier:
+\begin{align*}
+\Delta(x_1-x_2)^2 &= \prod_{i=1}^2\int\frac{\diff^4{k_i}}{(2\pi)^4}\frac{1}{k_i^2+m^2}e^{ik(x_1-x_2)} \\
+&= \int\frac{\diff^4{p}}{(2\pi)^4}e^{ip(x_1-x_2)}\int\frac{\diff^4{k}}{(2\pi)^4}\frac{1}{k^2+m^2}\frac{1}{(k-p)^2+m^2}\;.
+\end{align*}
+Si vede immediatamente che l'integrale in $k$ per grandi valori diverge logaritmicamente. Diremo quindi che l'integrale diverge UV (ultravioletto) logaritmicamente. Ci domandiamo se sia possibile in qualche modo "curare" queste divergenze. Facciamo innanzitutto la seguente osservazione: se all'integrale divergente sottraiamo il termine con $p=0$ otteniamo l'integrale:
+\begin{equation}
+\int\frac{\diff^4{k}}{(2\pi)^4}\left[\frac{1}{k^2+m^2}\frac{1}{(k-p)^2+m^2}-\underbrace{\frac{1}{(k^2+m^2)^2}}_{A}\right]\;.
+\end{equation}
+che risulta finito. Da dove può originarsi una simile sottrazione? Se nell'azione inseriamo un termine $\delta S=-A\varphi^4/4!$, allora dovremo correggere il vertice a quattro punti da $g\to g-A$ che mi porta l'integrale inizialmente divergente nella forma finita precedente. Quindi cambiando opportunamente le costanti nell'azione è possibile curare le divergenze. Un altro strumento utile è la \emph{regolarizzazione}, per esempio integrare fino ad un cutoff finito $\Lambda$:
+$$
+\int_{|k|<\Lambda}\frac{\diff^4{k}}{(2\pi)^4}\frac{1}{k^2+m^2}\frac{1}{(k-p)^2+m^2}\sim \ln\frac{\Lambda}{m}\qquad \Longrightarrow\qquad A\sim \ln\frac{\Lambda}{m}\;.
+$$
+In questo modo è possibile maneggiare le divergenze più agilmente. L'idea è quindi di dire che le quantità che compaiono nella Lagrangiana di partenza (costanti, campi, ...) sono quantità "nude" (\emph{bare}). Se siamo in grado di fare tutti i conti introducendo solo un numero finito di termini allora potremmo essere a posto.
+\subsection{Modello $\varphi^3$}
+Assumendo l'invarianza per traslazioni della teoria, passiamo in trasformata di Fourier $D$-dimensionale:
+\begin{equation*}
+G_c^{(n)}(x_1,\ldots,x_n)=\int\prod_i\diff^D{x_i}e^{i\sum_ik_ix_i}\hat{G}_c^{(n)}(k_1,\ldots,k_n)=(2\pi)^4\delta^{(4)}\left(\sum_ik_i\right)\hat{G}_c^{(n)}(k_1,\ldots,k_n)\;,
+\end{equation*}
+cioè:
+\begin{equation}
+\boxed{
+\hat{G}_c^{(n)}(x_1,\ldots,x_n)=(2\pi)^4\delta^{(4)}\left(\sum_ik_i\right)\hat{G}_c^{(n)}(k_1,k_2,\ldots,k_n=-\sum_ik_i)
+}\;,
+\end{equation}
+e lo stesso facciamo per l'azione efficace:
+\begin{equation}
+\boxed{
+\Gamma^{(n)}(x_1,\ldots,x_n)\quad \Longrightarrow\quad \hat{\Gamma}^{(n)}(k_1,\ldots,k_n)=\frac{\hat{G}_c^{(n)}(k_1,\ldots,k_n)}{\prod_{i\ne j}\hat{G}_c^{(2)}(k_i,k_j)}
+}\;.
+\end{equation}
+La Lagrangiana di un campo scalare reale $\varphi$ con interazione cubica è:
+$$
+L=\frac{1}{2}(\partial_{\mu}\varphi)^2+\frac{1}{2}m^2\varphi^2+\frac{g}{3!}\varphi^3\;.
+$$
+Scriviamo l'azione efficace:
+\begin{align*}
+\Gamma(\varphi)& = S(\varphi)+\mathcal{O}(\hbar) =\sum_{n=1}^{\infty}\frac{1}{n!}\int\diff{x_1}\cdots\diff{x_n}\;\Gamma^{(n)}(x_1,\ldots,x_n)\varphi(x_1)\cdots\varphi(x_n) \\
+&=\sum_{n=1}^{\infty}\frac{1}{n!}\int\diff{k_1}\cdots\diff{k_n}\;\hat{\varphi}(k_1)\cdots\hat{\varphi}(k_n)(2\pi)^D\delta^{(D)}\left(\sum_ik_i\right)\hat{\Gamma}^{(n)}(k_1,\ldots,k_{n-1},k_n=\sum k_i)\;.
+\end{align*}
+All'ordine zero in $\hbar$ ricavo le $\hat{\Gamma}^{(n)}$ dal confronto con lo sviluppo di Fourier dell'azione:
+\begin{align*}
+&\hat{\Gamma}_0^{(2)}(k_1,k_2)=k^2+m^2,\qquad\qquad k_1=-k_2\equiv k\;, \\
+&\hat{\Gamma}_0^{(3)}(k_1,k_2,k_3=-k_1-k_2)=g\;, \\
+&\hat{\Gamma}_0^{(n)}(k_1,\ldots,k_n)=0\qquad n>3\;.
+\end{align*}
+In quanto l'azione classica non contiene termini in $\varphi$ di grado maggiore al terzo. \\
+Andiamo all'ordine successivo:
+\begin{align*}
+\Gamma_1(\varphi)&=\frac{1}{2}\tr\ln\left(\frac{\dfrac{\delta^2 S}{\delta\varphi\delta\varphi}}{\left.\dfrac{\delta^2 S}{\delta\varphi\delta\varphi}\right|_{\varphi=0}} \right)=\frac{1}{2}\tr\ln\frac{(-\square+m^2+g\varphi)}{(-\square+m^2)}
+=\frac{1}{2}\tr\ln\left[1+g\frac{1}{-\square+m^2}\varphi\right] \\
+&=\frac{1}{2}\int\diff^D{x}\;\bra x|\ln\left(1+g\frac{1}{-\square+m^2}\varphi\right)|x\ket \\
+&\simeq \frac{1}{2}\int\diff^D{x}\;\bra x\left|g\frac{1}{-\square+m^2}\varphi-\frac{g^2}{2}\frac{1}{-\square+m^2}\varphi\frac{1}{-\square+m^2}\varphi\right|x\ket\;.
+\end{align*}
+Nello spazio degli impulsi avremo, per il primo termine:
+$$
+g\int\diff^D{x}\;\bra x|\int\diff^D{y}\;\int\frac{\diff^D{p}}{(2\pi)^D}\frac{e^{-ip(x-y)}}{p^2+m^2}\underbrace{\varphi(y)|x\ket}_{=|x\ket\varphi(x)\delta(x-y)}=g\int\diff^D{x}\;\varphi(x)\int\frac{\diff^D{p}}{(2\pi)^D}\frac{1}{p^2+m^2}\;,
+$$
+da cui:
+$$
+\hat{\Gamma}^{(1)}(p)=\frac{1}{p^2+m^2}\;.
+$$
+Mentre per il secondo termine si trova:
+$$
+\hat{\Gamma}^{(2)}(p)=-\frac{g^2}{2}\int\frac{\diff^D{k}}{(2\pi)^D}\frac{1}{k^2+m^2}\frac{1}{(k+p)^2+m^2}\;.
+$$
+In generale:
+\begin{equation}
+\hat{\Gamma}_1^{(n)}(k_1,\ldots,k_{n-1})=\frac{(-1)^n(n-1)!}{2}g^2\int\frac{\diff^D{k}}{(2\pi)^D}\frac{1}{k^2+m^2}\frac{1}{(k+k_1)^2+m^2}\cdots\frac{1}{(k+\cdots k_{n-1})^2+m^2}\;.
+\end{equation}
+Quindi, al primo ordine,
+$$
+\hat{\Gamma}^{(2)}(k)=\hat{\Gamma}_0^{(2)}+\hat{\Gamma}_1^{(2)}=k^2+m^2+\frac{g^2}{2}\int\frac{\diff^D{p}}{(2\pi)^D}\frac{1}{k^2+m^2}\frac{1}{(k+p)^2+m^2}\;.
+$$
+Cerchiamo adesso di dare un senso alle divergenze UV (non abbiamo divergenze IR in questo caso perché $m\ne 0$). Per $k$ grande,
+$$
+\hat{\Gamma}^{(n)}\sim\int\diff^D{k}\frac{1}{k^{2n}}\;,
+$$
+diverge per $n\le D/2$. Poniamoci in $D=6$, allora l'integrale divergerà per $n=1,2,3$. Regolarizziamo gli integrali inserendo un cutoff $\Lambda$ e usiamo lo sviluppo (che abbassa il grado di divergenza):
+$$
+\frac{1}{(k+p)^2+m^2}=\frac{1}{k^2+m^2}-\frac{2p\cdot k}{(k^2+m^2)^2}+\frac{6p^2}{(k^2+m^2)^2}+\cdots\;.
+$$
+Allora:
+$$
+\int_{\Lambda}\frac{\diff^D{k}}{(2\pi)^D}\frac{1}{k^2+m^2}\left(\frac{1}{k^2+m^2}-\frac{2p\cdot k}{(k^2+m^2)^2}+\frac{6p^2}{(k^2+m^2)^2}+\cdots\right)\;,
+$$
+ottenendo così:
+\begin{align}
+&\hat{\Gamma}_1^{(1)}\simeq \frac{g}{2^7\pi^3}\left[\frac{\Lambda^4}{4}-\frac{m^2\Lambda^2}{2}+m^4\ln\frac{\Lambda}{m}+\mathcal{O}(1)\right] \;,\notag \\
+&\hat{\Gamma}_1^{(2)}\simeq g^2\left[\frac{\Lambda^2}{2}-\left(2m^2+\frac{p^2}{3}\right)\ln\frac{\Lambda}{m}+\mathcal{O}(1)\right]\;, \notag \\
+&\hat{\Gamma}_1^{(3)}\simeq g^3\ln\frac{\Lambda}{m}\;.
+\end{align}
+Di conseguenza avremo:
+$$
+\Gamma(\varphi)=S(\varphi)+\Gamma_1(\varphi)+\mathcal{O}(\hbar^2)\;.
+$$
+Aggiungiamo quindi all'azione un termine del tipo:
+\begin{equation}
+\Delta S=(Z_{\varphi}-1)\frac{1}{2}(\partial_{\mu}\varphi)^2+\delta m^2\varphi^2+\frac{\delta g}{3!}\varphi^3\;.
+\end{equation}
+Adesso $\Gamma(\varphi)=S(\varphi)+\Delta S(\varphi)+\Gamma_1(\varphi)$. Possiamo quindi scegliere $Z_{\varphi},\delta m^2,\delta g$ in modo tale da cancellare le divergenze (a un loop).
+\subsection{QED}
+\begin{equation}
+\boxed{
+L=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}-\frac{1}{2\xi}(\partial_{\mu}A^{\mu})^2+\overline{\psi}(i\slashed{\partial}-m)\psi-e\overline{\psi}\slashed{A}\psi
+}\;.
+\end{equation}
+Le regole di Feynman sono le solite:
+\begin{figure}[h]
+\begin{minipage}{0.5\linewidth}
+\centering
+\hspace{5cm}
+\begin{fmffile}{photon}
+\begin{fmfgraph*}(70,50)
+\fmfleft{i}
+\fmfright{o}
+\fmf{photon,label=$k$}{i,o}
+\end{fmfgraph*}
+\end{fmffile}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{flushleft}
+$$
+=-i\frac{(g_{\mu\nu}+(\xi-1)k_{\mu}k_{\nu}/k^2)}{k^2}
+$$
+\end{flushleft}
+\end{minipage}
+\end{figure}
+\begin{figure}[h]
+\begin{minipage}{0.5\textwidth}
+\centering
+\hspace{5cm}
+\begin{fmffile}{fermion}
+\begin{fmfgraph*}(70,50)
+\fmfleft{i}
+\fmfright{o}
+\fmf{fermion,label=$p$}{i,o}
+\end{fmfgraph*}
+\end{fmffile}
+
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+$$
+=\frac{i}{\slashed{k}-m}=\frac{i(\slashed{k}+m)}{k^2-m^2}
+$$
+
+\end{minipage}
+\end{figure}
+\begin{figure}[h]
+\begin{minipage}{0.5\textwidth}
+\centering
+\hspace{5cm}
+\begin{fmffile}{vertex}
+\begin{fmfgraph*}(70,50)
+\fmfleft{i}
+\fmfright{o1,o2}
+\fmf{photon}{i,v}
+\fmf{fermion}{o1,v}
+\fmf{fermion}{v,o2}
+\fmfdot{v}
+\end{fmfgraph*}
+\end{fmffile}
+
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+$$
+=-ie\gamma^{\mu}
+$$
+
+\end{minipage}
+\end{figure}
+\cleardoublepage
+
+e consideriamo lo scattering elettrone/campo elettromagnetico classico. A tree level abbiamo il diagramma
+\begin{figure}[h]
+\begin{minipage}{0.5\textwidth}
+\hspace{5cm}
+\begin{fmffile}{aclassico}
+\begin{fmfgraph*}(100,70)
+\fmftop{i}
+\fmfbottom{o1,o2}
+\fmf{dashes,label=$k$}{i,v}
+\fmf{fermion,label=$p$}{o1,v}
+\fmf{fermion,label=$p'$}{v,o2}
+\fmfdot{v}
+\end{fmfgraph*}
+\end{fmffile}
+
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+$$
+=\overline{u}(p')(-ie\gamma^{\mu})u(p)\hat{A}_{\mu}^{\mathrm{cl}}(k=p'-p)
+$$
+
+\end{minipage}
+\end{figure}
+
+Mentre all'ordine successivo (tre vertici, un loop), l'unico diagramma non banale divergente è:
+
+\begin{figure}[h]
+\begin{minipage}{0.4\textwidth}
+\centering
+\begin{fmffile}{vertex1loop}
+\begin{fmfgraph*}(150,100)
+\fmftop{t}
+\fmfbottom{b1,b2}
+\fmf{dashes,label=$k$}{t,v1}
+\fmf{fermion,label=$q+p'$}{v1,v2}
+\fmf{fermion,label=$q+p$}{v1,v3}
+\fmf{photon,label=$q$}{v2,v3}
+\fmf{fermion,label=$p$}{b2,v2}
+\fmf{fermion,label=$p'$}{v3,b1}
+\fmfdot{v1,v2,v3}
+\end{fmfgraph*}
+\end{fmffile}
+
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+$
+=\overline{u}(p')(-ie\gamma_{\mu})\dfrac{i}{\slashed{q}+\slashed{p}'-m}(-ie\gamma_{\alpha})\dfrac{i}{\slashed{q}+\slashed{p}-m}(-ie\gamma_{\nu})u(p)\dfrac{-ig^{\mu\nu}}{q^2}\hat{A}^{\alpha}(k)
+$
+
+\end{minipage}
+
+\end{figure}
+Calcoliamo il \emph{grado di divergenza globale} di un diagramma:
+\begin{itemize}
+\item i propagatori fotonici portano un $k^{-2}+\int\diff^4{k}\quad\Longrightarrow\quad +2$;
+\item i propagatori fermionici portano un $k^{-1}+\int\diff^4{k}\quad\Longrightarrow\quad +3$;
+\item un'integrazione su ogni impulso che gira in un loop;
+\item i vertici impongono le conservazioni dei quadri-impulsi $\quad \Longrightarrow\quad -4$.
+\end{itemize}
+Allora:
+\begin{equation}
+\boxed{
+D_G=2B_i+3F_i-4(V-1)
+}\;,
+\end{equation}
+dove $D_G$ è il grado di divergenza globale, $B_i$ è il numero di propagatori fotonici, $F_i$ di quelli fermionici. Il $V-1$ viene dal fatto che esiste una conservazione globale del quadri-impulso. Usando le relazioni topologiche che intercorrono tra le varie linee:
+\begin{equation}
+2F_i+F_e=2V\qquad 2B_1+B_e=V\;,
+\end{equation}
+dove il suffisso $e$ sta per esterne, troviamo la seguente espressione:
+\begin{equation}
+D_G=4-\frac{3}{2}F_e-B_e\;. \label{sec5_gradodiv}
+\end{equation}
+Se $D_G\ge 0$, allora il diagramma potrebbe divergere (in realtà è solo indicativo). Osserviamo che il numero di diagrammi con $D_G\ge 0$, alla luce della \eqref{sec5_gradodiv}, è finito. Queste divergenze possono essere eliminate ridefinendo opportunamente i parametri della Lagrangiana:
+\begin{align}
+L =&-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\overline{\psi}(i\slashed{\partial}-m)\psi-e\overline{\psi}\slashed{A}\psi \notag \\
+&-\frac{1}{4}(Z_A-1)F_{\mu\nu}F^{\mu\nu}-(Z_{\psi}-1)\overline{\psi}i\slashed{\partial}\psi-\overline{\psi}\delta m\psi-(Z_e-1)e\overline{\psi}\slashed{A}\psi \notag \\
+&=-\frac{1}{4}F_{\mu\nu}^BF^{B,\mu\nu}+\overline{\psi}_B(i\slashed{\partial}-(m-\delta m))\psi_B-e_0\overline{\psi}_B\slashed{A}_B\psi_B\;,
+\end{align}
+dove $Z_A,Z_{\psi},\delta m,Z_e$ sono costanti di rinormalizzazione e:
+\begin{equation}
+A_B\equiv Z_A^{1/2}A,\quad \psi_B\equiv Z_{\psi}^{1/2}\psi, e_0\equiv Z_e^{1/2}e\;,
+\end{equation}
+sono i campi e le costanti \emph{bare}. Come definiamo le quantità fisiche? Ad esempio, la massa dell'elettrone è definita come il polo della funzione di Green a due punti \emph{completa}:
+$$
+G^{(2)}\sim \frac{1}{\slashed{p}-m}+\frac{1}{\slashed{p}-m}\Sigma(p)\frac{1}{\slashed{p}-m}+\cdots =\frac{1}{1-\dfrac{i}{\slashed{p}-m}\Sigma(p)\dfrac{i}{\slashed{p}-m}}\;.
+$$
+\underline{Tutte le teorie aventi costanti di accoppiamento con dimensioni in energia zero o positive sono rinormalizzabili.}
+\subsection{Regolarizzazione}
+Prima di procedere a rinormalizzare una teoria, è necessario regolarizzarla, in modo da parametrizzare e renderne esplicite le divergenze. Illustriamo alcuni tipi di regolarizzazione:
+\begin{itemize}
+\item \textbf{Regolarizzazione di Pauli-Villairs}. Consiste nel pesare gli integrali divergenti con un fattore esponenziale:
+\begin{equation}
+\int\frac{\diff^D{q}}{(2\pi)^D}\frac{1}{q^2+m^2}\longrightarrow \int\frac{\diff^D{q}}{(2\pi)^D}\frac{e^{-q^2/\Lambda^2}}{q^2+m^2}\simeq \Lambda^{D-2}\;.
+\end{equation}
+\item \textbf{Cut-off}. Consiste nell'integrale sugli impulsi minori di un certo $\Lambda$, che prende il nome di \emph{cutoff ultravioletto}:
+\begin{equation}
+\int\frac{\diff^D{q}}{(2\pi)^D}\frac{1}{q^2+m^2}\longrightarrow \int_{|q|<\Lambda}\frac{\diff^D{q}}{(2\pi)^D}\frac{1}{q^2+m^2}\simeq \Lambda^{D-2}\;.
+\end{equation}
+\item \textbf{Reticolo.} Si discretizza lo spazio-tempo come un reticolo di passo $a$. Equivalente ad un cutoff UV $\Lambda\sim 1/a$. Il vantaggio di questo schema è che permette di ottenere risultati non perturbativi.
+\item \textbf{Dimensionale}. Si lavora in uno spazio euclideo con numero di dimensioni $D$ \emph{non fissato}:
+\begin{equation}
+I=\int\frac{\diff^D{q}}{(2\pi)^D}f(q^2)=\frac{2\pi^{D/2}}{\Gamma(D/2)}\int_0^{+\infty}\diff{q}\;q^{D-1}f(q^2)\;.
+\end{equation}
+L'idea è di calcolare gli integrali divergenti in un numero di dimensioni opportuno in cui convergono. Il parametro che governa la regolarizzazione è $\epsilon\equiv 4-D$.
+\end{itemize}
+\begin{exm} 
+\begin{align*}
+I(p) &= \int\frac{\diff^D{q}}{(2\pi)^D}\frac{1}{q^2}\frac{1}{(p+q)^2}=\int_0^{+\infty}\diff{t_1}\diff{t_2}\frac{\diff^D{q}}{(2\pi)^D}\;e^{-t_1q^2}e^{-t_2(p+q)^2} \\
+&=\frac{\pi^{D/2}}{(2\pi)^D}\int_0^{+\infty}\frac{\diff{t_1}\diff{t_2}}{(t_1+t_2)^{D/2}}\;e^{-\frac{t_1t_2}{t_1+t_2}p^2} \\
+&=\frac{\pi^{D/2}}{(2\pi)^D}\Gamma\left(2-\frac{D}{2}\right)\frac{\Gamma^2\left(\dfrac{D}{2}-1\right)}{\Gamma(D-2)}(p^2)^{(D-4)/2}\;.
+\end{align*}
+\end{exm}
+La funzione $\Gamma$ di Eulero presenta dei poli per $\epsilon\to 0$ ($D\to 4$):
+\begin{equation}
+\Gamma(\epsilon)\simeq \frac{1}{\epsilon}-\gamma+\mathcal{O}(\epsilon)\;.
+\end{equation}
+Altre regole formali della regolarizzazione dimensionale:
+\begin{itemize}
+\item \begin{equation}
+\int \diff^D{q}=0\;,
+\end{equation}
+perché diverge per ogni $D$.
+\item \begin{equation}
+\int\diff^D{q}\frac{1}{q^2}=0\;,
+\end{equation}
+perché diverge (UV o IR) per ogni $D$.
+\item Tutte le simmetrie dello spazio-tempo quadridimensionale sono preservate:
+\begin{align}
+&\int\diff^D{q}\;q_{\mu}q_{\nu}f(q^2)=\frac{g_{\mu\nu}}{D}\int\diff^D{q}\;q^2f(q^2)\;, \\
+&\int\diff^D{q}\;q_{\mu}f(q^2)=0\;.
+\end{align}
+\end{itemize}
+Si possono introdurre inoltre le matrici $\gamma$ di Dirac anche in $D$ dimensioni.
+\subsection{Rinormalizzazione della teoria $\varphi^4$}
+Lagrangiana euclidea:
+\begin{equation}
+L=\frac{1}{2}\partial_{\mu}\varphi\partial_{\mu}\varphi+\frac{1}{2}m^2\varphi^2+\frac{\lambda}{4!}\varphi^4\;. \label{sec5_lageucl}
+\end{equation}
+In $D$ dimensioni:
+$$
+[S]=0,\qquad [\varphi]=\frac{D-2}{2},\qquad [\lambda]=4-D\;.
+$$
+Per $D\le 4$, la teoria è rinormalizzabile. Vogliamo quindi calcolare la $G_c^{(2)}(p)=\Gamma^{(2)}(p)^{-1}$ a un loop.
+\vspace{1cm}
+\begin{figure}[h]
+$G_c^{(2)}(p)=$
+\begin{minipage}{0.20\textwidth}
+\centering
+\begin{fmffile}{twopoints1}
+\begin{fmfgraph*}(50,30)
+\fmfleft{i}
+\fmfright{o}
+\fmf{plain}{i,o}
+\end{fmfgraph*}
+\end{fmffile}
+\end{minipage}
+$+$
+\begin{minipage}{0.20\textwidth}
+\centering
+\begin{fmffile}{twopoints2}
+\begin{fmfgraph*}(50,30)
+\fmfleft{i}
+\fmfright{o}
+\fmf{plain}{i,v}
+\fmf{plain}{v,o}
+\fmf{plain,tension=0.5}{v,v}
+
+\end{fmfgraph*}
+\end{fmffile}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+$
+=\dfrac{1}{p^2+m^2}-\dfrac{\lambda}{2}\dfrac{1}{p^2+m^2}\displaystyle\int\dfrac{\diff^D{q}}{(2\pi)^D}\dfrac{1}{q^2+m^2}\dfrac{1}{p^2+m^2}\;.$
+
+\end{minipage}
+\end{figure}
+\begin{figure}[h]
+$G_c^{(4)}(k_1,k_2,k_3,k_4)=$
+\begin{minipage}{0.4\textwidth}
+\centering
+\begin{fmffile}{fourpoints1}
+\begin{fmfgraph*}(60,40)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain}{i1,v}
+\fmf{plain}{i2,v}
+\fmf{plain}{v,o1}
+\fmf{plain}{v,o2}
+\fmfdot{v}
+\end{fmfgraph*}
+\end{fmffile}
+
+\end{minipage}
+$+$
+\begin{minipage}{0.4\textwidth}
+\centering
+\begin{fmffile}{fourpoints2}
+\begin{fmfgraph*}(60,40)
+\fmfleft{i1,i2}
+\fmfright{o1,o2}
+\fmf{plain}{i1,v1}
+\fmf{plain}{i2,v1}
+\fmf{plain,left=0.5,tension=0.4}{v1,v2}
+\fmf{plain,right=0.5,tension=0.4}{v1,v2}
+\fmf{plain}{v2,o1}
+\fmf{plain}{v2,o2}
+\fmfdot{v1,v2}
+\end{fmfgraph*}
+
+\end{fmffile}
+
+\end{minipage}
+\end{figure}
+$$
+=-\lambda\prod_{i=1}^4\frac{1}{k_i^2+m^2}+\left(\prod_{i=1}^4\frac{1}{k_i^2+m^2}\right)\frac{\lambda^2}{2}\int\frac{\diff^D{q}}{(2\pi)^D}\frac{1}{q^2+m^2}\frac{1}{(p-q)^2+m^2},\qquad p=k_1+k_2\;.
+$$
+Calcoliamo gli integrali in regolarizzazione dimensionale:
+\begin{align*}
+\int\frac{\diff^D{q}}{(2\pi)^D}\frac{1}{q^2+m^2}&= m^{D-2}\int\frac{\diff^D{y}}{(2\pi)^D}\frac{1}{1+y^2}=m^{D-2}\frac{2\pi^{D/2}}{\Gamma(D/2)}\int_0^{+\infty}\diff{y}\frac{y^{D-1}}{y^2+1} \\
+&= m^{D-2}\frac{\Gamma(\epsilon/2-1)}{(4\pi)^{2-\epsilon/2}}\;.
+\end{align*}
+Inseriamo lo sviluppo per $\epsilon\to 0$:
+$$
+\Gamma(\epsilon/2-1)=\frac{\Gamma(\epsilon/2)}{\epsilon/2-1}=-\left(1-\frac{\epsilon}{2}\right)^{-1}\Gamma(\epsilon/2)\simeq -\left(1+\frac{\epsilon}{2}\right)\left(\frac{2}{\epsilon}-\gamma\right)\simeq -\frac{2}{\epsilon}+\gamma-1+\mathcal{O}(\epsilon)\;,
+$$
+da cui:
+\begin{equation}
+\int\frac{\diff^D{q}}{q^2+m^2}=\frac{m^{D-2}}{(4\pi)^{2-\epsilon/2}}\left(-\frac{2}{\epsilon}+\gamma-1\right)=\frac{m^2}{16\pi^2}\left(-\frac{2}{\epsilon}+\gamma-1\right)\left(1+\epsilon\ln\frac{16\pi^2}{m^2}\right)\;.
+\end{equation}
+Per la funzione a quattro punti invece si ha:
+\begin{equation}
+\int\frac{\diff^D{q}}{(2\pi)^D}\frac{1}{q^2+m^2}\frac{1}{(p-q)^2+m^2}\simeq \frac{1}{16\pi^2}\left[\frac{2}{\epsilon}-\gamma+\frac{1}{2}\ln(4\pi)-\int_0^1\diff{x}\;\ln[m^2+p^2x(1-x)]\right]\;.
+\end{equation}
+Una volta regolarizzate le divergenze, possiamo rinormalizzare. Alla Lagrangiana \eqref{sec5_lageucl}, che porta alle divergenze, aggiungiamo dei controtermini. Poniamo inoltre $\lambda=v\mu^{\epsilon}$, con $v$ adimensionale e $\mu$ una scala di massa arbitraria. Aggiungiamo:
+\begin{equation}
+L_{\mathrm{c.t.}}=\frac{1}{2}\delta Z_{\varphi}\partial_{\mu}\varphi\partial_{\mu}\varphi+\frac{1}{2}\delta m^2\varphi^2+\frac{\delta v\mu^{\epsilon}}{4!}\varphi^4\;,
+\end{equation}
+in modo tale che questi controtermini cancellino, ordine per ordine, le divergenze. Introduciamo le costanti di rinormalizzazione e definiamo le quantità \emph{bare}:
+\begin{align}
+&Z_{\varphi}\equiv 1+\delta Z_{\varphi} & \varphi_0\equiv Z_{\varphi}^{1/2}\varphi \notag\;, \\
+&m_0^2\equiv\frac{m^2+\delta m^2}{Z_{\varphi}}\equiv \frac{Z_m}{Z_{\varphi}}m^2 \notag\;, \\
+&\lambda_0=\mu^{\epsilon}\frac{v+\delta v}{Z_{\varphi}^2}\equiv \mu^{\epsilon}v \frac{Z_v}{Z_{\varphi}^2}\;.
+\end{align}
+In questo modo avremo:
+\begin{equation}
+L+L_{\mathrm{c.t.}}=\frac{1}{2}\partial_{\mu}\varphi_0\partial_{\mu}\varphi_0+\frac{1}{2}m_0^2\varphi_0^2+\frac{\lambda_0}{4!}\varphi_0^4\;.
+\end{equation}
+I termini introdotti sono arbitrari nelle loro parti finite. Dobbiamo quindi fissare lo \emph{schema di rinormalizzazione}. Useremo lo \emph{schema di sottrazione minimale (MS) in regolarizzazione dimensionale}, che consiste nel sottrarre solamente i poli in $1/\epsilon$:
+\begin{align}
+&G_c^{(2)}=\frac{1}{p^2+m^2+\delta m^2-\dfrac{v}{32\pi^2}m^2\dfrac{2}{\epsilon}+\mbox{termini finiti}} \notag\;, \\
+&G_c^{(4)}=-\lambda\left[1-\frac{v}{16\pi^2}\frac{3}{\epsilon}+\delta v+\mbox{termini finiti}\right]\;.
+\end{align}
+A questo punto possiamo definire:
+\begin{equation}
+\begin{matrix}
+&\delta m^2=\dfrac{v}{32\pi^2}m^2\dfrac{2}{\epsilon} & \implies & Z_m=1+\dfrac{v}{16\pi^2}\dfrac{1}{\epsilon}\;, \\
+\\
+&\delta v=\dfrac{v}{16\pi^2}\dfrac{3}{\epsilon} & \implies & Z_v=1+\dfrac{3}{16\pi^2}\dfrac{v}{\epsilon}\;.
+\end{matrix}
+\end{equation}
+mentre $Z_{\varphi}=1+\mathcal{O}(v^2)$ perché ad un loop non abbiamo divergenze quadratiche.
+\subsection{RGE per una teoria scalare massless}
+\begin{equation}
+S=\int\diff^D{x}\left[\frac{1}{2}\partial_{\mu}\varphi_0\partial_{\mu}\varphi_0+\frac{\lambda_0}{4!}\varphi_0^4\right]=\int\diff^D{x}\left[\frac{1}{2}Z_{\varphi}(\partial_{\mu}\varphi)^2+\frac{Z_vv}{4!}\mu^{\epsilon}\varphi^4\right]\;.
+\end{equation}
+Per l'azione efficace rinormalizzata $\Gamma_r$ varrà un'identità del tipo:
+\begin{equation}
+\Gamma_0^{(n)}(k_i,\lambda_0)=Z_{\varphi}^{-n/2}(v)\Gamma_r^{(n)}(k_i,v,\mu)\;.
+\end{equation}
+Il primo membro non dipende da $\mu$, cioè $\mu \diff{\Gamma_0^{(n)}}/\diff{\mu}=0$. Per il secondo membro otteniamo allora una relazione non banale:
+\begin{equation}
+\boxed{
+\left[\mu\frac{\partial}{\partial\mu}+\beta(v)\frac{\partial}{\partial v}-\frac{n}{2}\eta(v)\right]\Gamma_r^{(n)}(k_i,v,\mu)=0
+}\;, \label{sec5_nonbanale}
+\end{equation}
+detta \emph{equazione del gruppo di rinormalizzazione} (RGE), dove:
+\begin{equation}
+\beta(v)\equiv \mu\left.\dev{v}{\mu}\right|_{\lambda_0=\mbox{cost}},\quad \eta(v)=\beta(v)\pdev{\ln Z_{\varphi}}{v}\;.
+\end{equation}
+Se la teoria è rinormalizzabile, allora $\beta(v)$ e $\eta(v)$ sono funzioni di $v$ finite ordine per ordine in teoria delle perturbazioni. Ricordando che:
+$$
+Z_v=1+\frac{3}{2}\frac{\bar{v}}{\epsilon},\quad \bar{v}=N_Dv,\quad N_D=\frac{2}{(4\pi)^{D/2}\Gamma(D/2)}\stackrel{\epsilon\to 0}{\simeq}\frac{1}{8\pi^2}+\mathcal{O}(\epsilon)\;,
+$$
+possiamo estrarre la funzione $\beta$ derivando rispetto a $\mu$ la relazione $\lambda_0=v\mu^{\epsilon}Z_v/Z_{\varphi}^2$ (tenendo presente che il primo membro non vi dipende):
+\begin{equation}
+\beta(\bar{v})=\mu\dev{\bar{v}}{\mu}\qquad \Longrightarrow\qquad
+\boxed{
+\beta(v)=-\epsilon\pdev{\ln(\bar{v}Z_v/Z_{\varphi}^2)}{\bar{v}}=-\epsilon\bar{v}+\frac{3}{2}\bar{v}^2
+}\;.
+\end{equation}
+Per $\epsilon\to 0$ otteniamo la funzione $\beta$ a un loop al primo ordine:
+\begin{equation}
+\beta(v)=\frac{3}{2}\bar{v}\;,
+\end{equation}
+mentre:
+\begin{equation}
+\eta(v)=\frac{\bar{v}^2}{24}+\mathcal{O}(\bar{v}^3)\;.
+\end{equation}
+Consideriamo la funzione 1PI a $n$ punti:
+$$
+\Gamma^{(n)}(k_i)=\frac{G_c^{(n)}(k_i)}{\displaystyle\prod G_c^{(2)}(k_i)}\;,
+$$
+la sua dimensione in energia sarà:
+\begin{equation}
+[\Gamma^{(n)}]=4-n+\frac{\epsilon}{2}(n-2)\equiv d_{\Gamma^{(n)}}\;.
+\end{equation}
+Allora:
+\begin{equation}
+\Gamma_r^{(n)}(k_i;v,\mu)=\mu^{d_{\Gamma^{(n)}}}\hat{\Gamma}^{(n)}\left(\frac{k_i}{\mu},v\right)\;,
+\end{equation}
+con $\hat{\Gamma}^{(n)}$  adimensionale. Da ciò segue che:
+\begin{equation}
+\boxed{
+\left[\mu\frac{\partial}{\partial\mu}+s\frac{\partial}{\partial s}-d_{\Gamma^{(n)}}\right]\Gamma_r^{(n)}(sk_i;v,\mu)=0
+}\;. \label{sec5_equation}
+\end{equation}
+Combinando quest'ultima equazione con la \eqref{sec5_nonbanale}:
+\begin{equation}
+\boxed{
+\left[-s\frac{\partial}{\partial s}+\beta\frac{\partial}{\partial v}-\frac{n}{2}\eta(v)+d_{\Gamma^{(n)}}\right]\Gamma_r^{(n)}(sk_i;v,\mu)=0
+}\;.
+\end{equation}
+L'equazione che lega $v$ e $\mu$ è l'equazione di \emph{running coupling constant}:
+\begin{equation}
+\boxed{
+\mu\dev{v}{\mu}=\beta(v)
+}\;.
+\end{equation}
+Per risolvere l'equazione \eqref{sec5_equation}, usiamo il metodo delle \emph{curve caratteristiche}. Consideriamo il problema di Cauchy:
+$$
+\begin{cases}
+\dfrac{\partial}{\partial t}F(x,t)=\beta(x)\dfrac{\partial}{\partial x}F(x,t)\;, \\
+\\
+F(\bar{x},0)=A(\bar{x})\;.
+\end{cases}
+$$
+Allora la soluzione sarà $F(x,t)=A(x(t))$, dove $x(t)$ soddisfa:
+$$
+\begin{cases}
+\dfrac{\diff{x}}{\diff{t}}=\beta(x)\;, \\
+\\
+x(0)=\bar{x}\;.
+\end{cases}
+$$
+Complichiamo l'equazione:
+$$
+\frac{\partial}{\partial}G(x,t)=\beta(x)\frac{\partial}{\partial x}G(x,t)+\alpha(x)G(x,t)\;,
+$$
+e cerchiamo una soluzione nella forma:
+$$
+G(x,t)=\exp\left(\int_0^t\diff{t'}\;\alpha(x(t'))\right)F(x,t)\;,
+$$
+sostituendo troviamo la stessa equazione di prima per $F$. Allora:
+$$
+G(x,t)=A(x(t))\exp\left(\int_0^t\diff{t'}\;\alpha(x(t'))\right)\;.
+$$
+Applichiamo il tutto all'equazione \eqref{sec5_equation} (con $t=\ln s$), trovando:
+\begin{equation}
+\boxed{
+\Gamma_r^{(n)}(sk_i;v,\mu)=s^{4-n}\Gamma^{(n)}(k_i;v(s),\mu)\exp\left[-\frac{n}{2}\int_1^s\frac{\diff{s'}}{s'}\eta(v(s'))\right]
+}\;,
+\end{equation}
+con:
+\begin{equation}
+s\pdev{v}{s}=\beta(v),\qquad v(s=1)=v\;.
+\end{equation}
+Questa trattazione è valida per tutte le teorie rinormalizzabili. Per la teoria $\varphi^4$ in $D$ dimensioni la funzione $\beta$ è data da:
+\begin{equation}
+\beta(g)=-\epsilon g+\frac{3}{2}g^2\stackrel{\epsilon\to 0}{\longrightarrow} \frac{3}{2}g^2+\mathcal{O}(g^3)\;.
+\end{equation}
+Di conseguenza l'equazione del gruppo di rinormalizzazione è:
+\begin{equation}
+\mu \pdev{g(\mu)}{\mu}=b_0g^2{\mu},\qquad g(\mu_0)=g\;,
+\end{equation}
+risolta da:
+\begin{equation}
+\boxed{
+g(\mu)=\frac{g(\mu_0)}{1-b_0g(\mu_0)\ln(\mu/\mu_0)}
+}\;.
+\end{equation}
+Se $b_0>0$, aumentando la scala di energia $\mu$, l'accoppiamento $g(\mu)$ cresce. La soluzione ha un polo, che però si trova a scale di energie non perturbative, quindi non costituisce un problema. \\
+Consideriamo il caso in cui $\epsilon\ne 0$ (i.e. $D\ne 4$) non fissato. Vediamo come si comporta la running coupling constant:
+$$
+\beta(g)=-\epsilon g+\frac{3}{2}g^2\qquad \Longrightarrow\qquad \mu\pdev{g(\mu)}{\mu}=-\epsilon g+bg^2\;.
+$$
+La funzione $\beta$ si annulla in $g=0$ e $g=\epsilon/b_0\equiv g^*$. Assumiamo che $0<g,g_0<g^*$, con $g_0\equiv g(\mu_0)$. Allora:
+\begin{equation}
+\frac{\mu}{\mu_0}=\exp\int_{g_0}^g\frac{\diff{g'}}{\beta(g')}=\left[\frac{(g^*-g)g_0}{(g^*-g_0)g}\right]^{1/\epsilon}\;.
+\end{equation}
+Adesso per $\mu\to\infty$ si h $g\to 0$ (punto fisso ultravioletto), mentre per $\mu\to 0$ si ha $g\to g^*$ (punto fisso infrarosso).
+\cleardoublepage
+\section{Rottura spontanea di simmetria}
+\subsection{Simmetrie}
+La Lagrangiana:
+$$
+L=\frac{1}{2}\partial_{\mu}\phi\partial_{\mu}\phi+\frac{1}{2}r\phi^2+\frac{g}{4!}\phi^4\;,
+$$
+è invariante sotto l'azione del gruppo discreto $\mathbb{Z}_2$. Adesso estendiamo ad un campo scalare con $N$ componenti $\phi\equiv (\phi_1,\ldots,\phi_N)$:
+\begin{equation}
+L=\frac{1}{2}\sum_i\partial_{\mu}\phi\partial_{\mu}\phi+\frac{1}{2}r\sum_i\phi_i^2+\frac{g}{4!}\sum_i\phi_i^4\;. \label{sec6_oN}
+\end{equation}
+Questo modello presenta una simmetria $O(N)$: $\phi_i\to \phi_i'=O_{ij}\phi_j$, con $O\in O(N), OO^T=1$. Il gruppo $O(N)$ è continuo. In generale, se:
+$$
+\delta\phi_i=t^{\alpha}_{ij}\omega^{\alpha}\phi_j\;,
+$$
+è una simmetria della Lagrangiana, per il teorema di Noether ad ogni $\alpha$ è associata una corrente di Noether:
+$$
+J_{\mu}^{\alpha}=\frac{\partial L}{\partial\partial^{\mu}\phi_i}\frac{\delta\phi_i}{\delta\omega^{\alpha}}=\partial_{\mu}\phi_it^{\alpha}_{ij}\phi_j\;,
+$$
+conservata, $\partial^{\mu}J^{\alpha}_{\mu}=0$, cioè:
+$$
+Q_{\alpha}=\int\diff^3{x}\; J^0_{\alpha}\;,
+$$
+è costante. Tutto questo vale a livello classico. A livello quantistico, è possibile non riuscire ad implementare la simmetria classica a livello di teoria di campo. In questo caso si parla di \emph{anomalia quantistica}. Se invece l'implementazione è possibile, essa può avvenire in due modi: il primo in cui è  tutto tranquillo, si riescono a scrivere sia la corrente di Noether che la carica $Q$ come operatori quantistici. Nel secondo caso invece la simmetria esiste dinamicamente (i.e. la Lagrangiana è invariante per il gruppo) ma gli operatori $J^{\mu},Q$ non sono ben definiti. In questo caso si parla di \emph{rottura spontanea di simmetria}. Questo fenomeno è dovuto al fatto che il vuoto della teoria non è invariante per il gruppo di simmetria, e compaiono della particelle massless dette \emph{bosoni di Goldstone}, che  diventano il segnale che dinamicamente la simmetria è rotta.\\
+
+Riprendiamo in esame la Lagrangiana \eqref{sec6_oN}. Il gruppo di simmetria è $O(N)$, le cui trasformazioni sono $\phi_i\to \phi_i'=O_{ij}\phi_j$. In versione infinitesima:
+\begin{equation}
+\phi_i\to \phi_i'=\phi_i+\delta\phi_i\;,\qquad \delta\phi_i=t^{\alpha}_{ij}\theta^{\alpha}\phi_j\;.
+\end{equation}
+I $t^{\alpha}$ sono i \emph{generatori} del gruppo $O(N)$ (li scegliamo antisimmetrici reali), tali che $[t^{\alpha},t^{\beta}]=i\epsilon^{\alpha\beta\gamma}t^{\gamma}$. Allora:
+\begin{equation}
+\delta S=\frac{\delta S}{\delta\phi_i}\delta\phi_i=\frac{\delta S}{\delta\phi_i}t^{\alpha}_{ij}\theta^{\alpha}\phi_j=0\;.
+\end{equation}
+Per implementale la simmetria in teoria di campo, usiamo l'approccio funzionale. Se:
+$$
+Z[J]=\int D\varphi\;e^{-S(\varphi)+J\varphi}\;,
+$$
+allora, considerando che l'azione non cambia in forma e che lo Jacobiano della trasformazione è unitario:
+\begin{equation}
+0=\delta Z[J]=\int D\varphi'\left[e^{-S(\varphi')+J\varphi'-J\delta\varphi}-e^{-S(\varphi')+J\varphi'}\right]\;,
+\end{equation}
+che al primo ordine in $\delta\varphi$ diventa:
+\begin{equation}
+0=\delta Z[J]=\int D\varphi\; J\delta\varphi e^{-S(\varphi')+J\varphi'}\;.
+\end{equation}
+Se adesso scriviamo il campo in termini di derivata rispetto a $J$;
+\begin{equation}
+\int D\varphi\left(J_it^{\alpha}_{ij}\frac{\delta}{\delta J_j}\right)e^{-S(\varphi)+J\varphi}=0\;.
+\end{equation}
+Per il funzionale generatore $W$ si ha:
+\begin{equation}
+\int\diff^D{x}\; t^{\alpha}_{ij}J_i\frac{\delta}{\delta J_j}W(J)=0\;,
+\end{equation}
+mentre per l'azione efficace $\Gamma$ si ottiene la relazione che prende il nome di \emph{identità di Ward per l'azione efficace}:
+\begin{equation}
+\int\diff^D{x}\; t^{\alpha}_{ij}\varphi_j\frac{\delta}{\delta\varphi_j}\Gamma(\varphi)=0\;.
+\end{equation}
+Consideriamo adesso il caso in cui l'azione totale $S$ sia composta dal termine simmetrico sotto $O(N)$ della \eqref{sec6_oN} più un termine che rompe esplicitamente il gruppo:
+\begin{equation}
+S=S_{\mathrm{sym}}-\int\diff^{D}x\; c_i\phi_i\;.
+\end{equation}
+L'azione classica ha un minimo per un valore non nullo delle componenti del campo $v_{0,i}$:
+\begin{equation}
+0=\left.\frac{\delta S}{\delta\phi_i}\right|_{\phi_i=v_{0,i}}=\frac{\delta S_{\mathrm{sym}}}{\delta\phi_i}(v_{0,i})-c_i=\left(r+\frac{g}{6}\sum_jv_{0,j}^2\right)v_{0,i}-c_i=0\;.
+\end{equation}
+Definiamo a questo punto $\phi_i=v_{0,i}+\chi_i$ (ricordando che i $v_{o,i}$ sono costanti), ottenendo per l'azione:
+\begin{equation}
+S(\chi)=\int\diff^D{x}\left\{\frac{1}{2}\partial_{\mu}\chi_i\partial_{\mu}\chi_i+\left[\left(\frac{r}{2}+\frac{gv_0^2}{12}\right)\delta_{ij}+\frac{g}{6}v_{0,i}v_{0,j}\right]\chi_i\chi_j+\mathcal{O}(\chi^3,\chi^4)\right\}\;,
+\end{equation}
+con $v_0^2\equiv \sum_iv_{0,i}^2$. Notiamo che è scomparso dall'azione il termine lineare che rompeva la simmetria. Tuttavia, adesso la parte quadratica non è più invariante per $O(N)$. Scriviamo adesso i funzionali generatori: $Z$ e $W$ hanno un'espressione immediata,
+$$
+Z(J)=Z_{\mathrm{sym}}(J+c),\qquad W(J)=W_{\mathrm{sym}}(J+c)\;.
+$$
+Combinando la definizione di $\Gamma$:
+$$
+\Gamma(\varphi)+W(J)=\int J_i\varphi_i,\qquad \frac{\delta W}{\delta J}=\varphi=\frac{\delta W_{\mathrm{sym}}(J+c)}{\delta J}\;,
+$$
+con la relazione:
+$$
+\Gamma_{\mathrm{sym}}(\varphi)+W_{\mathrm{sym}}(J)=\int J\varphi,\qquad \varphi=\frac{\delta W_{\mathrm{sym}}}{\delta J}\;,
+$$
+arriviamo a:
+\begin{equation}
+\Gamma(\varphi)=\Gamma_{\mathrm{sym}}-\int c\varphi\;.
+\end{equation}
+Questa relazione mette in evidenza il fatto che, a livello di rinormalizzazione, le due teorie si trattano allo stesso modo. Di conseguenza:
+\begin{align}
+&\frac{\delta \Gamma}{\delta \varphi}=J=\frac{\delta\Gamma_{\mathrm{sym}}}{\delta \varphi}-c \notag\;, \\
+&\left.\frac{\delta\Gamma}{\delta \varphi}\right|_{\varphi_i=v_i}=0 \notag\;, \\
+&\left.\frac{\delta\Gamma_{\mathrm{sym}}}{\delta\varphi_i}\right|_{\varphi_i=v_i}=c\;,
+\end{align}
+dove $v$ è il valore che assume il  campo quando  $J=0$. Infine, lo sviluppo dell'azione efficace:
+$$
+\Gamma(\varphi)=\sum_n\frac{1}{n!}\int\prod_{i=1}^n\diff{x_i}\;\Gamma^{(n)}(x_1,\ldots,x_n)\varphi(x_1)\cdots\varphi(x_n)\;,
+$$
+valido solo quando $\bra\varphi\ket=0$, va modificato tenendo conto che $\varphi-\bra\varphi\ket=\chi$:
+\begin{equation}
+\boxed{
+\Gamma(\varphi)=\sum_n\frac{1}{n!}\int\prod_{i=1}^n\diff{x_i}\;\Gamma^{(n)}(x_1,\ldots,x_n)\chi(x_1)\cdots \chi(x_n)
+}\;.
+\end{equation}
+Riprendiamo l'identità:
+$$
+\int\diff^D{x}\;t^{\alpha}_{ij}\frac{\delta\Gamma_{\mathrm{sym}}}{\delta\varphi_i}\varphi_j=0\;,
+$$
+che in termini dell'azione efficace totale $\Gamma$ diventa:
+\begin{equation}
+\boxed{
+\int\diff^D{x}\;t^{\alpha}_{ij}\left[\frac{\delta\Gamma}{\delta\chi_i}+c_i\right](v_j+\chi_j)=0
+}\;. \label{sec6_effgamma}
+\end{equation}
+Se poniamo in questa $\chi=0$, si ottiene, dato che anche $\delta\Gamma/\delta\chi|_{\chi=0}=0$:
+\begin{equation}
+t^{\alpha}_{ij}c_iv_j=0\;.
+\end{equation}
+Affinché questa sia nulla, è sufficiente che il vettore $c=(c_1,\ldots,c_n)$ sia parallelo a $v=(v_1,\ldots,v_n)$. \\
+Differenziamo adesso la \eqref{sec6_effgamma} rispetto a $\chi$ e valutiamola in $\chi=0$:
+$$
+\int\diff^D{x}\;t^{\alpha}_{ij}\left[\left.\frac{\delta\Gamma}{\delta\chi_i(x)\delta\chi_a(y)}\right|_{\chi=0}v_j+c_i\delta(x-y)\delta_{aj}\right]=0\;.
+$$
+Passiamo in trasformata:
+$$
+\left.\frac{\delta\Gamma}{\delta\chi_i(x)\delta\chi_a(y)}\right|_{\chi=0}=\Gamma^{(2)}(x-y)=\int\frac{\diff^D{k}}{(2\pi)^D}e^{-ik(x-y)}\hat{\Gamma}^{(2)}(k)\;,
+$$
+da cui si ottiene la relazione:
+\begin{equation}
+\boxed{
+t^{\alpha}_{ij}\hat{\Gamma}_{ia}^{(2)}(0)v_j+t^{\alpha}_{ia}c_i=0
+}\;,
+\end{equation}
+che lega la $\hat{\Gamma}^{(2)}$ ad un altro termine.
+\section{Rinormalizzazione in QED - II}
+\begin{equation}
+L=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}-\frac{1}{2\xi}(\partial_{\mu}A^{\mu})^2+\overline{\psi}(i\slashed{\partial}-m)\psi-e\overline{\psi}\slashed{A}\psi\;.
+\end{equation}
+Rinormalizziamo la teoria aggiungendo i controtermini:
+\begin{equation}
+L_{\mathrm{c.t.}}=-\frac{1}{4}(Z_A-1)F_{\mu\nu}F^{\mu\nu}+(Z_{\psi}-1)\overline{\psi}i\slashed{\partial}\psi-\overline{\psi}\delta m\psi-(Z_e-1)e\overline{\psi}\slashed{A}\psi\;.
+\end{equation}
+A questo punto:
+\begin{equation}
+L=-\frac{1}{4}F_{B,\mu\nu}F_B^{\mu\nu}+\overline{\psi}_B(i\slashed{\partial}-m_B)\psi_B-e_B\overline{\psi}_B\slashed{A}_B\psi_B\;,
+\end{equation}
+con:
+\begin{align*}
+&A_{B,\mu}\equiv  Z_A^{1/2}A_{\mu} & \psi_B\equiv Z_{\psi}^{1/2}\psi\;, \\
+&m_B\equiv m+\delta m & e_B\equiv\frac{Z_ee}{Z_A^{1/2}Z_{\psi}}\;.
+\end{align*}
+\subsection{Regolarizzazione tramite introduzione di parametri fisici (accenno)}
+Sia:
+$$
+D_{\mu\nu}\equiv -i\frac{g_{\mu\nu}-(1-\xi)k_{\mu}k_{\nu}/k^2}{k^2}\;,
+$$
+allora:
+$$
+G_{B,\mu\nu}^{(2)}=D_{\mu\nu}+D_{\mu\alpha}\Pi_{\alpha\beta}D_{\beta\mu}\;,
+$$
+con:
+$$
+\Pi_{\alpha\beta}=e^2\int\frac{\diff^D{k}}{(2\pi)^D}\tr\left[\gamma_{\alpha}\frac{1}{\slashed{q}-m}\gamma_{\beta}\frac{1}{(\slashed{q}+\slashed{k})-m}\right]\;.
+$$
+Dimostreremo più avanti che $\Pi_{\alpha\beta}$ è trasverso,  i.e.:
+$$
+\Pi_{\alpha\beta}(k)=-i\left(g_{\alpha\beta}-\frac{k_{\alpha}k_{\beta}}{k^2}\right)k^2\omega(k)\;.
+$$
+Inoltre $\Pi_{\alpha\beta}(k=0)=0$, e questo assicura che il fotone rimanga massless a tutti gli ordini. Includendo la correzione a un loop:
+$$
+G_{B,\mu\nu}^{(2)}=-i\frac{g_{\mu\nu}-k_{\mu}k_{\nu}/k^2}{k^2+k^2\omega(k)}+\xi\frac{k_{\mu}k_{\nu}}{k^4}\;,
+$$
+e quindi:
+$$
+G_{R,\mu\nu}^{(2)}=Z_A^{-1}G_{B,\mu\nu}^{(2)}\;.
+$$
+A questo punto dobbiamo definire $Z_A$. Possiamo per esempio imporre la condizione:
+$$
+G_{R,\mu\nu}^{(2)}\stackrel{k\to 0}{\sim}\frac{1}{k^2}\;,
+$$
+da cui si ottiene una condizione su $Z_A$. Per la massa dell'elettrone invece imponiamo che:
+$$
+G_{R,\psi\psi}^{(2)}\stackrel{k^2\sim m^2}{\sim}\frac{i}{\slashed{k}-m_e}\;,
+$$
+e definiamo $m_e$ \emph{massa fisica}. \\
+Per la carica consideriamo lo scattering elettrone-campo classico, il cui elemento di matrice a tree-level è:
+$$
+e\overline{u}(p')\gamma^{\mu}u(p)\hat{A}_{\mu}(k=p'-p)\;.
+$$
+Si può dimostrare che l'elemento di matrice del processo assume una forma tipica a tutti gli ordini:
+$$
+\overline{u}(p')\left[\gamma^{\mu}F_1(k)+i\frac{\sigma^{\mu\nu}k_{\nu}}{2m_e}F_2(k)\right]u(p)\hat{A}_{\mu}(k)\;.
+$$
+All'ordine albero imporremo quindi $F_1(0)=e$ e $F_2(0)=0$.
+\subsection{Identità di Ward-Takashi}
+Consideriamo il funzionale generatore della QED:
+\begin{equation}
+Z[J,\eta,\overline{\eta}]=\int D(A\overline{\psi}\psi)\;\exp\left\{-S+\int J_{\mu}A^{\mu}+\int(\overline{\psi}\eta+\overline{\eta}\psi)\right\}\;.
+\end{equation}
+Se effettuiamo una trasformazione $U(1)$ di gauge otteniamo che:
+\begin{equation}
+\delta Z=\int D(A\overline{\psi}\psi)\; \delta(S-\mbox{sources})\; \exp\left\{-S+\int J_{\mu}A^{\mu}+\int(\overline{\psi}\eta+\overline{\eta}\psi)\right\}=0\;,
+\end{equation}
+dove la $\delta$ indica la variazione dell'argomento dell'esponenziale sotto la trasformazione. Questa equazione segue dal fatto che il funzionale $Z$ è invariante sotto trasformazioni di gauge, quindi $Z\to Z'=Z+\delta Z\stackrel{!}{=}Z$. Questo è sempre immediatamente vero se non ci sono Jacobiani di mezzo, come nel caso abeliano della QED. Calcoliamo adesso esplicitamente la variazione di $S-\mbox{sources}$ sotto una trasformazione di gauge infinitesima:
+\begin{align}
+&\psi(x)\to (1+i\Lambda(x))\psi(x) \notag\;, \\
+& A_{\mu}(x)\to A_{\mu}(x)-\frac{1}{e}\partial_{\mu}\Lambda(x)\;.
+\end{align}
+Nell'azione $S$ è tutto invariante di gauge, tranne il termine di gauge-fixing, che subirà una variazione:
+\begin{equation}
+-\frac{1}{e\xi}\partial_{\mu}A_{\mu}\partial_{\alpha}^2\Lambda(x)\;.
+\end{equation}
+La variazione del termine di corrente invece sarà:
+\begin{equation}
+\frac{1}{e}J_{\mu}\partial_{\mu}\Lambda+\overline{\eta}i\Lambda\psi-i\Lambda\overline{\psi}\eta\;.
+\end{equation}
+Quindi:
+\begin{equation}
+\boxed{
+\delta(S-\mbox{sources})=-\frac{1}{e\xi}\partial_{\mu}A_{\mu}\partial_{\alpha}^2\Lambda+\frac{1}{e}J_{\mu}\partial_{\mu}\Lambda+\overline{\eta}i\Lambda\psi-i\Lambda\overline{\psi}\eta
+}\;.
+\end{equation}
+Adesso usiamo che:
+$$
+A_{\mu}\equiv \frac{\delta}{\delta J_{\mu}},\quad \psi\equiv\frac{\delta}{\delta\overline{\eta}},\quad \overline{\psi}\equiv\frac{\delta}{\delta\eta}\;,
+$$
+dopo aver integrato per parti per mettere in evidenza $\Lambda$:
+\begin{equation}
+-\frac{1}{e}\int\diff^D{x}\;\Lambda\left[\frac{1}{\xi}\partial^2_{\alpha}\partial_{\mu}A_{\mu}-\partial_{\mu}J_{\mu}-ie(\overline{\eta}\psi-\overline{\psi}\eta)e^{-S+\mbox{sources}}\right]=0\qquad \forall\Lambda\;.
+\end{equation}
+Otteniamo quindi l'\emph{identità di Ward-Takashi}:
+\begin{equation}
+\boxed{
+\left[-\frac{1}{\xi}\partial^2\partial_{\mu}\frac{\delta}{\delta J_{\mu}(x)}-ie\left(\overline{\eta}(x)\frac{\delta}{\delta\overline{\eta}(x)}-\eta(x)\frac{\delta}{\delta\eta(x)}\right)-\partial_{\mu}J_{\mu}\right]Z(J,\eta,\overline{\eta})=0
+}\;,
+\end{equation}
+o, per $W$,
+\begin{equation}
+\boxed{
+\left[-\frac{1}{\xi}\partial^2\partial_{\mu}\frac{\delta}{\delta J_{\mu}(x)}-ie\left(\overline{\eta}(x)\frac{\delta}{\delta\overline{\eta}(x)}-\eta(x)\frac{\delta}{\delta\eta(x)}\right)\right]W=\partial_{\mu}J_{\mu}(x)
+}\;. \label{sec6_wardtakashiforW}
+\end{equation}
+Vediamone un'applicazione:
+$$
+G_{\mu\nu}^{(2A)}=\frac{g_{\mu\nu}-(1-\xi)k_{\mu}k_{\nu}/k^2}{k^2}+A(k^2)\left(g_{\mu\nu}-\frac{k_{\mu}k_{\nu}}{k^2}\right)
+$$
+Dimostriamo che a tutti gli ordini il contributo delle correzioni è solo sulla parte trasversale. Per far ciò, usiamo l'identità di Ward-Takashi che deriva dall'applicare ad ambo i membri dell'equazione \eqref{sec6_wardtakashiforW} l'operatore:
+\begin{equation}
+\int\diff^D{x}\diff^D{y}\;e^{ik(x-y)}\left.\frac{\delta}{\delta J_{\nu}(y)}\left[\cdots\right]\right|_{J=\eta=\overline{\eta}=0}\;.
+\end{equation}
+Non avendo introdotto singolarità, l'equazione rimane valida. Risultato:
+\begin{equation}
+\frac{1}{\xi}k^2k_{\mu}\hat{G}^{(2A)}_{\mu\nu}(k)=k_{\nu}\qquad\Longrightarrow\qquad k_{\mu}\hat{G}^{(2A)}_{\mu\nu}(k)=\xi\frac{k_{\nu}}{k^2}\;.
+\end{equation}
+Questa relazione vale a tutti gli ordini, in quanto segue dal funzionale generatore e non dal suo sviluppo. All'ordine zero:
+\begin{equation}
+k_{\mu}\hat{D}_{\mu\nu}^{(2A)}(k)=\xi\frac{k_{\nu}}{k^2}\;.
+\end{equation}
+Notiamo che ottieniamo già all'ordine zero il risultato completo, quindi tutti gli altri ordini non possono dare contributi sulla parte longitudinale e pertanto saranno tutti trasversali. \\
+Scriviamo adesso l'equazione \eqref{sec6_wardtakashiforW} per l'azione efficace:
+$$
+\Gamma(A_{\mu},\overline{\psi},\psi)+W(J_{\mu},\overline{\eta},\eta)=A_{\mu}J_{\mu}+\overline{\eta}\psi+\overline{\psi}\eta\;,
+$$
+con:
+\begin{align*}
+&A_{\mu}=\frac{\delta W}{\delta J_{\mu}} & J_{\mu}=\frac{\delta\Gamma}{\delta A_{\mu}}\;, \\
+&\psi=\frac{\delta W}{\delta\overline{\eta}} & \overline{\eta}=-\frac{\delta\Gamma}{\delta\psi}\;, \\
+&\overline{\psi}=-\frac{\delta W}{\delta\eta} &\eta=\frac{\delta\Gamma}{\delta\overline{\psi}}\;.
+\end{align*}
+Si ha quindi:
+\begin{align}
+&\frac{1}{\xi}\partial^2\partial_{\mu}A_{\mu}+\left[ie\left(\psi\frac{\delta}{\delta\psi}-\overline{\psi}\frac{\delta}{\delta\overline{\psi}}\right)+\partial_{\mu}\frac{\delta}{\delta A_{\mu}}\right]\Gamma(A,\overline{\psi},\psi)=0\;, \notag \\
+&
+\left[ie\left(\psi\frac{\delta}{\delta\psi}-\overline{\psi}\frac{\delta}{\delta\overline{\psi}}\right)+\partial_{\mu}\frac{\delta}{\delta A_{\mu}}\right]\Gamma(A,\overline{\psi},\psi)=\frac{1}{\xi}\partial^2\partial_{\mu}A_{\mu}
+\;.
+\end{align}
+L'ultima equazione ha una soluzione formale:
+\begin{equation}
+\boxed{
+\Gamma(A,\overline{\psi},\psi)=\Gamma_{\mathrm{gauge-inv}}(A,\overline{\psi},\psi)+\int\diff^D{x}\;\frac{1}{2\xi}(\partial_{\mu}A_{\mu})^2
+}\;.
+\end{equation}
+Questo ci dice che tutte le divergenze degli ordini successivi sono date dalla parte gauge-invariante, quindi non abbiamo bisogno di rinormalizzare il termine che rompe la gauge. Da ciò segue che la struttura dell'azione rinormalizzata è del tipo:
+\begin{equation}
+S_R=\int\diff^D{x}\left[\frac{1}{4}Z_AF_{\mu\nu}^2+\frac{1}{2\xi}(\partial_{\mu}A_{\mu})^2-Z_{\psi}\overline{\psi}(\slashed{\partial}+m+\delta m+ie\slashed{A})\psi\right]\;,
+\end{equation}
+cioè non abbiamo bisogno di mettere costanti di rinormalizzazione alla derivata covariante. In termini dei campi e delle costanti bare:
+$$
+S_R=\frac{1}{4}(F_{\mu\nu}^0)^2+\frac{1}{2\xi_0}(\partial_{\mu}A_{\mu}^0)^2-\overline{\psi}^0(\slashed{\partial}+m_0+ie_0Z_e^{-1/2}Z_A^{-1/2}\slashed{A}^0)\psi^0\;,
+$$
+dove:
+\begin{align*}
+&A_{\mu}^0=Z_A^{1/2}A_{\mu} &\psi^0=Z_{\psi}^{1/2}\psi\;, \\
+&\alpha_0=\mu^{\epsilon}\alpha Z_e & \alpha=\frac{e^2}{4\pi}\;, \\
+& m_0=m+\delta m & \xi_0=Z_A\xi\;.
+\end{align*}
+Dato che $D=\partial+ieA$ è inveriante per rinormalizzazione, possiamo scegliere le costanti di rinormalizzazione in modo tale da avere $Z_e^{-1/2}Z_A^{-1/2}=1$, cioè $Z_e=Z_A^{-1}$. Da questa, possiamo facilmente calcolare la funzione $\beta$ della costante di accoppiamento:
+\begin{equation}
+\Gamma_0^{(\ell A,n\overline{\psi}\psi)}(p_i,q_j,\alpha_0,\xi_0,m_0)=Z_A^{-\ell/2}Z_{\psi}^{-n}\Gamma_R(p,q,\alpha,\xi,m,\mu)\;,
+\end{equation}
+quindi:
+$$
+\mu\frac{\diff}{\diff{\mu}}\Gamma_0=0=\left[\mu\frac{\partial}{\partial\mu}+\beta(\alpha)\frac{\partial}{\partial\alpha}+\eta_mm\frac{\partial}{\partial m}-\eta_{\xi}\xi\frac{\partial}{\partial\xi}-\frac{\ell}{2}\eta_A-\frac{n}{2}\eta_{\psi}\right]\Gamma_R\;,
+$$
+e:
+$$
+\mu\dev{\alpha_0}{\mu}=0=\mu\frac{\diff}{\diff{\mu}}(\mu^{\epsilon}\alpha Z_e)\;.
+$$
+\subsection{Calcolo della funzione $\beta$ per la QED a un loop}
+Schema di rinormalizzazione MS in regolarizzazione dimensionale:
+\begin{equation}
+\Gamma_{R,\mu\nu}^{(2A)}=Z_A(p^2\delta_{\mu\nu}-p_{\mu\nu})+\frac{1}{\xi}p_{\mu}p_{\nu}+e^2\int\frac{\diff^D{k}}{(2\pi)^D}\;\tr\left[\gamma^{\mu}\frac{\slashed{k}+im}{k^2+m^2}\gamma^{\nu}\frac{\slashed{p}-\slashed{k}+im}{(p-k)^2+m^2}\right]\;.
+\end{equation}
+Calcoliamo l'integrale ed estraiamo la parte divergente (ricordiamo che per l'identità di Ward-Takashi questa deve essere trasversale). Risultato:
+\begin{equation}
+[Z_A+A(p)](p^2\delta_{\mu\nu}-p_{\mu}p_{\nu})+\frac{1}{\xi}p_{\mu}p_{\nu}\;,
+\end{equation}
+dove $A(p)$ è la correzione a un loop,
+\begin{equation}
+A(p)=\frac{2}{3\pi}\frac{\alpha}{\epsilon}+\mbox{termini finiti}\;,
+\end{equation}
+da cui:
+\begin{equation}
+\boxed{
+Z_A=1-\frac{2}{3\pi}\frac{\alpha}{\epsilon}
+} \qquad \Longrightarrow\qquad
+\boxed{
+Z_e=Z_A^{-1}=\left(1-\frac{2}{3\pi}\frac{\alpha}{\epsilon}\right)^{-1}\simeq 1+\frac{2}{3\pi}\frac{\alpha}{\epsilon}
+}\;.
+\end{equation}
+Otteniamo la funzione $\beta$ derivando l'equazione $\alpha_0=\mu^{\epsilon}\alpha Z_e$ rispetto a $\mu$, ottenendo:
+\begin{equation}
+\boxed{
+\beta(\alpha)=\epsilon\alpha+\frac{2\alpha^2}{3\pi}\stackrel{\epsilon\to 0}{\longrightarrow} \frac{2}{3\pi}\alpha^2
+}\;.
+\end{equation}
+L'equazione di gruppo di rinormalizzazione per la costante di accoppiamento e la relativa soluzione saranno quindi:
+\begin{align}
+&\mu\left.\dev{\alpha}{\mu}\right|_{\alpha_0}=\frac{2}{3\pi}\alpha^2 \notag\;, \\
+&\alpha(\mu)=\frac{\alpha(\mu_0)}{1-\dfrac{2\alpha(\mu_0)}{3\pi}\ln\left(\dfrac{\mu}{\mu_0}\right)}\;.
+\end{align}
+\subsection{Vacuum Polarization}
+\begin{figure}[h]
+\begin{minipage}[h]{0.5\textwidth}
+\centering
+\begin{fmffile}{vacuum1}
+\begin{fmfgraph*}(70,70)
+\fmftop{t}
+\fmfbottom{b1,b2}
+\fmf{dashes}{t,v}
+\fmf{fermion}{b1,v}
+\fmf{fermion}{v,b2}
+\fmfdot{v}
+\end{fmfgraph*}
+\end{fmffile}
+\end{minipage}
+$+$
+\begin{minipage}[h]{0.5\textwidth}
+\centering
+\begin{fmffile}{vacuum2}
+\begin{fmfgraph*}(70,70)
+\fmftop{t}
+\fmfbottom{b1,b2}
+\fmf{dashes}{t,v1}
+\fmf{fermion,left,tension=0.3}{v1,v2,v1}
+\fmf{photon}{v2,v3}
+\fmf{fermion}{b1,v3}
+\fmf{fermion}{v3,b2}
+\fmfdot{v1,v2,v3}
+\end{fmfgraph*}
+\end{fmffile}
+
+\end{minipage}
+\end{figure}
+\begin{align}
+&A_{0,\mathrm{tree}}=\frac{e^2}{r} \notag\;, \\
+& A_{0,\mathrm{1loop}}=A_0+A_0\Pi_{0,\nu}D_{\nu\mu}\sim \frac{\alpha}{\mathbf{k}^2(1+\alpha\omega(k)}\equiv \frac{\alpha(k)}{\mathbf{k}^2}\longrightarrow \frac{\alpha(r)}{r}\;.
+\end{align}
+Possiamo scrivere una R.G.E.:
+\begin{equation}
+\boxed{
+r\frac{\diff}{\diff{r}}\alpha(r)=-\frac{2}{3\pi}\alpha^2
+}
+\qquad \Longrightarrow\qquad
+\boxed{
+\alpha(r)=\frac{\alpha}{1+\dfrac{2\alpha}{3\pi}\ln(rm_e)}
+}\;.
+\end{equation}
+L'espressione trovata per $\alpha$ diverge per $r\to 0$, mentre per $r\to\infty$ restituisce $\alpha=1/137$.
+\cleardoublepage
+\section{Meccanismo di Higgs abeliano}
+L'idea di base del meccanismo di Higgs è di associare il fenomeno delle rottura di simmetria all'invarianza di gauge. Consideriamo inizialmente una teoria invariante \emph{globalmente} per il gruppo $U(1)$:
+\begin{equation}
+L=|\partial_{\mu}\phi|^2-\lambda\left(|\phi|^2-v^2\right)^2\equiv |\partial_{\mu}\phi|^2-V(\phi)\;.
+\end{equation}
+$\phi$ è un campo scalare complesso. Il minimo del potenziale si ha per:
+\begin{equation}
+\phi_{\mathrm{min}}=ve^{i\theta}\;.
+\end{equation}
+Semiclassicamente, questo rappresenta lo stato fondamentale. Parametrizziamo quindi il campo come eccitazioni intorno al minimo:
+\begin{equation}
+\phi(x)=(v+\eta(x))e^{i\theta(x)}\;,
+\end{equation}
+con $\eta(x),\theta(x)$ campi reali. Sostituendo nella Lagrangiana otteniamo:
+\begin{equation}
+L=\partial_{\mu}\eta\partial^{\mu}\eta-4\lambda v^2\eta^2+v^2\partial_{\mu}\theta\partial^{\mu}\theta+\mathcal{O}(\eta^3,\theta^4,\ldots)\;.
+\end{equation}
+Notiamo che non ci sono termini quadratici in $\theta$, che risulta essere un bosone di Goldstone massless. Promuoviamo adesso la simmetria a $U(1)$ di gauge:
+\begin{equation}
+L=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+D_{\mu}\phi^*D^{\mu}\phi-\lambda\left(|\phi|^2-v^2\right)^2\;.
+\end{equation}
+Lo stato di minimo adesso sarà dato da:
+\begin{align}
+&\phi=ve^{i\theta(x)} \notag\;, \\
+&A_{\mu}=\frac{1}{e}\partial_{\mu}\theta(x)\;.
+\end{align}
+Parametrizziamo di nuovo il campo come prima:
+\begin{equation}
+\phi(x)=(v+\eta(x))e^{i\gamma(x)}\;.
+\end{equation}
+Adesso prima di sostituire nella Lagrangiana, effettuiamo la trasformazione di gauge:
+\begin{align}
+&\phi(x)\to \phi'(x)=e^{-i\gamma(x)}\phi(x)=v+\eta(x) \notag\;, \\
+&A_{\mu}(x)\to A_{\mu}'(x)=A_{\mu}+\frac{1}{e}\partial_{\mu}\gamma(x)\;,
+\end{align}
+ottenendo:
+\begin{equation}
+L=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+e^2v^2A_{\mu}A^{\mu}+\partial_{\mu}\eta\partial^{\mu}\eta-4\lambda v^2\eta^2+\cdots
+\end{equation}
+Adesso abbiamo un termine quadratico per il campo di gauge, che avrà quindi acquistato una "massa" $m_A=ev$, mentre il campo reale $\eta$ avrà massa $m_{\eta}=\sqrt{\lambda}v$. Il grado di libertà del bosone di Goldstone $\gamma$ è stato inglobato dal fotone e dalla sua massa (un vettore massless ha due gradi di libertà, uno massivo ne ha tre).
+\cleardoublepage
+\section{Teorie di gauge non abeliane}
+\subsection{Principio di gauge}
+Consideriamo una teoria qualsiasi avente una simmetria globale $G$:
+\begin{equation}
+\begin{matrix}
+&\partial_{\mu}\varphi\partial^{\mu}\varphi-m^2\varphi^2\;, &\varphi\equiv(\varphi_1,\ldots,\varphi_N)\;, & G=O(N)\;; \\
+\\
+&\overline{\psi}(i\slashed{\partial}-m)\psi\;, &\psi\equiv(\psi_1,\ldots,\psi_N)\;, & G=SU(N)\;.
+\end{matrix}
+\end{equation}
+L'azione di un elemento $g\in G$ su $\varphi,\psi$ dà luogo ad una rappresentazione del gruppo che dipende da come trasforma il campo. Il principio di gauge risiede nel rendere la simmetria locale. In tutti i casi, il termine cinetico non sarà invariante per trasformazioni locali, e.g.
+\begin{align*}
+&\varphi(x)\to\varphi'(x)=g(x)\psi(x)\;, \\
+&\partial_{\mu}\varphi(x)\to g(x)\partial_{\mu}\varphi(x)+\partial_{\mu}g(x)\varphi(x)\;.
+\end{align*}
+Se $t_a$ sono i generatori di $G$, per una trasformazione infinitesima $g(x)=e^{i\omega_a(x)t_a}\simeq 1+i\omega_a(x)t_a$:
+$$
+\delta\varphi=i\omega_a(x)t_a\varphi(x),\qquad \delta(\partial_{\mu}\varphi(x))=i\omega_a(x)t_a\partial_{\mu}\varphi(x)+i\partial_{\mu}\omega_a(x)t_a\varphi(x)\;.
+$$
+L'idea è di introdurre un nuovo campo $A_{\mu}$, detto \emph{campo di gauge}, tale che $D_{\mu}\equiv \partial_{\mu}+iA_{\mu}(x)=\partial_{\mu}+iA_{\mu}^a(x)t_a$ trasformi come il campo $\varphi$ sotto l'azione del gruppo $G$, cioè:
+$$
+\delta(D_{\mu}\varphi)=i\omega_a(x)t_aD_{\mu}\varphi(x)\;.
+$$
+Questo impone una condizione su come i campi di gauge trasformino sotto $G$:
+\begin{equation}
+\delta A_{\mu}(x)=i\partial_{\mu}\omega_a(x)A_{\mu}^a(x)+ [A_{\mu}(x),\omega_a(x)t_a]\;.
+\end{equation}
+Nel caso abeliano il commutatore fa zero perché $A_{\mu}\propto 1$. Possiamo quindi procedere a definire un tensore intensità di campo:
+\begin{equation}
+F_{\mu\nu}\equiv F_{\mu\nu}^at_a=[D_{\mu},D_{\nu}]=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}+[A_{\mu},A_{\nu}]\;.
+\end{equation}
+Sotto trasformazioni di gauge si ha $F_{\mu\nu}\to gF_{\mu\nu}g^{-1},g\in G$, cioè nel caso di teorie non abeliane, il tensore $F_{\mu\nu}$ non è più invariante di gauge. \\
+A questo punto possiamo costruire la teoria con l'invarianza di gauge. Nella parte originale, è sufficiente sostituire $\partial_{\mu}\to D_{\mu}$. Bisogna aggiungere la dinamica dei campi di gauge, data da $-\dfrac{1}{4g^2}\tr(F_{\mu\nu}F^{\mu\nu}$ (la traccia sugli indici del gruppu è invariante di gauge). Otteniamo quindi:
+\begin{align}
+L=-\frac{1}{4g^2}\tr(F_{\mu\nu}F^{\mu\nu})&+D_{\mu}\varphi D^{\mu}\varphi-m^2\varphi^2\qquad O(N) \notag \\
+&+\overline{\psi}(i\slashed{D}-m)\psi\qquad \qquad SU(N)\;,
+\end{align}
+con $D_{\mu}=\partial_{\mu}+iA_{\mu}$. Per ottenere la normalizzazione canonica, ridefiniamo $A_{\mu}(x)=gA_{\mu}(x)$, ottenendo:
+\begin{align}
+L=-\frac{1}{4}\tr(F_{\mu\nu}F^{\mu\nu})&+D_{\mu}\varphi D^{\mu}\varphi-m^2\varphi\cdot\varphi  \notag \\
+&+\overline{\psi}(i\slashed{D}-m)\psi\;,
+\end{align}
+con $D_{\mu}=\partial_{\mu}+igA_{\mu}$. In componenti:
+\begin{equation}
+F_{\mu\nu}^a=\partial_{\mu}A_{\nu}^a-\partial_{\nu}A_{\mu}^a+igf^{abc}A^b_{\mu}A^c_{\nu}\;.
+\end{equation}
+Notiamo che nel caso non abeliano la teoria di pura gauge non è libera: i campi di gauge interagiscono tra di loro.
+\subsection{Meccanismo di Higgs non abeliano}
+Consideriamo una teoria di gauge non abeliana:
+\begin{align}
+L &= -\frac{1}{4}\tr(F_{\mu\nu}F^{\mu\nu})+\adj{(D_{\mu}\phi)}D^{\mu}\phi-V(\adj{\phi}\phi) \notag \\
+&=-\frac{1}{4}\tr(F_{\mu\nu}F^{\mu\nu})+\adj{(D_{\mu}\phi)}D^{\mu}\phi-r\adj{\phi}\phi+u(\adj{\phi}\phi)^2\;.
+\end{align}
+Con $u>0$ per ragioni di stabilità e $r<0$. Allora il minimo di $V$ si ha per un valore di $\phi$ diverso da zero, dato da:
+\begin{equation}
+\phi_{\mathrm{min}}=-\frac{r}{u}\equiv v \qquad \Longrightarrow\qquad V(\adj{\phi}\phi)=c(\adj{\phi}\phi-v^2)^2\;.
+\end{equation}
+In queste condizioni, investighiamo il contenuto di campi intorno allo stato di vuoto. Identifichiamo un sottogruppo $H$ del gruppo di gauge $G$ generato dai generatori di $G$ che lasciano invariato il vuoto: $(t^a)_{ij}v_j=0$. Siano essi $\{t^a\}$, $a=1,\ldots, p$. I restanti generatori formeranno un sottogruppo complementare $G/H$, con generatori $\{t^a\}$, $a=p+1,\ldots,N_G=\dim G$. A questo punto usiamo la solita parametrizzazione del campo $\phi$ come eccitazione rispetto al vuoto:
+\begin{equation}
+\phi(x)=(v+\eta(x))\exp\left[i\sum_{a=p+1}^{N_G}t^a\theta^a(x)\right]\;.
+\end{equation}
+I $\theta^a(x)$ sono i bosoni di Goldstone. Usiamo adesso l'invarianza di gauge ($e^{i\sum t^a\theta^a(x)}$ è un elemento del gruppo) per inglobare i gradi di libertà associati ai Goldstone. Questa scelta prende il nome di \emph{gauge unitaria}. Otterremo, dal termine cinetico di $\phi$:
+$$
+D_{\mu}\adj{\phi}D^{\mu}\phi \ni \partial_{\mu}\eta\partial^{\mu}\eta+t^a_{ij}v_jt^b_{\ell k}v_kA_{\mu}^aA^{b,\mu}\;,
+$$
+cioè dei termini di massa per i campi di gauge (non tutti).
+\subsection{Quantizzazione di teorie di gauge non abeliane}
+Semplificazione: ci limiteremo a considerare solo la parte di pura gauge, che nel caso abeliano non è banale in quanto già essa interagente.
+\begin{equation}
+L_{\mathrm{YM}}=-\frac{1}{4}\tr(F_{\mu\nu}F^{\mu\nu})\;.
+\end{equation}
+\begin{exm}[QED] 
+Prendiamo prima in considerazione la QED, che ha gruppo di gauge abeliano per poi estendere al caso non abeliano.
+$$
+L=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\overline{\psi}(i\slashed{\partial}-e\slashed{A})\psi\;.
+$$
+La trattazione in termini di $A_{\mu}$ come sappiamo è ridondante a causa dell'invarianza di gauge. Fissiamo allora la gauge come:
+$$
+\partial_{\mu}A^{\mu}(x)=\partial_{\mu}B^{\mu}(x)+\partial^2\Lambda(x)=h(x)\;,
+$$
+con $h(x)$ arbitraria. Allora:
+$$
+Z=\int[\diff{B}\diff{\Lambda}]\delta(\partial_{\mu}B^{\mu}+\partial^2\Lambda(x)-h(x))e^{-iS(B)}\;,
+$$
+con $[\diff{B}\diff{\Lambda}]=[\diff{A}]$, e abbiamo introdotto la delta di gauge-fixing. La $Z$ dipende da $h$, allora mediamo su tutti i possibili valori usando come misura:
+$$
+\exp\left(-\frac{i}{2\xi}\int\diff^4{x}\; h^2(x)\right)\;,
+$$
+ottenendo:
+\begin{align*}
+Z &= \int [\diff{h}][\diff{B}\diff{\Lambda}]\delta(\partial_{\mu}B^{\mu}+\partial^2\Lambda-h(x))\exp\left(-iS-\frac{1}{2\xi}\int\diff^4{x}\;h^2(x)\right) \\
+&=\int[\diff{h}][\diff{A}]\delta(\partial_{\mu}A^{\mu}-h)\exp\left[-i\int\diff^4{x}\left(-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\frac{1}{2\xi}h^2+\overline{\psi}i\slashed{D}\psi\right)\right] \\
+&=\int[\diff{A}]\; \exp\left[-i\int\diff^4{x}\left(-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\frac{1}{2\xi}(\partial_{\mu}A^{\mu})^2+\overline{\psi}i\slashed{D}\psi\right)\right]\;.
+\end{align*}
+Nell'ultimo passaggio abbiamo svolto l'integrale in $h$ usando la delta di gauge-fixing. Quindi il gauge-fixing è equivalente ad aggiungere alla Lagrangiana un termine:
+$$
+L_{\mathrm{GF}}=\frac{1}{2\xi}(\partial_{\mu}A^{\mu})^2\;,
+$$
+detto appunto termine di gauge-fixing.
+\end{exm}
+Adesso proviamo ad estendere lo stesso approccio al caso non abeliano. Usiamo per comodità di calcolo la normalizzazione:
+\begin{equation}
+L_{\mathrm{YM}}=-\frac{1}{4g^2}F_{\mu\nu}^aF_{\mu\nu}^a,\qquad\qquad F_{\mu\nu}^a=\partial_{\mu}A_{\nu}^a-\partial_{\nu}A_{\mu}^a+f^{abc}A_{\mu}^bA_{\nu}^c\;.
+\end{equation}
+Le trasformazioni di gauge sono date da:
+\begin{equation}
+A_{\mu}(x)=gB_{\mu}(x)g^{-1}+g\partial_{\mu}g^{-1}\equiv [B_{\mu}(x)]^g\;.
+\end{equation}
+Fissiamo quindi la gauge:
+\begin{equation}
+\partial_{\mu}A_{\mu}(x)=\partial_{\mu}[B_{\mu}(x)]^g=h(x)\;,
+\end{equation}
+con $h(x)$ arbitraria. Scriviamo quindi la $Z$ assumendo che, dati $B$ e $h$ esista un unico $g$ per ogni $A$:
+\begin{equation}
+Z=\int[\diff{g}\diff{B}]\delta(\partial_{\mu}A_{\mu}-h)\det M\; e^{-S(B)}\;,
+\end{equation}
+dove $M$ è la matrice Jacobiana della trasformazione (che stavolta non è lineare). Per scrivere $M$ lavoriamo a livello infinitesimo, $g=1+i\omega^at^a$, da cui:
+\begin{equation}
+\delta A_{\mu}=-[A_{\mu},\omega^at^a]-\partial_{\mu}\omega^at^a=-D_{\mu}^{(A)}\omega\;.
+\end{equation}
+Allora:
+\begin{equation}
+\partial_{\mu}[B_{mu}]^g=-\partial_{\mu}D_{\mu}^{(B)}\omega\qquad\Longrightarrow\qquad \det M=\det[-\partial D^{(A)}]\;.
+\end{equation}
+Usiamo l'algebra delle variabili di Grassman per scrivere:
+\begin{equation}
+\det[-\partial D^{(A)}]=\int[\diff{\overline{c}}\diff{c}]\exp\left(-\int\diff^4{x}\diff^4{y}\; \overline{c}(x)\partial D^{(A)}]c(y)\right)\;,
+\end{equation}
+in cui i campi $c,\overline{c}$ prendono il nome di \emph{ghost} e \emph{antighost}, che sono gradi di libertà non fisici (sono scalari anticommutanti, quindi violano il teorema di spin e statistica). A questo punto il funzionale generatore diventa:
+\begin{align}
+Z &=\int[\diff{A}\diff{\overline{c}}\diff{c}\diff{h}]\exp\left(-S(A)-\int\diff^4{x}\diff^4{y}\; \overline{c}^a(x)M_{ab}(x,y)c^b(y)-\frac{1}{2\xi}\int\diff^4{x}\;h^2(x)\right) \notag \\
+&= \int [\diff{A}\diff{\overline{c}}\diff{c}]\exp\left(-S(A)-\int\diff^4{x}\diff^4{y}\; \overline{c}^a(x)M_{ab}(x,y)c^b(y)-\frac{1}{2\xi}\int\diff^4{x}(\partial_{\mu}A_{\mu}(x))^2\right) \notag \\
+&\equiv \int[\diff{A}\diff{\overline{c}}\diff{c}]e^{-S_{\mathrm{eff}}}\;,
+\end{align}
+dove $S_{\mathrm{eff}}$ prende il nome di \emph{azione di Faddeev-Popov}:
+\begin{equation}
+\boxed{
+S_{\mathrm{eff}}=-\frac{1}{4g^2}\int\diff^4{x}\;F_{\mu\nu}^aF_{\mu\nu}^a-\int\diff^4{x}\diff^4{y}\;\overline{c}_a(x)M_{ab}(x,y)c_b(y)-\frac{1}{2\xi}\int\diff^4{x}\;(\partial_{\mu}A_{\mu})^2
+}\;.
+\end{equation}
+\subsection{QCD}
+Per la Cromodinamica Quantistica (gruppo di gauge $SU(3)_C$) la Lagrangiana di Faddeev-Popov è data da:
+\begin{equation}
+\boxed{
+L=\overline{\psi}_a(i\slashed{D}-m_f)\psi_a-\frac{1}{4}\tr(F_{\mu\nu}F^{\mu\nu})+\overline{c}^i\partial_{\mu}(\partial^{\mu}\delta_{ik}+gf^{ijk}A_{\mu}^j)c^k+\frac{1}{2\xi}(\partial_{\mu}A^{\mu}_a)^2
+}\;.
+\end{equation}
+Le regole di Feynman sono le seguenti:
+\begin{itemize}
+\item \textbf{Propagatore gluonico.}
+\begin{equation}
+D_{\mu\nu}^{ab}=-i\delta^{ab}\frac{g_{\mu\nu}-(1-\xi)k_{\mu}k_{\nu}/k^2}{k^2}\;.
+\end{equation}
+\item \textbf{Propagatore fermionico.}
+\begin{equation}
+D_f=\frac{i}{\slashed{p}-m_f}\;.
+\end{equation}
+\item \textbf{Propagatore del ghost.}
+\begin{equation}
+C_{ij}=\delta_{ij}\frac{1}{k^2}\;.
+\end{equation}
+\item \textbf{Vertice} $\boldsymbol{\psi\psi}\mathbf{A}$.
+\begin{equation}
+g(t^i)_{ab}\gamma^{\mu}\;,
+\end{equation}
+dove i generatori sono nella rappresentazione fondamentale.
+\item \textbf{Vertice} $\mathbf{AAA}$.
+\begin{equation}
+igf_{ijk}\left[(r-q)_{\mu}g_{\nu\rho}+(p-r)_{\nu}g_{\mu\rho}+(p-q)_{\rho}g_{\mu\nu}\right]\;.
+\end{equation}
+\item \textbf{Vertice} $\mathbf{AAAA}$.
+\item \textbf{Vertice}  $\mathbf{ccA}$.
+\end{itemize}
+\subsection{Rinormalizzazione in QCD}
+La Cromodinamica Quantistica è una teoria rinormalizzabile. Usiamo lo schema di rinormalizzazione MS in regolarizzazione dimensionale. A differenza della QED, stavolta bisognerà calcolare tutte le costanti di rinormalizzazione perché non vi sono identità di Ward che le legano fra di loro.
+\begin{itemize}
+\item $Z_A$, $A_B=Z_A^{1/2}A_R$. Nell'euclideo:
+\begin{equation}
+\Gamma^{(AA)}_{\mu\nu,ij}(k)=\delta_{ij}(k^2\delta_{\mu\nu}-k_{\mu}k_{\nu})+\frac{1}{\xi}k_{\mu}k_{\nu}\delta_{ij}+\mbox{diagrammi ad un loop}\;.
+\end{equation}
+Anche in QCD la parte longitudinale del propagatore non rinormalizza. Facendo il conto ed imponendo $\Gamma_{R}^{(AA)}=Z_A\Gamma^{(AA)}_B$ si trova:
+\begin{equation}
+Z_A=1+\left(5-\frac{2}{3}N_{\mathrm{f}}\right)\frac{g^2}{8\pi\epsilon}\;.
+\end{equation}
+\item $Z_{\psi}$, $\psi_B=Z_{\psi}^{1/2}\psi_R$.
+\begin{equation}
+\Gamma^{(\overline{\psi}\psi)}(k)=i\slashed{k}+m_f+\mbox{diagrammi ad un loop}\;.
+\end{equation}
+Da cui:
+\begin{equation}
+\Gamma^{\overline{\psi}\psi}_R=Z_{\psi}\Gamma^{\overline{\psi}\psi}_B\qquad \Longrightarrow\qquad Z_{\psi}=1-\frac{N_c^2-1}{2N_c}\frac{g^2}{8\pi\epsilon}\;.
+\end{equation}
+\item $Z_g$.
+\begin{equation}
+\Gamma^{(A\overline{\psi}\psi)}=gt^a\gamma_{\mu}+\mbox{diagrammi ad un loop}\;,
+\end{equation}
+quindi:
+\begin{equation}
+\Gamma^{(A\overline{\psi}\psi)}_R=Z_A^{1/2}Z_{\psi}Z_g\Gamma^{(A\overline{\psi}\psi}_B\qquad \Longrightarrow\qquad Z_A^{1/2}Z_{\psi}Z_g=1-\left(\frac{N_c^2-1}{2N_c}+\frac{N_c}{2}\right)\frac{g^2}{8\pi\epsilon}\;.
+\end{equation}
+\end{itemize}
+Conoscendo $Z_A,Z_{\psi}$ possiamo quindi calcolare la costante di rinormalizzazione per l'accoppiamento:
+\begin{equation}
+Z_g=1-\left(\frac{11}{6}N_c-\frac{1}{3}N_f\right)\frac{g^2}{8\pi\epsilon},\qquad g_0=Z_gg\mu^{\epsilon/2}\;.
+\end{equation}
+Definiamo, in analogia al caso della QED, $\alpha_0=g_0^2/(4\pi)=Z_g^2\alpha\mu^{\epsilon}\equiv Z_{\alpha}\alpha\mu^{\epsilon}$, con $Z_{\alpha}=Z_g^2$, da cui:
+\begin{equation}
+Z_{\alpha}=1-\left(\frac{11}{3}N_c-\frac{2}{3}N_f\right)\frac{\alpha}{2\pi\epsilon}\;.
+\end{equation}
+Adesso siamo in grado di scrivere l'equazione del gruppo di rinormalizzazione e la funzione $\beta$ per la QCD:
+\begin{equation}
+\mu\dev{\alpha}{\mu}=\beta(\alpha)=-\left(\frac{11}{3}N_c-\frac{2}{3}N_f\right)\frac{1}{2\pi}\alpha^2\;,
+\end{equation}
+da cui:
+\begin{equation}
+\alpha(\mu)=\frac{\alpha(\mu_0)}{1-\beta_0\alpha(\mu_0)\ln(\mu/\mu_0)},\qquad \beta_0=-\left(\frac{11}{3}N_c-\frac{2}{3}N_f\right)\;.
+\end{equation}
+Nel caso reale $N_c=3,N_f=6$, si ha $\beta_0<0$, quindi la costante di accoppiamento decresce all'aumentare dell'energia. Questa proprietà prende il nome di \emph{libertà asintotica} (asymptotic freedom).
+\cleardoublepage
+\section{Modello Standard (settore elettrodebole)}
+Contenuto di campi:
+\begin{itemize}
+\item \textbf{Fermioni.}
+\begin{itemize}
+\item Quarks: $q=\{u,c,t,d,s,b\}$. Sei flavour, indice di colore interno.
+\item Leptoni: $\ell=\{e,\mu,\tau,\nu_e,\nu_{\mu},\nu_{\tau}\}$. Neutrini massless.
+\end{itemize}
+\item \textbf{Bosoni.}
+\begin{itemize}
+\item Vettori: $\gamma,Z,W^{\pm}$. $W^{\pm},Z$ massivi, $\gamma,Z$ neutri sotto $U(1)_{em}$.
+\item Scalari: $H$, bosone di Higgs, neutro.
+\end{itemize}
+\end{itemize}
+\underline{Gruppo di gauge:}  $SU(2)_L\otimes U(1)_Y$, quattro generatori.
+\begin{align*}
+&A^i,\quad i=1,2,3 &\mbox{generatori di}\; SU(2)_L\;, \\
+&B &\mbox{generatore di}\; U(1)_Y\;.
+\end{align*}
+Assegniamo due accoppiamenti di gauge per ogni fattore del gruppo di gauge: $g$ per $SU(2)_L$, $g'/2$ per $U(1)_Y$.  Per ottenere tre bosoni massivi ed uno massless, introduco un campo scalare complesso nella rappresentazione fondamentale di $SU(2)_L$ avente $Y=1$:
+\begin{equation}
+\phi=\left[\begin{matrix}
+\phi_1 \\
+\phi_2
+\end{matrix}\right]\;.
+\end{equation}
+Ricordando la definizione dell'operatore carica elettrica $Q=T_3^{SU(2)}+Y/2$ si ha:
+\begin{equation}
+Q\phi=\left(T_3^{SU(2)_L}+\frac{Y}{2}\right)\phi=\left[\left(\begin{matrix}
+1/2 & 0 \\
+0 & -1/2
+\end{matrix}\right)+\left(\begin{matrix}
+1/2 & 0 \\
+0 & 1/2
+\end{matrix}\right)\right]\left(\begin{matrix}
+\phi_1 \\
+\phi_2
+\end{matrix}\right)=\left(\begin{matrix}
+\phi_1 \\
+0
+\end{matrix}\right)\;,
+\end{equation}
+cioè la componente inferiore del campo $\phi$ ha carica elettrica nulla. Allora mettiamo il minimo del potenziale su questa componente al fine di assicurarci che il vuoto sia invariante per $U(1)_{em}$. Il potenziale del campo scalare sarà dato da:
+\begin{equation}
+V(\adj{\phi}\phi)=r\adj{\phi}\phi+\lambda(\adj{\phi}\phi)^2,\qquad  r<0,\lambda>0\;.
+\end{equation}
+Scegliamo:
+\begin{equation}
+\phi_{\mathrm{min}}=\frac{1}{\sqrt{2}}\left(\begin{matrix}
+0 \\
+v
+\end{matrix}\right),\qquad\qquad v=\sqrt{-\frac{r}{\lambda}}\;.
+\end{equation}
+Il settore vettoriale della Lagrangiana del Modello Standard è:
+\begin{equation}
+\boxed{
+L_{\mathrm{vector}}=-\frac{1}{4}\tr(A_{\mu\nu}A^{\mu\nu})-\frac{1}{4}B_{\mu\nu}B^{\mu\nu}+\adj{(D_{\mu}\phi)}D^{\mu}\phi-V(\adj{\phi}\phi)
+}\;,
+\end{equation}
+con:
+\begin{align}
+&A_{\mu\nu}^a=\partial_{\mu}A_{\nu}^a-\partial_{\nu}A_{\mu}^a+gf^{abc}A^b_{\mu}A^c_{\nu} \notag\;, \\
+&B_{\mu\nu}=\partial_{\mu}B_{\nu}-\partial_{\nu}B_{\mu} \notag\;, \\
+&D_{\mu}=\partial_{\mu}-igA_{\mu}^iT^i-i\frac{g'}{2}YB_{\mu},\qquad T^i=\frac{\sigma^i}{2}\;.
+\end{align}
+Riparametrizziamo adesso il campo $\phi$ come eccitazioni intorno al vuoto:
+\begin{equation}
+\phi=e^{-i\varphi^i(x)T^i/v}\left(\begin{matrix}
+0 \\
+\dfrac{v+\rho(x)}{\sqrt{2}}
+\end{matrix}\right)=e^{-i\varphi^i(x)\sigma^i/2v}\left(\begin{matrix}
+0 \\
+\dfrac{v+\rho(x)}{\sqrt{2}}
+\end{matrix}\right)\;,
+\end{equation}
+con $\varphi^i,\rho$ campi reali (3+1 gradi di libertà). Procedendo nell'applicazione del meccanismo di Higgs, sfruttiamo l'invarianza di gauge per riparametrizzare ulteriormente:
+\begin{equation}
+\phi(x)\to \phi'(x)=e^{i\varphi^i(x)\sigma_i/2v}\phi(x)=\left(\begin{matrix}
+0 \\
+\dfrac{v+\rho(x)}{\sqrt{2}}
+\end{matrix}\right)\;,
+\end{equation}
+e sostituiamo nella Lagrangiana:
+\begin{equation}
+L=\mbox{parte quadratica}+\frac{1}{2}\partial_{\mu}\rho\partial^{\mu}\rho-\frac{1}{2}M_{\rho}^2\rho^2+\frac{1}{8}(v+\rho)^2\left[(g'B_{\mu}-gA_{\mu}^3)(g'B^{\mu}-gA^{3,\mu})+g^2(A^1_{\mu}A^{1,\mu}+A_{\mu}^2A^{2,\mu})\right]\;,
+\end{equation}
+con $M_{\rho}=\sqrt{-2r}$. Definiamo a questo punto:
+\begin{align}
+& W^{\pm}_{\mu}=\frac{1}{\sqrt{2}}(A^1_{\mu}\pm  iA^2_{\mu}) \notag\;, \\
+& Z_{\mu}=g'B_{\mu}-gA_{\mu}^3 \notag\;, \\
+& A_{\mu}=g'A_{\mu}^3+gB_{\mu}\;.
+\end{align}
+da cui:
+\begin{equation}
+L\ni \frac{1}{8}g^2v^2(A^1_{\mu}A^{1,\mu}+A_{\mu}^2A^{2,\mu})+\frac{1}{2}M_Z^2Z_{\mu}Z^{\mu}\equiv M_W^2W_{\mu}^+W^{-,\mu}+\frac{1}{2}M_Z^2Z_{\mu}Z^{\mu}\;.
+\end{equation}
+Abbiamo ottenuto tre bosoni vettoriali massivi, $W^+,W^-,Z$ con masse:
+\begin{equation}
+M_W=\frac{gv}{2},\qquad\qquad M_Z=\frac{v}{2}\sqrt{g^2+g^{'2}}\;,
+\end{equation}
+mentre il bosone $A_{\mu}$ rimane massless. Inoltre, è presente uno scalare reale $\rho$ massivo, ossia il \emph{bosone di Higgs}. \\
+Adesso mettiamo dentro il Modello Standard i fermioni. Definiamo innanzitutto come trasformano i campi fermionici secondo il gruppo $SU(2)_L\otimes U(1)_Y$, distinguendo le componenti left e right:
+\begin{equation}
+\psi=\left(\begin{matrix}
+\psi_L \\
+\psi_R
+\end{matrix}\right),\qquad \psi_L=\frac{1-\gamma_5}{2}\psi,\quad  \psi_R=\frac{1+\gamma_5}{2}\psi\;.
+\end{equation}
+Abbiamo tre famiglie leptoniche che organizziamo in doppietti di $SU(2)_L$ ($Y=-1,SU(2)_L=2$):
+\begin{equation}
+L_e=\left[\begin{matrix}
+\nu_{e,L} \\
+e_L
+\end{matrix}\right],\qquad L_{\mu}=\left[\begin{matrix}
+\nu_{\mu,L} \\
+\mu_L
+\end{matrix}\right],\qquad L_{\tau}=\left[\begin{matrix}
+\nu_{\tau,L} \\
+\tau_L
+\end{matrix}\right]\;,
+\end{equation}
+e singoletti ($Y=-2,SU(2)_L=1$):
+\begin{equation}
+R_e=e_R,\qquad R_{\mu}=\mu_R,\qquad R_{\tau}=\tau_R\;.
+\end{equation}
+Stessa cosa per i quarks: riorganizziamoli in doppietti di $SU(2)_L$ ($Y=1/3,SU(2)_L=2$):
+\begin{equation}
+Q_u=\left[\begin{matrix}
+u_L \\
+d_L'
+\end{matrix}\right],\qquad Q_c=\left[\begin{matrix}
+c_L \\
+s_L'
+\end{matrix}\right],\qquad Q_t=\left[\begin{matrix}
+t_L \\
+b_L'
+\end{matrix}\right]\;,
+\end{equation}
+dove gli stati $d_L',s_L',b_L'$ non sono gli autostati della massa $d_L,s_L,b_L$, ma sono legati ad essi da una relazionme lineare:
+\begin{equation}
+\left[\begin{matrix}
+d_L' \\
+s_L' \\
+b_L'
+\end{matrix}\right]=A\left[\begin{matrix}
+d_L \\
+s_L \\
+b_L
+\end{matrix}\right]\;,
+\end{equation}
+con $A$ matrice unitaria. Inoltre, vi saranno due gruppi di singoletti di  $SU(2)_L$: i primi, aventi $SU(2)_L=1,Y=4/3$,
+\begin{equation}
+U=u_R,c_R,t_R\;,
+\end{equation}
+e i secondi aventi $Y=-2/3$,
+\begin{equation}
+D=d_R,s_R,b_R\;.
+\end{equation}
+Gli accoppiamenti con i bosoni vettoriali saranno dati da:
+\begin{equation}
+\overline{\psi}_Li\slashed{D}\psi_L+\overline{\psi}_Ri\slashed{D}\psi_R\;,
+\end{equation}
+con:
+\begin{align}
+& D\equiv \partial_{\mu}-igA_{\mu}^i\frac{\sigma_i}{2}-i\frac{g'}{2}YB_{\mu} & \mbox{left} \notag\;, \\
+& D\equiv \partial_{\mu}-i\frac{g'}{2}YB_{\mu} & \mbox{right}\;.
+\end{align}
+La simmetria $SU(2)_L$ proibisce un termine diretto di massa $m(\overline{\psi}_L\psi_R+\mathrm{h.c.})$ in quanto non sarebbe invariante. Usando però il campo scalare $\phi$ si ha che la combinazione:
+\begin{equation}
+\overline{\psi}_L\phi\psi_R\;,
+\end{equation}
+è un singoletto di $SU(2)_L$, quindi è un termine consentito. Dato che $\bra\phi\ket= v\ne 0$, si ottiene un termine di massa per i fermioni. Per esempio, per l'elettrone,
+\begin{equation}
+\lambda_e\overline{\psi}_L\phi\psi_R=\lambda_e(\overline{\nu}_{e,L},\overline{e}_L)\left(\begin{matrix}
+\phi_1 \\
+\phi_2
+\end{matrix}\right)e_R=\lambda_e(\overline{\nu}_{e,L},\overline{e}_L)\left(\begin{matrix}
+0 \\
+v
+\end{matrix}\right)e_R=\lambda_ev\overline{e}_Le_R\;.
+\end{equation}
+In generale, si ha:
+\begin{equation}
+m_{\mathrm{f}}=v\lambda_{\mathrm{f}}\;,
+\end{equation}
+dove $\lambda_{\mathrm{f}}$ è l'accoppiamento del fermione con l'Higgs (Yukawa). Passiamo adesso alle interazioni con i bosoni vettoriali:
+\begin{equation}
+L_{\mathrm{int}}=-g\sin\theta_WA_{\mu}J^{\mu}_{\gamma}-\frac{g}{\cos\theta_W}Z_{\mu}J^{\mu}_Z-\frac{g}{\sqrt{2}}(W_{\mu}^+J_W^{\mu,+}+\mbox{h.c.})\;.
+\end{equation}
+A tree level $\cos\theta_W=M_W/M_Z, G_F=\sqrt{2}g^2/(8M_W^2)$. Definiamo:
+\begin{align}
+& \psi_{\ell}\equiv (\nu_e,\nu_{\mu},\nu_{\tau},e,\mu,\tau) \notag\;,  \\
+& \psi_q\equiv (u,c,t,d,s,b)\;.
+\end{align}
+Allora per la corrente associata al campo fotonico si ha:
+\begin{align}
+&J^{\mu}_{\gamma}=J^{\mu}_{\gamma,\ell}+J^{\mu}_{\gamma,h} \notag \;,\\
+&J^{\mu}_{\gamma,\ell}=\overline{\psi}_{\ell}Q_{\ell}\gamma^{\mu}\psi_{\ell}\;, \\
+&J^{\mu}_{\gamma,h}=\overline{\psi}_qQ_q\gamma^{\mu}\psi_q\;, \\
+&Q_{\ell}=\left(\begin{matrix}
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & -1 & 0 & 0 \\
+0 & 0 & 0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 0  & 0 & -1
+\end{matrix}\right)\;, \notag \\
+&Q_q=\left(\begin{matrix}
+2/3 & 0 & 0 & 0  & 0 & 0 \\
+0 & 2/3 & 0 & 0  & 0 & 0 \\
+0 & 0 & 2/3 & 0 & 0 & 0 \\
+0 & 0 & 0& -1/3 & 0 & 0 \\
+0 & 0 & 0& 0 & -1/3 & 0 \\
+0 & 0 & 0 & 0 & 0 & -1/3
+\end{matrix}\right)\;.
+\end{align}
+Questa parte descrive l'elettrodinamica. A questo punto non resta quindi che identificare:
+\begin{equation}
+\boxed{
+e=g\sin\theta_W
+}\;.
+\end{equation}
+Per il bosone $Z$:
+\begin{equation}
+J_Z^{\mu}=\frac{1}{2}\overline{\psi}_{\ell}C_Z\gamma^{\mu}\frac{1-\gamma_5}{2}\psi_{\ell}-\sin^2\theta_WJ^{\mu}_{\gamma}\;,
+\end{equation}
+con:
+\begin{equation}
+C_Z=\left(\begin{matrix}
+I & 0 \\
+0 & -I
+\end{matrix}\right)\;.
+\end{equation}
+Per il $W$:
+\begin{equation}
+J^{\mu}_W=\overline{\psi}_{\ell}\gamma^{\mu}\frac{1-\gamma_5}{2}C_{\ell}\psi_{\ell}+\overline{\psi}_q\gamma^{\mu}\frac{1-\gamma_5}{2}C_q\psi_q\;,
+\end{equation}
+con:
+\begin{equation}
+C_{\ell}=\left(\begin{matrix}
+0 & I \\
+0 & 0
+\end{matrix}\right),\qquad\qquad C_q=\left(\begin{matrix}
+0 & A \\
+0 & 0
+\end{matrix}\right)\;,
+\end{equation}
+dove $A$ è una matrixe $3\times  3$ unitaria, detta \emph{matrice di Kobayashi-Maskawa}. \\
+I parametri liberi del Modello Standard sono quindi 18:
+\begin{align}
+&\mbox{GAUGE+HIGGS}\quad(4) & g,g',r,\lambda \quad\Longleftrightarrow \quad M_H,e,M_W,M_Z \notag\;, \\
+&\mbox{CKM matrix}\quad (4) & {} \notag\;, \\
+&\mbox{Masse fermioni}\quad (3+6) & m_e,m_{\mu},m_{\tau},m_u,m_c,m_t,m_d,m_s,m_b \notag\;, \\
+&\mbox{vev dell'Higgs}\quad (1) & v\;.
+\end{align}
+\subsection{Termini non rinormalizzabili (QED)}
+Consideriamo all'interno del Modello Standard la QED ed aggiungiamo un termine di interazione di dimensione 5, quindi non rinormalizzabile:
+\begin{equation}
+L=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}+\overline{\psi}(i\slashed{D}-m)\psi+g_P\overline{\psi}[\gamma_{\mu},\gamma_{\nu}]\psi F^{\mu\nu}\;,
+\end{equation}
+con $[g_P]=-1$. Questo termine contribuisce al $g-2$ dell'elettrone e del muone con $\sim g_P$. Se siamo in presenza di un interazione non rinormalizzabile, possiamo sempre scrivere l'accoppiamento come $g\sim \Lambda^d$ con $d<0$. Se $\Lambda$ è una scala molto grande, allora possiamo aspettarci che il contributo del termine non rinormalizzabile a basse energie sia trascurabile.
+\cleardoublepage
+\section{Gruppo di rinormalizzazione "alla Wilson"}
+Consideriamo il modello di Ising unidimensionale,
+\begin{equation}
+H=-J\sum_{\bra i,j\ket}s_is_j-h\sum_is_i,\qquad Z=\sum_{\{s_i=\pm 1\}}e^{-H/T}\;.
+\end{equation}
+Il sistema presenta una fase ferromagnetica: sotto una temperatura critica $T_c$, esso si magnetizza parallelamente al campo esterno. Passando da $h<0$ a $h>0$ (per $T<T_c$) si ha una transizione di fase del primo ordine. A $T=T_c$ si ha invece una transizione di fase del secondo ordine. Usando il mapping:
+$$
+s_i=2\rho_i-1,\qquad\qquad \rho_i=0,1\;,
+$$
+l'Hamiltoniana del sistema diventa:
+$$
+H=-4J\sum_{\bra i,j\ket}\rho_i\rho_j-\mu\sum_i\rho_i\;,
+$$
+dove $\mu$ rappresenta il potenziale chimico. Questa Hamiltoniana  descrive il fenomeno dell'opalescenza nei liquidi.
+\subsection{Ipotesi di scaling}
+Quando un sistema statistico si avvicina al punto critico la lunghezza di correlazione  diverge. Nel modello di Ising 1D con condizioni periodiche al contorno $s_{N+1}=s_1$:
+\begin{equation}
+H=-\kappa\sum_{i=1}^Ns_is_{i+1}-\mathrm{h}\sum_{i=1}^Ns_i,\qquad Z=\sum_{\{s_i\}}e^{-\beta H}\;,
+\end{equation}
+con $\kappa=\beta J, \mathrm{h}=\beta h$. Per risolvere il modello scriviamo:
+\begin{equation}
+e^{-H}=\prod_i T(s_i,s_{i+1})\;,
+\end{equation}
+dove $T$ è la \emph{matrice di transfer}, definita da:
+\begin{equation}
+T(s,s')=e^{\kappa ss'+\mathrm{h}(s+s')/2}\;.
+\end{equation}
+Usando la matrice di transfer si ottiene:
+\begin{equation}
+Z=\tr T^N,\qquad\qquad T=\left(\begin{matrix}
+e^{\kappa+\mathrm{h}} & e^{-\kappa} \\
+e^{-\kappa} & e^{\kappa-\mathrm{h}}
+\end{matrix}\right)\;.
+\end{equation}
+Gli autovalori di $T$ saranno:
+\begin{equation}
+\lambda_{\pm}=e^{\kappa}\left[\cosh(\mathrm{h})\pm(\sinh^2(\mathrm{h})+e^{-4\kappa})^{1/2}\right]\;,
+\end{equation}
+per cui possiamo scrivere:
+\begin{equation}
+Z=\lambda_+^N+\lambda_-^N\;.
+\end{equation}
+Un'altra quantità utile è la correlazione tra due siti:
+\begin{equation}
+C(i-j)\equiv \bra s_is_j\ket=\frac{\sum_{\{s_i\}}s_is_je^{-H}}{\sum_{\{s_i\}}e^{-H}}\;.
+\end{equation}
+Nel caso di campo esterno nullo:
+\begin{equation}
+C^{(\mathrm{h}=0)}(i-j)=\frac{1}{Z}\tr\left(T^{N-i}\sigma_i^zT^{i-j}\sigma_j^zT^j\right)\;.
+\end{equation}
+Siano $\epsilon_{\pm}\equiv\lambda_{\pm}(\mathrm{h}=0)$ gli autovalori della matrice di transfer per campo esterno nullo. Allora si ottiene:
+\begin{equation}
+C^{(\mathrm{h=0})}(i-j)=\frac{\epsilon_+^{N-i+j}\epsilon_-^{i-j}+\epsilon_-^{N-i+j}\epsilon_+^{i-j}}{\epsilon_+^N+\epsilon_-^N}\;.
+\end{equation}
+Nel limite $N\to\infty$:
+\begin{equation}
+C(i-j)=[\tanh(\kappa)]^{i-j}=e^{-|i-j|/\xi_L},\qquad \xi_L=\frac{1}{\ln\coth(\kappa)}\;,
+\end{equation}
+cioè le correlazioni sono soppresse esponenzialmente dalla lunghezza $\xi_L$. La lunghezza di correlazione fisica è data da $\xi=a\xi_L$, dove $a$ è il passo reticolare. Per $T\to 0$, cioè  $\kappa=\beta J\to\infty$, $\xi_L\approx e^{2\kappa}/2$, la lunghezza di correlazione diverge esponenzialmente, segno della presenza di un fenomeno critico. \\
+A questo punto eseguiamo il limite di scaling. Questo può essere fatto in due modi
+\begin{enumerate}
+\item $a\to 0$, mantenendo $\xi=a\xi_L,L=Na$ costanti, quindi $N,\xi_L\to\infty$;
+\item $\xi_L,N\to\infty$ e quindi $\xi,L\to\infty$.
+\end{enumerate}
+Facciamo il limite di scaling nella prima forma e scriviamo la densità di energia libera:
+\begin{equation}
+F=-\frac{1}{L}\ln Z=-\frac{1}{L}\ln(\lambda_+^{L/a}+\lambda_-^{L/a})\simeq -\frac{1}{L}\ln\left(2\cosh\sqrt{\frac{L^2}{4\xi^2}+L^2\stackrel{\sim}{\mathrm{h}}^2}\right)\;,
+\end{equation}
+con $\stackrel{\sim}{\mathrm{h}}=\mathrm{h}/a$. Notiamo che l'espressione di  $F$ non dipende più dal passo reticolare. \\
+Ricaviamo adesso il limite di scaling in un altro modo. Ripartiamo da:
+$$
+Z_N(\kappa,\mathrm{h})=\tr\, T^N\;.
+$$
+Quindi, invece di considerare un solo sito alla volta, li raggruppiamo in blocchi di $b$ siti, cioè:
+\begin{equation}
+Z_N=\tr\left(T^b\right)^{N/b}\;.
+\end{equation}
+La fisica del sistema non cambia, infatti abbiamo moltiplicato il passo reticolare per $b$ e diviso la $\xi_L$ per lo stesso $b$, di modo che $\xi=a\xi_L$ rimanga costante. Se poniamo:
+\begin{equation}
+T=\left(\begin{matrix}
+e^{\kappa+\mathrm{h}} & e^{-\kappa} \\
+e^{-\kappa} & e^{\kappa-\mathrm{h}}
+\end{matrix}\right)\equiv\left(\begin{matrix}
+u^{-1}v^{-1} & u \\
+u & u^{-1}v
+\end{matrix}\right)\;,
+\end{equation}
+dove $u=e^{-\kappa},v=e^{-\mathrm{h}}$, l'osservazione fondamentale è che:
+\begin{equation}
+T^2=\mathcal{C}\left(\begin{matrix}
+u'^{-1}v'^{-1} & u' \\
+u' & u'^{-1}v'
+\end{matrix}\right)\;,
+\end{equation}
+cioè il quadrato della matrice di transfer mantiene la stessa struttura della matrice stessa, a meno dell'irrilevante costante $\mathcal{C}(u,v)$, a patto di definire:
+\begin{equation}
+u'=\frac{(v+v^{-1})^{1/2}}{(u^4+u^{-4}+v^2+v^{-2})^{1/4}},\qquad v'=\frac{(u^4+v^2)^{1/2}}{(u^4+v^{-2})^{1/2}}\;.
+\end{equation}
+Questo porta a ritenere plausibile che la descrizione tramite blocchi abbia la stessa struttura anche a livello di Hamiltoniana,
+$$
+H'=-\kappa'\sum_is_is_{i+1}-\mathrm{h}'\sum_is_i\;.
+$$
+con accoppiamenti diversi. Possiamo quindi pensare di iterare il processo di raggruppamento:
+$$
+\begin{matrix}
+H &\hookrightarrow &  H' & \hookrightarrow & H'' & \hookrightarrow & \cdots \\
+& & & & & & \\
+\left(\begin{matrix}
+u \\
+v
+\end{matrix}\right) & \hookrightarrow & \left(\begin{matrix}
+u' \\
+v'
+\end{matrix}\right) &  \hookrightarrow & \left(\begin{matrix}
+u'' \\
+v''
+\end{matrix}\right) & \hookrightarrow & \cdots
+\end{matrix}
+$$
+ottenendo un flusso nello spazio delle Hamiltoniane, o equivalentemente nello spazio dei parametri $(u,v)$, detto \emph{flusso del gruppo di rinormalizzazione}:
+\begin{equation}
+\begin{cases}
+u^{(n+1)}=f_u(u^{(n)},v^{(n)})\;, \\
+\\
+v^{(n+1)}=f_v(u^{(n)},v^{(n)})\;.
+\end{cases}
+\end{equation}
+Ci domandiamo a questo punto se esiste un \emph{punto fisso} $(u^*,v^*)$ invariante per questo flusso. I punti fissi soddisfano la relazione:
+\begin{equation}
+\begin{cases}
+u^*=f_u(u^*,v^*)\;, \\
+\\
+v^*=f_v(u^*,v^*)\;.
+\end{cases}
+\end{equation}
+Per il modello di Ising 1D si trovano due punti fissi:
+\begin{equation}
+\begin{cases}
+u^*=1,v^*=v\; \mbox{(qualunque)}\;, \\
+\\
+u^*=0,v^*=1\;,
+\end{cases}
+\end{equation}
+che in termini di quantità fisiche diventano:
+\begin{equation}
+\begin{matrix}
+u^*=1,v^*=v & \Longrightarrow & T\to\infty & \qquad & \mbox{STABILE}\;, \\
+u^*=0,v^*=1 & \Longrightarrow & T=0,h=0 & \qquad & \mbox{INSTABILE}\;,
+\end{matrix}
+\end{equation}
+inoltre $\xi_L=1/(2u^2)$. Il limite $T\to 0$ corrisponde, come avevamo già visto, a $\xi_L\to\infty$. Va notato che la temperatura del sistema originale è sempre la stessa, quella che cambia è una sorta di temperatura effettiva con cui si può descrivere il sistema dopo il blocking. Il punto fisso a $T=0,h=0$, nonostante sia instabile rispetto alla temperatura, è quello più interessante perché in esso la lunghezza di correlazione diverge. Per studiare il comportamento del sistema intorno al punto fisso, linearizziamo le equazioni del gruppo di rinormalizzazione,
+$$
+\left(\begin{matrix}
+u^{(n+1)} \\
+v^{(n+1)}
+\end{matrix}\right)=\left(\begin{matrix}
+f_u(u^{(n)},v^{(n)}) \\
+f_v(u^{(n)},v^{(n)})
+\end{matrix}\right)\;,
+$$
+in termini delle variabili $r=u^4,s=v^2$, ottenendo:
+\begin{equation}
+\left(\begin{matrix}
+\Delta r \\
+\Delta s
+\end{matrix}\right)=\left(\begin{matrix}
+b^2 & 0 \\
+0 & b
+\end{matrix}\right)\left(\begin{matrix}
+\Delta r\\
+\Delta s
+\end{matrix}\right)\;,
+\end{equation}
+con $\Delta r=r-r^*,\Delta s=s-s^*$. Definiamo un'energia libera per sito come:
+\begin{align}
+f&= -\frac{1}{N}ln Z_N(\kappa,\mathrm{h})=-\frac{1}{N}\ln Z_N(\Delta r,\Delta s) \\
+&= -\frac{1}{N}\ln Z_{N/b}(\kappa',\mathrm{h}')=-\frac{1}{N'b}\ln Z_N(\Delta r',\Delta s')\;,
+\end{align}
+da cui segue che:
+\begin{equation}
+f(\Delta r,\Delta s)\approx \frac{1}{b}f(b^2\Delta r,b\Delta s)\;.
+\end{equation}
+Essendo $b$ arbitrario, possiamo sceglierlo in modo tale da avere $b^2\Delta r=1$, per cui:
+\begin{equation}
+f(\Delta r,\Delta s)\approx \Delta r^{1/2}f\left(1,\frac{\Delta s}{\Delta r^{1/2}}\right)=\Delta r^{1/2}\stackrel{\sim}{f}\left(\frac{\Delta s}{\Delta r^{1/2}}\right)\;.
+\end{equation}
+Nel limite $\kappa\to\infty,\mathrm{h}\to 0$, $\Delta s\simeq -2\mathrm{h},\Delta r=r=u^4=e^{-4\kappa}=1/(4\xi^2)$, quindi:
+\begin{equation}
+f(\Delta r,\Delta s)=\xi^{-1}\stackrel{\sim}{f}(\mathrm{h}\xi)\;.
+\end{equation}
+Un \emph{fenomeno critico} è caratterizzato da una lunghezza di correlazione che diverge, per $t=T-T_c\to 0$ e $h=0$ come:
+$$
+\xi\sim t^{-\nu}\;.
+$$
+Tutte le altre grandezze interessanti si parametrizzano in termini di $\xi$:
+$$
+G(x)\sim \frac{1}{|x|^{D-2+\eta}}=\frac{1}{\xi^{D-2+\eta}},\qquad c_v\sim t^{-\alpha},\qquad \ldots\;.
+$$
+Per l'energia libera:
+\begin{equation}
+F(T,h)=-\frac{1}{V}\ln Z(T,h)=F_{\mathrm{reg}}(T,h)+F_{\mathrm{sing}}(u_t,u_h,u_3,u_4,\ldots)\;,
+\end{equation}
+dove $F_{\mathrm{sing}}$ ha un comportamento omogeneo sotto blocking e le $u$ sono dette \emph{variabili di scala} (nel nostro caso sono $u_t\sim (T-T_c)/T_c,u_h\sim h$ al primo ordine). Sotto blocking si ha pertanto:
+\begin{equation}
+F_{\mathrm{sing}}(u_t,u_h,u_i)=b^{-D}F_{\mathrm{sing}}(u_tb^{y_t},u_hb^{y_h},u_ib^{y_i})\;.
+\end{equation}
+Le variabili di scala $u_t,u_h$ hanno $y_t,y_h>0$ e sono dette \emph{rilevanti}, mentre tutte le altre sono \emph{irrilevanti} (nel caso di Ising 1D), $y_i<0$. Estendendo quanto fatto precedentemente, scegliamo $b$ in modo che $u_tb^{y_t}=1$, cioè $b=u_t^{-1/y_t}$, quindi:
+\begin{equation}
+F_{\mathrm{sing}}(u_t,u_h,u_i)=u_t^{D/y_t}f_s(u_hu_t^{-y_h/y_t},u_iu_t^{-y_i/y_t})\approx u_t^{D/y_t}f_s(u_hu_t^{-y_h/y_t})\;,
+\end{equation}
+dove abbiamo usato il fatto che, se $y_i<0$, allora per $u_t\to 0$ $u_iu_t^{-y_i/y_t}$ tende a zero. Il comportamento asintotico è quindi determinato unicamente dalla variabili rilevanti. Sistemi aventi le stesse variabili rilevanti e variabili irrilevanti diverse si comportano allo stesso modo, cioè hanno gli stessi \emph{esponenti critici} e fanno pertanto parte della stessa \emph{classe di universalità}, che è determinata da simmetrie, dimensionalità, tipo di interazioni e tipo di rottura di simmetria.
+\subsection{Teoria di Landau}
+Consideriamo una catena unidimensionale di variabili di spin $s_i$ ed eseguiamo il blocking (\emph{coarse graining}):
+\begin{equation}
+\phi(x)\equiv \frac{1}{V_b}\sum_{i=1}^bs_i\;,
+\end{equation}
+dove $x$ è la coordinata del centro del blocco. La variabile $\phi$ è una variabile reale continua. L'idea alla base della teoria di Landau è quella di scrivere una teoria effettiva nella variabile $\phi$. Per fare ciò, si usano sempre le simmetrie: se il sistema originale ha una simmetria $G$, allora anche l'energia libera $F$ (che è la quantità che poi si va a studiare) deve avere la stessa simmetria. Inoltre, useremo il fatto che intorno al punto critico si ha $\phi\ll 1,\partial_{\mu}\phi\ll 1$. L'energia libera di Landau allora è:
+\begin{equation}
+\boxed{
+F=\int\diff^D{x}\left[k_1(\partial_{\mu}\phi)^2+k_2\phi^2+k_3\phi^4\right]
+}\;. \label{sec11_landau}
+\end{equation}
+Per sfruttare a pieno il blocking, assumiamo che la \eqref{sec11_landau} rappresenti non un'energia libera, bensì un'Hamiltoniana:
+\begin{equation}
+H=\int\diff^D{x}\left[k_1(\partial_{\mu}\phi)^2+k_2\phi^2+k_3\phi^4\right]\;.
+\end{equation}
+$H$ è un'Hamiltoniana effettiva statistica (equivalente ad un'azione nella teoria di campo classica). Quindi:
+\begin{equation}
+Z=\sum_{\{\phi\}}e^{-\beta H}=\int D\phi\; \exp\left\{-\beta\int\diff^D{x}\left[k_1(\partial_{\mu}\phi)^2+k_2\phi^2+k_3\phi^4\right]\right\}\;.
+\end{equation}
+\subsection{Prima approssimazione: teoria gaussiana}
+\begin{equation}
+H=S=\int\diff^D{x}\left[(\partial_{\mu}\phi)^2+r\phi^2\right]\;.
+\end{equation}
+Al punto critico, il sistema diventa \emph{invariante di scala}, in quanto $\xi\to\infty$. Una trasformazione di scala è data da:
+\begin{align}
+&x\to x'=\frac{x}{b}\;, \notag \\
+&r\to r'=b^2r \notag\;, \\
+&\phi(x)\to\phi'(x')=b^{(D-2)/2}\phi(x)\;, \label{sec11_scale}
+\end{align}
+in cui gli esponenti di $b$ sono le \emph{dimensioni di scala} delle quantità cui si riferiscono. Per l'azione abbiamo:
+$$
+S\to S'=\int\diff^D{x'}\left[(\partial_{\mu}\phi')^2+r'^2\phi'^2\right]\;.
+$$
+Possiamo quindi calcolare la funzione a due punti:
+$$
+\frac{\int D\phi\;\phi(x)\phi(0)e^{-S}}{\int D\phi\;e^{-S}}\qquad \stackrel{\mbox{scala}}{\longrightarrow} \qquad\frac{\int D\phi'\; b^{-(D-2)}\phi'(x')\phi'(0)e^{-S'}}{\int D\phi'\;e^{-S'}}\;,
+$$
+cioè $G(x;r)=b^{-(D-2)}G(x/b;b^2r)$. Per $r=0$, $G(x)=b^{-(D-2)}G(x/b)$, che è una relazione di omogeneità, da cui segue un comportamento a potenza intorno al punto critico:
+$$
+G(x)\sim \frac{1}{|x|^{D-2}}\;.
+$$
+Se scriviamo  $b=e^{\delta\ell}\sim 1+\delta\ell$,  allora l'espressione $r\to r'=b^2r$ può essere riscritta come:
+\begin{equation}
+\boxed{
+\dev{r}{\ell}=b\dev{r}{b}=2r
+}\;,
+\end{equation}
+che in forma è un'equazione di gruppo di rinormalizzazione. Se $r>0$, allora $\diff{r}/\diff{b}>0$, $r$ cresce e tende a divergere: le correlazioni svaniscono. Se $r<0$, allora $r$ tende a $-\infty$: se non abbiamo altri termini, la teoria è instabile, altrimenti conduce a rottura spontanea di simmetria. Se $r=0$, allora $r$ rimane costante (punto fisso gaussiano instabile). 
+\subsection{Teoria quartica}
+Per studiare la stabilità di $r=0$, aggiungiamo alla teoria un termine quartico:
+\begin{equation}
+L=\frac{1}{2}(\partial_{\mu}\phi)^2+r\phi^2+u\phi^4\;,
+\end{equation}
+e ci chiediamo come si comporta il punto fisso rispetto a $u$. Nelle trasformazioni di scala \eqref{sec11_scale} includiamo adesso $u\to u'=b^{4-D}u$. La RGE per $u$ è allora:
+\begin{equation}
+b\dev{u}{b}=(4-D)u\;.
+\end{equation}
+Se $D>4$, qualsiasi $u$ iniziale fluisce a zero, quindi la variabile $u$ è irrilevante. Se $D<4$, la non-linearità tende a crescere, quindi la variabile $u$ è rilevante. Ma cresce a caso oppure fluisce verso un altro punto fisso? Per trattare il termine $u\phi^4$ occorre (dopo aver discretizzato con cutoff $\Lambda$ o passo reticolare $a$):
+\begin{enumerate}
+\item eseguire un blocking di passo $b$: $\Lambda\to \Lambda'=\Lambda/b$;
+\item eseguire una trasformazione di scala \eqref{sec11_scale} per cui $\Lambda'\to \Lambda''=b\Lambda'=\Lambda$.
+\end{enumerate}
+Uno schema di implementazione è il seguente: nell'azione:
+$$
+S(\phi)=\int\diff^D{x}\left[\frac{1}{2}(\partial_{\mu}\phi)^2+\frac{r}{2}\phi^2+\frac{u}{4!}\phi^4\right]\;,
+$$
+scomponiamo il campo $\phi$ come:
+\begin{align}
+&\phi(x)=\phi_<(x)+\phi_>(x) \notag \;,\\
+&\phi_<(x)=\int_0^{\Lambda/b}\frac{\diff^D{k}}{(2\pi)^D}e^{ikx}\phi(x) \notag\;, \\
+&\phi_>(x)=\int_{\Lambda/b}^{\Lambda}\frac{\diff^D{k}}{(2\pi)^D}e^{ikx}\phi(x)\;,
+\end{align}
+e scriviamo una teoria effettiva per $\phi_<$, integrando via $\phi_>$. Questa operazione implementa automaticamente il punto 1.
+$$
+e^{-S(\phi_<)}=\int D\phi_>\; e^{-S(\phi)}\;.
+$$
+In termini di $\phi_>,\phi_<$:
+\begin{equation}
+S(\phi)=\int\diff^D{x}\left[\frac{1}{2}(\partial_{\mu}\phi_<)^2+\frac{1}{2}(\partial_{\mu}\phi_>)^2+\frac{1}{2}r(\phi_<)^2+\frac{1}{2}r(\phi_>)^2+\frac{u}{4!}(\phi_<+\phi_>)^4\right]\;,
+\end{equation}
+in quanto i termini dispari non contribuiscono per simmetria. L'unico termine che non disaccoppia è proporzionale a $(\phi_>)^2(\phi_<)^2$. Svolgiamo l'integrale in $D\phi_>$ perturbativamente in $u$:
+\begin{equation}
+S(\phi_<)=\int\diff^D{x}\left[\frac{1}{2}(\partial_{\mu}\phi_<)^2+\frac{1}{2}r(\phi_<)^2-\ln Z_>-\ln\bra \exp\left(-\frac{u}{4!}(\phi_>+\phi_<)^4\right)\ket_{Z_>}\right]\;,
+\end{equation}
+con:
+\begin{align}
+&(\phi_>+\phi_<)^4=(\phi_>)^4+6(\phi_>)^2(\phi_<)^2+(\phi_<)^4+\;\mbox{termini dispari} \notag\;, \\
+&Z_>=\int D\phi_>\; \exp\left\{-\int\diff^D{x}\left[\frac{1}{2}(\partial_{\mu}\phi_>)^2+\frac{r}{2}(\phi_>)^2\right]\right\}\;.
+\end{align}
+Trascurando l'integrale di $\ln Z_>$ che fa una costante di normalizzazione, rimaniamo con:
+\begin{equation}
+S=\int\diff^D{x}\left[\frac{1}{2}(\partial_{\mu}\phi_<)^2+\frac{r}{2}(\phi_<)^2+\frac{u}{4!}(\phi_<)^4-\ln\bra\exp\left[-\frac{u}{4!}\left((\phi_>)^2(\phi_<)^2\right)\right]\ket\right]\;.
+\end{equation}
+I primi due ordini in $u$ portano delle correzioni ad $r$ e $u$:
+\begin{align}
+&r'=r+u\frac{N+2}{6}\int_{\Lambda/b}^{\Lambda}\frac{\diff^D{k}}{(2\pi)^D}\frac{1}{k^2+r} \notag\;, \\
+&u'=u-u^2\frac{3}{2}\int_{\Lambda/b}^{\Lambda}\frac{\diff^D{k}}{(2\pi)^D}\frac{1}{(k^2+r)^2}\;,
+\end{align}
+dove $N$ è il numero di componenti del campo. Implementiamo adesso il punto 2. Definiamo $\hat{r}=b^2r',\hat{u}=b^{4-D}u'$ e passiamo da $(r,u)\to (\hat{r},\hat{u})$. Supponiamo quindi che $b\simeq 1$ e scriviamo le RGE::
+\begin{align}
+& b\left.\dev{\hat{r}}{b}\right|_{b=1,\Lambda=1}=2\hat{r}+\frac{\hat{u}}{2}\frac{S_D}{1+r} \notag\;, \\
+& b\left.\dev{\hat{u}}{b}\right|_{b=1,\Lambda=1}=(4-D)\hat{u}-\frac{3}{2}\hat{u}^2\frac{S_D}{(1+r)^2}\;,
+\end{align}
+dove $S_D$ è la superficie sferica unitaria $D$-dimensionale. Definiamo quindi $\stackrel{\sim}{u}\equiv \hat{u}S_D$ ottenendo:
+\begin{align}
+& b\left.\dev{\hat{r}}{b}\right|_{b=1,\Lambda=1}=2\hat{r}+\frac{\stackrel{\sim}{u}}{2(1+r)} \notag\;, \\
+& b\left.\frac{\diff{\stackrel{\sim}{u}}}{\diff{b}}\right|_{b=1,\Lambda=1}=(4-D)\stackrel{\sim}{u}-\frac{3}{2}\stackrel{\sim}{u}^2\frac{1}{(1+r)^2}\;.
+\end{align}
+Gli accoppiamenti cambiano quando il sistema viene osservato a distanze più grandi. Per trattare le equazioni di gruppo di rinormalizzazione, definiamo $\epsilon=4-D$ e sviluppiamo in potenze di $\epsilon$. Studiamo i punti fissi del flusso: abbiamo $(r,u)=(0,0)$, il punto fisso guassiano già incontrato, e inoltre il punto fisso critico:
+\begin{align}
+&r^*=-\frac{\epsilon}{6}+\mathcal{O}(\epsilon^2) \notag\;, \\
+&\stackrel{\sim}{u}^*=\frac{2}{3}\epsilon+\mathcal{O}(\epsilon^2)\;.
+\end{align}
+Vediamo quindi cosa succede in un intorno del punto critico: linearizziamo la teoria in $\delta r=r-r^*$ e $\delta u=\stackrel{\sim}{u}-\stackrel{\sim}{u}^*$, da cui:
+\begin{equation}
+\frac{\diff}{\diff{\ell}}\left(\begin{matrix}
+\delta r \\
+\delta u
+\end{matrix}\right)=\left(\begin{matrix}
+2-\epsilon/3 & 1/2+\epsilon \\
+0 & -\epsilon
+\end{matrix}\right)\left(\begin{matrix}
+\delta r\\
+\delta u
+\end{matrix}\right)\;.
+\end{equation}
+Diagonalizzando la matrice troviamo autovalori e autovettori:
+\begin{align*}
+&w_1=\delta r+c\delta u,\qquad \lambda_1=2-\epsilon/3\;, \\
+&w_2=\delta u,\qquad \lambda_2=-\epsilon\;,
+\end{align*}
+da cui:
+\begin{equation}
+\frac{\diff}{\diff{\ell}}\left(\begin{matrix}
+w_1 \\
+w_2
+\end{matrix}\right)=\left(\begin{matrix}
+2-\epsilon/3 & 0 \\
+0 & -\epsilon
+\end{matrix}\right)\left(\begin{matrix}
+w_1 \\
+w_2
+\end{matrix}\right)\;.
+\end{equation}
+$w_1$ ha autovalore positivo, quindi iterando il blocking  diverge dal punto critico, e sarà pertanto una variabile rilevante. $w_2$ ha autovalore negativo, quindi fluisce sempre a zero, e sarà pertanto una variabile irrilevante. La variabile di scala rilevante $w_1$ corrisponde a $T-T_c$. Il valore di $T_c$ dipende anche da $u$, ma \emph{come il sistema ci arriva} dipende esclusivamente da $r$. \\
+Consideriamo adesso la funzione a due punti:
+\begin{equation}
+\bra \phi(x)\phi(0)\ket=G(x;w_1,w_2)=b^{-2d_{\phi}}G(x/b;w_1b^{\lambda_1},w_2b^{\lambda_2}),\qquad d_{\phi}=\frac{D-2+\eta}{2}\;.
+\end{equation}
+Scegliamo il passo di blocking in modo tale che $w_1b^{\lambda_1}=1$, cioè $b=w_1^{-1/\lambda_1}$, allora:
+\begin{equation}
+G(x;w_1,w_2)=w_1^{2d_{\phi}/\lambda_1}G(xw_1^{1/\lambda_1};1,w_2w_1^{-\lambda_2/\lambda_1})\;.
+\end{equation}
+Avvicinandosi al punto critico $(w_1\to 0)$, dato che $\lambda_2<0$, si ha che $w_2w_1^{-\lambda_2/\lambda_1}\to 0$. Sviluppando:
+\begin{equation}
+\boxed{
+G(x;w_1,w_2)=w_1^{2d_{\phi}/\lambda_1}\left[G_0(xw_1^{1/\lambda_1}+w_2w_1^{-\lambda_2/\lambda_1}G_1(xw_1^{1/\lambda_1})+\cdots\right]
+}\;.
+\end{equation}
+Il secondo termine non contribuisce mai alla transizione, $w_2$ è una variabile irrilevante in questo senso (purché sia diversa da zero). Possiamo identificare a questo punto:
+\begin{equation}
+w_1^{-1/\lambda_1}=\xi\sim |T-T_c|^{-\nu}\;,
+\end{equation}
+da cui:
+\begin{equation}
+\boxed{
+\nu=\frac{1}{\lambda_1}\simeq \frac{1}{2}+\frac{\epsilon}{12}
+}\;.
+\end{equation}
+\cleardoublepage
+\appendix
+\section{Rottura spontanea di simmetria in MQ}
+Consideriamo la meccanica quantistica unidimensionale di una particella descritta da una coordinata $q(t)$ in un potenziale:
+\begin{equation}
+V(q)=\frac{\lambda^2}{2}(q^2(t)-v^2)^2\;.
+\end{equation}
+\begin{center}
+\setlength{\unitlength}{0.240900pt}
+\ifx\plotpoint\undefined\newsavebox{\plotpoint}\fi
+\begin{picture}(1500,900)(0,0)
+\sbox{\plotpoint}{\rule[-0.200pt]{0.400pt}{0.400pt}}%
+\put(91,197){\makebox(0,0)[r]{0}}
+\put(111.0,197.0){\rule[-0.200pt]{4.818pt}{0.400pt}}
+\put(443,90){\makebox(0,0){-v}}
+\put(443.0,131.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1107,90){\makebox(0,0){v}}
+\put(1107.0,131.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1439.0,131.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(443.0,131.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(775,90){\makebox(0,0){$0$}}
+\put(775.0,131.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1107.0,131.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(1439.0,131.0){\rule[-0.200pt]{0.400pt}{4.818pt}}
+\put(111.0,197.0){\rule[-0.200pt]{319.915pt}{0.400pt}}
+\put(775.0,131.0){\rule[-0.200pt]{0.400pt}{175.375pt}}
+\put(111.0,131.0){\rule[-0.200pt]{0.400pt}{175.375pt}}
+\put(111.0,131.0){\rule[-0.200pt]{319.915pt}{0.400pt}}
+\put(1439.0,131.0){\rule[-0.200pt]{0.400pt}{175.375pt}}
+\put(111.0,859.0){\rule[-0.200pt]{319.915pt}{0.400pt}}
+\put(30,495){\makebox(0,0){V(x)}}
+\put(775,29){\makebox(0,0){x}}
+\put(111,793){\usebox{\plotpoint}}
+\multiput(111.58,784.67)(0.493,-2.439){23}{\rule{0.119pt}{2.008pt}}
+\multiput(110.17,788.83)(13.000,-57.833){2}{\rule{0.400pt}{1.004pt}}
+\multiput(124.58,723.82)(0.494,-2.076){25}{\rule{0.119pt}{1.729pt}}
+\multiput(123.17,727.41)(14.000,-53.412){2}{\rule{0.400pt}{0.864pt}}
+\multiput(138.58,666.82)(0.493,-2.083){23}{\rule{0.119pt}{1.731pt}}
+\multiput(137.17,670.41)(13.000,-49.408){2}{\rule{0.400pt}{0.865pt}}
+\multiput(151.58,614.77)(0.494,-1.782){25}{\rule{0.119pt}{1.500pt}}
+\multiput(150.17,617.89)(14.000,-45.887){2}{\rule{0.400pt}{0.750pt}}
+\multiput(165.58,565.84)(0.493,-1.765){23}{\rule{0.119pt}{1.485pt}}
+\multiput(164.17,568.92)(13.000,-41.919){2}{\rule{0.400pt}{0.742pt}}
+\multiput(178.58,521.35)(0.493,-1.607){23}{\rule{0.119pt}{1.362pt}}
+\multiput(177.17,524.17)(13.000,-38.174){2}{\rule{0.400pt}{0.681pt}}
+\multiput(191.58,481.08)(0.494,-1.378){25}{\rule{0.119pt}{1.186pt}}
+\multiput(190.17,483.54)(14.000,-35.539){2}{\rule{0.400pt}{0.593pt}}
+\multiput(205.58,443.24)(0.493,-1.329){23}{\rule{0.119pt}{1.146pt}}
+\multiput(204.17,445.62)(13.000,-31.621){2}{\rule{0.400pt}{0.573pt}}
+\multiput(218.58,409.91)(0.494,-1.121){25}{\rule{0.119pt}{0.986pt}}
+\multiput(217.17,411.95)(14.000,-28.954){2}{\rule{0.400pt}{0.493pt}}
+\multiput(232.58,379.14)(0.493,-1.052){23}{\rule{0.119pt}{0.931pt}}
+\multiput(231.17,381.07)(13.000,-25.068){2}{\rule{0.400pt}{0.465pt}}
+\multiput(245.58,352.62)(0.494,-0.901){25}{\rule{0.119pt}{0.814pt}}
+\multiput(244.17,354.31)(14.000,-23.310){2}{\rule{0.400pt}{0.407pt}}
+\multiput(259.58,327.65)(0.493,-0.893){23}{\rule{0.119pt}{0.808pt}}
+\multiput(258.17,329.32)(13.000,-21.324){2}{\rule{0.400pt}{0.404pt}}
+\multiput(272.58,305.16)(0.493,-0.734){23}{\rule{0.119pt}{0.685pt}}
+\multiput(271.17,306.58)(13.000,-17.579){2}{\rule{0.400pt}{0.342pt}}
+\multiput(285.58,286.45)(0.494,-0.644){25}{\rule{0.119pt}{0.614pt}}
+\multiput(284.17,287.73)(14.000,-16.725){2}{\rule{0.400pt}{0.307pt}}
+\multiput(299.58,268.67)(0.493,-0.576){23}{\rule{0.119pt}{0.562pt}}
+\multiput(298.17,269.83)(13.000,-13.834){2}{\rule{0.400pt}{0.281pt}}
+\multiput(312.00,254.92)(0.536,-0.493){23}{\rule{0.531pt}{0.119pt}}
+\multiput(312.00,255.17)(12.898,-13.000){2}{\rule{0.265pt}{0.400pt}}
+\multiput(326.00,241.92)(0.590,-0.492){19}{\rule{0.573pt}{0.118pt}}
+\multiput(326.00,242.17)(11.811,-11.000){2}{\rule{0.286pt}{0.400pt}}
+\multiput(339.00,230.93)(0.728,-0.489){15}{\rule{0.678pt}{0.118pt}}
+\multiput(339.00,231.17)(11.593,-9.000){2}{\rule{0.339pt}{0.400pt}}
+\multiput(352.00,221.93)(0.890,-0.488){13}{\rule{0.800pt}{0.117pt}}
+\multiput(352.00,222.17)(12.340,-8.000){2}{\rule{0.400pt}{0.400pt}}
+\multiput(366.00,213.93)(1.123,-0.482){9}{\rule{0.967pt}{0.116pt}}
+\multiput(366.00,214.17)(10.994,-6.000){2}{\rule{0.483pt}{0.400pt}}
+\multiput(379.00,207.93)(1.489,-0.477){7}{\rule{1.220pt}{0.115pt}}
+\multiput(379.00,208.17)(11.468,-5.000){2}{\rule{0.610pt}{0.400pt}}
+\multiput(393.00,202.95)(2.695,-0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(393.00,203.17)(9.195,-3.000){2}{\rule{0.917pt}{0.400pt}}
+\put(406,199.17){\rule{2.900pt}{0.400pt}}
+\multiput(406.00,200.17)(7.981,-2.000){2}{\rule{1.450pt}{0.400pt}}
+\put(420,197.17){\rule{2.700pt}{0.400pt}}
+\multiput(420.00,198.17)(7.396,-2.000){2}{\rule{1.350pt}{0.400pt}}
+\put(446,196.67){\rule{3.373pt}{0.400pt}}
+\multiput(446.00,196.17)(7.000,1.000){2}{\rule{1.686pt}{0.400pt}}
+\put(460,197.67){\rule{3.132pt}{0.400pt}}
+\multiput(460.00,197.17)(6.500,1.000){2}{\rule{1.566pt}{0.400pt}}
+\put(473,199.17){\rule{2.900pt}{0.400pt}}
+\multiput(473.00,198.17)(7.981,2.000){2}{\rule{1.450pt}{0.400pt}}
+\multiput(487.00,201.61)(2.695,0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(487.00,200.17)(9.195,3.000){2}{\rule{0.917pt}{0.400pt}}
+\multiput(500.00,204.61)(2.695,0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(500.00,203.17)(9.195,3.000){2}{\rule{0.917pt}{0.400pt}}
+\multiput(513.00,207.61)(2.918,0.447){3}{\rule{1.967pt}{0.108pt}}
+\multiput(513.00,206.17)(9.918,3.000){2}{\rule{0.983pt}{0.400pt}}
+\multiput(527.00,210.60)(1.797,0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(527.00,209.17)(10.094,4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(540.00,214.60)(1.943,0.468){5}{\rule{1.500pt}{0.113pt}}
+\multiput(540.00,213.17)(10.887,4.000){2}{\rule{0.750pt}{0.400pt}}
+\multiput(554.00,218.60)(1.797,0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(554.00,217.17)(10.094,4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(567.00,222.60)(1.797,0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(567.00,221.17)(10.094,4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(580.00,226.60)(1.943,0.468){5}{\rule{1.500pt}{0.113pt}}
+\multiput(580.00,225.17)(10.887,4.000){2}{\rule{0.750pt}{0.400pt}}
+\multiput(594.00,230.60)(1.797,0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(594.00,229.17)(10.094,4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(607.00,234.60)(1.943,0.468){5}{\rule{1.500pt}{0.113pt}}
+\multiput(607.00,233.17)(10.887,4.000){2}{\rule{0.750pt}{0.400pt}}
+\multiput(621.00,238.60)(1.797,0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(621.00,237.17)(10.094,4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(634.00,242.61)(2.918,0.447){3}{\rule{1.967pt}{0.108pt}}
+\multiput(634.00,241.17)(9.918,3.000){2}{\rule{0.983pt}{0.400pt}}
+\multiput(648.00,245.60)(1.797,0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(648.00,244.17)(10.094,4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(661.00,249.61)(2.695,0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(661.00,248.17)(9.195,3.000){2}{\rule{0.917pt}{0.400pt}}
+\multiput(674.00,252.61)(2.918,0.447){3}{\rule{1.967pt}{0.108pt}}
+\multiput(674.00,251.17)(9.918,3.000){2}{\rule{0.983pt}{0.400pt}}
+\put(688,255.17){\rule{2.700pt}{0.400pt}}
+\multiput(688.00,254.17)(7.396,2.000){2}{\rule{1.350pt}{0.400pt}}
+\put(701,257.17){\rule{2.900pt}{0.400pt}}
+\multiput(701.00,256.17)(7.981,2.000){2}{\rule{1.450pt}{0.400pt}}
+\put(715,259.17){\rule{2.700pt}{0.400pt}}
+\multiput(715.00,258.17)(7.396,2.000){2}{\rule{1.350pt}{0.400pt}}
+\put(728,260.67){\rule{3.132pt}{0.400pt}}
+\multiput(728.00,260.17)(6.500,1.000){2}{\rule{1.566pt}{0.400pt}}
+\put(741,261.67){\rule{3.373pt}{0.400pt}}
+\multiput(741.00,261.17)(7.000,1.000){2}{\rule{1.686pt}{0.400pt}}
+\put(433.0,197.0){\rule[-0.200pt]{3.132pt}{0.400pt}}
+\put(795,261.67){\rule{3.373pt}{0.400pt}}
+\multiput(795.00,262.17)(7.000,-1.000){2}{\rule{1.686pt}{0.400pt}}
+\put(809,260.67){\rule{3.132pt}{0.400pt}}
+\multiput(809.00,261.17)(6.500,-1.000){2}{\rule{1.566pt}{0.400pt}}
+\put(822,259.17){\rule{2.700pt}{0.400pt}}
+\multiput(822.00,260.17)(7.396,-2.000){2}{\rule{1.350pt}{0.400pt}}
+\put(835,257.17){\rule{2.900pt}{0.400pt}}
+\multiput(835.00,258.17)(7.981,-2.000){2}{\rule{1.450pt}{0.400pt}}
+\put(849,255.17){\rule{2.700pt}{0.400pt}}
+\multiput(849.00,256.17)(7.396,-2.000){2}{\rule{1.350pt}{0.400pt}}
+\multiput(862.00,253.95)(2.918,-0.447){3}{\rule{1.967pt}{0.108pt}}
+\multiput(862.00,254.17)(9.918,-3.000){2}{\rule{0.983pt}{0.400pt}}
+\multiput(876.00,250.95)(2.695,-0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(876.00,251.17)(9.195,-3.000){2}{\rule{0.917pt}{0.400pt}}
+\multiput(889.00,247.94)(1.797,-0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(889.00,248.17)(10.094,-4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(902.00,243.95)(2.918,-0.447){3}{\rule{1.967pt}{0.108pt}}
+\multiput(902.00,244.17)(9.918,-3.000){2}{\rule{0.983pt}{0.400pt}}
+\multiput(916.00,240.94)(1.797,-0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(916.00,241.17)(10.094,-4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(929.00,236.94)(1.943,-0.468){5}{\rule{1.500pt}{0.113pt}}
+\multiput(929.00,237.17)(10.887,-4.000){2}{\rule{0.750pt}{0.400pt}}
+\multiput(943.00,232.94)(1.797,-0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(943.00,233.17)(10.094,-4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(956.00,228.94)(1.943,-0.468){5}{\rule{1.500pt}{0.113pt}}
+\multiput(956.00,229.17)(10.887,-4.000){2}{\rule{0.750pt}{0.400pt}}
+\multiput(970.00,224.94)(1.797,-0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(970.00,225.17)(10.094,-4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(983.00,220.94)(1.797,-0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(983.00,221.17)(10.094,-4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(996.00,216.94)(1.943,-0.468){5}{\rule{1.500pt}{0.113pt}}
+\multiput(996.00,217.17)(10.887,-4.000){2}{\rule{0.750pt}{0.400pt}}
+\multiput(1010.00,212.94)(1.797,-0.468){5}{\rule{1.400pt}{0.113pt}}
+\multiput(1010.00,213.17)(10.094,-4.000){2}{\rule{0.700pt}{0.400pt}}
+\multiput(1023.00,208.95)(2.918,-0.447){3}{\rule{1.967pt}{0.108pt}}
+\multiput(1023.00,209.17)(9.918,-3.000){2}{\rule{0.983pt}{0.400pt}}
+\multiput(1037.00,205.95)(2.695,-0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(1037.00,206.17)(9.195,-3.000){2}{\rule{0.917pt}{0.400pt}}
+\multiput(1050.00,202.95)(2.695,-0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(1050.00,203.17)(9.195,-3.000){2}{\rule{0.917pt}{0.400pt}}
+\put(1063,199.17){\rule{2.900pt}{0.400pt}}
+\multiput(1063.00,200.17)(7.981,-2.000){2}{\rule{1.450pt}{0.400pt}}
+\put(1077,197.67){\rule{3.132pt}{0.400pt}}
+\multiput(1077.00,198.17)(6.500,-1.000){2}{\rule{1.566pt}{0.400pt}}
+\put(1090,196.67){\rule{3.373pt}{0.400pt}}
+\multiput(1090.00,197.17)(7.000,-1.000){2}{\rule{1.686pt}{0.400pt}}
+\put(755.0,263.0){\rule[-0.200pt]{9.636pt}{0.400pt}}
+\put(1117,197.17){\rule{2.700pt}{0.400pt}}
+\multiput(1117.00,196.17)(7.396,2.000){2}{\rule{1.350pt}{0.400pt}}
+\put(1130,199.17){\rule{2.900pt}{0.400pt}}
+\multiput(1130.00,198.17)(7.981,2.000){2}{\rule{1.450pt}{0.400pt}}
+\multiput(1144.00,201.61)(2.695,0.447){3}{\rule{1.833pt}{0.108pt}}
+\multiput(1144.00,200.17)(9.195,3.000){2}{\rule{0.917pt}{0.400pt}}
+\multiput(1157.00,204.59)(1.489,0.477){7}{\rule{1.220pt}{0.115pt}}
+\multiput(1157.00,203.17)(11.468,5.000){2}{\rule{0.610pt}{0.400pt}}
+\multiput(1171.00,209.59)(1.123,0.482){9}{\rule{0.967pt}{0.116pt}}
+\multiput(1171.00,208.17)(10.994,6.000){2}{\rule{0.483pt}{0.400pt}}
+\multiput(1184.00,215.59)(0.890,0.488){13}{\rule{0.800pt}{0.117pt}}
+\multiput(1184.00,214.17)(12.340,8.000){2}{\rule{0.400pt}{0.400pt}}
+\multiput(1198.00,223.59)(0.728,0.489){15}{\rule{0.678pt}{0.118pt}}
+\multiput(1198.00,222.17)(11.593,9.000){2}{\rule{0.339pt}{0.400pt}}
+\multiput(1211.00,232.58)(0.590,0.492){19}{\rule{0.573pt}{0.118pt}}
+\multiput(1211.00,231.17)(11.811,11.000){2}{\rule{0.286pt}{0.400pt}}
+\multiput(1224.00,243.58)(0.536,0.493){23}{\rule{0.531pt}{0.119pt}}
+\multiput(1224.00,242.17)(12.898,13.000){2}{\rule{0.265pt}{0.400pt}}
+\multiput(1238.58,256.00)(0.493,0.576){23}{\rule{0.119pt}{0.562pt}}
+\multiput(1237.17,256.00)(13.000,13.834){2}{\rule{0.400pt}{0.281pt}}
+\multiput(1251.58,271.00)(0.494,0.644){25}{\rule{0.119pt}{0.614pt}}
+\multiput(1250.17,271.00)(14.000,16.725){2}{\rule{0.400pt}{0.307pt}}
+\multiput(1265.58,289.00)(0.493,0.734){23}{\rule{0.119pt}{0.685pt}}
+\multiput(1264.17,289.00)(13.000,17.579){2}{\rule{0.400pt}{0.342pt}}
+\multiput(1278.58,308.00)(0.493,0.893){23}{\rule{0.119pt}{0.808pt}}
+\multiput(1277.17,308.00)(13.000,21.324){2}{\rule{0.400pt}{0.404pt}}
+\multiput(1291.58,331.00)(0.494,0.901){25}{\rule{0.119pt}{0.814pt}}
+\multiput(1290.17,331.00)(14.000,23.310){2}{\rule{0.400pt}{0.407pt}}
+\multiput(1305.58,356.00)(0.493,1.052){23}{\rule{0.119pt}{0.931pt}}
+\multiput(1304.17,356.00)(13.000,25.068){2}{\rule{0.400pt}{0.465pt}}
+\multiput(1318.58,383.00)(0.494,1.121){25}{\rule{0.119pt}{0.986pt}}
+\multiput(1317.17,383.00)(14.000,28.954){2}{\rule{0.400pt}{0.493pt}}
+\multiput(1332.58,414.00)(0.493,1.329){23}{\rule{0.119pt}{1.146pt}}
+\multiput(1331.17,414.00)(13.000,31.621){2}{\rule{0.400pt}{0.573pt}}
+\multiput(1345.58,448.00)(0.494,1.378){25}{\rule{0.119pt}{1.186pt}}
+\multiput(1344.17,448.00)(14.000,35.539){2}{\rule{0.400pt}{0.593pt}}
+\multiput(1359.58,486.00)(0.493,1.607){23}{\rule{0.119pt}{1.362pt}}
+\multiput(1358.17,486.00)(13.000,38.174){2}{\rule{0.400pt}{0.681pt}}
+\multiput(1372.58,527.00)(0.493,1.765){23}{\rule{0.119pt}{1.485pt}}
+\multiput(1371.17,527.00)(13.000,41.919){2}{\rule{0.400pt}{0.742pt}}
+\multiput(1385.58,572.00)(0.494,1.782){25}{\rule{0.119pt}{1.500pt}}
+\multiput(1384.17,572.00)(14.000,45.887){2}{\rule{0.400pt}{0.750pt}}
+\multiput(1399.58,621.00)(0.493,2.083){23}{\rule{0.119pt}{1.731pt}}
+\multiput(1398.17,621.00)(13.000,49.408){2}{\rule{0.400pt}{0.865pt}}
+\multiput(1412.58,674.00)(0.494,2.076){25}{\rule{0.119pt}{1.729pt}}
+\multiput(1411.17,674.00)(14.000,53.412){2}{\rule{0.400pt}{0.864pt}}
+\multiput(1426.58,731.00)(0.493,2.439){23}{\rule{0.119pt}{2.008pt}}
+\multiput(1425.17,731.00)(13.000,57.833){2}{\rule{0.400pt}{1.004pt}}
+\put(1104.0,197.0){\rule[-0.200pt]{3.132pt}{0.400pt}}
+\put(111.0,131.0){\rule[-0.200pt]{0.400pt}{175.375pt}}
+\put(111.0,131.0){\rule[-0.200pt]{319.915pt}{0.400pt}}
+\put(1439.0,131.0){\rule[-0.200pt]{0.400pt}{175.375pt}}
+\put(111.0,859.0){\rule[-0.200pt]{319.915pt}{0.400pt}}
+
+\end{picture}
+\end{center}
+L'Hamiltoniana $H$ e la Lagrangiana $L$ del sistema sono rispettivamente:
+\begin{equation}
+H=\frac{p^2}{2m}+V(q),\qquad L=\frac{1}{2}m\dot{q}^2-V(q)\;,
+\end{equation}
+e sono entrambe simmetriche sotto parità $q(t)\to -q(t)$ (simmetria $\mathbb{Z}_2$). Il potenziale ha due minimi in $q=\pm v$. Possiamo risolvere l'equazione di Schroedinger sviluppando il potenziale intorno al minimo $q=+v$, ritenendo solo il termine quadratico della serie di Taylor (in modo da avere un oscillatore armonico) e trattando tutti gli ordini successivi come perturbazioni. Sia $|+\ket$ lo stato fondamentale ottenuto in questo modo (detto \emph{vuoto perturbativo}). Possiamo fare lo stesso espandendo intorno a $-v$ e chiamando $|-\ket$ il rispettivo vuoto perturbativo. Il vero stato fondamentale della teoria, tuttavia, non è né $|+\ket$ né $|-\ket$: a livello non perturbativo esiste una ampiezza non nulla per la transizione fra questi due stati, dovuta alla possibilità di effetto tunnel sotto la barriera che separa i due minimi (l'ampiezza di transizione può essere calcolata tramite l'approssimazione WKB). A causa dei processi di tunneling, l'Hamiltoniana del sistema non sarà diagonale nella base $|\pm\ket$: $\bra +|H|+\ket=\bra -|H|-\ket=E_0$, $\bra -|H|+\ket=\bra +|H|-\ket=\epsilon$, da cui:
+\begin{equation}
+H=\left(\begin{matrix}
+E_0 & \epsilon \\
+\epsilon & E_0
+\end{matrix}\right),\qquad\qquad \epsilon\ll E_0\;.
+\end{equation}
+Diagonalizzando $H$ si ottiene che gli autostati sono le combinazioni simmetrica e antisimmetrica:
+\begin{align}
+&|S\ket=\frac{|+\ket+|-\ket}{\sqrt{2}}\;, & E_S=E_0-\epsilon \notag\;, \\
+&|A\ket=\frac{|+\ket-|-\ket}{\sqrt{2}}\;, & E_A=E_0+\epsilon\;.
+\end{align}
+Pertanto l'apparente degenerazione tra i due livelli è risolta dal fatto che $\epsilon\ne 0$ e il vero stato fondamentale è la combinazione avente energia $E_0-\epsilon$. Sotto una trasformazione $\mathbb{Z}_2$, si ha che $|\pm\ket\to |\mp\ket$: $|S\ket$ è invariante mentre $|A\ket$ si prende un segno meno. Osserviamo quindi che il vero stato fondamentale di $H$ va in se stesso sotto parità e in conclusione non c'è rottura spontanea della simmetria $\mathbb{Z}_2$. \\
+
+Se adesso consideriamo invece un campo scalare reale:
+\begin{equation}
+\lag=\frac{1}{2}\partial^{\mu}\phi\partial_{\mu}\phi-\frac{\lambda^2}{2}(\phi^2-v^2)^2\;, \label{app_lag}
+\end{equation}
+abbiamo ancora una volta simmetria $\mathbb{Z}_2$ $\phi\to -\phi$. La differenza cruciale con il caso precedente sta nel fatto che l'ampiezza di tunneling è proporzionale a $e^{-cV}$, dove $c$ è una costante e $V$ è il volume spaziale. Questo risultato può essere compreso fisicamente discretizzando lo spazio, così che la teoria di campo \eqref{app_lag} corrisponda ad un sistema quantistico in cui in ogni punto dello spazio $\mathbf{x}$ è definita una variabile $q_{\mathbf{x}}(t)\equiv \phi(\mathbf{x},t)$ e, affinché ci sia effetto tunnel sull'altro vuoto, ognuna delle $q_{\mathbf{x}}$ deve tunnelare. Se l'ampiezza di tunneling per una singola variabile $q_{\mathbf{x}}$ è proporzionale a $e^{-c'}$ per una certa costante $c'$, allora l'ampiezza totale è il prodotto delle singole ampiezze e quindi, se $N$ è il numero di siti del reticolo:
+\begin{equation}
+\mbox{ampiezza di tunneling}\sim \prod_{\mathbf{x}}e^{-c'}=e^{-c'N}=e^{-cV}\;.
+\end{equation}
+Nel limite di volume infinito, questa ampiezza tende a zero e non si ha mixing tra i due vuoti. In altre parole, l'altezza effettiva della barriera che separa i vuoti è infinita e di conseguenza abbiamo di fatto due diverse spazi di Hilbert $\mathcal{H}_+$ e $\mathcal{H}_-$ costruiti a partire da i due vuoti $|\pm\ket$ usando le solite regole della seconda quantizzazione. Non c'è possibilità di restaurare la simmetria tramite effetto tunnel, e tutti gli operatori locali hanno elementi di matrice nulli tra uno stato in $\mathcal{H}_+$ e uno in $\mathcal{H}_-$.
+\end{document}

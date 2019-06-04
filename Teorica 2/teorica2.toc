@@ -1,0 +1,48 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {section}{\numberline {1}Seconda Quantizzazione}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Propagazione del suono (classica)}{1}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Propagazione del suono (quantistica)}{2}{subsection.1.2}% 
+\contentsline {section}{\numberline {2}Path integral}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Path integral $\to $ Meccanica Statistica}{10}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Matrice densit\IeC {\`a}}{10}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Propriet\IeC {\`a} generali del path integral}{11}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}Funzionali generatori}{12}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}Azione efficace}{14}{subsection.2.5}% 
+\contentsline {subsection}{\numberline {2.6}Approssimazione semiclassica}{15}{subsection.2.6}% 
+\contentsline {section}{\numberline {3}Path integral e teoria delle perturbazioni}{15}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Approssimazione semiclassica - II}{17}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Ordine $\hbar $}{18}{subsection.3.2}% 
+\contentsline {section}{\numberline {4}Path integral in teoria fermionica}{19}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Stati coerenti bosonici}{19}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}Stati coerenti fermionici}{19}{subsection.4.2}% 
+\contentsline {subsection}{\numberline {4.3}Path integral}{21}{subsection.4.3}% 
+\contentsline {section}{\numberline {5}Rinormalizzazione}{23}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Divergenze nella teoria delle perturbazioni}{23}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Modello $\varphi ^3$}{24}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}QED}{26}{subsection.5.3}% 
+\contentsline {subsection}{\numberline {5.4}Regolarizzazione}{28}{subsection.5.4}% 
+\contentsline {subsection}{\numberline {5.5}Rinormalizzazione della teoria $\varphi ^4$}{29}{subsection.5.5}% 
+\contentsline {subsection}{\numberline {5.6}RGE per una teoria scalare massless}{31}{subsection.5.6}% 
+\contentsline {section}{\numberline {6}Rottura spontanea di simmetria}{34}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Simmetrie}{34}{subsection.6.1}% 
+\contentsline {section}{\numberline {7}Rinormalizzazione in QED - II}{37}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Regolarizzazione tramite introduzione di parametri fisici (accenno)}{37}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Identit\IeC {\`a} di Ward-Takashi}{38}{subsection.7.2}% 
+\contentsline {subsection}{\numberline {7.3}Calcolo della funzione $\beta $ per la QED a un loop}{40}{subsection.7.3}% 
+\contentsline {subsection}{\numberline {7.4}Vacuum Polarization}{41}{subsection.7.4}% 
+\contentsline {section}{\numberline {8}Meccanismo di Higgs abeliano}{42}{section.8}% 
+\contentsline {section}{\numberline {9}Teorie di gauge non abeliane}{43}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Principio di gauge}{43}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Meccanismo di Higgs non abeliano}{44}{subsection.9.2}% 
+\contentsline {subsection}{\numberline {9.3}Quantizzazione di teorie di gauge non abeliane}{44}{subsection.9.3}% 
+\contentsline {subsection}{\numberline {9.4}QCD}{46}{subsection.9.4}% 
+\contentsline {subsection}{\numberline {9.5}Rinormalizzazione in QCD}{47}{subsection.9.5}% 
+\contentsline {section}{\numberline {10}Modello Standard (settore elettrodebole)}{48}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Termini non rinormalizzabili (QED)}{51}{subsection.10.1}% 
+\contentsline {section}{\numberline {11}Gruppo di rinormalizzazione "alla Wilson"}{52}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Ipotesi di scaling}{52}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Teoria di Landau}{55}{subsection.11.2}% 
+\contentsline {subsection}{\numberline {11.3}Prima approssimazione: teoria gaussiana}{56}{subsection.11.3}% 
+\contentsline {subsection}{\numberline {11.4}Teoria quartica}{57}{subsection.11.4}% 
+\contentsline {section}{\numberline {A}Rottura spontanea di simmetria in MQ}{60}{appendix.Alph1}% 

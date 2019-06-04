@@ -1,0 +1,22 @@
+% vertex.mp -- do not edit, generated automatically by teorica2.tex
+input feynmp
+require_RCS_revision "1.30";
+beginchar(1, 70*1.0pt#, 50*1.0pt#, 0);
+"feynmf: 1";
+LaTeX_unitlength:=1.0pt;
+subgraph (0, 0, w, h);
+vinit;
+pickup pencircle scaled thin;
+vleft (__i);
+vright (__o1, __o2);
+vconnect ("photon", __i, __v);
+vconnect ("fermion", __o1, __v);
+vconnect ("fermion", __v, __o2);
+vdot (__v);
+vfreeze;
+vdraw;
+endsubgraph;
+endchar;
+% the end.
+end.
+endinput;

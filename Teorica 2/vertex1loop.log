@@ -1,0 +1,14 @@
+This is MetaPost, version 1.902 (TeX Live 2014/Arch Linux) (kpathsea version 6.2.0)  29 MAY 2015 15:18
+**vertex1loop
+(/usr/share/texmf-dist/metapost/base/mpost.mp
+(/usr/share/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.005) ) (./vertex1loop.mp
+(/usr/share/texmf-dist/metapost/feynmf/feynmp.mp) [1] )
+ 
+Here is how much of MetaPost's memory you used:
+ 393 strings using 6180 characters
+ 1708120 bytes of node memory
+ 922 symbolic tokens
+ 14i,77n,28p,109b,3f stack positions out of 16i,96n,32p,200b,4f
+1 output file written: vertex1loop.1
+
