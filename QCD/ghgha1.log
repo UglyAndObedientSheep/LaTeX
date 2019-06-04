@@ -1,0 +1,13 @@
+This is MetaPost, version 1.803 (kpathsea version 6.1.1)  24 MAR 2014 16:30
+**ghgha1
+(mpost.mp (/usr/share/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.004) ) (./ghgha1.mp
+(/usr/share/texmf-dist/metapost/feynmf/feynmp.mp) [1] )
+ 
+Here is how much of MetaPost's memory you used:
+ 303 strings using 4377 characters
+ 1705352 bytes of node memory
+ 923 symbolic tokens
+ 14i,77n,28p,104b,3f stack positions out of 16i,96n,31p,200b,4f
+1 output file written: ghgha1.1
+

@@ -1,0 +1,68 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {section}{\numberline {1}$SU(N)$}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Rappresentazione aggiunta di $SU(N)$}{2}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}Secondo operatore di Casimir per $SU(3)$}{4}{subsection.1.2}% 
+\contentsline {subsection}{\numberline {1.3}Indice di Dynkin}{5}{subsection.1.3}% 
+\contentsline {section}{\numberline {2}Rappresentazioni irriducibili di $SU(3)$}{7}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Richiamo: rappresentazioni irriducibili di $SU(2)$}{7}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Multipletti di spin isotopico}{14}{subsection.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Rappresentazione complessa coniugata in $SU(N)$}{15}{subsection.2.3}% 
+\contentsline {section}{\numberline {3}Prodotto diretto di rappresentazioni irriducibili di $SU(3)$}{17}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}Metodo tensoriale}{17}{subsection.3.1}% 
+\contentsline {subsection}{\numberline {3.2}Riduzione di un tensore di rango $(p,q)$}{18}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}Decomposizione del prodotto diretto con il metodo tensoriale}{19}{subsection.3.3}% 
+\contentsline {section}{\numberline {4}Modello a quarks}{21}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}Evidenze sperimentali (indirette) del numero quantico di colore}{22}{subsection.4.1}% 
+\contentsline {section}{\numberline {5}Teoria di campo quantistica per i quarks (QCD)}{24}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Trasporto parallelo}{25}{subsection.5.1}% 
+\contentsline {subsection}{\numberline {5.2}Campi di gauge}{26}{subsection.5.2}% 
+\contentsline {subsection}{\numberline {5.3}Lagrangiana della Cromodinamica}{29}{subsection.5.3}% 
+\contentsline {section}{\numberline {6}Feynman path integral}{31}{section.6}% 
+\contentsline {subsection}{\numberline {6.1}Path integral in QFT (teoria bosonica)}{34}{subsection.6.1}% 
+\contentsline {subsection}{\numberline {6.2}Path integral in QFT (teoria fermionica)}{39}{subsection.6.2}% 
+\contentsline {subsection}{\numberline {6.3}Quantizzazione di una teoria di gauge}{43}{subsection.6.3}% 
+\contentsline {subsection}{\numberline {6.4}Metodo di Faddeev-Popov}{44}{subsection.6.4}% 
+\contentsline {section}{\numberline {7}Regole di Feynmann per la QCD}{49}{section.7}% 
+\contentsline {subsection}{\numberline {7.1}Propagatori}{49}{subsection.7.1}% 
+\contentsline {subsection}{\numberline {7.2}Termini di interazione}{51}{subsection.7.2}% 
+\contentsline {section}{\numberline {8}Teoria delle perturbazioni rinormalizzata}{53}{section.8}% 
+\contentsline {subsection}{\numberline {8.1}Regolarizzazione}{57}{subsection.8.1}% 
+\contentsline {subsection}{\numberline {8.2}Rinormalizzazione della QCD a 1 loop nello schema "Minimal Subtraction"}{60}{subsection.8.2}% 
+\contentsline {subsection}{\numberline {8.3}A 2 loop}{65}{subsection.8.3}% 
+\contentsline {subsection}{\numberline {8.4}Funzione $\beta $ a 1 loop}{67}{subsection.8.4}% 
+\contentsline {section}{\numberline {9}Formulazione euclidea di una teoria di campo}{69}{section.9}% 
+\contentsline {subsection}{\numberline {9.1}Formulazione euclidea della QCD}{70}{subsection.9.1}% 
+\contentsline {subsection}{\numberline {9.2}Funzione di partizione statistica $\mathcal {Z}(\beta )$}{71}{subsection.9.2}% 
+\contentsline {section}{\numberline {10}Formulazione su reticolo}{72}{section.10}% 
+\contentsline {subsection}{\numberline {10.1}Formulazione euclidea}{72}{subsection.10.1}% 
+\contentsline {subsection}{\numberline {10.2}Limite continuo}{74}{subsection.10.2}% 
+\contentsline {section}{\numberline {11}Potenziale $q\overline {q}$ e $qq$ nel limite statico}{76}{section.11}% 
+\contentsline {subsection}{\numberline {11.1}Approccio perturbativo}{76}{subsection.11.1}% 
+\contentsline {subsection}{\numberline {11.2}Approccio non perturbativo}{76}{subsection.11.2}% 
+\contentsline {section}{\numberline {12}Simmetrie di flavor: $SU(2)$ e $SU(3)$}{80}{section.12}% 
+\contentsline {section}{\numberline {13}Simmetrie chirali}{81}{section.13}% 
+\contentsline {section}{\numberline {14}Simmetrie in MQ}{85}{section.14}% 
+\contentsline {subsection}{\numberline {14.1}Realizzazione "alla Wigner-Weyl" ("simmetria esatta")}{85}{subsection.14.1}% 
+\contentsline {section}{\numberline {15}Rottura spontanea della simmetria}{87}{section.15}% 
+\contentsline {subsection}{\numberline {15.1}Parametro d'ordine per la QCD}{88}{subsection.15.1}% 
+\contentsline {subsection}{\numberline {15.2}Modello sigma di Gell-Mann e Levy}{89}{subsection.15.2}% 
+\contentsline {subsection}{\numberline {15.3}Decomposizione polare e modello sigma non lineare}{93}{subsection.15.3}% 
+\contentsline {subsection}{\numberline {15.4}Lagrangiana chirale efficace}{95}{subsection.15.4}% 
+\contentsline {section}{\numberline {16}Rottura esplicita della simmetria chirale}{98}{section.16}% 
+\contentsline {subsection}{\numberline {16.1}Caso $L=2$}{98}{subsection.16.1}% 
+\contentsline {subsection}{\numberline {16.2}Diffusione pione-pione}{99}{subsection.16.2}% 
+\contentsline {subsection}{\numberline {16.3}Caso $L=3$}{100}{subsection.16.3}% 
+\contentsline {subsection}{\numberline {16.4}Correzioni elettromagnetiche alle masse}{102}{subsection.16.4}% 
+\contentsline {section}{\numberline {17}Simmetria $U(1)_A$}{105}{section.17}% 
+\contentsline {section}{\numberline {18}Simmetrie anomale e non anomale}{108}{section.18}% 
+\contentsline {subsection}{\numberline {18.1}Anomalia abeliana (simmetria chirale \& teoria di gauge non chirale)}{110}{subsection.18.1}% 
+\contentsline {subsection}{\numberline {18.2}Regolarizzazione gauge-invariante dell'anomalia}{112}{subsection.18.2}% 
+\contentsline {subsection}{\numberline {18.3}Passaggio da teoria fondamentale a teoria efficace}{115}{subsection.18.3}% 
+\contentsline {section}{\numberline {19}Esoterismo e pratiche occulte}{117}{section.19}% 
+\contentsline {subsection}{\numberline {19.1}Limite di grandi $N_c$ ($N_c\to \infty $)}{117}{subsection.19.1}% 
+\contentsline {subsection}{\numberline {19.2}Problema $U(1)$ nel limite $N_c\to \infty $ (Witten, 1979)}{117}{subsection.19.2}% 
+\contentsline {subsection}{\numberline {19.3}Lagrangiana efficace di Witten-Di Vecchia-Veneziano}{120}{subsection.19.3}% 
+\contentsline {subsection}{\numberline {19.4}Istantoni}{123}{subsection.19.4}% 
+\contentsline {subsection}{\numberline {19.5}Termine $\theta $}{124}{subsection.19.5}% 
+\contentsline {subsection}{\numberline {19.6}Modello di Peccei-Quinn}{127}{subsection.19.6}% 

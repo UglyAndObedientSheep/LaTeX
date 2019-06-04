@@ -1,0 +1,13 @@
+This is MetaPost, version 1.803 (kpathsea version 6.1.1)  21 MAR 2014 17:18
+**ct4
+(mpost.mp (/usr/share/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.004) ) (./ct4.mp
+(/usr/share/texmf-dist/metapost/feynmf/feynmp.mp) [1] )
+ 
+Here is how much of MetaPost's memory you used:
+ 309 strings using 4430 characters
+ 1638448 bytes of node memory
+ 923 symbolic tokens
+ 14i,77n,33p,101b,3f stack positions out of 16i,96n,40p,200b,4f
+1 output file written: ct4.1
+

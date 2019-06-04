@@ -1,0 +1,1624 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.4.26)  4 JUN 2019 16:02
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**qcd.tex
+(./qcd.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/11/13 3.27 The Babel package
+
+(/usr/share/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/11/13 3.27 Babel switching mechanism
+)
+(/usr/share/texmf-dist/tex/generic/babel-italian/italian.ldf
+Language: italian 2019/01/05 v.1.4.01 Italian support for the babel system
+
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/11/13 3.27 Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen103
+
+(/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@dirlevel=\count89
+)
+\it@lettering=\count90
+\it@doublequoteactive=\count91
+\it@ISOcompliance=\count92
+))
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count93
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2018/12/01 v2.17b AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen104
+))
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen105
+)
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count94
+LaTeX Info: Redefining \frac on input line 223.
+\uproot@=\count95
+\leftroot@=\count96
+LaTeX Info: Redefining \overline on input line 385.
+\classnum@=\count97
+\DOTSCASE@=\count98
+LaTeX Info: Redefining \ldots on input line 482.
+LaTeX Info: Redefining \dots on input line 485.
+LaTeX Info: Redefining \cdots on input line 606.
+\Mathstrutbox@=\box27
+\strutbox@=\box28
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 729.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 730.
+\macc@depth=\count99
+\c@MaxMatrixCols=\count100
+\dotsspace@=\muskip10
+\c@parentequation=\count101
+\dspbrk@lvl=\count102
+\tag@help=\toks17
+\row@=\count103
+\column@=\count104
+\maxfields@=\count105
+\andhelp@=\toks18
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2844.
+LaTeX Info: Redefining \] on input line 2845.
+)
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks21
+\thm@bodyfont=\toks22
+\thm@headfont=\toks23
+\thm@notefont=\toks24
+\thm@headpunct=\toks25
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks26
+)
+(/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/11/30 v6.88e Hypertext links for LaTeX
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks27
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen113
+\Hy@linkcounter=\count106
+\Hy@pagecounter=\count107
+
+(/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/11/30 v6.88e Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count108
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4519.
+Package hyperref Info: Link nesting OFF on input line 4524.
+Package hyperref Info: Hyper index ON on input line 4527.
+Package hyperref Info: Plain pages OFF on input line 4534.
+Package hyperref Info: Backreferencing ON on input line 4537.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4772.
+
+(/usr/share/texmf-dist/tex/latex/hyperref/backref.sty
+Package: backref 2016/05/21 v1.39 Bibliographical back referencing
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+))
+\c@Hy@tempcnt=\count109
+
+(/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5125.
+\XeTeXLinkMargin=\dimen114
+\Fld@menulength=\count110
+\Field@Width=\dimen115
+\Fld@charsize=\dimen116
+Package hyperref Info: Hyper figures OFF on input line 6380.
+Package hyperref Info: Link nesting OFF on input line 6385.
+Package hyperref Info: Hyper index ON on input line 6388.
+Package hyperref Info: backreferencing ON on input line 6393.
+Package hyperref Info: Link coloring OFF on input line 6400.
+Package hyperref Info: Link coloring with OCG OFF on input line 6405.
+Package hyperref Info: PDF/A mode OFF on input line 6410.
+LaTeX Info: Redefining \ref on input line 6450.
+LaTeX Info: Redefining \pageref on input line 6454.
+\Hy@abspage=\count111
+\c@Item=\count112
+\c@Hfootnote=\count113
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2018/11/30 v6.88e Hyperref driver for pdfTeX
+\Fld@listcount=\count114
+\c@bookmark@seq@number=\count115
+\Hy@SectionHShift=\skip49
+)
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen117
+\Gin@req@width=\dimen118
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+(/usr/share/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(/usr/share/texmf-dist/tex/latex/preprint/fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip50
+)
+(/usr/share/texmf-dist/tex/latex/quoting/quoting.sty
+Package: quoting 2014/01/28 v0.1c Consolidated environment for displayed text
+\quo@toppartop=\skip51
+)
+(/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen119
+\lightrulewidth=\dimen120
+\cmidrulewidth=\dimen121
+\belowrulesep=\dimen122
+\belowbottomsep=\dimen123
+\aboverulesep=\dimen124
+\abovetopsep=\dimen125
+\cmidrulesep=\dimen126
+\cmidrulekern=\dimen127
+\defaultaddspace=\dimen128
+\@cmidla=\count116
+\@cmidlb=\count117
+\@aboverulesep=\dimen129
+\@belowrulesep=\dimen130
+\@thisruleclass=\count118
+\@lastruleclass=\count119
+\@thisrulewidth=\dimen131
+)
+(/usr/share/texmf-dist/tex/latex/carlisle/slashed.sty
+Package: slashed 1997/01/16 v0.01 Feynman Slashed Character Notation (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/feynmp-auto/feynmp-auto.sty
+Package: feynmp-auto 2013/05/03 v1.1 Automatic processing of feynmp graphics
+
+(/usr/share/texmf-dist/tex/latex/feynmf/feynmp.sty
+Package: feynmp 1996/12/02 v1.08 LaTeX/MetaPost Feynman Diagram Package (ohl)
+\@outfmf=\write3
+\fmfbuf@=\toks28
+\c@fmfgraph=\count120
+))
+\c@thm=\count121
+\c@dfn=\count122
+\c@exm=\count123
+\c@lem=\count124
+ (./qcd.aux)
+\openout1 = `qcd.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
+LaTeX Font Info:    ... okay on input line 40.
+LaTeX Info: Redefining \it@ocap on input line 40.
+LaTeX Info: Redefining \it@ccap on input line 40.
+
+
+File italian.ldf warning: 
+italian.ldf    With OT1 encoding guillemets are poorly faked
+italian.ldf    Use T1 encoding
+italian.ldf    or specify a font with command \CaporaliFrom
+italian.ldf    See the documentation concerning the babel-italian typesetting 
+italian.ldf    on input line 40.
+
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 40.
+(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count125
+)
+LaTeX Info: Redefining \ref on input line 40.
+LaTeX Info: Redefining \pageref on input line 40.
+LaTeX Info: Redefining \nameref on input line 40.
+ (./qcd.out)
+(./qcd.out)
+\@outlinefile=\write4
+\openout4 = `qcd.out'.
+
+ (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count126
+\scratchdimen=\dimen132
+\scratchbox=\box30
+\nofMPsegments=\count127
+\nofMParguments=\count128
+\everyMPshowfont=\toks29
+\MPscratchCnt=\count129
+\MPscratchDim=\dimen133
+\MPnumerator=\count130
+\makeMPintoPDFobject=\count131
+\everyMPtoPDFconversion=\toks30
+)
+<Addons/eigenLibrichiaro.png, id=269, 482.0409pt x 240.6591pt>
+File: Addons/eigenLibrichiaro.png Graphic file (type png)
+<use Addons/eigenLibrichiaro.png>
+Package pdftex.def Info: Addons/eigenLibrichiaro.png  used on input line 47.
+(pdftex.def)             Requested size: 250.0pt x 124.81296pt.
+<Addons/eigenlabinvertito2.png, id=271, 298.716pt x 210.5466pt>
+File: Addons/eigenlabinvertito2.png Graphic file (type png)
+<use Addons/eigenlabinvertito2.png>
+Package pdftex.def Info: Addons/eigenlabinvertito2.png  used on input line 51.
+(pdftex.def)             Requested size: 250.0pt x 176.2154pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 52.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 52.
+
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 52.
+
+(/usr/share/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Addons/eigenLibrichiaro.
+png> <./Addons/eigenlabinvertito2.png>]
+<Addons/88x31.png, id=284, 88.33pt x 31.11626pt>
+File: Addons/88x31.png Graphic file (type png)
+<use Addons/88x31.png>
+Package pdftex.def Info: Addons/88x31.png  used on input line 65.
+(pdftex.def)             Requested size: 88.32977pt x 31.11617pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 68.
+ (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
+
+ []
+
+[1 <./Addons/88x31.png>] (./qcd.toc [2])
+\tf@toc=\write5
+\openout5 = `qcd.toc'.
+
+ [3]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 95.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 95.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.136 \end{align}
+                  [1]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 159.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 159.
+
+[2] [3]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 245.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 245.
+
+[4] [5] [6]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 312.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 312.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 313.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 313.
+
+<Addons/pesosu2.png, id=440, 361.35pt x 130.4875pt>
+File: Addons/pesosu2.png Graphic file (type png)
+<use Addons/pesosu2.png>
+Package pdftex.def Info: Addons/pesosu2.png  used on input line 339.
+(pdftex.def)             Requested size: 200.0pt x 72.2223pt.
+[7
+
+ <./Addons/pesosu2.png (PNG copy)>]
+<Addons/pesosu3.png, id=446, 361.35pt x 245.91875pt>
+File: Addons/pesosu3.png Graphic file (type png)
+<use Addons/pesosu3.png>
+Package pdftex.def Info: Addons/pesosu3.png  used on input line 379.
+(pdftex.def)             Requested size: 200.0pt x 136.11127pt.
+
+Overfull \hbox (23.73131pt too wide) in paragraph at lines 372--381
+\OT1/cmr/m/n/12 Possiamo ades-so com-ple-ta-re l'in-sie-me com-ple-to di ope-ra
+-to-ri pren-den-do $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 F[]; G[]; T[]; T[]; Y\OM
+S/cmsy/m/n/12 g$\OT1/cmr/m/n/12 ,
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
+<Addons/00.png, id=461, 361.35pt x 360.34625pt>
+File: Addons/00.png Graphic file (type png)
+<use Addons/00.png>
+Package pdftex.def Info: Addons/00.png  used on input line 430.
+(pdftex.def)             Requested size: 150.0pt x 149.58488pt.
+ [9 <./Addons/pesosu3.png (PNG copy)>] [10 <./Addons/00.png (PNG copy)>]
+<Addons/10.png, id=480, 361.35pt x 360.34625pt>
+File: Addons/10.png Graphic file (type png)
+<use Addons/10.png>
+Package pdftex.def Info: Addons/10.png  used on input line 436.
+(pdftex.def)             Requested size: 200.0pt x 199.44469pt.
+<Addons/01.png, id=481, 361.35pt x 360.34625pt>
+File: Addons/01.png Graphic file (type png)
+<use Addons/01.png>
+Package pdftex.def Info: Addons/01.png  used on input line 442.
+(pdftex.def)             Requested size: 200.0pt x 199.44469pt.
+<Addons/20.png, id=482, 361.35pt x 317.185pt>
+File: Addons/20.png Graphic file (type png)
+<use Addons/20.png>
+Package pdftex.def Info: Addons/20.png  used on input line 448.
+(pdftex.def)             Requested size: 200.0pt x 175.55576pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <./Addons/10.png (PNG copy)> <./Addons/01.png (PNG copy)>]
+<Addons/02.png, id=487, 361.35pt x 317.185pt>
+File: Addons/02.png Graphic file (type png)
+<use Addons/02.png>
+Package pdftex.def Info: Addons/02.png  used on input line 455.
+(pdftex.def)             Requested size: 200.0pt x 175.55576pt.
+ [12 <./Addons/20.png (PNG copy)> <./Addons/02.png (PNG copy)>]
+<Addons/11.png, id=492, 361.35pt x 360.34625pt>
+File: Addons/11.png Graphic file (type png)
+<use Addons/11.png>
+Package pdftex.def Info: Addons/11.png  used on input line 462.
+(pdftex.def)             Requested size: 200.0pt x 199.44469pt.
+<Addons/30.png, id=493, 350.30875pt x 433.62pt>
+File: Addons/30.png Graphic file (type png)
+<use Addons/30.png>
+Package pdftex.def Info: Addons/30.png  used on input line 470.
+(pdftex.def)             Requested size: 200.0pt x 247.56956pt.
+ [13
+
+ <./Addons/11.png (PNG copy)> <./Addons/30.png (PNG copy)>]
+<Addons/21.png, id=498, 361.35pt x 360.34625pt>
+File: Addons/21.png Graphic file (type png)
+<use Addons/21.png>
+Package pdftex.def Info: Addons/21.png  used on input line 477.
+(pdftex.def)             Requested size: 200.0pt x 199.44469pt.
+ [14 <./Addons/21.png (PNG copy)>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 516.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 516.
+
+[15] [16]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 564.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 564.
+
+
+Overfull \hbox (7.29596pt too wide) detected at line 610
+[]\OML/cmm/m/it/12 ^^O[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^O[] \OT1/cmr/m/n/
+12 = []  \OML/cmm/m/it/12 ;
+ []
+
+[17
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 623.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 623.
+
+[18] [19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 732--733
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 734--735
+
+ []
+
+[21
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 790--792
+
+ []
+
+[22] [23]
+Overfull \hbox (30.16176pt too wide) detected at line 832
+[]
+ []
+
+[24
+
+] [25] [26] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1003
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1032--1034
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1060--1062
+
+ []
+
+[29] [30] [31
+
+]
+Overfull \hbox (55.85654pt too wide) detected at line 1130
+[]
+ []
+
+
+Overfull \hbox (7.3266pt too wide) detected at line 1134
+[] [] \OT1/cmr/m/n/12 = [] [] d\OML/cmm/m/it/12 ^^\ :
+ []
+
+
+Overfull \hbox (24.3188pt too wide) detected at line 1138
+[]\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 t[]\
+OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 q\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 t\OMS/cms
+y/m/n/12 i \OT1/cmr/m/n/12 = [][] [] d[] [] [] [] []  \OML/cmm/m/it/12 :
+ []
+
+
+Overfull \hbox (52.25967pt too wide) detected at line 1146
+[] \OT1/cmr/m/n/12 = [][] [] d\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 (\OML/cmm/m/i
+t/12 ^^\\OT1/cmr/m/n/12 ) [] []\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 (\OML/cmm/m/
+it/12 t[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 q[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12
+ t[]\OT1/cmr/m/n/12 ) [] [] []  \OML/cmm/m/it/12 ;
+ []
+
+[32]
+Overfull \hbox (42.99591pt too wide) detected at line 1151
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1151--1156
+
+ []
+
+[33]
+Overfull \hbox (59.24516pt too wide) detected at line 1190
+[]
+ []
+
+
+Overfull \hbox (22.27437pt too wide) detected at line 1196
+[]
+ []
+
+[34]
+Overfull \hbox (20.24536pt too wide) detected at line 1231
+[]
+ []
+
+[35]
+Overfull \hbox (52.25116pt too wide) in paragraph at lines 1266--1267
+[]\OT1/cmr/m/n/12 Indichiamo quin-di la fun-zio-ne di Green a $\OML/cmm/m/it/12
+ n$ \OT1/cmr/m/n/12 pun-ti con $\OML/cmm/m/it/12 G[]\OT1/cmr/m/n/12 (\OML/cmm/m
+/it/12 x[]; [] ; x[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^Q h\OT1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 T\OMS/cmsy/m/n/12 f[]\OT1/cmr/m/n/12 (\OML/c
+mm/m/it/12 x[]\OT1/cmr/m/n/12 ) [] [](\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )\OMS
+/cmsy/m/n/12 gj\OT1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 i$\OT1/cmr/m/n/12 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1269--1271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1283
+
+ []
+
+[36]
+Overfull \hbox (11.8935pt too wide) detected at line 1286
+[]
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 1353--1355
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1355--1356
+
+ []
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1366--1368
+
+ []
+
+
+Overfull \hbox (38.56015pt too wide) detected at line 1387
+[]
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1424--1426
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1427--1428
+
+ []
+
+
+Overfull \hbox (92.88304pt too wide) detected at line 1436
+[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 :::\OT1/cmr/m/n/12 ) = []
+ []
+
+
+Overfull \hbox (73.09709pt too wide) detected at line 1443
+[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 :::\OT1/cmr/m/n/12 )[] = []
+ []
+
+[41]
+Overfull \hbox (17.81813pt too wide) detected at line 1494
+[]\OML/cmm/m/it/12 Z \OT1/cmr/m/n/12 = [][d[]d\OML/cmm/m/it/12  \OT1/cmr/m/n/12
+ ] [] [] \OMS/cmsy/m/n/12 ^^Q []\OT1/cmr/m/n/12 [d[]d\OML/cmm/m/it/12  \OT1/cmr
+/m/n/12 ] [] []  \OML/cmm/m/it/12 :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1499--1501
+
+ []
+
+[42] [43]
+Underfull \hbox (badness 10000) in paragraph at lines 1569--1574
+
+ []
+
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 1605.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 1605.
+[44] [45] [46]
+Underfull \hbox (badness 10000) in paragraph at lines 1698--1704
+
+ []
+
+[47]
+Overfull \hbox (10.40831pt too wide) detected at line 1720
+[][] \OMS/cmsy/m/n/12 ^^B [] \OML/cmm/m/it/12 M[] \OT1/cmr/m/n/12 = [][d[]d\OML
+/cmm/m/it/12 c\OT1/cmr/m/n/12 ] [] [] = [][d[]d\OML/cmm/m/it/12 c\OT1/cmr/m/n/1
+2 ] [] []  \OML/cmm/m/it/12 ;
+ []
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 1754--1755
+
+ []
+
+\openout3 = `propgluo.mp'.
+
+File: propgluo.1 Graphic file (type mps)
+[MP to PDF] (./propgluo.1) (./propgluo.t1)
+Underfull \hbox (badness 10000) in paragraph at lines 1775--1776
+
+ []
+
+\openout3 = `propquark.mp'.
+
+File: propquark.1 Graphic file (type mps)
+[MP to PDF] (./propquark.1) (./propquark.t1) [49
+
+] [50]
+Underfull \hbox (badness 10000) in paragraph at lines 1796--1797
+
+ []
+
+\openout3 = `propghost.mp'.
+
+File: propghost.1 Graphic file (type mps)
+[MP to PDF] (./propghost.1) (./propghost.t1)
+Underfull \hbox (badness 10000) in paragraph at lines 1820--1821
+
+ []
+
+\openout3 = `1f.mp'.
+
+File: 1f.1 Graphic file (type mps)
+[MP to PDF] (./1f.1) (./1f.t1)
+\openout3 = `3a.mp'.
+
+File: 3a.1 Graphic file (type mps)
+ [MP to PDF] (./3a.1) (./3a.t1)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[51]
+\openout3 = `4a.mp'.
+
+File: 4a.1 Graphic file (type mps)
+ [MP to PDF] (./4a.1) (./4a.t1)
+Overfull \hbox (61.49165pt too wide) detected at line 1898
+[]
+ []
+
+\openout3 = `cca.mp'.
+
+File: cca.1 Graphic file (type mps)
+[MP to PDF] (./cca.1) (./cca.t1) [52]
+\openout3 = `diverge.mp'.
+
+File: diverge.1 Graphic file (type mps)
+ [MP to PDF] (./diverge.1)
+feynmf: Label file diverge.t1 not found:
+feynmf: Process diverge.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (26.49394pt too wide) detected at line 1967
+[]
+ []
+
+[53
+
+]
+\openout3 = `ct1.mp'.
+
+File: ct1.1 Graphic file (type mps)
+ [MP to PDF] (./ct1.1) (./ct1.t1)
+\openout3 = `ct2.mp'.
+
+File: ct2.1 Graphic file (type mps)
+ [MP to PDF] (./ct2.1) (./ct2.t1)
+\openout3 = `ct3.mp'.
+
+File: ct3.1 Graphic file (type mps)
+
+[MP to PDF] (./ct3.1) (./ct3.t1)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[54]
+\openout3 = `ct4.mp'.
+
+File: ct4.1 Graphic file (type mps)
+ [MP to PDF] (./ct4.1)
+feynmf: Label file ct4.t1 not found:
+feynmf: Process ct4.mp with MetaPost and then reprocess this file.
+[55]
+\openout3 = `ct5.mp'.
+
+File: ct5.1 Graphic file (type mps)
+ [MP to PDF] (./ct5.1)
+feynmf: Label file ct5.t1 not found:
+feynmf: Process ct5.mp with MetaPost and then reprocess this file.
+\openout3 = `ct6.mp'.
+
+File: ct6.1 Graphic file (type mps)
+[MP to PDF] (./ct6.1)
+feynmf: Label file ct6.t1 not found:
+feynmf: Process ct6.mp with MetaPost and then reprocess this file.
+\openout3 = `ct7.mp'.
+
+File: ct7.1 Graphic file (type mps)
+[MP to PDF] (./ct7.1)
+feynmf: Label file ct7.t1 not found:
+feynmf: Process ct7.mp with MetaPost and then reprocess this file.
+[56]
+Underfull \hbox (badness 10000) in paragraph at lines 2129--2135
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2155--2159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2155--2159
+
+ []
+
+[57] [58] [59]
+\openout3 = `seg.mp'.
+
+File: seg.1 Graphic file (type mps)
+ [MP to PDF] (./seg.1) (./seg.t1)
+Overfull \hbox (3.0945pt too wide) in paragraph at lines 2254--2254
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2254--2254
+
+ []
+
+\openout3 = `seg1.mp'.
+
+File: seg1.1 Graphic file (type mps)
+[MP to PDF] (./seg1.1)
+feynmf: Label file seg1.t1 not found:
+feynmf: Process seg1.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (3.0945pt too wide) in paragraph at lines 2265--2265
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2265--2265
+
+ []
+
+\openout3 = `seg2.mp'.
+
+File: seg2.1 Graphic file (type mps)
+[MP to PDF] (./seg2.1)
+feynmf: Label file seg2.t1 not found:
+feynmf: Process seg2.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (3.0945pt too wide) in paragraph at lines 2274--2274
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2274--2274
+
+ []
+
+\openout3 = `seg3.mp'.
+
+File: seg3.1 Graphic file (type mps)
+[MP to PDF] (./seg3.1)
+feynmf: Label file seg3.t1 not found:
+feynmf: Process seg3.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (3.0945pt too wide) in paragraph at lines 2285--2285
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2285--2285
+
+ []
+
+\openout3 = `seg4.mp'.
+
+File: seg4.1 Graphic file (type mps)
+[MP to PDF] (./seg4.1)
+feynmf: Label file seg4.t1 not found:
+feynmf: Process seg4.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (3.0945pt too wide) in paragraph at lines 2297--2297
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2297--2297
+
+ []
+
+File: ct1.1 Graphic file (type mps)
+[MP to PDF] (./ct1.1) (./ct1.t1)
+Overfull \hbox (43.0945pt too wide) in paragraph at lines 2299--2299
+[][] 
+ []
+
+\openout3 = `segho.mp'.
+
+File: segho.1 Graphic file (type mps)
+[MP to PDF] (./segho.1)
+feynmf: Label file segho.t1 not found:
+feynmf: Process segho.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2326--2326
+
+ []
+
+\openout3 = `segho1.mp'.
+
+File: segho1.1 Graphic file (type mps)
+[MP to PDF] (./segho1.1)
+feynmf: Label file segho1.t1 not found:
+feynmf: Process segho1.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2338--2338
+
+ []
+
+File: ct3.1 Graphic file (type mps)
+[MP to PDF] (./ct3.1) (./ct3.t1) [60]
+\openout3 = `seq.mp'.
+
+File: seq.1 Graphic file (type mps)
+ [MP to PDF] (./seq.1)
+feynmf: Label file seq.t1 not found:
+feynmf: Process seq.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2357--2357
+
+ []
+
+\openout3 = `seq1.mp'.
+
+File: seq1.1 Graphic file (type mps)
+[MP to PDF] (./seq1.1)
+feynmf: Label file seq1.t1 not found:
+feynmf: Process seq1.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2369--2369
+
+ []
+
+File: ct2.1 Graphic file (type mps)
+[MP to PDF] (./ct2.1) (./ct2.t1)
+\openout3 = `threegluons.mp'.
+
+File: threegluons.1 Graphic file (type mps)
+ [MP to PDF] (./threegluons.1)
+feynmf: Label file threegluons.t1 not found:
+feynmf: Process threegluons.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2391--2391
+
+ []
+
+\openout3 = `threegluons1.mp'.
+
+File: threegluons1.1 Graphic file (type mps)
+[MP to PDF] (./threegluons1.1)
+feynmf: Label file threegluons1.t1 not found:
+feynmf: Process threegluons1.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2403--2403
+
+ []
+
+\openout3 = `threegluons2.mp'.
+
+File: threegluons2.1 Graphic file (type mps)
+[MP to PDF] (./threegluons2.1)
+feynmf: Label file threegluons2.t1 not found:
+feynmf: Process threegluons2.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2415--2415
+
+ []
+
+\openout3 = `threegluons3.mp'.
+
+File: threegluons3.1 Graphic file (type mps)
+[MP to PDF] (./threegluons3.1)
+feynmf: Label file threegluons3.t1 not found:
+feynmf: Process threegluons3.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2430--2430
+
+ []
+
+\openout3 = `threegluons4.mp'.
+
+File: threegluons4.1 Graphic file (type mps)
+[MP to PDF] (./threegluons4.1)
+feynmf: Label file threegluons4.t1 not found:
+feynmf: Process threegluons4.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2444--2444
+
+ []
+
+File: ct5.1 Graphic file (type mps)
+[MP to PDF] (./ct5.1)
+feynmf: Label file ct5.t1 not found:
+feynmf: Process ct5.mp with MetaPost and then reprocess this file.
+
+Overfull \hbox (43.0945pt too wide) in paragraph at lines 2446--2446
+[][] 
+ []
+
+[61]
+\openout3 = `ghgha.mp'.
+
+File: ghgha.1 Graphic file (type mps)
+ [MP to PDF] (./ghgha.1)
+feynmf: Label file ghgha.t1 not found:
+feynmf: Process ghgha.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2464--2464
+
+ []
+
+\openout3 = `ghgha1.mp'.
+
+File: ghgha1.1 Graphic file (type mps)
+[MP to PDF] (./ghgha1.1)
+feynmf: Label file ghgha1.t1 not found:
+feynmf: Process ghgha1.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2478--2478
+
+ []
+
+\openout3 = `ghgha2.mp'.
+
+File: ghgha2.1 Graphic file (type mps)
+[MP to PDF] (./ghgha2.1)
+feynmf: Label file ghgha2.t1 not found:
+feynmf: Process ghgha2.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2492--2492
+
+ []
+
+File: ct7.1 Graphic file (type mps)
+[MP to PDF] (./ct7.1)
+feynmf: Label file ct7.t1 not found:
+feynmf: Process ct7.mp with MetaPost and then reprocess this file.
+[62]
+\openout3 = `qqg.mp'.
+
+File: qqg.1 Graphic file (type mps)
+ [MP to PDF] (./qqg.1)
+feynmf: Label file qqg.t1 not found:
+feynmf: Process qqg.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2513--2513
+
+ []
+
+\openout3 = `qqg1.mp'.
+
+File: qqg1.1 Graphic file (type mps)
+[MP to PDF] (./qqg1.1)
+feynmf: Label file qqg1.t1 not found:
+feynmf: Process qqg1.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2527--2527
+
+ []
+
+\openout3 = `qqg2.mp'.
+
+File: qqg2.1 Graphic file (type mps)
+[MP to PDF] (./qqg2.1)
+feynmf: Label file qqg2.t1 not found:
+feynmf: Process qqg2.mp with MetaPost and then reprocess this file.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2541--2541
+
+ []
+
+File: ct4.1 Graphic file (type mps)
+[MP to PDF] (./ct4.1)
+feynmf: Label file ct4.t1 not found:
+feynmf: Process ct4.mp with MetaPost and then reprocess this file.
+[63] [64] [65]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2677.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\beta' on input line 2677.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2677.
+
+[66] [67]
+Overfull \hbox (36.74965pt too wide) detected at line 2742
+[]\OML/cmm/m/it/12 R [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 R\OT1/cmr/m/n/12 (1\
+OML/cmm/m/it/12 ; g[]\OT1/cmr/m/n/12 ([])) = \OML/cmm/m/it/12 N[] [] Q[] []  ;
+ []
+
+[68]
+Overfull \hbox (5.40538pt too wide) in paragraph at lines 2758--2760
+\OT1/cmr/m/n/12 Passando quin-di al-l'eu-cli-deo, ot-tie-nia-mo la \OT1/cmr/m/i
+t/12 fun-zio-ne di Sch-win-ger a due pun-ti\OT1/cmr/m/n/12 , $\OML/cmm/m/it/12 
+S[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]; y[]\OT1/cmr/m/n/12 ) =
+ []
+
+[69
+
+] [70]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2836.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\beta' on input line 2836.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2836.
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 2859--2865
+
+ []
+
+[72
+
+] [73] [74] [75]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2977.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@@overline' on input line 2977.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2977.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2977.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 2977.
+
+[76
+
+]
+Overfull \hbox (36.95105pt too wide) detected at line 3038
+[]\OMS/cmsy/m/n/12 G[] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 h\OT1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 T\OMS/cmsy/m/n/12 f[][]\OT1/cmr/m/n/12 (\OT1
+/cmr/bx/n/12 y\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 W\OT1/cmr/m
+/n/12 ((\OT1/cmr/bx/n/12 y\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/1
+2   \OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/12 ))[]
+\OML/cmm/m/it/12  [][][]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OML/cmm/m/it/12 ; \
+OT1/cmr/m/n/12 0)\OML/cmm/m/it/12 W\OT1/cmr/m/n/12 ((\OT1/cmr/bx/n/12 x\OML/cmm
+/m/it/12 ; \OT1/cmr/m/n/12 0) \OMS/cmsy/m/n/12   \OT1/cmr/m/n/12 (\OT1/cmr/bx/n
+/12 y\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0))[]\OML/cmm/m/it/12  []\OT1/cmr/m/n/1
+2 (\OT1/cmr/bx/n/12 y\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 0)\OMS/cmsy/m/n/12 gj\O
+T1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 :
+ []
+
+[77]
+Overfull \hbox (80.39758pt too wide) detected at line 3071
+[]
+ []
+
+[78]
+Underfull \hbox (badness 10000) in paragraph at lines 3102--3106
+
+ []
+
+[79]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3111.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3111.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3111.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3111.
+
+[80
+
+] [81
+
+] [82] [83] [84] [85
+
+] [86]
+Overfull \hbox (24.2197pt too wide) detected at line 3403
+[]
+ []
+
+
+Overfull \hbox (0.24869pt too wide) detected at line 3420
+[]\OT1/cmr/m/n/12 0 = [][] d[]\OML/cmm/m/it/12 x \OT1/cmr/m/n/12 [\OML/cmm/m/it
+/12 @[]J[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/1
+2 )\OML/cmm/m/it/12 ; A\OT1/cmr/m/n/12 (0)] = [] [][] d[]\OML/cmm/m/it/12 x \OT
+1/cmr/m/n/12 [\OML/cmm/m/it/12 J[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 x\OML/cmm/m
+/it/12 ; t\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; A\OT1/cmr/m/n/12 (0)] + [][] d\OT
+1/cmr/bx/n/12 S \OMS/cmsy/m/n/12 ^^A \OT1/cmr/m/n/12 [\OT1/cmr/bx/n/12 J\OT1/cm
+r/m/n/12 (\OT1/cmr/bx/n/12 x\OML/cmm/m/it/12 ; t\OT1/cmr/m/n/12 )\OML/cmm/m/it/
+12 ; A\OT1/cmr/m/n/12 (0)] \OML/cmm/m/it/12 :
+ []
+
+
+Overfull \hbox (2.70451pt too wide) detected at line 3435
+[]
+ []
+
+[87
+
+]
+Overfull \hbox (48.92632pt too wide) detected at line 3439
+[][] \OT1/cmr/m/n/12 = 0 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i []\OT1/cmr/m/
+n/12 (2\OML/cmm/m/it/12 ^^Y\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 ^^N[]\OT1/cmr/m/
+n/12 (\OT1/cmr/bx/n/12 p[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 E[] []  ;
+ []
+
+[88] [89] [90] [91]
+Underfull \hbox (badness 10000) in paragraph at lines 3595--3599
+
+ []
+
+
+Overfull \hbox (41.69287pt too wide) detected at line 3604
+[]\OML/cmm/m/it/12 A[] \OT1/cmr/m/n/12 = [][]\OML/cmm/m/it/12 ^^M[]^^M[] []  []
+ \OT1/cmr/m/n/12 = [][]\OML/cmm/m/it/12 ^^M[]^^M[][] [] \OT1/cmr/m/n/12 = [][]\
+OML/cmm/m/it/12 ^^M[]^^M[]T[] [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 i[][]^^M[]^
+^M[]T[] [] \OMS/cmsy/m/n/12 ^^Q \OML/cmm/m/it/12 A[] \OT1/cmr/m/n/12 + \OML/cmm
+/m/it/12 iA[] ;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3617--3621
+
+ []
+
+[92] [93] [94]
+Underfull \hbox (badness 10000) in paragraph at lines 3713--3714
+
+ []
+
+[95]
+Underfull \hbox (badness 10000) in paragraph at lines 3750--3754
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3777--3781
+
+ []
+
+[96] [97]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3857.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3857.
+
+[98
+
+]
+Overfull \hbox (15.2374pt too wide) detected at line 3904
+[]
+ []
+
+[99]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3930.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 3930.
+
+[100] [101] [102]
+Overfull \hbox (46.14905pt too wide) in paragraph at lines 4067--4070
+\OT1/cmr/m/n/12 usando i da-ti spe-ri-men-ta-li $\OML/cmm/m/it/12 M[] \OMS/cmsy
+/m/n/12 ^^Y \OT1/cmr/m/n/12 139\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 57 []\OML/cmm/
+m/it/12 ; M[] \OMS/cmsy/m/n/12 ^^Y \OT1/cmr/m/n/12 134\OML/cmm/m/it/12 :\OT1/cm
+r/m/n/12 98 []\OML/cmm/m/it/12 ; M[] \OMS/cmsy/m/n/12 ^^Y \OT1/cmr/m/n/12 493\O
+ML/cmm/m/it/12 :\OT1/cmr/m/n/12 68 []\OML/cmm/m/it/12 ; M[] \OMS/cmsy/m/n/12 ^^
+Y
+ []
+
+[103] [104]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4115.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4115.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4115.
+
+[105
+
+] [106] [107]
+Underfull \hbox (badness 10000) in paragraph at lines 4237--4239
+
+ []
+
+[108
+
+] [109]
+Underfull \hbox (badness 10000) in paragraph at lines 4312--4316
+
+ []
+
+
+Overfull \hbox (66.62973pt too wide) detected at line 4334
+\OML/cmm/m/it/12 ^^^[] [] ^^^[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 A[] [] A[
+]^^Q[] [] ^^Q[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 A[] [] A[]^^O[]^^Q[] [] ^
+^Q[] \OT1/cmr/m/n/12 = ([] \OML/cmm/m/it/12 A\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 
+^^Q[] [] ^^Q[] :
+ []
+
+[110]
+Overfull \hbox (6.56496pt too wide) detected at line 4373
+[] [] \OMS/cmsy/m/n/12 U \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 e[] \OT1/cmr/m/n/12
+ = [] [] = [] []  \OML/cmm/m/it/12 ;
+ []
+
+
+Overfull \hbox (11.9845pt too wide) detected at line 4377
+\OT1/cmr/m/n/12 ([] \OMS/cmsy/m/n/12 U\OT1/cmr/m/n/12 )[] = [] [] [] [] []  \OM
+L/cmm/m/it/12 ;
+ []
+
+[111] [112] [113] [114] [115] [116]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4578.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4578.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4578.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4578.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4578.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\to' on input line 4578.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\infty' on input line 4578.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4578.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4589--4591
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4604.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4604.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4604.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 4604.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\to' on input line 4604.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\infty' on input line 4604.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4604.
+
+[117
+
+]
+Overfull \hbox (23.65518pt too wide) detected at line 4646
+[] [][] \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i [] \OT1/cmr/m/
+n/12 d[]\OML/cmm/m/it/12 x [] \OT1/cmr/m/n/12 d[]\OML/cmm/m/it/12 y\OMS/cmsy/m/
+n/12 h\OT1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 T\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 Q\OT1/cm
+r/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 
+(\OML/cmm/m/it/12 y\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 gj\OT1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 i \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 ^^@\OML/cmm/m/it/12 i [] 
+\OT1/cmr/m/n/12 d[]\OML/cmm/m/it/12 x [] \OT1/cmr/m/n/12 d[]\OML/cmm/m/it/12 y\
+OMS/cmsy/m/n/12 h\OT1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 T\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 Q\OT1/cm
+r/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 
+(0)\OMS/cmsy/m/n/12 gj\OT1/cmr/m/n/12 
+\OMS/cmsy/m/n/12 i \OML/cmm/m/it/12 ;
+ []
+
+[118] [119] [120] [121] [122]
+Underfull \hbox (badness 10000) in paragraph at lines 4851--4855
+
+ []
+
+[123]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4855.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\theta' on input line 4855.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 4855.
+
+
+Overfull \hbox (27.62126pt too wide) detected at line 4894
+[]
+ []
+
+[124]
+Overfull \hbox (26.99881pt too wide) detected at line 4949
+[]
+ []
+
+[125] [126] [127]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5038.
+ [128]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5038.
+ (./qcd.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5038.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5038.
+
+Package rerunfilecheck Info: File `qcd.out' has not changed.
+(rerunfilecheck)             Checksum: 3262B86D22ADDC30965A39D38590F96E;5179.
+ ) 
+Here is how much of TeX's memory you used:
+ 8770 strings out of 492616
+ 118658 string characters out of 6135177
+ 288474 words of memory out of 5000000
+ 11609 multiletter control sequences out of 15000+600000
+ 19446 words of font info for 79 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 32i,16n,36p,1044b,686s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pf
+b></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
+r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on qcd.pdf (132 pages, 1120077 bytes).
+PDF statistics:
+ 1772 PDF objects out of 2073 (max. 8388607)
+ 1582 compressed objects within 16 object streams
+ 777 named destinations out of 1000 (max. 500000)
+ 594 words of extra memory for PDF output out of 10000 (max. 10000000)
+

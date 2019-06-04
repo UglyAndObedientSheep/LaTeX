@@ -1,0 +1,75 @@
+This is MetaPost, version 1.803 (kpathsea version 6.1.1)  21 MAR 2014 17:06
+**ct1
+(mpost.mp (/usr/share/texmf-dist/metapost/base/plain.mp
+Preloading the plain mem file, version 1.004) ) (./ct1.mp
+(/usr/share/texmf-dist/metapost/feynmf/feynmp.mp)
+! feynmf: tiling `cross' not known, replaced by `shaded'.
+<to be read again> 
+                   ;
+use_tile->... not known, "&"replaced by `shaded'";
+                                                  use_tile(shaded,(EXPR3),(E...
+
+tile->...IX2),min_x,min_y,max_x-min_x,max_y-min_y)
+                                                  ;clip.currentpicture.to(EX...
+
+drawtile->begingroup.tile((SUFFIX2),(EXPR3))
+                                            ;cdraw(EXPR3)endgroup
+vdraw_vertex->...2)decor.size.shifted(SUFFIX2)loc)
+                                                  ;fi.endgroup
+<to be read again> 
+                   ;
+<for(3)> ...PR0)]lbl);vdraw_vertex.vlist[(EXPR0)];
+                                                   ENDFOR
+vdraw->...list[i]lbl);vdraw_vertex.vlist[i];endfor
+                                                  .for.i=vertices:for.j=varc...
+l.16 vdraw
+          ;
+? 
+! Emergency stop.
+<to be read again> 
+                   ;
+use_tile->... not known, "&"replaced by `shaded'";
+                                                  use_tile(shaded,(EXPR3),(E...
+
+tile->...IX2),min_x,min_y,max_x-min_x,max_y-min_y)
+                                                  ;clip.currentpicture.to(EX...
+
+drawtile->begingroup.tile((SUFFIX2),(EXPR3))
+                                            ;cdraw(EXPR3)endgroup
+vdraw_vertex->...2)decor.size.shifted(SUFFIX2)loc)
+                                                  ;fi.endgroup
+<to be read again> 
+                   ;
+<for(3)> ...PR0)]lbl);vdraw_vertex.vlist[(EXPR0)];
+                                                   ENDFOR
+vdraw->...list[i]lbl);vdraw_vertex.vlist[i];endfor
+                                                  .for.i=vertices:for.j=varc...
+l.16 vdraw
+          ;
+feynmf: your tiling has not been defined, check spelling and reprocess!eynmf: y
+our tiling has not been defined, check spelling and reprocess!ynmf: your tiling
+ has not been defined, check spelling and reprocess!nmf: your tiling has not be
+en defined, check spelling and reprocess!mf: your tiling has not been defined, 
+check spelling and reprocess!f: your tiling has not been defined, check spellin
+g and reprocess!: your tiling has not been defined, check spelling and reproces
+s! your tiling has not been defined, check spelling and reprocess!your tiling h
+as not been defined, check spelling and reprocess!our tiling has not been defin
+ed, check spelling and reprocess!ur tiling has not been defined, check spelling
+ and reprocess!r tiling has not been defined, check spelling and reprocess! til
+ing has not been defined, check spelling and reprocess!tiling has not been defi
+ned, check spelling and reprocess!iling has not been defined, check spelling an
+d reprocess!ling has not been defined, check spelling and reprocess!ing has not
+ been defined, check spelling and reprocess!ng has not been defined, check spel
+ling and reprocess!g has not been defined, check spelling and reprocess! has no
+t been defined, check spelling and reprocess!has not been defined, check spelli
+ng and reprocess!as not been defined, check spelling and reprocess!s not been d
+efined, check spelling and reprocess! not been defined, check spelling and repr
+ocess!not been defined, check spelling and reprocess!ot been defined, check spe
+lling and reprocess!t been defined, check spelling and reprocess! been defined,
+ check spelling and reprocess!been defined, check spelling and reprocess!een de
+fined, check spelling and reprocess!en defined, check spelling and reprocess!n 
+defined, check spelling and reprocess! defined, check spelling and reprocess!de
+fined, check spelling and reprocess!efined, check spelling and reprocess!fined,
+ check spelling and reprocess!ined, check spelling and reprocess!ned, check spe
+lling and reprocess!ed, check spelling and reprocess!d, check spelling and repr
+ocess!, check spelling 
