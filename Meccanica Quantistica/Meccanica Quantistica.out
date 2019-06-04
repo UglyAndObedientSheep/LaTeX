@@ -1,0 +1,111 @@
+\BOOKMARK [0][-]{chapter.1}{La nascita della Meccanica Quantistica}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Il problema della radiazione di corpo nero}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Effetto fotoelettrico}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Effetto Compton}{section.1.2}% 4
+\BOOKMARK [1][-]{section.1.3}{Il modello atomico di Bohr}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.3.1}{Invarianti adiabatici}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.2}{Principio di Ritz}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.3}{L'ipotesi di De Broglie}{section.1.3}% 8
+\BOOKMARK [0][-]{chapter.2}{Approccio di Schr\366dinger alla Meccanica Quantistica}{}% 9
+\BOOKMARK [1][-]{section.2.1}{L'esperimento di Young}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{L'equazione di Schr\366dinger}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Autostati ed autovalori dell'equazione di Schr\366dinger}{chapter.2}% 12
+\BOOKMARK [2][-]{subsection.2.3.1}{Compatibilit\340 di osservabili}{section.2.3}% 13
+\BOOKMARK [1][-]{section.2.4}{Evoluzione della funzione d'onda}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.4.1}{Evoluzione temporale}{section.2.4}% 15
+\BOOKMARK [2][-]{subsection.2.4.2}{Principio di Maupertuis e equazione di Schr\366dinger}{section.2.4}% 16
+\BOOKMARK [2][-]{subsection.2.4.3}{Evoluzione spaziale}{section.2.4}% 17
+\BOOKMARK [1][-]{section.2.5}{Operatori e stati stazionari}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.6}{Equazione di continuit\340}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.7}{Teorema di Hellmann-Feynman}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.8}{Proiettori e matrici di Pauli}{chapter.2}% 21
+\BOOKMARK [2][-]{subsection.2.8.1}{Matrici di Pauli}{section.2.8}% 22
+\BOOKMARK [1][-]{section.2.9}{Equazione di Schr\366dinger per la particella legata}{chapter.2}% 23
+\BOOKMARK [0][-]{chapter.3}{Soluzione dell'equazione di Schr\366dinger}{}% 24
+\BOOKMARK [1][-]{section.3.1}{Sistemi unidimensionali}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.2}{Buca di potenziale}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.3}{Soluzione tramite problema di Cauchy}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.4}{Metodo variazionale}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.5}{Metodo spettrale}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.6}{Potenziale a delta}{chapter.3}% 30
+\BOOKMARK [0][-]{chapter.4}{Oscillatore armonico}{}% 31
+\BOOKMARK [1][-]{section.4.1}{Metodo astratto}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.2}{Rappresentazione di Schr\366dinger}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.2.1}{Relazione di ricorrenza per i polinomi di Hermite}{section.4.2}% 34
+\BOOKMARK [1][-]{section.4.3}{Metodo differenziale}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.4}{Interpretazione della funzione d'onda nel metodo astratto}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.5}{Funzione d'onda nelle p}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.6}{Stati coerenti}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.7}{Stati coerenti in rappresentazione di Schr\366dinger}{chapter.4}% 39
+\BOOKMARK [0][-]{chapter.5}{Potenziali a caso}{}% 40
+\BOOKMARK [1][-]{section.5.1}{Soluzioni asintotiche}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.2}{Gradino di potenziale}{chapter.5}% 42
+\BOOKMARK [1][-]{section.5.3}{Barriere di potenziale in sequenza}{chapter.5}% 43
+\BOOKMARK [1][-]{section.5.4}{Relazione di completezza}{chapter.5}% 44
+\BOOKMARK [1][-]{section.5.5}{Approssimazione dei livelli energetici}{chapter.5}% 45
+\BOOKMARK [1][-]{section.5.6}{Decadimenti}{chapter.5}% 46
+\BOOKMARK [1][-]{section.5.7}{Calcolo approssimativo di T per un potenziale piccolo}{chapter.5}% 47
+\BOOKMARK [0][-]{chapter.6}{Rappresentazioni}{}% 48
+\BOOKMARK [1][-]{section.6.1}{Assiomi della Meccanica Quantistica}{chapter.6}% 49
+\BOOKMARK [1][-]{section.6.2}{Rappresentazione nelle coordinate}{chapter.6}% 50
+\BOOKMARK [1][-]{section.6.3}{Rappresentazione negli impulsi}{chapter.6}% 51
+\BOOKMARK [1][-]{section.6.4}{Trasformazioni unitarie e operatori di Heisenberg}{chapter.6}% 52
+\BOOKMARK [2][-]{subsection.6.4.1}{Operatori di Heisenber per la particella libera}{section.6.4}% 53
+\BOOKMARK [2][-]{subsection.6.4.2}{Operatori di Heisenberg per l'oscillatore armonico}{section.6.4}% 54
+\BOOKMARK [1][-]{section.6.5}{Operatore impulso}{chapter.6}% 55
+\BOOKMARK [1][-]{section.6.6}{Definizione degli operatori P e Q tramite operatori unitari}{chapter.6}% 56
+\BOOKMARK [0][-]{chapter.7}{Stati misti e matrice di densit\340}{}% 57
+\BOOKMARK [1][-]{section.7.1}{Prodotti tensoriali}{chapter.7}% 58
+\BOOKMARK [1][-]{section.7.2}{Matrice di densit\340}{chapter.7}% 59
+\BOOKMARK [1][-]{section.7.3}{Matrice di densit\340 termica}{chapter.7}% 60
+\BOOKMARK [0][-]{chapter.8}{Momento angolare}{}% 61
+\BOOKMARK [1][-]{section.8.1}{Introduzione}{chapter.8}% 62
+\BOOKMARK [1][-]{section.8.2}{Simmetrie}{chapter.8}% 63
+\BOOKMARK [1][-]{section.8.3}{Trasformazioni di Galileo}{chapter.8}% 64
+\BOOKMARK [1][-]{section.8.4}{Momento angolare per una particella}{chapter.8}% 65
+\BOOKMARK [1][-]{section.8.5}{Metodo alternativo}{chapter.8}% 66
+\BOOKMARK [1][-]{section.8.6}{Matrici del momento angolare}{chapter.8}% 67
+\BOOKMARK [1][-]{section.8.7}{Armoniche sferiche}{chapter.8}% 68
+\BOOKMARK [1][-]{section.8.8}{Rotazioni}{chapter.8}% 69
+\BOOKMARK [1][-]{section.8.9}{Rappresentazioni irriducibili}{chapter.8}% 70
+\BOOKMARK [2][-]{subsection.8.9.1}{Gruppo di Galileo}{section.8.9}% 71
+\BOOKMARK [1][-]{section.8.10}{Composizione dei momenti angolari}{chapter.8}% 72
+\BOOKMARK [1][-]{section.8.11}{Regole di selezione}{chapter.8}% 73
+\BOOKMARK [0][-]{chapter.9}{Atomo di idrogeno}{}% 74
+\BOOKMARK [1][-]{section.9.1}{Soluzione generale}{chapter.9}% 75
+\BOOKMARK [1][-]{section.9.2}{Atomi idrogenoidi}{chapter.9}% 76
+\BOOKMARK [1][-]{section.9.3}{Correzioni relativistiche}{chapter.9}% 77
+\BOOKMARK [0][-]{chapter.10}{Teoria delle perturbazioni}{}% 78
+\BOOKMARK [1][-]{section.10.1}{Calcolo delle correzioni}{chapter.10}% 79
+\BOOKMARK [1][-]{section.10.2}{Atomo di idrogeno}{chapter.10}% 80
+\BOOKMARK [2][-]{subsection.10.2.1}{Effetto Zeeman}{section.10.2}% 81
+\BOOKMARK [1][-]{section.10.3}{Perturbazioni dipendenti dal tempo}{chapter.10}% 82
+\BOOKMARK [1][-]{section.10.4}{Rappresentazione di interazione}{chapter.10}% 83
+\BOOKMARK [1][-]{section.10.5}{Adiabatic switching}{chapter.10}% 84
+\BOOKMARK [1][-]{section.10.6}{Perturbazioni esplicitamente dipendenti dal tempo}{chapter.10}% 85
+\BOOKMARK [1][-]{section.10.7}{Perturbazioni periodiche}{chapter.10}% 86
+\BOOKMARK [1][-]{section.10.8}{Sezione d'urto per effetto fotoelettrico}{chapter.10}% 87
+\BOOKMARK [1][-]{section.10.9}{Effetto Stark sull'atomo di idrogeno}{chapter.10}% 88
+\BOOKMARK [1][-]{section.10.10}{Atomo di idrogeno con struttura del protone}{chapter.10}% 89
+\BOOKMARK [1][-]{section.10.11}{Ione Z con due elettroni}{chapter.10}% 90
+\BOOKMARK [0][-]{chapter.11}{Sistemi con pi\371 particelle identiche}{}% 91
+\BOOKMARK [1][-]{section.11.1}{Simmetria e antisimmetria della funzione d'onda}{chapter.11}% 92
+\BOOKMARK [1][-]{section.11.2}{Simmetrizzazione degli stati}{chapter.11}% 93
+\BOOKMARK [2][-]{subsection.11.2.1}{Particelle distinguibili}{section.11.2}% 94
+\BOOKMARK [2][-]{subsection.11.2.2}{Particelle indistinguibili}{section.11.2}% 95
+\BOOKMARK [0][-]{chapter.12}{Seconda quantizzazione}{}% 96
+\BOOKMARK [1][-]{section.12.1}{Rappresentazione di Fock}{chapter.12}% 97
+\BOOKMARK [1][-]{section.12.2}{Quantizzazione del campo elettromagnetico}{chapter.12}% 98
+\BOOKMARK [1][-]{section.12.3}{Elettromagnetismo nella materia in gauge di Coulomb}{chapter.12}% 99
+\BOOKMARK [1][-]{section.12.4}{Quantizzazione canonica}{chapter.12}% 100
+\BOOKMARK [1][-]{section.12.5}{Invarianza di gauge}{chapter.12}% 101
+\BOOKMARK [1][-]{section.12.6}{Simmetrie interne}{chapter.12}% 102
+\BOOKMARK [0][-]{chapter.13}{Atomi}{}% 103
+\BOOKMARK [1][-]{section.13.1}{Configurazioni elettroniche}{chapter.13}% 104
+\BOOKMARK [2][-]{subsection.13.1.1}{Tre elettroni equivalenti}{section.13.1}% 105
+\BOOKMARK [1][-]{section.13.2}{Equazione di Hartree-Fock}{chapter.13}% 106
+\BOOKMARK [1][-]{section.13.3}{Elio \(stato fondamentale\)}{chapter.13}% 107
+\BOOKMARK [1][-]{section.13.4}{Correzioni dovute allo spin}{chapter.13}% 108
+\BOOKMARK [1][-]{section.13.5}{Campo magnetico}{chapter.13}% 109
+\BOOKMARK [0][-]{chapter.14}{Teoria della scattering}{}% 110
+\BOOKMARK [1][-]{section.14.1}{Scattering elastico}{chapter.14}% 111
