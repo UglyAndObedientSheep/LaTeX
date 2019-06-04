@@ -1,0 +1,41 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {chapter}{\numberline {1}Gravit\IeC {\`a} e sistemi non inerziali}{13}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Principio di equivalenza}{13}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Sistemi di riferimento non inerziali}{13}{section.1.2}% 
+\contentsline {section}{\numberline {1.3}Costruzione del formalismo}{14}{section.1.3}% 
+\contentsline {section}{\numberline {1.4}Derivate e differenziali covarianti}{17}{section.1.4}% 
+\contentsline {subsection}{\numberline {1.4.1}Trasporto parallelo}{18}{subsection.1.4.1}% 
+\contentsline {section}{\numberline {1.5}Equazione del moto per una particella puntiforme}{20}{section.1.5}% 
+\contentsline {chapter}{\numberline {2}Campi stazionari}{22}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Red Shift Gravitazionale}{22}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Leggi di conservazione in metriche stazionarie}{23}{section.2.2}% 
+\contentsline {chapter}{\numberline {3}Tensore energia-impulso}{24}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Derivazione formale}{24}{section.3.1}% 
+\contentsline {chapter}{\numberline {4}Equazioni del campo gravitazionale}{27}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Tensore di Riemann}{27}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Equazione di Einstein}{29}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}Derivazione tramite principio variazionale}{30}{subsection.4.2.1}% 
+\contentsline {section}{\numberline {4.3}Pseudotensore energia-impulso}{31}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Metrica di Schwartzschild}{31}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}Moto di un corpo in metrica di Schwartzschild}{33}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}Coordinate di Kruskal-Szekeres}{34}{section.4.6}% 
+\contentsline {section}{\numberline {4.7}Buchi neri rotanti}{34}{section.4.7}% 
+\contentsline {chapter}{\numberline {5}Radiazione gravitazionale}{37}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Approssimazione lineare}{37}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Gauge armonica}{38}{section.5.2}% 
+\contentsline {section}{\numberline {5.3}Irraggiamento gravitazionale}{40}{section.5.3}% 
+\contentsline {section}{\numberline {5.4}Approssimazione di quadrupolo}{41}{section.5.4}% 
+\contentsline {chapter}{\numberline {6}Cosmologia}{43}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Modelli cosmologici}{43}{section.6.1}% 
+\contentsline {subsection}{\numberline {6.1.1}Modello a curvatura positiva}{43}{subsection.6.1.1}% 
+\contentsline {subsection}{\numberline {6.1.2}Modello a curvatura negativa}{44}{subsection.6.1.2}% 
+\contentsline {subsection}{\numberline {6.1.3}Modello a curvatura zero}{45}{subsection.6.1.3}% 
+\contentsline {section}{\numberline {6.2}Legge di Hubble}{46}{section.6.2}% 
+\contentsline {section}{\numberline {6.3}Red Shift Cosmologico}{47}{section.6.3}% 
+\contentsline {section}{\numberline {6.4}Cosmologia moderna}{48}{section.6.4}% 
+\contentsline {subsection}{\numberline {6.4.1}Evoluzione dell'universo}{50}{subsection.6.4.1}% 
+\contentsline {subsection}{\numberline {6.4.2}Moto di oggetti non solidali}{53}{subsection.6.4.2}% 
+\contentsline {subsection}{\numberline {6.4.3}Effetti della costante cosmologica}{54}{subsection.6.4.3}% 
+\contentsline {subsection}{\numberline {6.4.4}Condizioni iniziali dell'universo e meccanismo dell'inflazione}{55}{subsection.6.4.4}% 
+\contentsline {subsection}{\numberline {6.4.5}Termodinamica dell'universo}{56}{subsection.6.4.5}% 

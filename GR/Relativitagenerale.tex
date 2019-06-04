@@ -1,0 +1,1984 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{latexsym}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{quoting}
+\usepackage{booktabs}
+\theoremstyle{definition}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{dfn}{Definizione}[section]
+\newtheorem{exm}{Esempio}
+\newcommand{\pdev}[3][]{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+\newcommand{\dev}[3][]{\frac{\mathrm{d}^{#1} #2}{\mathrm{d} #3^{#1}}}
+\newcommand{\ham}{\mathcal{H}}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\Div}{\mathrm{div}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand{\diff}[1][]{\mathrm{d}#1}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+\newcommand{\bnabla}{\boldsymbol{\nabla}}
+\newcommand{\Sch}{Schrödinger}
+\newcommand{\adj}[1]{#1^{\dagger}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\conn}[3]{\Gamma^{#1}_{#2 #3}}
+\quotingsetup{font=small}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\Huge Relatività Generale}\\
+\vspace*{0.5cm}
+{\small Appunti (non rivisti) delle lezioni del professor Vicari}
+\vspace*{\stretch{0.5}} \\
+\includegraphics[width=250pt,keepaspectratio=true]{Addons/eigenLibrichiaro}
+\begin{center}
+un progetto di
+\end{center}
+\includegraphics[width=250pt,keepaspectratio=true]{Addons/eigenlabinvertito2.png} \\
+\url{www.eigenlab.org}
+\vspace*{\stretch{1}} \\
+{\small a cura di}\\
+\vspace*{0.5cm}
+{\normalsize Francesco Cicciarella\par}
+\end{titlepage}
+\pagebreak
+
+\section*{Note legali}
+\begin{center}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{Addons/88x31.png}
+\end{figure}
+\vspace{0.5cm}
+Copyright \copyright \; 2013-2014 di Francesco Cicciarella \\
+\textit{Appunti di Relatività Generale} \\	
+è rilasciato sotto i termini della licenza \\
+Creative Commons Attribuzione - Non commerciale - Condividi allo stesso modo 3.0 Italia. \\
+Per visionare una copia completa della licenza, visita \\
+\url{http://creativecommons.org/licenses/by-nc-sa/3.0/it/legalcode}
+\end{center}
+\section*{Liberatoria, mantenimento e segnalazione errori}
+Questo documento viene pubblicato, in formato elettronico, senza alcuna garanzia di correttezza del suo contenuto. Il testo, nella sua interezza, è opera di \\
+
+\vspace{0.3cm}
+\begin{flushleft}
+\texttt{Francesco Cicciarella}\\
+\texttt{<f[DOT]cicciarella[AT]inventati[DOT]org>}
+\end{flushleft}
+\vspace{0.3cm}
+e viene mantenuto dallo stesso, a cui possono essere inviate eventuali segnalazioni di errori.
+\vspace{1cm}
+\begin{flushright}
+Pisa, 24 Settembre 2013
+\end{flushright}
+\pagebreak
+
+
+\tableofcontents
+\pagebreak
+
+\chapter*{Richiami di Relatività Ristretta}
+\textbf{Postulati fondamentali} \\
+\\
+La Relatività Ristretta si fonda su due postulati fondamentali:
+\begin{enumerate}
+\item principio di relatività: le leggi della natura sono le stesse in tutti i sistemi di riferimento inerziali;
+\item esiste una velocità limite per la propagazione dei segnali fisici: $c=3\cdot 10^8$ m/s.
+\end{enumerate}
+Il secondo postulato mette ovviamente in discussione il concetto di simultaneità di due eventi. Un \emph{evento} è un qualcosa che avviene in un certo punto dello spazio e ad un certo istante, ed è descritto da quattro numeri $t,\mathbf{x}$. \\
+Consideriamo due eventi $E_1\equiv(x_1^0,\mathbf{x}_1)$, $E_2=\equiv(x_2^0,\mathbf{x}_2)$, dove $x^0=ct$, e definiamo l'\emph{intervallo} $S_{12}^2$ come:
+\begin{equation}
+S_{12}^2\equiv (x_2^0-x_1^0)^2-(\mathbf{x}_2-\mathbf{x}_1)^2\;.
+\end{equation}
+Questa quantità è indipendente dal sistema di riferimento in cui si osservano i due eventi, è cioè un \emph{invariante}. L'intervallo da informazioni sulle correlazioni causali tra due eventi. Consideriamo ad esempio lo spazio-tempo con una dimensione spaziale e una temporale e fissiamo un evento di riferimento nell'origine, $E_0=(0,0)$. Prendiamo un altro evento $E_1=(x^0,x)$. Se $x>x^0$, i due eventi non possono essere messi in correlazione causale in quell'istante, mentre viceversa, gli eventi con $x<x^0$ possono essere correlati causalmente con l'evento di riferimento, quindi all'interno del cono-luce ($x<x^0$) sono fissati i concetti di passato e futuro. In termini dell'intervallo, se due eventi hanno $S_{12}^2\ge 0$, allora i due eventi possono essere in correlazione causale, altrimenti no. Inoltre, se due eventi hanno $S_{12}^2>0$, esisterà sempre un sistema di riferimento in cui essi avvengono nello stesso luogo, ma a tempi diversi. \\
+
+\textbf{Trasformazioni di Lorentz} \\
+\\
+La descrizione di un evento $E=(x^0,\mathbf{x})$ dipende dal sistema di riferimento. Le trasformazioni di Lorentz forniscono la relazione tra le quaterne che descrivono un evento in due sistemi di riferimento. Dato un sistema di riferimento $K$ e uno $\overline{K}$ in moto rispetto a $K$ con velocità $\mathbf{v}$ (che fissiamo ad esempio lungo $x^1$), si ha:
+\begin{equation}
+\begin{cases}
+\overline{x}^0=\gamma(x^0-\beta x^1)\;, \\
+\\
+\overline{x}^1=\gamma(x^1-\beta x^0)\;,
+\end{cases}
+\end{equation}
+dove $\beta=v/c, \gamma=(1-\beta^2)^{-1/2}$. Le trasformazioni di Lorentz sono quelle più generali che lasciano invariato l'intervallo tra due eventi. Esse inoltre implementano automaticamente, nella descrizione della composizione di due velocità, l'esistenza della velocità massima $c$ di propagazione. \\
+
+\textbf{Quadrivettori} \\
+\\
+Dalle trasformazioni di Lorentz, differenziando, otteniamo le trasformazioni per il differenziale $\diff{x^{\mu}}\equiv(\diff{x^0},\diff{\mathbf{x}})$:
+\begin{equation}
+\begin{cases}
+\diff{\overline{x}^0}=\gamma(\diff{x^0}-\beta\diff{x^1})\;, \\
+\\
+\diff{\overline{x}^1}=\gamma(\diff{x^1}-\beta\diff{x^0})\;.
+\end{cases}
+\end{equation}
+La trasformazione si può scrivere anche come:
+\begin{equation}
+\diff{\overline{x}^{\mu}}=\Lambda^{\mu}_{\;\;\nu}\diff{x^{\nu}}=\frac{\partial\overline{x}^{\mu}}{\partial x^{\nu}} \diff{x^{\nu}}\;,
+\end{equation}
+dove:
+\begin{equation}
+\Lambda^{\mu}_{\;\;\nu}=\left(\begin{matrix}
+\gamma & -\gamma\beta & 0 & 0 \\
+-\gamma\beta & \gamma & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{matrix}\right)\;.
+\end{equation}
+Definiamo a questo punto i \emph{quadrivettori controvarianti} come tutte le quantità che trasformano come il differenziale sotto trasformazioni di Lorentz:
+$$
+\overline{A}^{\mu}=\frac{\partial \overline{x}^{\mu}}{\partial x^{\nu}}A^{\nu}\;.
+$$
+\textbf{Metrica} \\
+\\
+La metrica in Relatività Ristretta è data dalla matrice:
+\begin{equation}
+\eta_{\mu \nu}=\left(\begin{matrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & -1
+\end{matrix}\right)\;.
+\end{equation}
+L'intervallo infinitesimo tra due eventi diventa allora:
+\begin{equation*}
+\diff{s^2}=\diff{x^{\mu}}\diff{x^{\nu}}\eta_{\mu \nu}\;.
+\end{equation*}
+Più in generale, dati due quadrivettori $A^{\mu},B^{\mu}$, la quantità $A^{\mu}B^{\nu}\eta_{\mu\nu}$ è un invariante di Lorentz. \\
+Dato un quadrivettore controvariante $A^{\mu}$, il corrispondente vettore \emph{covariante} è definito come:
+\begin{equation}
+A_{\nu}=\eta_{\nu\mu}A^{\mu}\;.
+\end{equation}
+Un prodotto scalare di scrive allora $A^{\mu}B_{\mu}$: questo è uno scalare, infatti:
+$$
+A^{\mu}B_{\mu}=A^{\mu}\eta_{\mu\nu}B^{\nu}\;.
+$$
+Possiamo anche introdurre tensori controvarianti $A^{\mu\nu}$ che trasformano come:
+\begin{equation}
+\overline{A}^{\mu\nu}=\frac{\partial\overline{x}^{\mu}}{\partial x^{\alpha}}\frac{\partial \overline{x}^{\nu}}{\partial x^{\beta}}A^{\alpha\beta}\;.
+\end{equation}
+I quadrivettori covarianti trasformano invece come:
+\begin{equation}
+\overline{A}_{\mu}=\frac{\partial x^{\nu}}{\partial\overline{x}^{\mu}}A_{\nu}\;.
+\end{equation}
+\textbf{Quadrivelocità} \\
+\\
+La velocità, sperimentalmente definita come $\mathbf{v}=\diff{\mathbf{x}}{\diff{t}}$, non risulta essere la componente spaziale di un quadrivettore, in quanto il $\diff{t}$ a denominatore non è più uno scalare, bensì la componente temporale del quadrivettore posizione. Per ottenere qualcosa che possa essere parte di un quadrivettore dobbiamo dividere per uno scalare, nella fattispecie l'intervallo infinitesimo $\diff{s}$. Definiamo:
+\begin{equation*}
+\mathbf{u}\equiv \dev{\mathbf{x}}{s}\;.
+\end{equation*}
+Questa quantità è effettivamente la parte spaziale di un quadrivettore. L'estensione a quadrivettore segue naturalmente e si introduce quindi la \emph{quadrivelocità} (in unità di $c=1$):
+\begin{equation}
+u^{\mu}\equiv \frac{\diff{x^{\mu}}}{\diff{s}}=\gamma(1,\boldsymbol{\beta})\;.
+\end{equation}
+$\gamma$ e $\beta$ sono le funzioni di $v$ precedentemente definite. Quello che si nota è che $u^{\mu}$ non è lineare in $v$, nonostante trasformi come un quadrivettore. Dalla definizione della quadrivelocità segue immediatamente la definizione di quadri-impulso:
+\begin{equation}
+p^{\mu}=m u^{\mu}\;.
+\end{equation}
+\textbf{Scalari e quadrigradiente} \\
+\\
+Una funzione delle coordinate $\varphi(x^{\mu})$ si dice \emph{scalare} se è invariante per trasformazioni di Lorentz, cioè se $\overline{\varphi}(\overline{x}^{\mu})=\varphi(x^{\mu}(\overline{x}))$. Data una funzione scalare $\varphi$, si definisce il suo \emph{quadrigradiente} come:
+\begin{equation}
+\frac{\partial\varphi}{\partial x^{\mu}}\;.
+\end{equation}
+Vogliamo capire che tipo di oggetto è il quadrigradiente. Il differenziale della funzione è:
+\begin{equation}
+\diff{\varphi}=\diff{x^{\mu}}\frac{\partial\varphi}{\partial x^{\mu}}\;,
+\end{equation}
+ed è uno scalare. Visto che $\diff{x^{\mu}}$ è un quadrivettore controvariante, allora per rendere il tutto uno scalare, il quadrigradiente dovrà essere un quadrivettore covariante. Nella pratica si scrive:
+\begin{equation}
+\frac{\partial\varphi}{\partial x^{\mu}}\equiv \partial_{\mu}\varphi\;.
+\end{equation}
+L'elemento di quadrivolume è dato da $\diff{\Omega}=\diff{x^0}\diff{x^1}\diff{x^2}\diff{x^3}$. $\diff{\Omega}$ è invariante per trasformazioni di Lorentz in quanto la matrice Jacobiana della trasformazione ha sempre determinante uguale a 1. \\
+\textbf{Tempo proprio}
+Consideriamo una particella che si muove con nota legge oraria $\mathbf{v}(t)$. Vogliamo sapere che relazione intercorre tra il tempo impiegato dalla particella per andare da un punto A ad un punto B misurato nel sistema di riferimento inerziale del laboratorio e in quello solidale alla particella, quest'ultimo detto \emph{tempo proprio}. Per far ciò, fissiamo un sistema di riferimento solidale con la particella all'istante $t$. Adesso la relazione tra $\tau$ (tempo proprio) e $t$ è quella tra due sistemi di riferimento inerziali. Ragioniamo in termini di infinitesimi: nel laboratorio $\diff{s^2}=\diff{t^2}-\diff{\mathbf{x}^2}$, mentre nel sistema di quiete della particella $\diff{s^2}=\diff{\tau^2}$ in quanto la particella è ferma e appunto $\diff{x^2}=0$. Allora eguagliando si ottiene:
+\begin{equation}
+\diff{\tau^2}=\diff{t^2}-\diff{x^2}\qquad \Longrightarrow \qquad \diff{\tau}=\diff{t}\sqrt{1-\mathbf{v}^2}\;.
+\end{equation}
+Possiamo quindi integrare per avere la relazione tra intervalli finiti:
+\begin{equation}
+\int_A^B \diff{\tau}=\tau_B-\tau_A=\int_A^B\diff{t}\sqrt{1-\mathbf{v}^2(t)}\;.
+\end{equation}
+Dato che il fattore $\sqrt{1-\mathbf{v}^2}\le 1$, allora $\tau_B-\tau_A\le t_B-t_A$. \\
+
+\textbf{Approccio variazionale al moto della particella libera in R.R.} \\
+\\
+Consideriamo una particella libera. Nel sistema di riferimento solidale alla particella, essa è ferma e la sua linea d'universo A è parallela all'asse $t$. Qualunque altra linea di universo B avente gli stessi estremi di A sarà tale che, per quanto detto,
+$$
+\int_A\diff{s}>\int_B\diff{s}\;.
+$$
+Quindi il moto della particella corrisponde alla linea di universo che massimizza l'integrale del $\diff{s}$ tra il punto iniziale e quello finale. In analogia con principio variazionale definiamo l'\emph{azione}, il cui minimo corrisponde al moto effettivo, come:
+\begin{equation}
+S=-\alpha\int_A^B\diff{s}\;,
+\end{equation}
+con $\alpha>0$. Il segno negativo tiene conto del fatto che il minimo dell'azione corrisponde al massimo di $\diff{s}$, esattamente come abbiamo detto. La costante $\alpha$ si ottiene considerando il limite non relativistico. Esplicitando il $\diff{s}$ nell'azione:
+\begin{equation}
+S=-\alpha\int_A^B\sqrt{c^2\diff{t}^2-\diff{\mathbf{x}^2}}=-\alpha c\int_{t_A}^{t_B}\diff{t}\,\sqrt{1-\frac{v^2}{c^2}}\;.
+\end{equation}
+Possiamo identificare quindi la Lagrangiana:
+\begin{equation}
+L=-\alpha c\sqrt{1-\frac{v^2}{c^2}}\;,\qquad \qquad v\equiv \left|\dev{\mathbf{x}}{t}\right|\;.
+\end{equation}
+Nel limite non relativistico $v/c\ll 1$:
+\begin{equation}
+L\simeq -\alpha c+\frac{\alpha}{2c}v^2\;.
+\end{equation}
+Questa deve coincidere con la forma nota della Lagrangiana non relativistica (a meno della costante additiva) per la particella libera $L_{NR}=mv^2/2$. Quindi otteniamo $\alpha=mc$ e:
+\begin{equation}
+S=-mc^2\int_A^B\diff{s}\;.
+\end{equation}
+Per procedere con il principio variazionale, dobbiamo innanzitutto identificare le variabili dinamiche: nel caso della particella libera l'unica è il quadrivettore posizione $x^{\mu}$. Adesso variamo l'azione rispetto a $x^{\mu}$:
+$$
+\delta S=-m\int_A^B \delta(\diff{s})\;.
+$$
+Con $\diff{s}=\sqrt{\eta_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}}$, quindi:
+\begin{equation}
+\delta(\diff{s}) = \frac{2\eta_{\mu\nu}\diff{x^{\mu}}\delta(\diff{x^{\nu}})}{2\sqrt{\eta_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}}}=\eta_{\mu\nu}\dev{x^{\mu}}{s}\delta(\diff{x^{\nu}})=\eta_{\mu\nu}u^{\mu}\delta(\diff{x^{\nu}})=u_{\nu}\delta(\diff{x^{\nu}})\;.
+\end{equation}
+Allora:
+\begin{equation*}
+\delta S=-m\int_A^B u_{\nu}\delta(\diff{x^{\nu}})=-m\int_A^B u_{\nu}\diff{(\delta x^{\nu})}= \left. -mu_{\nu}\delta x^{\nu}\right|_A^B+m\int_A^B\diff{u_{\nu}}\delta x^{\nu}\;.
+\end{equation*}
+Gli estremi sono fissi: $\delta x^{\mu}(A)=\delta x^{\nu}(B)=0$, quindi:
+\begin{equation}
+\delta S=m\int_A^B\diff{u_{\nu}}\delta x^{\nu}=0\;.
+\end{equation}
+Indipendentemente dalla variazione $\delta x^{\nu}$. Ricaviamo quindi le note equazioni:
+\begin{equation}
+\diff{u_{\nu}}=0 \qquad \Longleftrightarrow \qquad \dev{u_{\nu}}{s}=0\;.
+\end{equation}
+\textbf{Particella carica in campo EM} \\
+\\
+Sappiamo che le equazioni del moto sono:
+\begin{align*}
+\dev{E_c}{t} &= e\mathbf{E}\cdot\mathbf{v}\;, \\
+\dev{\mathbf{p}}{t} &= e\mathbf{E}+\frac{e}{c}\mathbf{v}\wedge\mathbf{B}\;.
+\end{align*}
+Aggiungiamo all'azione un termine che tiene conto dell'interazione con i campi esterni:
+$$
+S=-mc^2\int_A^B\diff{s}+S_{\mathrm{int}}\;.
+$$
+I campi possono essere derivati dai poteziali $\varphi,\mathbf{A}$. Un'ipotesi che facciamo è che i potenziali siano le componenti di un quadrivettore $A^{\mu}=(\varphi,\mathbf{A})$, detto \emph{quadripotenziale}. Ragionevolmente, l'azione deve essere lineare nel quadripotenziale, dipendere dalla carica linearmente e accoppiata alle variabili dinamiche, quindi si ha:
+\begin{equation}
+\mathcal{S}_{\mathrm{int}}=\frac{e}{c}\int_A^B A_{\mu}\diff{x^{\mu}}\;.
+\end{equation}
+Possiamo richiedere anche l'invarianza di gauge, ossia l'invarianza per trasformazioni del tipo $A_{\mu}\longrightarrow A_{mu}+\partial_{\mu}f$, con $f$ funzione scalare che non contribuirà al principio variazionale. L'azione completa è quindi:
+$$
+S=-m\int_A^B\diff{s}+\frac{e}{c}\int_A^B A_{\mu}\diff{x^{\mu}}\;.
+$$
+Eseguiamo la variazione (il primo pezzo è noto):
+\begin{align}
+\delta S &= \int_A^B\diff{u_{\nu}}\delta x^{\nu}+\frac{e}{c}\int_A^B\left[A_{\nu}(x)\delta(\diff{x^{\nu}})+\delta(A_{\nu}(x))\diff{x^{\nu}}\right]  \notag \\
+&= \int_A^B\diff{u_{\nu}}\delta x^{\nu}+\frac{e}{c}\int_A^B\left[A_{\nu}(x)\diff{(\delta x^{\nu})}+\partial_{\alpha}A_{\nu}(x)\delta x^{\alpha}\diff{x^{\nu}}\right] \notag \\
+&= \int_A^B\diff{u_{\nu}}\delta x^{\nu}-\frac{e}{c}\int_A^B\left[\diff{A_{\nu}}\delta x^{\nu}-\partial_{\alpha}A_{\nu}\delta x^{\alpha}\diff{x^{\nu}}\right]  \notag \\
+&= \int_A^B \delta x^{\nu}\left[m\diff{u_{\nu}}-\frac{e}{c}(\partial_{\alpha}A_{\nu}\diff{x^{\alpha}}-\partial_{\nu}A_{\alpha}\diff{x^{\alpha}})\right]=0\;.
+\end{align}
+Introducendo il tensore $F_{\mu\nu}\equiv \partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}$ si ottiene infine:
+\begin{equation}
+m\diff{u_{\nu}}=\frac{e}{c}F_{\mu\nu}\diff{x^{\alpha}}\;.
+\end{equation}
+Oppure:
+\begin{equation}
+\dev{p_{\nu}}{s}=\frac{e}{c}F_{\mu\nu}u^{\mu}\;.
+\end{equation}
+Il tensore $F_{\mu\nu}$, svolgendo i calcoli, è dato da:
+\begin{equation}
+F_{\mu\nu}=\left(\begin{matrix}
+0 & E_x & E_y & E_z \\
+-E_x & 0 & -B_z & B_y \\
+-E_y & B_z & 0 & -B_x \\
+-E_z & -B_y & B_x & 0
+\end{matrix}\right)\;.
+\end{equation}
+\textbf{Equazioni per i campi} \\
+\\
+In questo caso, le variabili dinamiche sono i campi. Scriviamo come sempre l'azione:
+$$
+S_{\mathrm{EM}}=\int_{t_A}^{t_B}\diff{\Omega}\,\lag(A,x)\;.
+$$
+In quanto i campi sono una proprietà di tutto lo spazio ad un dato istante. $\diff{\Omega}$ è uno scalare, quindi anche $\lag$ dovrà esserlo. Se inizialmente assumiamo che non vi siano campi esterni, il sistema sarà invariante per traslazioni e quindi $\lag$ non dipenderà esplicitamente da $x^{\mu}$. Per rispettare il principio di sovrapposizione ed avere quindi equazioni lineari, $\lag$ dovrà essere al più quadratica nelle variabili dinamiche. Inoltre possiamo ragionevolmente imporre che nelle equazioni del moto non compaiano derivate di ordine superiore al secondo: questo si traduce nell'imporre che in $\lag$ non figurino termini con derivate di ordine superiore al secondo. Infine, possiamo richiedere che le equazioni del moto siano gauge-invarianti: per ottenere questo risultato, è sufficiente costruire l'azione in modo che sia gauge-invariante. Mettendo insieme tutti i pezzi, le uniche configurazioni possibili sono date da:
+$$
+aF_{\mu\nu}F^{\mu\nu}+b\epsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}\;.
+$$
+Per studiare sistemi in qualche modo chiusi, richiediamo che i campi tendano a zero abbastanza rapidamente a grandi distanze. Questo, in termini di variazione, si traduce nel richiedere che la variazione dei campi sia nulla all'infinito. Se dunque aggiungiamo a $\lag$ un termine della forma $\partial_{\mu}B^{\mu}(A)$, otteniamo un termine di flusso che si può riscrivere grazie al teorema di Gauss:
+\begin{equation}
+\int \diff{\Omega}\; \partial_{\mu}B^{\mu}(A)=\int\diff{S_{\mu}}\; B^{\mu}(A)\;,
+\end{equation}
+che è nullo agli estremi di variazione e di conseguenza non influisce le equazioni del moto. Notiamo quindi che:
+\begin{equation}
+\epsilon^{\mu\nu\rho\sigma}F_{\mu\nu}F_{\rho\sigma}\equiv 4\partial_{\mu}(\epsilon^{\mu\nu\rho\sigma}A_{\nu}\partial_{\rho}A_{\sigma})\;,
+\end{equation}
+e dunque può essere eliminato da $\lag$, che in conclusione avrà la forma $\lag=aF_{\mu\nu}F^{\mu\nu}$. L'azione sarà quindi:
+\begin{equation}
+S_{\mathrm{EM}}=-\frac{1}{4}\int_{t_A}^{t_B}\diff{\Omega}\;F_{\mu\nu}F^{\mu\nu}\;.
+\end{equation}
+Prima di eseguire la variazione, notiamo che dalla definizione dei campi $\mathbf{B}=\nabla\wedge \mathbf{A}$, $\mathbf{E}=-\nabla\varphi-\partial_t\mathbf{A}$, seguono le equazioni di Maxwell omogenee:
+\begin{align}
+&\nabla\cdot\mathbf{B}=0 \notag\;, \\
+&\nabla\wedge\mathbf{E}=-\frac{1}{c}\pdev{\mathbf{B}}{t}\;,
+\end{align}
+che in notazione quadridimensionale diventano semplicemente:
+\begin{equation}
+\epsilon^{\mu\nu\rho\sigma}\partial_{\nu}F_{\rho\sigma}=0\;.
+\end{equation}
+Un altro passo che vogliamo fare prima di procedere con il metodo variazionale è di includere l'interazione dei campi con le sorgenti: in tre dimensioni avevamo la densità di carica $\rho$ e la corrente $\mathbf{J}=\rho\mathbf{v}$. È naturale metterle insieme per creare la quadricorrente $J^{\mu}\equiv(\rho,\mathbf{J})$ (è effettivamente un quadrivettore), che soddisfa l'equazione di continuità $\partial_{\mu}J^{\mu}=0$. Dobbiamo quindi aggiungere all'azione appena scritta un termine che tenga conto del contributo delle sorgenti. Visto che il campo $\mathbf{E}$ è lineare nella densità di carica, allora questo termine dipenderà linearmente da $J^{\mu}$. Per renderlo scalare e dipendente dalle variabili dinamiche, scriviamo infine:
+\begin{equation}
+S_{\mathrm{EM}}=-\frac{1}{4}\int_{t_A}^{t_B}\diff{\Omega}\;F_{\mu\nu}F^{\mu\nu}+\int_{t_A}^{t_B}\diff{\Omega}\;J^{\mu}A_{\mu}\;.
+\end{equation}
+Il termine aggiuntivo rende l'azione complessivamente non invariante per trasformazione di gauge; tuttavia, sfruttando il fatto che $\partial_{\mu}J^{\mu}=0$, otteniamo che le equazioni del moto rimangono comunque gauge-invarianti, quindi possiamo tenerlo così. \\
+Eseguiamo quindi la variazione:
+\begin{align}
+\delta S_{\mathrm{EM}} &= \int_{t_A}^{t_B}\diff{\Omega}\;J^{\mu}\delta A_{\mu}-\frac{1}{4}\int_{t_A}^{t_B}\diff{\Omega}\; 2F_{\mu\nu}\delta(F^{\mu\nu}) \notag \\
+&= \int_{t_A}^{t_B}\diff{\Omega}\; J^{\mu}\delta A_{\mu}-\frac{1}{2}\int_{t_A}^{t_B}\diff{\Omega}F_{\mu\nu}(\underbrace{\partial^{\mu}\delta A^{\nu}-\partial^{\nu}\delta A^{\mu}}_{-2\partial^{\nu}\delta A^{\mu}}) \notag \\
+&= \int_{t_A}^{t_B}\diff{\Omega}\; J^{\mu}\delta A_{\mu}+\int_{t_A}^{t_B} F_{\mu\nu}\partial^{\nu}\delta A^{\mu} \notag \\
+&= \int_{t_A}^{t_B}\diff{\Omega}\; (J_{\mu}-\partial^{\nu}F_{\mu\nu})\delta A^{\mu}=0\;,
+\end{align}
+da cui segue:
+\begin{equation}
+\partial^{\nu}F_{\mu\nu}=J_{\mu}\;.
+\end{equation}
+Da questa relazione si ricavano le equazioni di Maxwell non omogenee, che legano i campi alle sorgenti.
+\chapter*{Descrizione della materia}
+La materia ricopre in Relatività Generale lo stesso ruolo della carica elettrica in Relatività Ristretta. Per descrivere la materia si usa un tensore simmetrico, il \emph{tensore energia-impulso} $T^{\mu\nu}$, definito come il flusso della componente $\mu$ del quadri-impulso attraverso l'ipersuperficie $x^{\nu}=$ costante. \\
+\\
+\textbf{Modello a polvere} \\
+Consideriamo ad esempio un modello a polvere della materia, in cui le particelle hanno tutte massa $m$ e densità numerica $n$ e calcoliamo $T^{\mu\nu}$ nel sistema di riferimento in cui la polvere è ferma. Si ha:
+\begin{align*}
+T^{00} &= m\cdot n \equiv \epsilon\quad \mbox{(densità di energia)}\;, \\
+T^{i0} &= 0\;, \\
+T^{0i} &= 0\;, \\
+T^{ij} &= 0\;,
+\end{align*}
+in quanto l'impulso totale è nullo (la polvere è ferma). Quindi:
+\begin{equation}
+T^{\mu\nu}=\left(\begin{matrix}
+\epsilon & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{matrix}\right)\;.
+\end{equation}
+Adesso vogliamo scrivere il tensore in un sistema di riferimento che vede tutte la particelle muoversi con velocità $\mathbf{v}$. Visto che $T^{\mu\nu}$ è un tensore, si può ricavare la sua forma generale tramite una trasformazione di Lorentz a partire dall'espressione appena trovata. Si può anche procedere euristicamente: nota la velocità, si può costruire la quadrivelocità delle particelle $u^{\mu}=\gamma(1,\mathbf{v})$. Con quest'ultima, unico elemento che abbiamo in mano, bisogna costruire un tensore simmetrico proporzionale alla densità di energia $\epsilon$. È facile vedere che l'unica scelta possibile è:
+\begin{equation}
+T^{\mu\nu}=\epsilon u^{\mu}u^{\nu}\;.
+\end{equation}
+\textbf{Fluido perfetto} \\
+Consideriamo in seconda analisi un fluido perfetto, caratterizzato dall'avere viscosità nulla. Esaminiamo all'interno del fluido un volumetto di materia e fissiamo come sistema di riferimento quello solidale al volumetto, ossia il sistema in cui $\sum p^i\delta(\mathbf{x}_i-\mathbf{x})=0$, con la somma estesa a tutte le particelle contenute nel volumetto. In questo sistema di riferimento, il fluido non registra flussi di energia sulle superfici. Essendo la viscosità nulla, non vi saranno forze agenti in direzione parallela alle superfici, ma solo in direzione ortogonale; queste devono bilanciarsi nel complesso, dunque il sistema ammetterà invarianza sotto rotazioni e di conseguenza il tensore energia-impulso dovrà mantenere la stessa simmetria. La componente $T^{00}$ è di per sé uno scalare per rotazioni, $T^{00}=\epsilon$, densità di energia. Le componenti $T^{0i}$ sono le componenti di un vettore: vista l'invarianza per rotazioni, non vi possono essere vettori non nulli, dunque $T^{0i}=T^{i0}=0$. $T^{ij}$ è invece un tensore, che può essere scomposto in componenti di spin 2, 1, 0. L'unica ad essere non nulla in quanto invariante per rotazioni è quella di spin 0, proporzionale all'identità, dunque $T^{ij}=P\delta^{ij}$ ($P$ qui rappresenta la pressione). In conclusione:
+\begin{equation}
+T^{\mu\nu}=\left(\begin{matrix}\epsilon & 0 & 0 & 0 \\
+0 & P & 0 & 0 \\
+0 & 0 & P & 0 \\
+0 & 0 & 0 & P
+\end{matrix}\right)\;.
+\end{equation}
+Cerchiamo adesso la forma del tensore nel sistema del laboratorio, in cui il volumetto di materia ha velocità $\mathbf{v}$ e dunque quadrivelocità $u^{\mu}=\gamma(1,\mathbf{v})$. Quello che si trova è:
+\begin{equation}
+T^{\mu\nu}=(\epsilon+P)u^{\mu}u^{\nu}-P\eta_{\mu\nu}\;.
+\end{equation}
+\textbf{Gas perfetto} \\
+Come caso particolare del fluido perfetto consideriamo un gas perfetto di $N$ particelle non interagenti. Il gas avrà densità di particelle $n(\mathbf{x})=\sum_{i=1}^N \delta^3(\mathbf{x}-\mathbf{x}_i)$, con le particelle di ugual massa $m$. Il tensore energia-impulso si scriverà come:
+\begin{align*}
+T^{\alpha 0}(\mathbf{x},t)&= \sum_{i=1}^N p_i^{\alpha}(t)\delta^3(\mathbf{x}-\mathbf{x}_i)\;, \\
+T^{\alpha j}(\mathbf{x},t)&= \sum_{i=1}^N p_i^{\alpha}(t)\frac{\diff{x^j}}{\diff{t}}\delta^3(\mathbf{x}-\mathbf{x}_i)\;.
+\end{align*}
+Oppure in forma compatta:
+\begin{equation}
+T^{\mu\nu}(x^{\mu})=\sum_{i=1}^N \frac{p_i^{\mu}p_i^{\nu}}{p_i^0}\delta^3(\mathbf{x}-\mathbf{x}_i)\;.
+\end{equation}
+Considero un volumetto del gas e fissiamo il sistema di riferimento solidale con esso, in cui $\sum_{i=1}^N p^i\delta^3(\mathbf{x}-\mathbf{x}_i)=0$. In questo sistema possiamo scrivere:
+\begin{align}
+\epsilon &= T^{00}=\sum_{i=1}^N p_i^0\delta^3(\mathbf{x}-\mathbf{x}_i)\;, \notag \\
+P &= \frac{1}{3}\sum T^{ii}=\frac{1}{3}\sum_{i=1}^N \frac{\mathbf{p}_i^2}{p_i^0}\delta(\mathbf{x}-\mathbf{x}_i)\;.
+\end{align}
+Nel limite non relativistico $p_i^0=m+\mathbf{p}_i^2/2m$ e quindi:
+$$
+T^{00}=m\cdot n+\frac{3}{2}P\qquad \Longrightarrow\qquad \epsilon=m\cdot n+\frac{3}{2}P\;.
+$$
+Nel limite ultrarelativistico invece $p_i^0=|\mathbf{p}_i|$ e dunque:
+$$
+T^{00}=3P\qquad \Longrightarrow\qquad \epsilon=3P\;.
+$$
+Si può dimostrare che per la pressione il valore $\epsilon/3$ è un limite superiore. Infatti, calcolando la traccia del tensore energia-impulso si trova $T^{\mu}_{\;\;\mu}=\epsilon-3P$. Questo è uno scalare, quindi è invariante per scelta di sistema di riferimento. Nel nostro modello allora la traccia vale:
+$$
+T^{\mu}_{\;\;\mu}=\epsilon-3P=\sum\frac{m^2}{p_i^0}\delta^3(\mathbf{x}-\mathbf{x}_i)\ge 0\;.
+$$
+Quindi $P\le \epsilon/3$. Altre proprietà utili del tensore energia-impulso sono le seguenti: l'integrale spaziale del tensore dà l'impulso totale, cioè:
+\begin{equation}
+\int \diff^3{\mathbf{x}}\; T^{\alpha 0}=p^{\alpha}\;.
+\end{equation}
+Inoltre per sistemi chiusi $\partial_{\mu}T^{\mu\nu}=0$, cioè l'impulso si conserva.
+
+\chapter{Gravità e sistemi non inerziali}
+\numberwithin{equation}{section}
+\section{Principio di equivalenza}
+Il principio di equivalenza nasce dall'osservazione di analogie nelle descrizioni di sistemi immersi in campo gravitazionale e sistemi non inerziali (ossia accelerati). Esso afferma che in un campo gravitazionale qualsiasi è sempre possibile scegliere un sistema di riferimento (non inerziale) rispetto al quale, dato un punto, esiste sempre un intorno del punto in cui gli effetti dell'accelerazione dovuti al campo gravitazionale sono nulli. Il formalismo che descrive sistemi non inerziali può essere dunque usato per descrivere il moto in campo gravitazionale, seppur in maniera locale e non globale.
+\section{Sistemi di riferimento non inerziali}
+Consideriamo l'intervallo infinitesimo tra due eventi in un sistema di riferimento inerziale, $\diff{s^2}=c^2\diff{t^2}-\diff{\mathbf{x}^2}$. Vogliamo esprimere $\diff{s^2}$ in un sistema di riferimento non inerziale, per esempio in un sistema che ruota con velocità angolare $\Omega$ rispetto al primo. Le coordinate sono legate dalle relazioni
+\begin{align*}
+x_1 &=\overline{x}_1\cos(\Omega t)-\overline{x}_2\sin(\Omega t)\;, \\
+x_2 &= \overline{x}_2\sin(\Omega t)+\overline{x}_1(\cos\Omega t)\;, \\
+x_3 &= \overline{x}_3\;, \\
+t &= \overline{t}\;.
+\end{align*}
+Allora:
+\begin{equation}
+\diff{s^2}=\left[c^2-\Omega^2(\overline{x}_1^2+\overline{x}_2^2)\right]\diff{t^2}-\diff{\overline{\mathbf{x}}^2}+2\Omega
+\overline{x}_2\diff{\overline{x}_1}\diff{t}-2\Omega\overline{x}_1\diff{\overline{x}_2}\diff{t}\;.
+\end{equation}
+In analogia con la Relatività Ristretta, in cui si scriveva $\diff{s^2}=\eta_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}$, possiamo scrivere una relazione simile anche per sistemi di riferimento non inerziali, $\diff{s^2}=g_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}$, stavolta però il tensore metrico $g_{\mu\nu}$ è molto più complicato: può non essere diagonale (al più può avere dieci componenti perché rimane comunque simmetrico) e può dipendere dalle coordinate e dal tempo. Formalmente:
+\begin{equation}
+g_{\mu\nu}\equiv \eta_{\alpha\beta}\frac{\diff{x^{\alpha}}}{\diff{\overline{x}^{\mu}}}\frac{\diff{x^{\beta}}}{\diff{\overline{x}^{\nu}}}\;.
+\end{equation}
+L'esempio del sistema ruotante ci suggerisce che nella descrizione di sistemi non inerziali si avrà a che fare con tensori metrici non diagonali e neppure costanti. Per il principio di equivalenza lo stesso formalismo può essere usato per descrivere la gravità. \\
+Un modo per distinguere tra una curvatura dovuta al fatto che siamo in un sistema di riferimento non inerziale è quello di esaminare tutte le possibili trasformazioni di coordinate: se ne esiste una che mi riporta in un sistema di riferimento inerziale, ossia $g_{\mu\nu}\to \eta_{\mu\nu}$, allora la curvatura è dovuta al sistema non inerziale; se ciò non è possibile, allora siamo in presenza di campo gravitazionale. Matematicamente questo si esprime con l'affermazione che in generale non esiste una trasformazione di coordinate per cui, avendo un $g_{\mu\nu}$ in partenza, il tensore metrico diventi $\eta_{\mu\nu}$ su tutto lo spazio. Quando ciò è possibile, siamo in un sistema di riferimento non inerziale. \\
+A livello locale, tuttavia, fissato un punto $x^{\mu}$ dello spazio-tempo con tensore metrico $g_{\mu\nu}(x^{\mu})=A_{\mu\nu}$, ci chiediamo se esista una trasformazione $\overline{x}^{\mu}=f(x^{\mu})$ tale che $\overline{g}_{\mu\nu}(\overline{x}^{\mu})=\eta_{\mu\nu}$. Visto che le funzioni componenti di $g_{\mu\nu}$ sono costanti una volta fissato un punto, matematicamente è sempre possibile trovare una siffatta trasformazione di coordinate. Questo è proprio quello che asserisce il principio di equivalenza. \\
+Per un generico punto:
+\begin{equation*}
+\overline{g}_{\mu\nu}=g_{\alpha\beta}\frac{\partial x^{\alpha}}{\partial\overline{x}^{\mu}}\frac{\partial x^{\beta}}{\partial \overline{x}^{\nu}}\;.
+\end{equation*}
+Se localmente esiste una trasformazione tale che $\overline{g}_{\mu\nu}=\eta_{\mu\nu}$, allora:
+\begin{equation}
+-1=\det\eta_{\mu\nu}=\det g_{\alpha\beta}\left|\pdev{x}{\overline{x}}\right|^2\;,
+\end{equation}
+da cui otteniamo un vincolo importante: $\mathrm{g}=\det g_{\alpha\beta}<0$. Quindi, per quanto la metrica possa essere libera (non diagonale, non costante, etc...), affinché essa descriva un campo gravitazionale nello spazio tempo il suo deteterminante deve essere negativo.
+\section{Costruzione del formalismo}
+Assumendo quindi come trasformazioni base qualunque tipo di funzione invertibile e differenziabile, costruiamo il prototipo di quadrivettore in Relatività Generale. In Relatività Ristretta i due candidati erano $x^{\mu}$ e $\diff{x^{\mu}}$, che trasformavano allo stesso modo. In RG questi non trasformano più allo stesso modo:
+\begin{align}
+x^{\mu} \qquad &\longrightarrow \qquad f^{\mu}(\overline{x})\;, \notag \\
+\diff{x^{\mu}}\qquad &\longrightarrow \qquad \frac{\partial f^{\mu}}{\partial \overline{x}^{\alpha}}\diff{\overline{x}^{\alpha}}=\frac{\partial x^{\mu}}{\partial \overline{x}^{\alpha}}\diff{\overline{x}^{\alpha}}\;.
+\end{align}
+Scegliamo come prototipo $\diff{x^{\mu}}$ (allora $x^{\mu}$ non sarà un quadrivettore) e definiamo i \emph{quadrivettori controvarianti} come tutte le quantità che trasformano come $\diff{x^{\mu}}$:
+\begin{equation}
+A^{\mu}=\frac{\partial x^{\mu}}{\partial\overline{x}^{\alpha}}\overline{A}^{\alpha}\;.
+\end{equation}
+I \emph{quadrivettori covarianti} trasformano invece con la trasformazione inversa:
+\begin{equation}
+A_{\mu}=\frac{\partial\overline{x}^{\alpha}}{\partial x^{\mu}}\overline{A}_{\alpha}\;.
+\end{equation}
+Si osserva che i quadrivettori covarianti trasformano come il gradiente di una funzione scalare. Consideriamo adesso la trasformazione della quantità $A^{\mu}B_{\mu}$:
+\begin{equation}
+A^{\mu}B_{\mu}=\frac{\partial x^{\mu}}{\partial\overline{x}^{\alpha}}\overline{A}^{\alpha}\frac{\partial \overline{x}^{\beta}}{\partial x^{\mu}}\overline{B}_{\beta}=\delta^{\alpha}_{\;\;\beta}\overline{A}^{\alpha}\overline{B}_{\beta}=\overline{A}^{\alpha}\overline{B}_{\alpha}\;.
+\end{equation}
+Quindi anche in Relatività Generale la quantità $A^{\mu}B_{\mu}$ è uno scalare. Un quadrivettore covariante può essere costruito a partire da un quadrivettore controvariante tramite la relazione:
+\begin{equation}
+A_{\mu}=g_{\mu\nu}A^{\nu}\;.
+\end{equation}
+Si può dimostrare che il tensore $\delta^{\mu}_{\;\;\nu}$ è invariante in forma. Sfruttando la proprietà di invarianza, possiamo scrivere l'intervallo spaziotemporale infinitesimo in due sistemi di coordinate:
+$$
+\diff{s^2}=g_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}=\overline{g}_{\mu\nu}\diff{\overline{x}^{\mu}}\diff{\overline{x}^{\nu}}\;,
+$$
+e ricavare quindi la legge di trasformazione per il tensore metrico $g_{\mu\nu}$:
+\begin{equation}
+\overline{g}_{\mu\nu}=\frac{\partial x^{\mu}}{\partial\overline{x}^{\alpha}}\frac{\partial x^{\nu}}{\partial\overline{x}^{\beta}}g_{\alpha\beta}\;.
+\end{equation}
+Il tensore metrico con gli indici in alto è semplicemente l'inverso di quello con gli indici in basso:
+\begin{equation}
+g^{\mu\nu}g_{\nu\alpha}=\delta^{\mu}_{\;\;\alpha}\;.
+\end{equation}
+A differenza della Relatività Ristretta, in cui la matrice della trasformazione aveva determinante unitario e quindi l'elemento di volume $\diff{x^0}\diff{x^1}\diff{x^2}\diff{x^3}$ era invariante, in Relatività Generale questo non accade più. Tuttavia, se consideriamo la quantità $\sqrt{-\mathrm{g}}\diff{x^0}\diff{x^1}\diff{x^2}\diff{x^3}$, questo allora sarà invariante ($\mathrm{g}<0$ è il determinante del tensore metrico). \\
+\\
+\textbf{Principio di covarianza generale}: il principio di covarianza generale afferma l'invarianza in forma di leggi fisiche sotto trasformazioni di coordinate arbitrarie differenziabili. \\
+Consideriamo un punto materiale che si muove. Assegnamo un sistema di coordinate $x^{\mu}$ in cui identifichiamo $x^0$ come coordinata temporale. Prendiamo due punti infinitesimamente vicini della traiettoria del punto; si avrà $\diff{s^2}=g_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}$. Quale sarà il segno di $\diff{s^2}$? Sappiamo che localmente esiste una trasformazione per cui $g_{\mu\nu}=\eta_{\mu\nu}$ e in quel sistema di riferimento, adesso inerziale, sarà $\diff{s^2}>0$. Quindi anche in Relatività Generale, affinché l'intervallo spaziotemporale descriva effettivamente un moto fisico, dovrà valere la condizione $\diff{s^2}\ge 0$ (è zero per i segnali luminosi). Vogliamo quindi sapere quali relazioni intercorrono tra le misure che vengono fatte e le coordinate che abbiamo fissato. Prendiamo in esame un oggetto fisico, ad esempio un orologio e un sistema di coordinate $x^{\mu}$ e assumiamo che $x^0$ sia in qualche modo associata al tempo e $x^i$ allo spazio. Supponiamo di tenere l'orologio su una linea di universo $x^i=$ cost. Che tempo misura l'orologio lungo tale linea di universo? Si ha $\diff{s^2}=g_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}=g_{00}(\diff{x^0})^2\equiv\diff{\tau^2}$, dove $\diff{\tau}$ è in qualche modo l'analogo del tempo proprio in R.R., cioè il tempo misurato dall'orologio. Si ha dunque:
+$$
+\diff{\tau}=\sqrt{g_{00}}\diff{x^0}\;.
+$$
+Quindi, poiché stiamo trattando quantità misurabili sperimentalmente, $\diff{\tau}\in\mathbb{R}$, che implica $g_{00}>0$. Sappiamo già che una condizione necessaria affinché un sistema di coordinate descriva effettivamente un sistema fisico è $\mathrm{g}<0$. In generale, la condizione $g_{00}>0$ non è necessaria: se ho un sistema con $\mathrm{g}<0$ e $g_{00}<0$, in quel sistema di coordinate sarà impossibile "tener fermo" l'orologio, ossia mantenerlo su una linea di universo $x^i=$ cost. \\
+L'affermazione che generalizza quanto detto è che dato un sistema di coordinate, è possibile associarvi un sistema di riferimento in un dato punto se e solo se in quel punto si ha $g_{00}>0$. \\
+Per quanto riguarda lo spazio, prendiamo un sistema di coordinate con le convenzioni precedenti. Vogliamo quindi calcolare la distanza tra due punti infinitesimamente vicini nello spazio-tempo, $x^i$ e $x^i+\diff{x^i}$. La cosa migliore è usare sengali luminos. Assumiamo di poter tenere degli specchi fermi in alcuni punti e consideriamo i tre eventi (che corrispondono rispettivamente alla partenza del segnale, alla sua riflessione su uno specchio, e al suo arrivo):
+\begin{align*}
+E_1 &= (x^0+\diff{x^0_1},x^i+\diff{x^i_1})\;, \\
+E_2 &= (x^0,x^i)\;, \\
+E_3 &= (x^0+\diff{x^0_2},x^i+\diff{x^i_2})\;.
+\end{align*}
+Per un orologio fisso in $x^i+\diff{x^i}$ si ha:
+\begin{equation}
+\diff{\ell}=\frac{\sqrt{g_{00}(x^0,x^i)}}{2}\left(\diff{x^0_2}-\diff{x^0_1}\right)\;, \label{ch1_dell}
+\end{equation}
+dove $\sqrt{g_{00}(x^0,x^i)}\left(\diff{x^0_2}-\diff{x^0_1}\right)$ è il tempo misurato da un orologio con linea di universo $x^i+\diff{x^i}=$ cost. L'intervallo spazio-temporale tra $E_2$ ed $E_1$ è nullo in quanto riguarda la propagazione di un segnale luminoso, quindi:
+\begin{equation}
+\diff{s^2}=g_{00}\left(\diff{x^0}\right)^2+2g_{0i}\diff{x^0}\diff{x^i}+g_{ij}\diff{x^i}\diff{x^j}=0\;.
+\end{equation}
+che, risolta per $\diff{x^0}$ ammette le due soluzioni:
+\begin{equation}
+\diff{x^0}=\frac{1}{g_{00}}\left(-g_{0i}\diff{x^i}\pm \sqrt{(g_{0i}g_{ij}-g_{ij}g_{00})\diff{x^i}\diff{x^j}}\right)\;, \label{ch1_dx0}
+\end{equation}
+che corrispondono rispettivamente a $\diff{x^0_2}$ e $\diff{x^0_1}$. Allora:
+\begin{equation}
+\diff{x^0_2}-\diff{x^0_1}=\frac{2}{g_{00}}\sqrt{(g_{0i}g_{ij}-g_{ij}g_{00})\diff{x^i}\diff{x^j}}\;,
+\end{equation}
+e in conclusione, usando la relazione \eqref{ch1_dell}:
+\begin{equation}
+\diff{\ell}=\left[\left(-g_{ij}+\frac{g_{0i}g_{ij}}{g_{00}}\right)\diff{x^i}\diff{x^j}\right]^{1/2}\;, \label{ch1_dell2}
+\end{equation}
+che rappresenta la lunghezza fisica infinitesima tra due punti in termini del tensore metrico. In forma più elegante possiamo scrivere:
+\begin{equation}
+\diff{\ell^2}=\gamma_{ij}\diff{x^i}\diff{x^j}\;.
+\end{equation}
+La metrica $g_{\mu\nu}$ induce una metrica spaziale:
+\begin{equation}
+\gamma_{ij}\equiv -g_{ij}+\frac{g_{0i}g_{ij}}{g_{00}}\;,
+\end{equation}
+che automaticamente calcola la distanza spaziale tra due punti infinitesimamente vicini. \\
+Se proviamo ad estendere per distanza finite tramite integrale, $\Delta\ell=\int\diff{\ell}$, incontreremo dei problemi perché la misura potrebbe dipendere dal tempo nel caso in cui la metrica non sia costante. \\
+Un altro problema da risolvere è quello della sincronizzazione degli orologi. Lavoriamo innanzitutto a livello infinitesimo. Dato un evento $(x^0,x^i)$ vogliamo trovare l'evento simultaneo che si trova sulla linea di universo $x^i+\diff{x^i}$. Questo è dato da:
+\begin{equation}
+\left(x^0+\frac{1}{2}(\diff{x^0_1}+\diff{x^0_2}),x^i+\diff{x^i}\right)\;.
+\end{equation}
+Usando la relazione \eqref{ch1_dx0} si ha:
+$$
+\frac{\diff{x^0_2}+\diff{x^0_1}}{2}=-\frac{g_{0i}}{g_{00}}\diff{x^i}\;.
+$$
+Quindi definiamo l'evento simultaneo a $(x^0,x^i)$ sulla linea di universo $x^i+\diff{x^i}$ come l'evento di coordinate:
+\begin{equation}
+\left(x^0-\frac{g_{0i}}{g_{00}}\diff{x^i},x^i+\diff{x^i}\right)\;.
+\end{equation}
+Se questa operazione sincronizza gli orologi, allora richiediamo per consistenza che per due eventi simultanei si abbia $\diff{s^2}=-\diff{\ell^2}$, così come definito dalla \eqref{ch1_dell2}. Per sincronizzare due orologi a distanza finita, devo calcolare la quantità:
+$$
+\int -\frac{g_{0i}}{g_{00}}\diff{x^i}\;.
+$$
+Se eseguo l'operazione su una linea chiusa, per consistenza dovrei avere:
+$$
+\oint -\frac{g_{0i}}{g_{00}}\diff{x^i}=0\;.
+$$
+Questo tuttavia su spazi curvi non è matematicamente garantito. Tuttavia, è banalmente vero se $g_{0i}=0$. Matematicamente, è sempre possibile trovare una trasformazione di coordinate per cui $g_{0i}=0$. In quel sistema di coordinate, però, quegli orologi non sono più solidali, quindi non hanno la stessa valenza dell'altro sistema di coordinate.
+\section{Derivate e differenziali covarianti}
+Consideriamo un sistema di coordinate $x$ e un quadrivettore $A_{\mu}(x)$. Scegliamo un secondo sistema di coordinate $\overline{x}(x)$. Sappiamo che i valori del quadrivettore nei due sistemi sono collegati dalla relazione:
+$$
+A_{\mu}(x)=\frac{\partial\overline{x}^{\alpha}}{\partial x^{\mu}}\overline{A}_{\alpha}(\overline{x}(x))\;.
+$$
+Ci chiediamo quindi come trasformi il differenziale di $A_{\mu}$, $\diff{A_{\mu}}=A_{\mu}(x+\diff{x})-A_{\mu}(x)$. Applicando le regole di trasformazione troviamo che:
+\begin{equation}
+\diff{A_{\mu}(x)}=\diff\left(\frac{\partial\overline{x}^{\alpha}}{\partial x^{\mu}}\overline{A}_{\alpha}(x)\right)=
+\frac{\partial\overline{x}^{\alpha}}{\partial x^{\mu}}\diff{\overline{A}_{\alpha}(x)}+\diff\left(\frac{\partial \overline{x}^{\alpha}}{\partial x^{\mu}}\right)\overline{A}_{\alpha}(x)\;,
+\end{equation}
+che sono diverse dalle regole di trasformazione dei quadrivettori. Concludiamo che il differenziale di un quadrivettore non è un quadrivettore. Se vogliamo scrivere equazioni che siano covarianti dobbiamo cercare di scriverle in termini di un oggetto che mantenga la struttura quadrivettoriale. \\
+Consideriamo il piano $(x,y)$: un generico vettore $\mathbf{A}$ e il suo differenziale si scrivono, in coordinate cartesiane, in termini delle componenti:
+\begin{align*}
+\mathbf{A}&=A_x\hat{\mathbf{x}}+A_y\hat{\mathbf{y}}\;, \\
+\diff{\mathbf{A}}&=\diff{A_x}\hat{\mathbf{x}}+\diff{A_y}\hat{\mathbf{y}}\;.
+\end{align*}
+Quindi in questo caso il differenziale mantiene la struttura quadrivettoriale. Se però passiamo in coordinate polari $r=\sqrt{x^2+y^2}, \theta=\arctan(y/x)$, si ha, associando in ogni punto i versori $\hat{\mathbf{r}},\hat{\boldsymbol{\theta}}$:
+$$
+\mathbf{A}(x)=A_r\hat{\mathbf{r}}+A_{\theta}\hat{\boldsymbol{\theta}},\quad A_r=\frac{\partial x^i}{\partial r}A_i,\qquad A_{\theta}=\frac{\partial x^i}{\partial\theta}A_i\;,
+$$
+e dunque:
+\begin{equation}
+\diff{\mathbf{A}}=\diff{(A_r\hat{\mathbf{r}}+A_{\theta}\hat{\boldsymbol{\theta}})}= \diff{A_r}\hat{\mathbf{r}}+\diff{A_{\theta}}\hat{\boldsymbol{\theta}}+A_r\diff{\hat{\mathbf{r}}}+A_{\theta}\diff{\hat{ 
+\boldsymbol{\theta}}}\;.
+\end{equation}
+Geometricamente, $\diff{\hat{\mathbf{r}}}=\hat{\boldsymbol{\theta}}\diff{\theta}$, $\diff{\hat{\boldsymbol{\theta}}}=-\hat{\mathbf{r}}\diff{\theta}$, quindi si ottiene:
+\begin{equation}
+\diff{\mathbf{A}}=(\diff{A_r}-A_{\theta}\diff{\theta})\hat{\mathbf{r}}+(\diff{A_{\theta}}+A_r\diff{\theta})\hat{\boldsymbol{\theta}}\;,
+\end{equation}
+e in questo caso la struttura non è mantenuta dall'operazione di differenziazione. Questa differenza è dovuta al fatto che, nel sistema di coordinate polari, i versori sono diversi da punto a punto (ruotano). Solamente in coordinate cartesiane questi non cambiano (e infatti la struttura è mantenuta). In termini di tensore metrico, si ha, in coordinate cartesiane:
+$$
+\eta_{\mu\nu}=\left(\begin{matrix}
+1 & 0 \\
+0 & 1
+\end{matrix}\right)\;,
+$$
+mentre in coordinate polari:
+\begin{equation}
+g_{\mu\nu}=\frac{\partial x^{\alpha}}{\partial \overline{x}^{\mu}}\frac{\partial x^{\beta}}{\partial\overline{x}^{\nu}}\eta_{\mu\nu}=\left(\begin{matrix}
+1 & 0 \\
+0 & r^2
+\end{matrix}\right)\;.
+\end{equation}
+\subsection{Trasporto parallelo}
+In un sistema di coordinate generali, non sempre è possibile confrontare due quadrivettori, perché la metrica potrebbe cambiare da punto a punto. Consideriamo due punti dello spaziotempo $x_1$ e $x_2=x_1+\diff{x}$ infinitesimamente vicini; vogliamo confrontare i valori di un quadrivettore $A_{\mu}$ in questi due punti. Per il principio di equivalenza, possiamo sempre trovare, localmente, un sistema inerziale di coordinate cartesiane $\overline{x}(x)$. In questo sistema di coordinate, la relazione tra i valori di $A_{\mu}$ tra i due sistemi di riferimento è
+\begin{equation}
+\overline{A}_{\mu}(\overline{x})=\frac{\partial x^{\alpha}}{\partial \overline{x}^{\mu}}A_{\alpha}(\overline{x})\;. \label{ch1_transf}
+\end{equation}
+Adesso, dato che in coordinate cartesiane i versori e quindi le componenti dei quadrivettori non cambiano da punto a punto, possiamo eseguire un \emph{trasporto parallelo} del quadrivettore $A_{\mu}$ dal punto $\overline{x}_2$ al punto $\overline{x}_1$:
+\begin{equation}
+\overline{A}_{\mu}(\overline{x}_2\to\overline{x}_1)=\overline{A}_{\mu}(\overline{x}_2)=\left.\frac{\partial x^{\alpha}}{\partial \overline{x}^{\mu}}\right|_{x_2}A_{\alpha}(x_2)\;.
+\end{equation}
+Adesso possiamo tornare indietro nel primo sistema di coordinate tramite la trasformazione inversa a \eqref{ch1_transf}:
+\begin{equation}
+A_{\mu}(x_2\to x_1)=\left.\frac{\partial\overline{x}^{\beta}}{\partial x^{\mu}}\right|_{x_1}\left.\frac{\partial x^{\alpha}}{\partial\overline{x}^{\beta}}\right|_{x_2}A_{\alpha}(x_2)\;.
+\end{equation}
+Dato che $x_1=x_2-\diff{x}$, possiamo sviluppare in serie intorno a $x_2$ (adesso le derivate sono calcolate tutte nello stesso punto, quindi non c'è necessità di specificare):
+\begin{align*}
+A_{\mu}(x_2\to x_1)&=\left[\frac{\partial\overline{x}^{\beta}}{\partial x^{\mu}}-\diff{x^{\gamma}}\frac{\partial}{\partial x^{\gamma}}\frac{\partial\overline{x}^{\beta}}{\partial x^{\mu}}\right]\frac{\partial x^{\alpha}}{\partial \overline{x}^{\beta}}A_{\alpha}(x_2)  \\
+&= \delta^{\alpha}_{\;\;\mu}A_{\alpha}(x_2)-\Gamma^{\alpha}_{\gamma\mu}A_{\alpha}(x_2)\diff{x^{\gamma}}\;,
+\end{align*}
+dove $\Gamma^{\alpha}_{\gamma\mu}$ è la \emph{connessione}, definita da:
+\begin{equation}
+\Gamma^{\alpha}_{\gamma\mu}\equiv \frac{\partial\overline{x}^{\beta}}{\partial x^{\gamma}\partial x^{\mu}}\frac{\partial x^{\alpha}}{\partial \overline{x}^{\beta}}\;. \label{ch1_connessione}
+\end{equation}
+In definitiva, possiamo scrivere:
+\begin{equation}
+A_{\mu}(x_2\to x_1)=A_{\mu}(x_2)-\Gamma^{\alpha}_{\gamma\mu}A_{\alpha}(x_2)\diff{x^{\gamma}}\;.
+\end{equation}
+Sfruttando la connessione, vale per il tensore metrico la seguente relazione:
+\begin{equation}
+\frac{\partial}{\partial x^{\lambda}}g_{\mu\nu}=\Gamma^{\varrho}_{\lambda\mu}g_{\varrho\nu}+\Gamma^{\varrho}_{\lambda\nu}g_{\varrho\mu}\;. \label{ch1_derivativeg}
+\end{equation}
+Definiamo a questo punto il \emph{differenziale covariante} di un quadrivettore (covariante) come:
+\begin{equation}
+DA_{\mu}=A_{\mu}^T(x+\diff{x}\to x)-A_{\mu}(x)\;,
+\end{equation}
+mentre per quadrivettori controvarianti si ha:
+\begin{equation}
+DA^{\mu}=A^{\mu T}(x+\diff{x}\to x)-A^{\mu}(x)\;.
+\end{equation}
+Scriviamo quest'ultima espressione come:
+$$
+DA^{\mu}=A^{\mu}(x+\diff{x})-A^{\mu}(x)+A^{\mu T}(x+\diff{x}\to x)-A^{\mu}(x+\diff{x})=\diff{A^{\mu}}-\delta^TA^{\mu}\;,
+$$
+in cui:
+$$
+\delta^TA^{\mu}=-\Gamma^{\mu}_{\nu\rho}A^{\nu}\diff{x^{\rho}}\;.
+$$
+Otteniamo dunque, ricordando che $\diff{A^{\mu}}=\diff{x^{\rho}}\partial_{\rho}A^{\mu}$:
+$$
+DA^{\mu}=\diff{A^{\mu}}+\Gamma^{\mu}_{\nu\rho}A^{\nu}\diff{x^{\rho}}=\diff{x^{\rho}}(\partial_{\rho}A^{\mu}+\Gamma^{\mu}_{\nu\rho}A^{\nu})\;.
+$$
+Possiamo allora definire la \emph{derivata covariante} come:
+\begin{align}
+&D_{\rho}A^{\mu}=\partial_{\rho}A^{\mu}+\Gamma^{\mu}_{\nu\rho}A^{\nu} &\mbox{(vettori controvarianti)}\;, \\
+&D_{\rho}A_{\mu}=\partial_{\rho}A_{\mu}-\Gamma^{\nu}_{\mu\rho}A_{\nu} &\mbox{(vettori covarianti)}\;,
+\end{align}
+così che $DA^{\mu}=D_{\rho}A^{\mu}\diff{x^{\rho}}$ (e analogamente per i covarianti). La derivata covariante ha una buona struttura sotto trasformazioni generalizzate, infatti trasforma come un tensore a due indici. È possibile ricavare l'espressione della derivata covariante per vettori covarianti a partire da quella per vettori controvarianti: sapendo che $\delta^T(A^{\mu}B_{\mu})=0$ in quanto scalare, per linearità si ottiene la relazione:
+$$
+\delta^T(A^{\mu}B_{\mu})=\delta^TA^{\mu}B_{\mu}+A^{\mu}\delta^TB_{\mu}=0\;.
+$$
+Le regole del differenziale e della derivata covarianti sono simili a quelle della derivazione normale. \\
+Consideriamo adesso uno scalare $\varphi$. In quanto scalare, nel trasporto parallelo la sua connessione è sempre nulla, quindi si ottiene:
+\begin{equation}
+D\varphi=\diff{x^{\rho}}\partial_{\rho}\varphi\qquad\Longrightarrow\qquad D_{\rho}\varphi=\partial_{\rho}\varphi\;,
+\end{equation}
+cioè, per uno scalare la derivata covariante coincide con quella normale. \\
+Per un tensore a due indici $C^{\mu\nu}$, notiamo innanzitutto che può essere scritto come $C^{\mu\nu}=A^{\mu}B^{\nu}$ e quindi
+\begin{align}
+DC^{\mu\nu} &= DA^{\mu}B^{\nu}+A^{\mu}DB^{\nu} \notag \\
+&= \diff{x^{\rho}}(\partial_{\rho}A^{\mu}B^{\nu}+\Gamma^{\mu}_{\alpha\rho}A^{\alpha}B^{\nu}+A^{\mu}\partial_{\rho}B^{\nu}+A^{\mu}\Gamma^{\nu}_
+{\alpha\rho}B^{\alpha}) \notag \\
+&= \diff{x^{\rho}}(\partial_{\rho}C^{\mu\nu}+\Gamma^{\mu}_{\alpha\rho}C^{\alpha\nu}+\Gamma^{\nu}_{\alpha\rho}C^{\mu\alpha})\;.
+\end{align}
+Un'altra proprietà interessante che può essere dimostrata è la simmetria della connessione negli indici bassi. Tecnicamente, segue dalla definizione \eqref{ch1_connessione} in quanto le derivate miste commutano. Diamo comunque una dimostrazione più generale: consideriamo il tensore $D_{\mu}A_{\nu}-D_{\nu}A_{\mu}$ e lo valutiamo, senza perdere generalità, per un quadrivettore tale che $A_{\mu}=\partial_{\mu}\varphi$. Scegliamo adesso un sistema di coordinate localmente inerziale. In questo sistema, $D_{\mu}\equiv\partial_{\mu}$, allora:
+$$
+D_{\mu}A_{\nu}-D_{\nu}A_{\mu}=\partial_{\mu}\partial_{\nu}\varphi-\partial_{\nu}\partial_{\mu}\varphi=0\;,
+$$
+per commutatività. Ma se il tensore è nullo in un particolare sistema di coordinate, allora sarà nullo in tutti i sistemi di coordinate, quindi: segue
+\begin{align*}
+D_{\mu}A_{\nu}-D_{\nu}A_{\mu} &= \partial_{\mu}A_{\nu}-\Gamma^{\alpha}_{\nu\mu}A_{\alpha}-\partial_{\nu}A_{\mu}+\Gamma^{\alpha}_{\mu\nu}A_{\alpha}= \\
+&= \partial_{\mu}\partial_{\nu}\varphi-\partial_{\nu}\partial_{\mu}\varphi+\Gamma^{\alpha}_{\mu\nu}A_{\alpha}-\Gamma^{\alpha}_{
+\nu\mu}A_{\alpha}= \\
+&= (\Gamma^{\alpha}_{\mu\nu}-\Gamma^{\alpha}_{\nu\mu})A_{\alpha}=0\;,
+\end{align*}
+da cui segue $\Gamma^{\alpha}_{\mu\nu}=\Gamma^{\alpha}_{\nu\mu}$. \\
+La relazione tra le connessioni in due sistemi di coordinate è data da:
+\begin{equation}
+\Gamma^{\mu}_{\nu\rho}=\overline{\Gamma}^{\alpha}_{\beta\gamma}\frac{\partial x^{\mu}}{\partial\overline{x}^{\alpha}}\frac{\partial\overline{x}^{\beta}}{\partial x^{\nu}}\frac{\partial \overline{x}^{\gamma}}{\partial x^{\rho}}+\frac{\partial^2\overline{x}^{\alpha}}{\partial x^{\nu}\partial x^{\rho}}\frac{\partial x^{\mu}}{\partial \overline{x}^{\alpha}}\;.
+\end{equation}
+Adesso scriviamo la derivata covariante del tensore metrico:
+\begin{equation}
+D_{\rho}g_{\mu\nu}=\partial_{\rho}g_{\mu\nu}-\Gamma^{\alpha}_{\mu\rho}g_{\alpha\nu}-\Gamma^{\alpha}_{\nu\rho}g_{\alpha\mu}=0\;. \label{ch1_covderivativeg}
+\end{equation}
+In virtù della \eqref{ch1_derivativeg}. Questo fatto ha delle conseguenze:
+$$
+D_{\rho}A_{\mu}=D_{\rho}(g_{\mu\alpha}A^{\alpha})=D_{\rho}g_{\mu\alpha}A^{\alpha}+g_{\mu\alpha}D_{\rho}A^{\alpha}=g_{\mu\alpha}D_{\rho}A^{\alpha}\;.
+$$
+Possiamo esprimere la connessione in termini della metrica risolvendo l'equazione \eqref{ch1_covderivativeg}, ponendo $\Gamma_{\mu;\nu\rho}=g_{\mu\alpha}\Gamma^{\alpha}_{\nu\rho}$. Si ottiene:
+\begin{equation}
+\Gamma_{\mu;\nu\rho}=\frac{1}{2}(\partial_{\rho}g_{\mu\nu}+\partial_{\nu}g_{\mu\rho}-\partial_{\mu}g_{\nu\rho})\;.
+\end{equation}
+Quindi nello spazio piatto, dove la connessione è zero, la derivata prima del tensore metrico è nulla. Tutti questi fatti ci consentono di estendere il principio di equivalenza: dato un punto $P$ nello spazio-tempo $x^{\mu}$ con metrica $g_{\mu\nu}$, esisterà sempre un sistema di coordinate $\overline{x}^{\nu}(x)$ localmente inerziale tale che $\overline{g}_{\alpha\beta}(P)=\eta_{\alpha\beta}$ e $\partial \overline{g}_{\alpha\beta}(P)=0$
+\section{Equazione del moto per una particella puntiforme}
+Consideriamo un sistema di coordinate $x^{\mu}$ con metrica $g_{\alpha\beta}$. Vogliamo derivare l'equazione del moto per una particella puntiforme in un generico spazio curvo. Per far ciò dobbiamo tener conto del principio di covarianza generale. In Relatività Ristretta l'equazione del moto è data da $\diff{u^{\alpha}}=0$. In termini covarianti $\diff\to D$, quindi l'equazione del moto in Relatività Generale sarà data da:
+\begin{equation}
+Du^{\alpha}=0\;,\qquad u^{\alpha}=\frac{\diff{x^{\alpha}}}{\diff{s}}\;,
+\end{equation}
+ossia:
+\begin{equation}
+\frac{\diff^2{x^{\alpha}}}{\diff{s^2}}+\Gamma^{\alpha}_{\mu\nu}\frac{\diff{x^{\mu}}}{\diff{s}}\frac{\diff{x^{\nu}}}{\diff{s}}=0\;.
+\end{equation}
+Possiamo ricavare l'equazione del moto anche tramite il principio variazionale. Ragionando come in Relatività Ristretta, assumendo l'invarianza sotto trasformazioni generali, troviamo per l'azione $S$ la stessa espressione che in Relatività Ristretta:
+\begin{equation}
+S=-mc\int\diff{s}\;,\qquad\qquad \diff{s}=g_{\alpha\beta}\diff{x^{\alpha}}\diff{x^{\beta}}\;.
+\end{equation}
+Per eseguire la variazione, notiamo che:
+$$
+\delta\diff{s}=\frac{\diff{s}}{2\diff{s^2}}\delta\diff{s^2}=\frac{\diff{s}}{2\diff{s^2}}\delta(g_{\alpha\beta}\diff{x^{\alpha}}\diff{x^{\beta}})=\frac{\diff{s}}{2\diff{s^2}}[\delta g_{\alpha\beta}\diff{x^{\alpha}}\diff{x^{\beta}}+2g_{\alpha\beta}\diff{x^{\alpha}}\delta\diff{x^{\beta}}]\;,
+$$
+dove la variazione sul tensore metrico è una variazione indotta. Abbiamo dunque:
+$$
+\delta\diff{s}= \frac{\diff{s}}{\diff{s^2}}\left[\partial_{\rho}g_{\alpha\beta}\delta x^{\rho}\diff{x^{\alpha}}\diff{x^{\beta}}+2g_{\alpha\rho}\diff{x^{\alpha}}\diff{\delta x^{\rho}}\right]\;.
+$$
+Di conseguenza:
+$$
+\delta S=-mc\int\left[\diff{s}\frac{\partial_{\rho}g_{\alpha\beta}\diff{x^{\alpha}}\diff{x^{\beta}}\delta x^{\rho}}{2\diff{s^2}}+\diff{s}\;\diff{\left(\frac{g_{\alpha\beta}\diff{x^{\alpha}}\diff{x^{\beta}}}{\diff{s^2}}\right)}-
+\diff{s}\;\diff{\left(\frac{g_{\alpha\rho}\diff{x^{\alpha}}}{\diff{s^2}}\right)\delta x^{\rho}}\right]=0\;.
+$$
+Il termine centrale è un termine di ipersuperficie che si annulla una volta integrato. Posti $p^{\alpha}=mu^{\alpha}$, $p_{\alpha}=g_{\alpha\beta}p^{\beta}$, otteniamo l'equazione del moto covariante:
+\begin{equation}
+\dev{p_{\alpha}}{s}=\frac{1}{2m}\partial_{\alpha}g_{\beta\gamma}p^{\beta}p^{\gamma}\;.
+\end{equation}
+Nel limite non relativistico (piccole velocità o campi deboli) deve valere l'equazione di Newton $m\mathbf{a}=-\nabla\varphi$. Scriviamo quindi la Lagrangiana non relativistica:
+\begin{equation}
+L_{\mathrm{NR}}=\frac{1}{2}m\mathbf{v}^2-m\varphi=-mc\left(-\frac{1}{2}\mathbf{v}^2+\varphi+1\right)\equiv -mc L'\;,
+\end{equation}
+dove abbiamo aggiunto il termine (ininfluente ai fini dell'equazione del moto) $-mc^2$. Adesso l'azione si può scrivere in una forma simile a quella relativistica:
+\begin{equation*}
+S_{\mathrm{NR}}=-mc\int L'\diff{t}\equiv -mc\int\diff{s}\qquad \Longrightarrow\qquad \diff{s}=\left(1+\varphi+\frac{1}{2}\mathbf{v}^2\right)\diff{t}\;.
+\end{equation*}
+Dalla forma del $\diff{s}$ così trovata si ottiene, nel limite di piccole velocità l'espressione:
+\begin{equation}
+\diff{s^2}=(1+2\varphi)\diff{t}^2-\diff{\mathbf{r}}^2\;. \label{ch1_dssmallv}
+\end{equation}
+Infatti per $2\varphi-\mathbf{v}^2\ll 1$ si ha, prendendo la radice di \eqref{ch1_dssmallv}:
+$$
+\diff{s}=\sqrt{\diff{t}^2+(2\varphi-\mathbf{v}^2)\diff{t}^2}=\sqrt{(1+2\varphi-\mathbf{v}^2)\diff{t}^2}\simeq \left(1+\varphi-\frac{\mathbf{v}^2}{2}\right)\diff{t}\;.
+$$
+Quindi, confrontando con l'espressione del $\diff{s}$ covariante, troviamo che nel limite non relativistico vale la relazione:
+\begin{equation}
+g_{00}=1+\frac{2\varphi}{c^2}\;.
+\end{equation}
+\chapter{Campi stazionari}
+Un campo stazionario è un campo per cui è possibile trovare un sistema di coordinate $x^{\mu}$ tale che $\partial_{0}g_{\alpha\beta}=0$. Una metrica stazionaria è generata da un solo corpo. Distinguiamo due casi: se questo sta fermo, la metrica stazionaria è \emph{statica}, altrimenti è \emph{temporale}. Le metriche statiche devono essere invarianti per inversione temporale $t\to -t$. Ricordando l'espressione del $\diff{s^2}$:
+$$
+\diff{s^2}=g_{00}(\diff{x^0})^2-g_{0i}\diff{x^0}\diff{x^i}-g_{ij}\diff{x^i}\diff{x^j}\;.
+$$
+Per una metrica statica, allora, al fine di implementare l'invarianza per inversione temporale, dovrà essere $g_{0i}=0$. \\
+Prendiamo due eventi $(x^0,x^i)$ e $(\hat{x}^0,\hat{x}^i)$ che assumiamo simultanei, ossia:
+$$
+x^0-\hat{x}^0=-\frac{g_{0i}}{g_{00}}(x^i-\hat{x}^i)\;,
+$$
+e consideriamo una seconda coppia di eventi aventi la componente zero traslata della stessa quantità $\Delta x^0$, cioè $(x^0+\Delta x^0,x^i)$ e $(\hat{x}^0+\Delta x^0,\hat{x}^i)$. Nel caso di metrica statica, i due eventi traslati sono automaticamente simultanei, e lo stesso vale per una metrica stazionaria qualunque. Tuttavia, il tempo trascorso non è lo stesso per le due coppie, in quanto $\diff{t}=\sqrt{g_{00}}\diff{x}$ e $g_{00}$ dipende dalla posizione.
+\section{Red Shift Gravitazionale}
+Consideriamo una sorgente posta in un punto 1 dello spazio-tempo che emette luce con frequenza $\omega_1$ e un osservatore in un punto 2 dello spazio-tempo che misura per la stessa luce una frequenza $\omega_2$. In che relazione sono $\omega_1$ e $\omega_2$? Calcoliamo innanzitutto il tempo impiegato dalla luce per andare da 1 a 2; per un evento di genere luce si ha:
+$$
+\diff{s^2}=g_{\mu\nu}\diff{x^{\mu}}\diff{x^{\nu}}=g_{00}(\diff{x^0})^2-2g_{0i}\diff{x^0}\diff{x^i}-g_{ij}\diff{x^i}\diff{x^j}=0\;,
+$$
+che, risolta per $\diff{x^0}$ restituisce l'espressione:
+\begin{equation}
+\diff{x^0}=\frac{1}{g_{00}}\left[-g_{0i}\diff{x^i}\pm \sqrt{(g_{0i}g_{0j}-g_{00}g_{ij})\diff{x^i}\diff{x^j}}\right]=-\frac{g_{0i}}{g_{00}}\diff{x^i}\pm\frac{\diff{\ell}}{\sqrt{g_{00}}}\;.
+\end{equation}
+Allora il tempo impiegato $\Delta x^0$ si calcola integrando questa relazione tra i due eventi. Quello che notiamo, è che $\Delta x^0$ è sicuramente indipendente dalla coordinata temporale $x^0$. Questo implica che la frequenza $\overline{\omega}$, espressa in termini della coordinata temporale, è la stessa nei punti 1 e 2, cioè $\overline{\omega}_1=\overline{\omega}_2$. Queste sono legate alle frequenze fisiche dalla relazione:
+$$
+\overline{\omega}_1=\frac{\omega_1}{\sqrt{g_{00}(1)}}=\overline{\omega}_2=\frac{\omega_2}{\sqrt{g_{00}(2)}}\;,
+$$
+da cui otteniamo l'espressione del red shift gravitazionale relativo:
+\begin{equation}
+\frac{\omega_2}{\omega_1}-1=\sqrt{\frac{g_{00}(2)}{g_{00}(1)}}-1\;.
+\end{equation}
+Per campi deboli, $g_{00}=1+2\varphi/c^2$, con $\varphi=-GM/r$. Sostituendo e sviluppando al primo ordine si ottiene:
+\begin{equation}
+\frac{\omega_2}{\omega_1}-1\simeq \frac{\varphi(2)-\varphi(1)}{c^2}=-\frac{GM}{c^2}\left(\frac{1}{r_2}-\frac{1}{r_1}\right)\;.
+\end{equation}
+\section{Leggi di conservazione in metriche stazionarie}
+Partiamo dell'equazione covariante:
+$$
+\dev{p_{\alpha}}{s}=\frac{1}{2m}\partial_{\alpha}g_{\mu\nu}p^{\mu}p^{\nu}\;.
+$$
+Per metriche stazionarie $\partial_0g_{\mu\nu}=0$ e quindi la quantità $p_0$ è costante lungo la traiettoria della particella. Cosa rappresenta $p_0\ne p^0$? Supponiamo che la metrica sia statica ($g_{0i}=0$):
+$$
+p_0 = mg_{0\alpha}\frac{\diff{x^{\alpha}}}{\diff{s}}=mg_{00}\frac{\diff{x^0}}{\diff{s}}=mg_{00}\frac{\diff{x^0}}{\sqrt{g_{00}(\diff{x^0})^2-(\diff{\ell})^2}}\;,
+$$
+dove, per metrica statica, $(\diff{\ell})^2=\gamma_{ij}\diff{x^i}\diff{x^j}=-g_{ij}\diff{x^i}\diff{x^j}$. Allora:
+\begin{align*}
+p_0 &= mg_{00}\frac{\diff{x^0}}{\sqrt{g_{00}}\diff{x^0}\left[1-\dfrac{(\diff{\ell})^2}{g_{00}(\diff{x^0})^2}\right]^{1/2}}= m\sqrt{g_{00}}\frac{1}{\sqrt{1-v^2}}\;,\\
+v &\equiv \frac{\diff{\ell}}{\sqrt{g_{00}}\diff{x^0}}\;.
+\end{align*}
+Per campi deboli:
+\begin{equation}
+p_0=m\sqrt{\frac{1+2\varphi}{1-v^2}}\simeq m\left(1+\varphi+\frac{v^2}{2}\right)\;.
+\end{equation}
+Quindi nel limite non relativistico, $p_0$ corrisponde all'energia meccanica del sistema, che sappiamo si conserva. Un'importante osservazione è capire in quale sistema viene misurata la velocità $v$. Questa non può essere misurata da un osservatore a distanza infinita dal sistema, in quanto per $x^i\to \infty$ $g_{00}\sim 1$ e quindi per quell'osservatore $\diff{t}=\diff{x^0}$. Non può essere neanche quella misurata da un osservatore solidale con il moto della particella, in quanto per questi $\diff{t}=\diff{s}$. Si ha quindi che la velocità $v$ è quella misurata da un osservatore non solidale alla particella, ma abbastanza vicino ad essa, così che il suo intervallo di tempo sarà dato da $\diff{t}=\sqrt{g_{00}(x)}\diff{x^0}$, che è esattamente quello che compare nel denominatore nella definizione di $v$.
+\chapter{Tensore energia-impulso}
+\section{Derivazione formale}
+Consideriamo una teoria di campo in uno spazio curvo, descritta dall'azione:
+\begin{equation}
+S=\int \diff^4{x}\;\sqrt{-g}\lag(\phi,\partial_{\mu}\phi,g_{\alpha\beta})\;. \label{ch3_action}
+\end{equation}
+Supponiamo che la Lagrangiana non dipenda dalle derivate del tensore metrico e che i campi tendano a zero a grandi distanze, ed eseguiamo la trasformazione infinitesima:
+\begin{equation}
+x^{\alpha}\longrightarrow \overline{x}^{\alpha}(x)=x^{\alpha}+\delta a^{\alpha}(x)\;,
+\end{equation}
+ipotizzando che $\delta a^{\alpha}\to 0$ anch'esso agli infiniti. Allora l'azione nelle nuove coordinate diventa:
+$$
+\overline{S}=\int\diff^4{\overline{x}}\;\sqrt{-\overline{g}}\lag(\overline{\phi}(\overline{x}),\partial_{\mu}\overline{\phi},\overline{g}_{\alpha\beta})\;.
+$$
+Tenendo conto dell'identità:
+\begin{equation}
+\frac{\partial\overline{x}^{\alpha}}{\partial x^{\mu}}=\delta^{\alpha}_{\;\;\mu}+\frac{\partial\delta a^{\alpha}}{\partial x^{\mu}}\;,
+\end{equation}
+le relazioni tra $\phi,\partial_{\mu}\phi,g_{\alpha\beta}$ nei due sistemi di coordinate sono date da:
+\begin{align}
+\overline{\phi}(\overline{x}) &= \phi(x(\overline{x}))=\phi(\overline{x}-\delta a)\simeq \phi(\overline{x})-\delta a^{\alpha}\partial_{\alpha}\phi\;, \\
+\partial_{\mu}\overline{\phi}(\overline{x}) &\simeq \partial_{\mu}\phi(\overline{x})-\delta a^{\alpha}\frac{\partial^2\phi}{\partial x^{\mu}\partial x^{\alpha}}\;, \\
+\overline{g}^{\alpha\beta}(\overline{x}) &= g^{\alpha\beta}(\overline{x})-\delta a^{\mu}\partial_{\mu}g^{\alpha\beta}+g^{\alpha\mu}\partial_{\mu}\delta a^{\beta}+g^{\beta\mu}\partial_{\mu}\delta a^{\alpha} \notag \\
+&= g^{\alpha\beta}(\overline{x})+D^{\alpha}\delta a^{\beta}+D^{\beta}\delta a^{\alpha}\;. \label{ch3_vargmunu}
+\end{align}
+Utilizzando queste relazioni, $\overline{S}$ si scrive in forma come:
+\begin{equation}
+\overline{S}=\int\diff^4{\overline{x}}\; \mathcal{G}(\phi(\overline{x})+\delta\phi,\partial_{\mu}\phi(\overline{x})+\delta\partial_{\mu}\phi,g^{\mu\nu}+\delta g^{\mu\nu})\;,
+\end{equation}
+e possiamo quindi pensare di eseguire uno sviluppo al primo ordine di $G$, ottenendo:
+\begin{align*}
+\overline{S}&=\int\diff^{4}{\overline{x}}\;\mathcal{G}(\phi(\overline{x}),\partial_{\mu}\phi(\overline{x}),g^{\mu\nu})+\int\diff^4{\overline{x}}\;\left[\pdev{\mathcal{G}}{\phi}\delta\phi+\pdev{\mathcal{G}}{\partial_{\mu}\phi}\delta\partial_{\mu}\phi+\frac{\partial \mathcal{G}}{\partial g^{\mu\nu}}\delta g^{\mu\nu}\right] \\
+&= S+\delta S\;.
+\end{align*}
+In quanto il primo termine è identico all'azione \eqref{ch3_action} (abbiamo solo cambiato i nomi alle variabili). L'invarianza dell'azione per trasformazioni di coordinate impone tuttavia che $\overline{S}=S$, quindi ricaviamo la relazione $\delta S=0$. Notiamo adesso che i primi due termini di $\delta S$ rappresentano la variazione della Lagrangiana $\mathcal{G}$ rispetto a $\phi$ e, assumendo le equazioni del moto, questa risulta nulla:
+\begin{equation}
+\pdev{\mathcal{G}}{\phi}\delta\phi+\pdev{\mathcal{G}}{\partial_{\mu}\phi}\delta\partial_{\mu}\phi\equiv\frac{\delta \mathcal{G}}{\delta\phi}=0\;.
+\end{equation}
+Rimaniamo in conclusione con l'equazione:
+\begin{equation}
+\int\diff^4{x}\;\frac{\partial (\sqrt{-g}\lag)}{\partial g^{\mu\nu}}\delta g^{\mu\nu}=0\;.
+\end{equation}
+Definiamo quindi il tensore (si vede ad occhio che lo è) simmetrico $T_{\mu\nu}$ come:
+\begin{equation}
+T_{\mu\nu}=\frac{2}{\sqrt{-g}}\frac{\partial(\sqrt{-g}\lag)}{\partial g^{\mu\nu}}\;. \label{ch3_tmunudef}
+\end{equation}
+Dunque
+\begin{equation}
+\frac{1}{2}\int\diff^4{x}\;\sqrt{-g}T_{\mu\nu}\delta g^{\mu\nu}=0\;.
+\end{equation}
+$\delta g^{\mu\nu}$ è una variazione indotta dalla trasformazione di coordinate, quindi non è indipendente e non possiamo porre semplicemente l'integrando uguale a zero per risolvere l'equazione. La variazione arbitraria indipendente è $\delta a^{\alpha}$, a cui la variazione del tensore metrico è legata dalla relazione \eqref{ch3_vargmunu}. Sostituendo, si ottiene:
+$$
+\frac{1}{2}\int\diff^4{x}\sqrt{-g}T_{\mu\nu}(D^{\mu}\delta a^{\nu}+D^{\nu}\delta a^{\mu}).
+$$
+I contributi in parentesi sono uguali perché stiamo saturando gli indici con un tensore simmetrico. Integrando per parti si ottiene:
+$$
+\frac{1}{2}\int\diff^4{x}\sqrt{-g}T_{\mu\nu}(D^{\mu}\delta a^{\nu}+D^{\nu}\delta a^{\mu})=\int\diff^4{x}\;\sqrt{-g}T_{\mu\nu}D^{\mu}\delta a^{\nu}=\int\diff^4{x}\;\left[D^{\mu}(T_{\mu\nu}\delta a^{\nu})-D^{\mu}T_{\mu\nu}\delta a^{\nu}\right]=0\;.
+$$
+Usando l'identità:
+\begin{equation}
+D^{\mu}A_{\mu}=\frac{1}{\sqrt{-g}}\frac{\partial(\sqrt{-g}A^{\mu})}{\partial x^{\mu}}\;,
+\end{equation}
+possiamo riscrivere il primo addendo come:
+\begin{equation}
+\int\diff^4{x}\; D^{\mu}(T_{\mu\nu}\delta a^{\nu})=\int\diff^4{x}\;\frac{\partial}{\partial x^{\mu}}\left[\sqrt{-g}T_{\mu\nu}\delta a^{\nu}\right]\;,
+\end{equation}
+che è un termine di ipersuperficie che si annulla nelle ipotesi che abbiamo fatto. In definitiva, l'equazione che troviamo è:
+\begin{equation}
+\int\diff^4{x}\;\sqrt{-g}D^{\mu}T_{\mu\nu}\delta a^{\nu}=0\;,
+\end{equation}
+dove abbiamo isolato la variazione arbitraria indipendente e quindi possiamo porre l'integrando uguale a zero per ottenere l'equazione:
+\begin{equation}
+D_{\mu}T^{\mu\nu}=0\;.
+\end{equation}
+\textbf{Esempio 1}. Consideriamo la teoria di campo scalare descritta dalla Lagrangiana:
+$$
+\lag=\frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-\frac{1}{2}m^2\phi^2=\frac{1}{2}g^{\mu\nu}\partial_{\mu}\phi\partial_{\nu}\phi-\frac{1}{2}m^2\phi^2\;.
+$$
+Scriviamo il tensore energia-impulso in questo caso usando la definizione \eqref{ch3_tmunudef}:
+$$
+T_{\mu\nu}=\frac{2\lag}{\sqrt{-g}}\frac{\partial \sqrt{-g}}{\partial g^{\mu\nu}}+2\frac{\partial \lag}{\partial g^{\mu\nu}}\;.
+$$
+Il secondo termine è semplicemente uguale a $\partial_{\mu}\phi\partial_{\nu}\phi$, mentre per esplicitare il primo termine usiamo l'identità:
+\begin{equation}
+\diff{g}=gg^{\mu\nu}\diff{g_{\mu\nu}}=-gg_{\mu\nu}\diff{g^{\mu\nu}}\;,
+\end{equation}
+da cui:
+$$
+\frac{\partial \sqrt{-g}}{\partial g^{\mu\nu}}=-\frac{1}{2\sqrt{-g}}\frac{\partial g}{\partial g^{\mu\nu}}=-\frac{\sqrt{-g}g_{\mu\nu}}{2}\;,
+$$
+e quindi:
+$$
+T_{\mu\nu}=\partial_{\mu}\phi\partial_{\nu}\phi-g_{\mu\nu}\lag\;.
+$$
+\textbf{Esempio 2}. Consideriamo adesso la teoria di campo elettromagnetica, con Lagrangiana:
+$$
+\lag=-\frac{1}{4}F_{\mu\nu}F^{\mu\nu}=-\frac{1}{4}g^{\alpha\gamma}g^{\beta\delta}F_{\alpha\beta}F_{\gamma\delta}\;.
+$$
+In questo caso si ha:
+$$
+T_{\mu\nu}=-F_{\mu\beta}F_{\nu\delta}g^{\beta\delta}+\frac{1}{4}g^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\;.
+$$
+Notiamo che $T^{00}\propto \mathbf{E}^2+\mathbf{B}^2$ (densità di energia del campo EM). Sappiamo che per il tensore energia-impulso in questo caso vale $D_{\mu}T^{\mu\nu}\equiv \partial_{\mu}T^{\mu\nu}=0$. Fissando $\mu=0$ si ha:
+$$
+\frac{\partial T^{00}}{\partial t}+\partial_iT^{i0}=0\;,
+$$
+che corrisponde al teorema di conservazione di Poyinting.
+\chapter{Equazioni del campo gravitazionale}
+\section{Tensore di Riemann}
+Il tensore di Riemann è un oggetto che ci permette matematicamente di distinguere se siamo in presenza di campo gravitazionale oppure se siamo semplicemente in un sistema non inerziale. Riprendendo il concetto di trasporto parallelo, ci chiediamo cosa succeda se eseguiamo il trasporto parallelo di un vettore su un cammino chiuso. In uno spazio piatto ovviamente il vettore rimane invariato; tuttavia, se siamo in presenza di gravi questo cambierà. Consideriamo una generica traiettoria nello spazio parametrizzata dalla distanza trai i punti $s$, $x^{\mu}\equiv x^{\mu}(s)$. La tangente alla traiettoria è definita da $u^{\mu}\equiv \diff{x^{\mu}}/\diff{s}$ e l'equazione che determina le \emph{geodetiche}, ossia le traiettorie più brevi è $Du^{\mu}=0$, cioè:
+$$
+Du^{\mu}=\diff{u^{\mu}}-\delta^Tu^{\mu}=u(x+\diff{x})-u(x)-u^T(x\to x+\diff{x})+u(x)=u(x+\diff{x})-u^T(x\to x+\diff{x})=0\;.
+$$
+Allora $u(x+\diff{x})=u^T(x\to x+\diff{x})$, ossia la tangente nel punto $x+\diff{x}$ è il trasporto parallelo della tangente nel punto $x$ da $x$ a $x+\diff{x}$. Visto che i prodotti scalari rimangono invariati sotto trasporto parallelo, per trovare il trasportato di un vettore $A^{\mu}(x)$ lungo una geodetica è sufficiente guardare la tangente, trasportare questa e mantenere l'angolo tra essi punto per punto. \\
+Ricaviamo quindi il tensore di Riemann per una traiettoria chiusa infinitesima\footnote{Ci limiteremo a considerare, senza perdere generalità, solo due dimensioni} $A\to B\to C\to D\to A$ dove le coordinate dei quattro punti sono:
+\begin{align*}
+A&\equiv (a,b)\;, \\
+B&\equiv (a+\delta a,b)\;, \\
+C&\equiv (a+\delta a,b+\delta b)\;, \\
+D&\equiv (a,b+\delta b)\;.
+\end{align*}
+Consideriamo un vettore $E^{\mu}$ e trasportiamolo parallelamente lungo questa curva. Sappiamo che, in generale $\delta^TE^{\mu}=-\Gamma^{\mu}_{\alpha\beta}E^{\alpha}\diff{x^{\beta}}$. Allora:
+\begin{align}
+E^{\mu}(A\to B) &= E^{\mu}(A)-\int_{(a,b)}^{(a+\delta a,b)}\Gamma^{\mu}_{\alpha 1}E^{\alpha}\diff{x^1}\;, \notag \\
+E^{\mu}(B\to C) &= E^{\mu}(B)-\int_{(a+\delta a,b)}^{(a+\delta a,b+\delta b)}\Gamma^{\mu}_{\alpha 2}E^{\alpha}\diff{x^2} \notag\;, \\
+E^{\mu}(C\to D) &= E^{\mu}(C)+\int_{(a,b+\delta b)}^{(a+\delta a,b+\delta b)}\Gamma^{\mu}_{\alpha 1}E^{\alpha}\diff{x^1} \notag\;, \\
+E^{\mu}(D\to A) &= E^{\mu}(D)+\int_{(a,b)}^{(a,b+\delta b)}\Gamma^{\mu}_{\alpha 2}E^{\alpha}\diff{x^2}\;.
+\end{align}
+L'effetto complessivo del trasporto parallelo è dato da $E^{\mu}(D\to A)-E^{\mu}(A)\equiv E^{T\mu}-E^{\mu}$:
+\begin{align}
+E^{T\mu}-E^{\mu} &= \int_{(a,b)}^{(a,b+\delta b)}\Gamma^{\mu}_{\alpha 2}E^{\alpha}\diff{x^2}-\int_{(a+\delta a,b)}^{(a+\delta a,b+\delta b)}\Gamma^{\mu}_{\alpha 2}E^{\alpha}\diff{x^2}+ \notag \\
+&+ \int_{(a,b+\delta b)}^{(a+\delta a,b+\delta b)}\Gamma^{\mu}_{\alpha 1}E^{\alpha}\diff{x^1}-\int_{(a,b)}^{(a+\delta a,b)}\Gamma^{\mu}_{\alpha 1}E^{\alpha}\diff{x^1} \notag \\
+&=-\delta a\int_b^{b+\delta b}\frac{\partial(\Gamma^{\mu}_{\alpha 2}E^{\alpha})}{\partial x^1}\diff{x^2}+\delta b\int_a^{a+\delta a}\frac{\partial (\Gamma^{\mu}_{\alpha 1}E^{\alpha})}{\partial x^2}\diff{x^1} \notag \\
+&=\delta a\delta b\left[-\frac{\partial(\Gamma^{\mu}_{\alpha 2}E^{\alpha})}{\partial x^1}+\frac{\partial (\Gamma^{\mu}_{\alpha 1}E^{\alpha})}{\partial x^2}\right]\;.
+\end{align}
+Ricordando che, per effetto del trasporto parallelo:
+$$
+\frac{\partial E^{\alpha}}{\partial x^{\beta}}=-\Gamma^{\alpha}_{\beta\mu}E^{\mu}\;,
+$$
+esplicitando le derivate e sostituendo la relazione precedente si ottiene:
+\begin{align}
+\Delta E^{\mu} &= \delta a\delta b E^{\alpha}[\partial_2\Gamma^{\mu}_{\alpha 1}-\partial_1\Gamma^{\mu}_{\alpha 2}-\Gamma^{\mu}_{\nu 2}\Gamma^{\nu}_{\alpha 1}-\Gamma^{\mu}_{\nu 1}\Gamma^{\nu}_{\alpha 2}] \notag \\
+&= \diff{x^{\gamma}}\diff{x^{\sigma}}E^{\alpha}\left[\partial_{\sigma}\Gamma^{\mu}_{\alpha\gamma}-\partial_{\gamma}\Gamma^{\mu}_{\alpha\sigma}-\Gamma^{\mu}_{\nu\sigma}\Gamma^{\nu}_{\alpha\gamma}-\Gamma^{\mu}_{\nu\gamma}\Gamma^{\nu}_{\alpha\sigma}\right] \notag \\
+&\equiv\diff{x^{\gamma}}\diff{x^{\sigma}}E^{\alpha}R^{\mu}_{\;\;\alpha\gamma\sigma}\;,
+\end{align}
+dove:
+\begin{equation}
+R^{\mu}_{\;\;\alpha\gamma\sigma}\equiv \partial_{\sigma}\Gamma^{\mu}_{\alpha\gamma}-\partial_{\gamma}\Gamma^{\mu}_
+{\alpha\sigma}-\Gamma^{\mu}_{\nu\sigma}\Gamma^{\nu}_{\alpha\gamma}-\Gamma^{\mu}_{\nu\gamma}\Gamma^{\nu}_{\alpha\sigma}\;,
+\end{equation}
+è il \emph{tensore di Riemann}. Visto che dipende solo dalle connessioni, il tensore di Riemann è nullo in uno spazio piatto e quindi, avendo struttura tensoriale, sarà anche nullo in qualunque sistema ottenuto da una trasformazione delle coordinate di uno spazio piatto. Il tensore di Riemann gode delle seguenti proprietà: definiamo $R_{\alpha\beta\gamma\delta}\equiv g_{\alpha\rho}R^{\rho}_{\;\;\beta\gamma\delta}$. Allora:
+\begin{align}
+[D_{\mu},D_{\nu}]A_{\rho}&=R^{\alpha}_{\;\;\rho\mu\nu}A_{\alpha}\;, \\
+R_{\alpha\beta\gamma\delta} &=\frac{1}{2}(\partial_{\beta}\partial_{\gamma}g_{\alpha\delta}+\partial_{\alpha}\partial_{\delta}g_{\beta\gamma}-\partial_{\beta}\partial_{\delta}g_{\alpha\gamma}-\partial_{\alpha}\partial_{\gamma}g_{\beta\delta}+g_{\mu\nu}(\Gamma^{\mu}_{\alpha\gamma}\Gamma^{\nu}_{\alpha\delta}-\Gamma^{\mu}_{\beta\delta}\Gamma^{\nu}_{\alpha\gamma}))\;, \\
+R_{\alpha\beta\delta\gamma} &= -R_{\alpha\beta\gamma\delta}\;, \notag \\
+R_{\beta\alpha\gamma\delta} &= -R_{\alpha\beta\gamma\delta}\;, \notag \\
+R_{\beta\alpha\delta\gamma} &= R_{\alpha\beta\gamma\delta}\;.
+\end{align}
+Valgono inoltre le seguenti identità:
+\begin{align}
+R_{\alpha\beta\gamma\delta}+R_{\alpha\delta\beta\gamma}+R_{\alpha\gamma\delta\beta} &=0\;, \\
+D_{\delta}R^{\lambda}_{\;\;\alpha\beta\gamma}+D_{\gamma}R^{\lambda}_{\;\;\alpha\delta\beta}+D_{\beta}R^{\lambda}_{\;\;\alpha\gamma\delta} &=0\;,\qquad \mbox{(identità di Bianchi)}\;.\label{ch4_identitabianchi}
+\end{align}
+Definiamo quindi altre due quantità: il \emph{tensore di Ricci}:
+\begin{equation}
+R_{\alpha\beta}=R_{\alpha\mu\beta\nu}g^{\mu\nu}\;,
+\end{equation}
+che è un tensore simmetrico, e la \emph{curvatura scalare}:
+\begin{equation}
+R=g^{\alpha\beta}R_{\alpha\beta}\;.
+\end{equation}
+\section{Equazione di Einstein}
+Adesso abbiamo tutti gli elementi per scrivere l'equazione di Einstein. Partiamo dall'equazione di Newton per un potenziale gravitazionale $\phi$ e una densità di massa $\rho$:
+\begin{equation}
+\nabla^2\phi=4\pi G\rho\;, \label{ch4_newtoneq}
+\end{equation}
+dove $G=6.67\times 10^{-11}\; \mathrm{m}^3/(\mathrm{s}^2\times\mathrm{kg})$ è la costante di gravitazione universale. Vogliamo ovviamente scrivere un'equazione covariante, tenendo presente che la \eqref{ch4_newtoneq} deve rappresentarne il limite non relativistico. Avevamo visto che la densità di massa $\rho$ era il limite non relativistico della componente $T^{00}$ del tensore energia-impulso. Allora la prima sostituzione che effettuiamo nella \eqref{ch4_newtoneq} è $\rho\to T^{\mu\nu}$ (non possiamo limitarci ad una sola componente). Quindi riscriviamo il secondo membro come $kGT^{\mu\nu}$, dove $k$ è una costante adimensionale da determinare. Al primo membro bisognerà avere dunque un tensore simmetrico $G^{\mu\nu}$:
+$$
+G^{\mu\nu}=kGT^{\mu\nu}\;.
+$$
+Nel limite non relativistico di campo debole, sappiamo che $g_{00}=1+2\phi$, da cui $\nabla^2\phi=\nabla^2g_{00}/2$. Il tensore $G_{\mu\nu}$ deve essere costruito a partire dalla metrica $g_{\mu\nu}$ (e poco altro), deve dipendere al più dalle derivate seconde della metrica, deve essere simmetrico negli indici; visto che $D_{\mu}T^{\mu\nu}=0$, per consistenza si deve avere $D_{\mu}G^{\mu\nu}=0$ e $G_{00}\sim \nabla^2g_{00}$. Un'ultima condizione è che lo spazio-tempo non debba introdurre costanti dimensionate. Otteniamo quindi come possibile forma di $G_{\mu\nu}$ la seguente:
+$$
+G_{\mu\nu}=aR_{\mu\nu}+bRg_{\mu\nu}+c\Lambda g_{\mu\nu}\;,
+$$
+essendo $a,b,c$ costanti adimensionali. Nell'ultimo termine compare una costante dimensionata (costante cosmologica) $\Lambda$ (energia al quadrato), che in principio dovrebbe essere escluso per quanto abbiamo richiesto. Per adesso teniamola temporaneamente. Dobbiamo imporre la condizione $D_{\mu}G_{\mu\nu}=0$: essendo $\Lambda$ costante e $D_{\mu}g_{\mu\nu}=0$, questa condizione fissa una relazione tra i coefficienti $a$ e $b$. Per scriverla, partiamo dall'identità di Bianchi \eqref{ch4_identitabianchi} che moltiplichiamo successivamente, senza alterarne il valore, per $g^{\beta\delta}$ e $g^{\alpha\gamma}$:
+\begin{align*}
+D_{\mu}R_{\alpha\beta\gamma\delta}+D_{\delta}R_{\alpha\beta\mu\gamma}+D_{\gamma}R_{\alpha\beta\delta\mu}&= 0 \\
+g^{\beta\delta}[D_{\mu}R_{\alpha\beta\gamma\delta}+D_{\delta}R_{\alpha\beta\mu\gamma}+D_{\gamma}R_{\alpha\beta\delta\mu}]&= 0 \\
+D_{\mu}R_{\alpha\gamma}+D^{\delta}R_{\alpha\delta\mu\gamma}-D_{\gamma}R_{\alpha\mu}=0 \\
+g^{\alpha\gamma}[D_{\mu}R_{\alpha\gamma}+D^{\delta}R_{\alpha\delta\mu\gamma}-D_{\gamma}R_{\alpha\mu}]=0 \\
+D_{\mu}R-D^{\delta}R_{\delta\mu}-D^{\delta}R_{\delta\mu}=0 \\
+D_{\mu}\left[R^{\mu\nu}-\frac{1}{2}Rg^{\mu\nu}\right]=0\;.
+\end{align*}
+Questa relazione fissa dunque nell'espressione di  $G_{\mu\nu}$ $b=-a/2$, quindi otteniamo:
+\begin{equation}
+G_{\mu\nu}=a\left(R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}\right)+c\Lambda g_{\mu\nu}\;.
+\end{equation}
+Si verifica che nel limite non relativistico:
+$$
+R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}\longrightarrow \nabla^2g_{00};.
+$$
+Allora, trascurando\footnote{La costante cosmologica $\Lambda$ tiene conto della dark energy e diventa rilevante a livello cosmologico, mentre a livello planetario è trascurabile.} il termine in $\Lambda$, dal confronto con l'equazione di Newton siamo in grado di determinare la costante moltiplicativa, $k=8\pi$. Otteniamo in conclusione l'\emph{equazione di Einstein}:
+\begin{equation}
+\boxed{
+R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi GT_{\mu\nu}
+}\;.
+\end{equation}
+\subsection{Derivazione tramite principio variazionale}
+Vogliamo derivare le equazioni di Einstein tramite il principio variazionale: scegliamo come variabile dinamica la metrica e scriviamo l'azione come:
+$$
+S=\int\diff^4{x}\sqrt{-g}\lag(g,\partial g)\;.
+$$
+In un primo momento non consideriamo la materia. $\lag$ dovrà essere uno scalare (garantisce la covarianza) in cui non compaiano derivate di ordine superiore al primo (garantisce che nelle equazioni del moto vi siano al più derivate seconde). Quindi $lag$ deve contenere $g_{\mu\nu}$ e le connessioni $\conn{\mu}{\nu}{\rho}$. Tuttavia, non è possibile costruire uno scalare con queste quantità. L'unico scalare che abbiamo a disposizione è la curvatura $R$, che però contiene le derivate seconde della metrica. La dipendenza tuttavia è lineare e in virtù di questa linearità si può dimostrare che:
+\begin{equation}
+\int\diff^4{x}\;R\sqrt{-g}=\int \diff^4{x}\;\sqrt{-g}G(g,\partial g)+\int \diff^4{x}\,\partial_{\mu}(\sqrt{-g}\omega^{\mu})\;.
+\end{equation}
+L'ultimo termine è un integrale di una quadridivergenza che diventa un termine di superficie che non contribuisce alla variazione, quindi possiamo eliminarlo subito. Pertanto la variazione dell'azione è data da:
+\begin{equation*}
+\delta\int R\sqrt{-g}\diff^4{x}=\int\diff^4{x}\;\delta(g^{\mu\nu}R_{\mu\nu}\sqrt{-g})=\int\diff^4{x}\left[R\delta(\sqrt{-g})+\sqrt{-g}R_{\mu\nu}\delta g^{\mu\nu}+\sqrt{-g}g^{\mu\nu}\delta R_{\mu\nu}\right]\;.
+\end{equation*}
+Si ha:
+$$
+\delta(\sqrt{-g})=-\frac{1}{2\sqrt{-g}}\delta g=-\frac{1}{2}\sqrt{-g}g_{\mu\nu}\delta g^{\mu\nu}\;,
+$$
+che ci permette di scrivere l'equazione precedente come:
+$$
+\delta \int R\sqrt{-g}\diff^4{x}=\int\left(R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}\right)\delta g^{\mu\nu}\sqrt{-g}\diff^4{x}+\int g^{\mu\nu}\delta R_{\mu\nu}\sqrt{-g}\diff^4{x}=0\;.
+$$
+L'ultimo termine non contribuisce; ritroviamo quindi:
+$$
+R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=0\;.
+$$
+Non abbiamo ritrovato la parte destra delle equazioni di Einstein in quanto non abbiamo considerato la materia. Se lo avessimo fatto, avremmo ottenuto proprio $8\pi GT_{\mu\nu}$.
+\section{Pseudotensore energia-impulso}
+In un sistema chiuso è possibile definire un impulso $P^{\mu}$. In caso di spazio piatto, da $\partial_{\nu}T^{\mu\nu}=0$ segue che l'impulso, definito come $P^{\mu}=\int \diff^3{x}T^{\mu\nu}$ è conservato. In uno spazio curvo si ha invece:
+$$
+D_{\mu}T^{\mu\nu}=\frac{1}{\sqrt{-g}}\partial_{\mu}(\sqrt{-g}T^{\mu\nu})-\frac{1}{2}\partial_{\nu}g_{\mu\nu}T^{\mu\nu}=0\;,
+$$
+e questa relazione non implica la conservazione di $P^{\mu}$. Il quadrimpulso di un sistema non può essere la somma di quadri-impulsi, in quanto questi non sono definiti nello stesso evento. \\
+Se il sistema è chiuso, a grandi distanze dalla materia è possibile scegliere un sistema di coordinate tali che $g_{\mu\nu}=\eta_{\mu\nu}$. Scriviamo allora (rischiando di perdere però la covarianza) $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$. Sviluppiamo il tensore di Ricci in termini di $h$:
+\begin{equation}
+R_{\mu\nu}(g)=R_{\mu\nu}(\eta)+h_{\mu\nu}\frac{\partial R_{\alpha\beta}}{\partial g^{\alpha\beta}}+\frac{1}{2}h^2_{\mu\nu}\frac{\partial^2R_{\alpha\beta}}{\partial (g^{\alpha\beta})^2}\;.
+\end{equation}
+Nell'equazione di Einstein, chiamiamo $G_{\mu\nu}\equiv R_{\mu\nu}-\dfrac{1}{2}Rg_{\mu\nu}=8\pi GT_{\mu\nu}$ e lo scriviamo solo con termini lineari in $h$ e nelle sue derivate. Il resto lo portiamo a destra e lo chiamiamo $A_{\mu\nu}$:
+\begin{equation}
+G^{(1)}_{\mu\nu}=8\pi GT_{\mu\nu}+8\pi GA_{\mu\nu}\equiv 8\pi G\theta_{\mu\nu}\;.
+\end{equation}
+$\theta_{\mu\nu}$ è lo \emph{pseudotensore energia-impulso} (se in un certo punto è nullo, non è detto che lo sia in ogni sistema di coordinate, a differenza dei tensori veri). Lo pseudotensore soddisfa l'equazione $\partial_{\mu}\theta^{\mu\nu}=0$, che è una vera e propria conservazione per la quantità:
+\begin{equation}
+P^{\mu}=\int\diff^3{x}\;\theta^{\mu\nu}=\int\diff{S_{\nu}}\;\theta^{\mu\nu}\;.
+\end{equation}
+\section{Metrica di Schwartzschild}
+Le equazioni di Einstein sono un set di equazioni non lineari che ammettono soluzioni esatte quando il sistema presenta diverse simmetrie. \\
+Assumiamo un sistema con simmetria sferica: in coordinate sferiche $(t,r,\theta,\varphi)$, si ha $\diff{s^2}=\diff{t}^2-\diff{r}^2-r^2(\diff{\theta}^2+\sin^2\theta\diff{\varphi}^2)$. Su una superficie sferica di ha $\diff{s}^2=-r^2(\diff{\theta}^2+\sin^2\theta\diff{\varphi}^2)$. Abbiamo quindi uno spazio piatto. \\
+In un generico spazio curvo con coordinate sferiche $(\overline{t},\overline{r},\theta,\varphi)$, la metrica descrive un sistema a simmetria centrale se la sua restrizione a una superficie si può scrivere come $\rho(\overline{t},\overline{r})(\diff{\theta}^2+\sin^2\theta\diff{\varphi}^2)$. Dunque:
+\begin{equation}
+\diff{s}^2=g_{\overline{t},\overline{t}}(\overline{t},\overline{r})\diff{\overline{t}}^2+
+2g_{\overline{t},\overline{r}}(\overline{t},\overline{r})\diff{\overline{t}}\diff{\overline{r}}+
+g_{\overline{r},\overline{r}}(\overline{t},\overline{r})\diff{\overline{r}}^2-\rho(\overline{t},\overline{r})\diff{\Omega}^2\;.
+\end{equation}
+Per un sistema a simmetria centrale, esiste sempre un sistema di coordinate in cui l'intervallo spaziotemporale assume questa forma. Inoltre, esiste sempre un sistema di coordinate $(t,r,\theta,\varphi)$ in cui $\rho=r^2$, $g_{\overline{t},\overline{r}}=0$ (cambiando due variabili possiamo sempre imporre due condizioni). Allora:
+\begin{equation}
+\diff{s}^2=g_{tt}(t,r)\diff{t}^2+g_{rr}(t,r)\diff{r}^2-r^2\diff{\Omega}^2\;.
+\end{equation}
+Da notare che $r$ non è la distanza dal centro, bensì il raggio di curvatura. \\
+Adesso per risolvere le equazioni di Einstein dobbiamo trovare 10 funzioni di 4 variabili, ma abbiamo solamente 2 funzioni di 2 variabili. Vanno ancora scritti infatti i tensori di Riemann e di Ricci e la curvatura. \\
+\textbf{Nota}. Moltiplicando ambo i membri dell'equazione di Einstein per $g^{\mu\nu}$ si ha:
+$$
+g^{\mu\nu}\left(R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}\right)=8\pi GT_{\mu\nu}g^{\mu\nu}=8\pi GT^{\mu}_{\;\;\mu}\;.
+$$
+Nel vuoto si ha $R-2R=0$ da cui $R=0$ e di conseguenza $R_{\mu\nu}$. Questo però non implica, in quattro dimensioni, spazio piatto. \\
+
+Poniamo $g_{tt}(t,r)=e^{\nu(t,r)}$ e $g_{rr}(t,r)=e^{\lambda(t,r)}$. Allora:
+\begin{enumerate}
+\item $R^1_0\qquad \Longrightarrow\qquad e^{-\lambda}\dfrac{\dot{\lambda}}{r}=0$, dove $\dot{\lambda}\equiv \dfrac{\partial\lambda}{\partial t}$;
+\item $R_0^0-R_1^1=0\qquad \Longrightarrow\qquad -\dfrac{e^{-\lambda(\nu'+\lambda')}}{r}=0$, dove $\lambda'=\dfrac{\partial \lambda}{\partial r}$.
+
+Dal punto 1 segue che $\partial\lambda/\partial t=0$, quindi $\lambda\equiv\lambda(r)$, mentre dal secondo punto si ha $\lambda+\nu\equiv f(t)$. Cambiando variabili, $\diff{t}^2=e^{-(\lambda+\nu)}\diff{\overline{t}}^2$ quindi:
+$$
+\diff{s}^2 = e^{-\lambda}\diff{\overline{t}}^2-e^{\lambda}\diff{r}^2-r^2\diff{\Omega}= A(r)\diff{\overline{t}}\diff{\overline{t}}^2-A^{-1}(r)\diff{r}^2-r^2\diff{\Omega}^2\;;
+$$
+\item $R_0^0-R/2=0$ fornisce infine un'equazione differenziale per $A$:
+$$
+A'+\frac{A}{r}-\frac{1}{r}=0\qquad \Longrightarrow\qquad A(r)=1+\frac{C}{r}\;.
+$$
+\end{enumerate}
+Tutte le altre componenti sono ridondanti. Otteniamo dunque la \emph{metrica di Schwartzschild}:
+\begin{equation}
+\diff{s}^2=\left(1+\frac{C}{r}\right)\diff{t}^2-\frac{1}{1+\dfrac{C}{r}}\diff{r}^2-r^2\diff{\Omega}^2\;.
+\end{equation}
+In regime di campo debole, $g_{00}=1+2\varphi/c^2$, $\varphi=-GM/r$. La costante $C$ è data da $C=-2GM/c^2\equiv -r_g$, dove $r_g$ è il raggio gravitazionale. $M$ non rappresenta propriamente una massa, ma è una componente dello pseudotensore energia-impulso. \\
+Notiamo la presenza di una singolarità se $r\le r_g$ e $r_g<$ raggio della stella. Se però collassa e $r<r_g$ si ha un buco nero. $r=r_g$ è una singolarità dovuta al sistema di coordinate. A $r=0$ c'è una vera singolarità dello spazio-tempo: infatti tutti gli scalari che si possono costruire sono singolari (i.e. $R^{\alpha\beta\gamma\delta}R_{\alpha\beta\gamma\delta}\sim 1/r^6$). \\
+Scriviamo $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$ e sviluppiamo l'equazione di Einstein in termini della metrica:
+\begin{equation}
+\underbrace{R_{\mu\nu}^{(1)}-\frac{1}{2}\eta_{\mu\nu}R^{(1)}}_{G_{\mu\nu}^{(1)}}=8\pi G\theta_{\mu\nu}\;.
+\end{equation}
+Si ha $G_{\mu\nu}=\partial_{\rho}Q^{\rho\mu\nu}$, con $Q^{\rho\mu\nu}=-Q^{\mu\rho\nu}$. Allora:
+\begin{align*}
+Q^{\rho\nu\lambda} &=-\frac{1}{2}\left[\partial^{\nu}h^{\mu}_{\;\;\mu}\eta^{\rho\lambda}-\partial^{\rho}h^{\mu}_{\;\;\mu}\eta^{\nu\lambda}-\partial_{\mu}h^{\mu\nu}\eta^{\rho\lambda}-\cdots\right]\;. \\
+P^{\mu} &=\int \diff^3{x}\,\theta^{0\mu}=\int\frac{1}{8\pi G}\diff^3{x}\,\partial_{\rho}Q^{\rho 0\mu}=\frac{1}{8\pi G}\int Q^{i 0\mu}\diff{S_i}\;.
+\end{align*}
+In quanto $\partial_{\rho}Q^{\rho 0\mu}=\partial_iQ^{i0\mu}$, $i=1,2,3$ per antisimmetria. Sulla superficie:
+\begin{equation}
+P^0=\frac{1}{16\pi G}\int_{r\to\infty} (\partial_ih_{jj}-\partial_jh_{ii})n_ir^2\diff{\Omega}\;,
+\end{equation}
+con $n_i=x_i/r$. Se assumiamo simmetria sferica, $P^i=0$. La metrica di Schwartzschild non permette lo sviluppo $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$ perché all'infinito deve essere $g_{\mu\nu}=\eta_{\mu\nu}$. In coordinate cartesiane:
+\begin{equation}
+\diff{s}^2=\left(1-\frac{r_g}{r}\right)\diff{t}^2-\sum_i (\diff{x^i})^2\frac{[(1-r_g/r)^{-1}-1]^2}{r^2}(x_i\diff{x_i})^2\;,
+\end{equation}
+che non rappresenta proprio la distanza. In particolare, $h_{00}=-r_g/r$, $h_{ij}=-[(1-r_g/r)^{-1}-1]n_in_j\sim -\dfrac{r_g}{r}n_in_j$. Inserendo in $P^0$ si trova $P^0=M, r_g=2P^0$.\\
+Scriviamo adesso la metrica spaziale della metrica di Schwartzschild, ossia il $\gamma_{ij}$ tale che $\diff{\ell}^2=\gamma_{ij}\diff{x^i}\diff{x^j}$. La metrica spaziale è legata al tensore metrico dalla relazione:
+$$
+\gamma_{ij}=-g_{ij}+\frac{g_{0i}g_{0j}}{g_{00}}\;.
+$$
+$\diff{\ell}^2$ è la distanza tra punti solidali al sistema di riferimento. Sviluppando si ha allora:
+\begin{equation}
+\diff{\ell}^2=\frac{1}{1-r_g/r}\diff{r}^2-r^2\diff{\Omega}^2\;.
+\end{equation}
+La distanza tra due punti lungo la direzione radiale (le altre coordinate costanti) è data da:
+$$
+\int_{r_1}^{r_2}\sqrt{\frac{1}{1-r_g/r}}\diff{r}>r_2-r_1\;,
+$$
+che non misura la distanza dal centro, ma tuttavia può essere letta ancora come lunghezza in quanto la metrica è statica.
+\section{Moto di un corpo in metrica di Schwartzschild}
+Consideriamo un'onda piana $a^{\mu}e^{-ik_{\mu}x^{\mu}}$, con $k_{\mu}k^{\mu}=0$ (luce), $k^{\alpha}=\diff{x^{\alpha}}/\diff{\lambda}$ si può definire come un parametro qualsiasi che parametrizza la traiettoria. Per la luce $\diff{s}=0$. In R.R. si aveva $\diff{k^{\alpha}}=0$. Tramite il principio di covarianza, in R.G. dovrà essere $Dk^{\alpha}=0$. \\
+Per oggetti massivi,
+$$
+\dev{p_{\mu}}{s}=\frac{1}{2m}\partial_{\mu}g_{\alpha\beta}p^{\alpha}p^{\beta}\;.
+$$
+$g_{\alpha\beta}$ non dipende né da $t$ né da $\varphi$, quindi si conservano $p_0$ e $p_{\varphi}$. Scriviamo $p_0=Em$ ($E$ è una costante). L'oggetto si muove su un piano, fissiamo allora $\theta=\pi/2$, allora $p_{\varphi}=-Lm$. Quindi:
+\begin{equation}
+p^0=m\dev{t}{s}=g^{0\mu}p_{\mu}=g^{00}p_0,\qquad g^{00}=(g_{00})^{-1}\;.
+\end{equation}
+$A=1-r_g/r$, $p^0=A^{-1}Em$. Mentre:
+\begin{equation}
+p^{\varphi}=m\dev{\varphi}{s}=g^{\varphi\varphi}p_{\varphi}=\frac{Lm}{r^2}\;,
+\end{equation}
+e:
+\begin{equation}
+p^r=g^{rr}p_r=Ap_r=m\dev{r}{s}\;,\qquad \implies \qquad \dev{r}{s}=\frac{Ap_r}{m}\;,
+\end{equation}
+con $p^{\theta}=0$. Sostituendo tutto nella relazione $p_{\mu}p^{\mu}=m^2$ si ottiene:
+\begin{equation}
+\left(\dev{r}{s}\right)^2=E^2-\frac{AL^2}{r^2}-A\;.
+\end{equation}
+Il moto è possibile se $E>V(r)=A(L^2/r^2+1)$. \\
+La metrica di Schwartzschild è descritta da coordinate $(t,r,\theta,\varphi)$ che sono associate a osservatori posti a grandi distanze dalle sorgenti e non si prestano bene a descrivere gli eventi per $r<r_g$. Dobbiamo quindi scegliere un set di coordinate appropriato.
+\section{Coordinate di Kruskal-Szekeres}
+Le coordinate di Kruskal-Szekeres sono un set di coordinate $(u,v,\theta,\varphi)$ in cui la parte angolare rimane invariata e $(u,v)$ sono legate alle vecchie $(t,r)$ da:
+\begin{align}
+u &= \left(\frac{r}{r_g}-1\right)^{1/2}e^{r/2r_g}\cosh\left(\frac{t}{2r_g}\right)\;, \notag \\
+v &= \left(\frac{r}{r_g}-1\right)^{1/2}e^{r/2r_g}\sinh\left(\frac{t}{2r_g}\right)\;,
+\end{align}
+per $r>r_g$ e:
+\begin{align}
+u &= \left(1-\frac{r}{r_g}\right)^{1/2}e^{r/2r_g}\sinh\left(\frac{t}{2r_g}\right)\;, \notag \\
+v &= \left(1-\frac{r}{r_g}\right)^{1/2}e^{r/2r_g}\cosh\left(\frac{t}{2r_g}\right)\;,
+\end{align}
+per $r\le r_g$. Con questo cambio di coordinate:
+\begin{equation}
+\diff{s}^2=4\frac{r_g^3}{r}e^{-r/r_g}(\diff{v}^2-\diff{u}^2)-r^2\diff{\Omega}^2\;,
+\end{equation}
+abbiamo eliminato la singolarità a $r=r_g$. Considerando i moti radiali ($\diff{\Omega}=0$), il cono luce ($\diff{s}^2=0$) è dato da $\diff{v}=\pm\diff{u}$. Quindi in queste coordinate il cono luce si mantiene a $45^{\circ}$ indipendentemente da $r$. \\
+Studiamo adesso il moto di un corpo: le linee di universo nel piano $u-v$ a $r=$ costante sono delle iperboli con segno dipendente da $r\gtrless r_g$, mentre le linee di universo a $t=$ costante sono date da:
+$$
+\frac{v}{u}=\tanh\left(\frac{t}{2r_g}\right)\;,
+$$
+quindi sono delle rette. Per $r<r_g$, la causalità impone che il corpo si muova verso regioni dove $r$ diminuisce, quindi il corpo non può più tornare indietro: $r=r_g$ rappresenta l'orizzonte degli eventi.
+\section{Buchi neri rotanti}
+Consideriamo adesso soluzioni delle equazioni di Einstein che tengono conto di un'eventuale rotazione della sorgente, ossia senza simmetria sferica. La soluzione stazionaria per sorgente rotante nel vuoto ($R_{\mu\nu}=0$) è, nelle coordinate $x^{\mu}\equiv (t,r,\theta,\varphi)$:
+\begin{equation}
+\diff{s}^2=\left(1-\frac{r_gr}{\rho^2}\right)\diff{t}^2-\rho^2\left(\frac{\diff{r}^2}{\Delta}+\diff{\theta}^2\right)-\left(r^2+a^2+\frac{r_gra^2}{\rho^2}\sin^2\theta\right)\sin^2\theta\diff{\varphi}^2+\frac{r_gra}{\rho^2}\sin^2\theta\diff{\varphi}\diff{t}\;,
+\end{equation}
+dove:
+\begin{align}
+\Delta &= r^2-r_gr+a^2 \notag\;, \\
+\rho^2 &= r^2+a^2\cos^2\theta\;,
+\end{align}
+e $a$ è un nuovo parametro. Osserviamo innanzitutto che per $a\to 0$ ritroviamo la metrica di Schwartzschild. Calcoliamo adesso le quantità rilevanti. Dallo pseudotensore ricaviamo il quadri-impulso, la cui unica componente non nulla è $p^0=r_g/2$. Si può calcolare in questo caso anche il momento angolare, che è diretto lungo $\theta=0$: $\mathbf{J}=p^0\mathbf{a}$, dove $\mathbf{a}$ è un vettore diretto lungo $\theta=0$ e avente modulo $a$. \\
+Consideriamo adesso un corpo che si muove in direzione radiale proveniente dall'infinito con momento angolare nullo. Sappiamo che in questa metrica si conservano separatamente $p_0$ e $p_{\varphi}$ (la metrica non dipende esplicitamente dalle due coordinate associate):
+\begin{align*}
+p^{\varphi} &= m\dev{\varphi}{s}=g^{\varphi\mu}p_{\mu}=g^{\varphi\varphi}p_{\varphi}p_{\varphi}+g^{\varphi t}p_0\;, \\
+p^0 &= m\dev{t}{s}=g^{tt}p_0+g^{\varphi t}p_{\varphi}\;.
+\end{align*}
+All'infinito:
+\begin{equation}
+p_{\varphi}=g_{\varphi\varphi}p^{\varphi}+g_{t\varphi}p^0\simeq g_{\varphi\varphi}p_{\varphi}\;,
+\end{equation}
+perché $g_{t\varphi}\sim 1/r^4\to 0$. Allora:
+\begin{equation}
+\dev{\varphi}{t}=\frac{p^{\varphi}}{p^0}=\frac{g^{t\varphi}}{g^{tt}}=\frac{r_gra}{\rho^2(r^2+a^2)+rr_ga^2\sin^2\theta}\;,
+\end{equation}
+quindi il corpo ha acquistato una velocità di rotazione non nulla. \\
+Nel limite $r_g\to 0$ ci aspettiamo di trovare spazio piatto, però quello che si trova è uno spazio piatto con coordinate ellissoidali. \\
+Notiamo che vi sono due regioni particolari: una in cui $g_{tt}=0$, che corrisponde a $\rho^2-r_gr=0$, e un'altra in cui $g_{rr}=\infty$, che corrisponde a $\Delta=0$. Vi è inoltre un'ulteriore singolarità propria dello spazio-tempo $\rho=0$ (analoga a quella $r=0$ per la metrica di Schwartzschild, infatti per $a\to 0$ $\rho\to r$). Consideriamo le prime due singolarità:
+\begin{align}
+\rho^2-r_gr=0\qquad \Longrightarrow\qquad &r=r_{0t}=\frac{r_g}{2}+\sqrt{\left(\frac{r_g}{2}\right)^2-a^2\cos^2\theta}\;, \\
+\Delta =0\qquad \Longrightarrow\qquad &r=r_{0r}=\frac{r_g}{2}+\sqrt{\left(\frac{r_g}{2}\right)^2-a^2}\;. \label{ch4_477}
+\end{align}
+La superficie a $r=r_{0t}$ è un ellissoide, mentre quella a $r=r_{0r}$ è una sfera. Le due superfici sono tangenti ai poli $\theta=0,\pi$. Resta da capire quale delle due superfici descrive l'orizzonte degli eventi. L'\emph{orizzonte} è fisicamente definito come una superficie in cui i corpi possono entrare ma dalla quale non possono uscire. \\
+Consideriamo una generica ipersuperficie $f(x^{\mu})=C$. La normale alla superficie è data da:
+$$
+n_{\mu}=\frac{\partial f}{\partial x^{\mu}}\;.
+$$
+Una ipersuperficie si definisce \emph{nulla} se $n_{\mu}n^{\mu}=n_{\mu}g^{\mu\nu}n_{\nu}=0$. Dato che per definizione di normale, $\diff{x^{\mu}}n_{\mu}=0$, su un'ipersuperficie nulla si ha $\diff{x^{\mu}}\diff{x_{\mu}}=0$. Questa rappresenta proprio l'equazione del cono luce. Quindi, per identificare l'orizzonte è sufficiente che un braccio del cono luce si appoggi all'ipersuperficie. Matematicamente, quindi, l'orizzonte è un'ipersuperficie nulla. \\
+Allora bisogna verificare quale tra le due ipersuperfici $r_{0t}$  e $r_{0r}$ verifichi la relazione:
+\begin{equation}
+g^{\mu\nu}\frac{\partial f}{\partial x^{\mu}}\frac{\partial f}{\partial x^{\nu}}=0\;.
+\end{equation}
+Siano:
+\begin{align*}
+f(r,\theta)&=r-r_{0t}=0\;, \\
+f(r) &= r-r_{0r}=0\;,
+\end{align*}
+le due ipersuperfici candidate. L'unico termine che sopravvive nell'equazione \eqref{ch4_477} è quello in $g^{rr}$, dato da $g^{rr}=\Delta/\rho^2$. Questo si annulla per $\Delta=0$, ossia quando $r=r_{0r}$. Concludiamo quindi che $r=r_{0r}$ è l'ipersuperficie che caratterizza l'orizzonte degli eventi per questa metrica. \\
+La zona compresa tra le due superfici prende il nome di \emph{ergosfera}. In questa zona si ha $g_{tt}<0$ e quindi non è possibile avere una linea di universo a $r,\theta,\varphi$ costanti, cioè non è possibile tenere il corpo fermo, in quanto si arriverrebbe a un $\diff{s}^2<0$, violando la causalità. \\
+Tuttavia, nell'ergosfera è possibile aumentare o mantenere costante $r$. Scriviamo allora la metrica come:
+\begin{equation}
+\diff{s}^2=\left(g_{tt}-\frac{g_{t\varphi}^2}{g_{\varphi\varphi}}\right)\diff{t}^2+g_{rr}\diff{r}^2+g_{\theta\theta}\diff{\theta}^2+g_{\varphi\varphi}\left(\diff{\varphi}+\frac{g_{t\varphi}}{g_{\varphi\varphi}}\diff{t}\right)^2\;.
+\end{equation}
+Il coefficiente del $\diff{t}^2$ nell'ergosfera è sempre positivo, quindi è possibile scegliere una linea di universo in cui tutti gli altri termini siano nulli, ossia $\diff{r}=\diff{\theta}=0$, a patto di scegliere:
+\begin{equation}
+\dev{\varphi}{t}=-\frac{g_{t\varphi}}{g_{\varphi\varphi}}\;.
+\end{equation}
+Quindi possiamo avere nell'ergosfera una linea di universo a $r,\theta$ costanti, ma il corpo deve ruotare con velocità angolare $\dot{\varphi}=-g_{t\varphi}/g_{\varphi\varphi}$. \\
+In conclusione, un'altra quantità utile da calcolare è l'area dell'orizzonte. Per calcolarla, restringiamo la metrica alla superficie $r=r_{0r}$ e calcoliamo:
+$$
+\int \gamma_{ij}\sqrt{-g}\diff{x^i}\diff{x^j}\;.
+$$
+Si ottiene quindi:
+\begin{equation}
+A_h=4\pi(r_{0r}^2+a^2)\;.
+\end{equation}
+\chapter{Radiazione gravitazionale}
+\section{Approssimazione lineare}
+Le equazioni di Einstein, come si è detto, non sono lineari. Tuttavia, supponendo che l'effetto delle onde gravitazionali sia una perturbazione dello spazio-tempo, possiamo tentare un'approssimazione lineare scrivendo:
+$$
+g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}\;.
+$$
+Vediamo l'ordine di grandezza: assumendo un collasso di un oggetto di massa 100 volte quella solare a distanza $10^{22}$ m, si ha, in unità geometriche:
+$$
+h\sim \frac{r_g}{r}=\frac{100 M_S}{r}\sim 10^{-17}\;.
+$$
+Quindi $h$ è estremamente piccolo e questo giustifica l'approssimazione lineare. Si può interpretare la scrittura $\eta_{\mu\nu}+h_{\mu\nu}$ anche come uno spazio piatto in cui vive un campo gravitazionale a due indici che si comporta come un tensore rispetto alle trasformazioni di Lorentz. \\
+Partiamo dall'equazione di Einstein:
+$$
+R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R=8\pi GT_{\mu\nu}\;.
+$$
+Sappiamo che $R=-8\pi GT^{\mu}_{\;\;\mu}$. Possiamo riscrivere allora l'equazione come:
+\begin{equation}
+R_{\mu\nu}=8\pi GS_{\mu\nu},\qquad\qquad S_{\mu\nu}=T_{\mu\nu}-\frac{1}{2}g_{\mu\nu}T^{\lambda}_{\;\;\lambda}\;.
+\end{equation}
+Sviluppando il tensore di Ricci in potenze di $h_{\mu\nu}$, il primo ordine non banale è proprio quello lineare in $h_{\mu\nu}$ e si scrive come:
+\begin{equation}
+R_{\mu\nu}\simeq \frac{1}{2}\left[\square h_{\mu\nu}-\partial_{\lambda}\partial_{\mu}h^{\lambda}_{\;\;\nu}-\partial_{\lambda}\partial_{\nu}h^{\lambda}_{\;\;\mu}+\partial_{\mu}\partial_{\nu}h^{\lambda}_{\;\;\lambda}\right]\;.
+\end{equation}
+In approssimazione lineare, il tensore energia-impulso verifica $\partial_{\mu}T^{\mu\nu}=0$, oppure, in termini di $S_{\mu\nu}$:
+\begin{equation}
+\partial_{\mu}S^{\mu\nu}-\frac{1}{2}\partial^{\nu}S^{\mu}_{\;\;\mu}=0\;.
+\end{equation}
+L'equazione allora diventa:
+\begin{equation}
+\square h_{\mu\nu}-\partial_{\lambda}\partial_{\mu}h^{\lambda}_{\;\;\nu}-\partial_{\lambda}\partial_{\nu}h^{\lambda}_{\;\;\mu}+\partial_{\mu}\partial_{\nu}h^{\lambda}_{\lambda}=16\pi GS_{\mu\nu}\;.
+\end{equation}
+Dobbiamo però fare attenzione: se eseguiamo una trasformazione di coordinate $x^{\mu}\longrightarrow \overline{x}^{\mu}=x^{\mu}+\epsilon^{\mu}(x)$, con $\epsilon\ll 1$, la Relatività Generale impone che:
+$$
+\overline{g}_{\mu\nu}=\frac{\partial x^{\alpha}}{\partial \overline{x}^{\mu}}\frac{\partial x^{\beta}}{\partial\overline{x}^{\nu}}g_{\alpha\beta}\equiv \eta_{\mu\nu}+\overline{h}_{\mu\nu}\;,
+$$
+con $\overline{h}_{\mu\nu}=h_{\mu\nu}-\partial_{\mu}\epsilon_{\nu}-\partial_{\nu}\epsilon_{\mu}$. Se $\epsilon$ è piccolo, allora $\overline{h}_{\mu\nu}$ è piccolo come $h_{\mu\nu}$ e quindi questi saranno equivalenti. Concludiamo che la linearizzazione presenta un'invarianza per trasformazioni di gauge:
+\begin{equation}
+h_{\mu\nu}\longrightarrow \overline{h}_{\mu\nu}=h_{\mu\nu}-\partial_{\mu}\epsilon_{\nu}-\partial_{\nu}\epsilon_{\mu}\;,
+\end{equation}
+con $\epsilon^{\mu}$ arbitrario.
+\section{Gauge armonica}
+Possiamo dunque scegliere la gauge più conveniente; in questo si tratta della \emph{gauge armonica}, che consiste nello scegliere le coordinate in modo tale che $g^{\mu\nu}\conn{\lambda}{\mu}{\nu}=0$. In termini di $h_{\mu\nu}$, la gauge armonica si scrive come
+\begin{equation}
+\partial_{\mu}h^{\mu}_{\;\;\lambda}-\frac{1}{2}\partial_{\lambda}h^{\mu}_{\;\;\mu}=0\;.
+\end{equation}
+Se questa relazione è soddisfatta, allora tutti i termini del primo membro, tranne il primo, sono nulli. Rimaniamo quindi con:
+\begin{equation}
+\begin{cases}
+\square h_{\mu\nu}=16\pi GS_{\mu\nu}\;, \\
+\\
+\partial_{\mu}h^{\mu}_{\;\;\lambda}-\dfrac{1}{2}\partial_{\lambda}h^{\mu}_{\;\;\mu}=0\;,
+\end{cases}
+\end{equation}
+la cui soluzione, (in approssimazione di campo debole siamo in grado di distinguere le coordinate spaziali da quella temporale) è:
+\begin{equation}
+h_{\mu\nu}(t,\mathbf{x})=-4G\int \diff^3{\mathbf{x}'}\;\frac{S_{\mu\nu}(t-|\mathbf{x}-\mathbf{x}'|,\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}+\mathrm{omogenea}\;.
+\end{equation}
+Dove omogenea si riferisce alle soluzioni dell'equazione:
+\begin{equation}
+\begin{cases}
+\square h_{\mu\nu}=0\;, \\
+\\
+\partial_{\mu}h^{\mu}_{\;\;\lambda}-\dfrac{1}{2}\partial_{\lambda}h^{\mu}_{\;\;\mu}=0\;.
+\end{cases}
+\end{equation}
+Prendiamo per questa come set completo di soluzioni le onde piane. Allora la soluzione sarà una sovrapposizione di onde del tipo:
+\begin{equation}
+h_{\mu\nu}=e_{\mu\nu}e^{-ik_{\lambda}x^{\lambda}}+\mathrm{h.c.} \;, \label{ch5_homog}
+\end{equation}
+dove $e_{\mu\nu}$ è l'analogo della polarizzazione per il campo EM. Sostituendo la \eqref{ch5_homog} nell'equazione d'onda, si trova che essa è soluzione se e solo se il vettore d'onda soddisfa:
+\begin{equation}
+k_{\mu}k^{\mu}=0\qquad\qquad\mbox{(il gravitone ha massa nulla)}\;.
+\end{equation}
+La polarizzazione $e_{\mu\nu}$ è un tensore simmetrico e di base avrebbe 10 componenti. Imponendo la condizione proveniente dalla gauge, si ha:
+\begin{equation}
+k_{\mu}e^{\mu}_{\;\;\nu}-\frac{1}{2}k_{\nu}e^{\mu}_{\;\;\mu}=0\;.
+\end{equation}
+Queste sono quattro equazioni, quindi il numero di gradi di libertà si riduce da dieci a sei. In addizione, possiamo osservare che c'è ancora una certa libertà di scelta: fissare la gauge non determina univocamente $h_{\mu\nu}$, quindi la descrizione è ancora sovrabbondante, in quanto si possono eseguire trasformazioni di gauge rimanendo ancora all'interno di essa. In particolare, se eseguiamo la trasformazione:
+$$
+h_{\mu\nu}\to h'_{\mu\nu}=h_{\mu\nu}-\partial_{\mu}\epsilon_{\nu}-\partial_{\nu}\epsilon_{\mu}\;,
+$$
+con $\square\epsilon_{\mu}=0$, allora $h'_{\mu\nu}$ rimane ancora nella gauge armonica. Se scegliamo $\epsilon_{\mu}=ia_{\mu}e^{-ik_{\nu}x^{\nu}}$, si ha $\square\epsilon_{\mu}=0$ e concludiamo che il sistema presenta invarianza per la trasformazione:
+\begin{equation}
+e_{\mu\nu}\longrightarrow e'_{\mu\nu}=e_{\mu\nu}-k_{\mu}a_{\nu}-k_{\nu}a_{\mu}\;,
+\end{equation}
+con $a_{\mu}$ arbitrario. Anche queste sono quattro equazioni, pertanto il numero di polarizzazioni indipendenti si riduce, come al caso dell'elettromagnetismo, a due soltanto. Questo ci consente di scrivere il tensore $e_{\mu\nu}$ in gauge trasversa, ossia nella forma minimale:
+\begin{equation}
+e_{\mu\nu}=\left(\begin{matrix}
+0 & 0 & 0 & 0 \\
+0 & c & d & 0 \\
+0 & d & -c & 0 \\
+0 & 0 & 0 & 0
+\end{matrix}\right)\;,
+\end{equation}
+con $c,d$ unici parametri liberi. Si scopre inoltre che le due soluzioni indipendenti della polarizzazione hanno spin $\pm 2$. \\
+Consideriamo adesso una massa test in questa soluzione, che si muove con equazione:
+\begin{equation}
+\frac{\diff{u}^{\alpha}}{\diff{s}}+\conn{\alpha}{\mu}{\nu}u^{\mu}u^{\nu}=0\;.
+\end{equation}
+Supponiamo che $u^{\mu}|_{t=0}=(1,0,0,0)$. Allora l'equazione precedente diventa:
+$$
+\left.\frac{\diff{u}^{\alpha}}{\diff{s}}\right|_{t=0}+\conn{\alpha}{0}{0}=0\;,
+$$
+e dato che $\conn{\alpha}{0}{0}=0$ si ha $x^i=$ cost. \\
+Sembra apparentemente che non succeda nulla, ma questo è dovuto al fatto che abbiamo scelto delle coordinate solidali con il moto. Per capire cosa succede realmente consideriamo due particelle a distanza $\epsilon$: $x_1^i=(0,0,0)$ e $x_2^i=(\epsilon,0,0)$, con $\epsilon\ll \lambda$, lunghezza d'onda dell'onda gravitazionale, inizialmente ferme. Scriviamo quindi:
+\begin{equation}
+\diff{\ell^2}=\gamma_{ij}\diff{x^i}\diff{x^j}=\gamma_{11}\epsilon^2\qquad \Longrightarrow\qquad D\propto \sqrt{\gamma_{11}}\epsilon\simeq \sqrt{1-h_{11}}\epsilon\;.
+\end{equation}
+Poiché abbiamo visto che $h_{11}\sim 10^{-23}$, possiamo sviluppare al primo ordine la radice:
+\begin{equation}
+D\simeq \epsilon-\frac{1}{2}h_{11}\epsilon=\epsilon-\frac{1}{2}e_{11}e^{ikz-i\omega t}\;.
+\end{equation}
+Quindi la distanza fra le masse varia nel tempo ed è proporzionale a $e_{11}$.
+\subsection*{Trasporto di energia}
+Partendo dall'espressione dello pseudotensore energia-impulso in metrica oscillante, si dimostra che, all'ordine più basso, la quantità
+\begin{equation}
+\bra t_{\mu\nu}\ket =\frac{k_{\mu}k_{\nu}}{16\pi G}\left(e_{\rho\sigma}^*e^{\rho\sigma}-\frac{1}{2}|e^{\rho}_{\;\;\rho}|^2\right)\;,
+\end{equation}
+è un invariante di gauge (i termini oscillanti si mediano a zero su tempi molto maggiori del periodo di oscillazione).
+\section{Irraggiamento gravitazionale}
+Riprendiamo la soluzione:
+\begin{align}
+h_{\mu\nu}(t,\mathbf{x}) &= 4G\int \frac{S_{\mu\nu}(t-|\mathbf{x}-\mathbf{x}'|,\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}
+\diff^3{\mathbf{x}'}\;, \\
+S_{\mu\nu} &= T_{\mu\nu}-\frac{1}{2}g_{\mu\nu}T^{\lambda}_{\;\;\lambda} \notag\;,
+\end{align}
+e cerchiamo soluzioni a frequenza fissata, $T_{\mu\nu}(t,\mathbf{x})=\stackrel{\sim}{T}_{\mu\nu}(\omega,\mathbf{x})e^{-i\omega t}$, in approssimazione di \emph{zona d'onda}:
+\begin{itemize}
+\item $r\gg R$;
+\item $r\gg \lambda=\dfrac{1}{\omega}$;
+\item $r\gg R^2\omega$, da cui $|\mathbf{x}-\mathbf{x}'|\simeq |\mathbf{x}|-\mathbf{x}'\cdot\mathbf{\hat{x}}=r-\mathbf{x}'\cdot\mathbf{\hat{x}}$.
+\end{itemize}
+Allora:
+\begin{align}
+h_{\mu\nu} &= 4G\int\diff^3{\mathbf{x}'}\frac{\stackrel{\sim}{S}_{\mu\nu}(\omega,\mathbf{x}')e^{-i(t-|\mathbf{x}-\mathbf{x}'|)\omega}}{|\mathbf{x}-\mathbf{x}'|} \notag \\
+&= \frac{4G}{r}\int \diff^3{\mathbf{x}'}\; e^{-i\omega(t-r)}\stackrel{\sim}{S}_{\mu\nu}(\omega,\mathbf{x}')e^{-i\omega\mathbf{x}\cdot\mathbf{\hat{x}}} \notag \\
+&=4G\frac{e^{-i\omega(t-r)}}{r}\int\diff^3{\mathbf{x}'}\;\stackrel{\sim}{S}_{\mu\nu}(\omega,\mathbf{x}')e^{-i\omega\mathbf{x}'\cdot\mathbf{\hat{x}}} \notag \\
+&= 4G\frac{e^{-i\omega(t-r)}}{r}\stackrel{\approx}{S}_{\mu\nu}(\omega,\mathbf{k})\;,\qquad\qquad \mathbf{k}=\omega\mathbf{\hat{x}}\;.
+\end{align}
+Questo risultato può essere interpretato come $e_{\mu\nu}e^{-ik_{\mu}x^{\mu}}$, con $e_{\mu\nu}$ variabile (\emph{onda piana modulata}). La potenza irraggiata per unità di angolo solido sarà quindi:
+\begin{equation}
+\dev{P}{\Omega}=r^2\hat{x}^i\bra t^{i0}\ket=\frac{G\omega^2}{\pi}\left[\stackrel{\approx}{T}_{\mu\nu}(\omega,\mathbf{k})-\frac{1}{2}\left|\stackrel{\approx}{T}{}^{\lambda}_{\;\;\lambda}(\omega,\mathbf{k})\right|^2\right]\;. \label{ch5_power}
+\end{equation}
+Notiamo che:
+$$
+T_{\mu\nu}\propto h^2=\left(\int\diff{\omega}\; \stackrel{\sim}{h}(\omega,\mathbf{x})e^{i\omega t}\right)\left(\int\diff{\omega'}\;\stackrel{\sim}{h}(\omega',\mathbf{x})e^{i\omega' t}\right)\;,
+$$
+e in teoria dovrebbero figurare anche i termini misti. Se però supponiamo che esista un $\omega_{\mathrm{min}}$ e mediamo su $\tau=1/\omega_{\mathrm{min}}$, i termini misti si mediano a zero. \\
+Possiamo riscrivere la \eqref{ch5_power} notando che l'equazione $\partial_{\mu}T^{\mu\nu}=0$ in trasformata diventa $k_{\mu}\stackrel{\approx}{T}{}^{\mu\nu}=0$, per cui i termini $T^{0\nu}$ possono essere espressi in termini dei $T^{ij}$, ottenendo:
+\begin{equation}
+\dev{P}{\Omega}=\frac{G\omega^2}{\pi}\left[\Lambda^{ijlm}(\mathbf{k})\stackrel{\approx}{T^*}_{ij}(\omega,\mathbf{k})\stackrel{\approx}{T}_{lm}(\omega,\mathbf{k})\right]\;.
+\end{equation}
+Se $\omega R\ll 1$, con $R$ dimensione lineare caratteristica della sorgente, allora $t=R$, $\omega=v/(Rc)$ e quindi la condizione $\omega R\ll 1$ equivale a $v/c\ll 1$ (approssimazione non relativistica).
+\section{Approssimazione di quadrupolo}
+In approssimazione non relativistica, non si ha irraggiamento gravitazionale di dipolo. Pe ricavare la potenza irraggiata in approssimazione di quadrupolo, usiamo le seguenti relazioni:
+\begin{enumerate}
+\item per $\omega R\ll 1$, $e^{i\mathbf{k}\cdot\mathbf{x}}\simeq 1$ al primo ordine, quindi:
+\begin{equation}
+\stackrel{\approx}{T}_{ij}(\omega,\mathbf{k})=\int\diff^3{\mathbf{x}}\;e^{i\mathbf{k}\cdot\mathbf{x}}\stackrel{\sim}{T}_{ij}(\omega,\mathbf{x})\simeq \int\diff^3{\mathbf{x}}\stackrel{\sim}{T}_{ij}(\omega,\mathbf{x})\;;
+\end{equation}
+\item $\partial_i\partial_j\stackrel{\sim}{T}(\omega,\mathbf{x})=-\omega^2\stackrel{\sim}{T}_{00}(\omega,\mathbf{x})$, infatti:
+\begin{align}
+\partial_{\mu}T^{\mu\nu}=0\qquad \Longrightarrow\qquad &\partial_i\stackrel{\sim}{T}{}^{ij}=i\omega\stackrel{\sim}{T}{}^{0j} \notag \\
+&\partial_j\partial_i\stackrel{\sim}{T}{}^{ij}=i\omega\partial_j\stackrel{\sim}{T}{}^{0j}=-\omega^2\stackrel{\sim}{T}{}^{00}\;;
+\end{align}
+\item infine:
+\begin{align*}
+\int\diff^3{\mathbf{x}}\;x^ix^j\partial_a\partial_b\stackrel{\sim}{T}{}^{ab}(\omega,\mathbf{x})&=2\int\diff^3{\mathbf{x}}\;\stackrel{\sim}{T}{}^{ij}(\omega,\mathbf{x})\simeq 2\stackrel{\approx}{T}_{ij}(\omega,\mathbf{k}) \\
+&=-\omega^2\int\diff^3{\mathbf{x}}\;x^ix^j\stackrel{\sim}{T}_{00}(\omega,\mathbf{x})\;.
+\end{align*}
+Eguagliando otteniamo quindi:
+\begin{equation}
+2\stackrel{\approx}{T}_{ij}(\omega,\mathbf{k})=-\omega^2\int\diff^3{\mathbf{x}}\;x^ix^j\stackrel{\sim}{T}_{00}(\omega,\mathbf{x})\;.
+\end{equation}
+\end{enumerate}
+Nel limite non relativistico $T_{00}$ rappresenta la densità di massa, quindi possiamo scrivere:
+\begin{equation}
+2\stackrel{\approx}{T}_{ij}(\omega,\mathbf{k})=-\omega^2\int\diff^3{\mathbf{x}}\;x^ix^j\stackrel{\sim}{\rho}(\omega,\mathbf{x})\equiv D_{ij}(\omega)\;,
+\end{equation}
+dove $D_{ij}$ è il momento di quadrupolo del sistema. Si ottiene per la potenza totale emessa da una sorgente limitata in approssimazione non relativistica di quadrupolo la seguente espressione:
+\begin{equation}
+P=\int\dev{P}{\Omega}\diff{\Omega}=\frac{2}{5}\frac{G\omega^6}{c^5}\left[D_{ij}^*(\omega)D_{ij}(\omega)-\frac{1}{3}|D_{ii}|^2\right]\;.
+\end{equation}
+\textbf{Esempio}. Consideriamo una stella binaria che ruota con velocità angolare $\Omega$. Siano dati la distribuzione di massa $T^{00}(\mathbf{x},t)=\rho(\mathbf{x}')$ e le coordinate del sistema ruotante:
+\begin{equation*}
+\begin{cases}
+x_1=x_1'\cos(\Omega t)-x_2'\sin(\Omega t)\;, \\
+\\
+x_2=x_1'\sin(\Omega t)+x_2'\cos(\Omega t)\;.
+\end{cases}
+\end{equation*}
+Dobbiamo quindi calcolare i quadrupoli:
+$$
+D_{ij}(\omega)=\int\diff^3{\mathbf{x}}\;x_ix_j\stackrel{\sim}{T}{}^{00}(\omega,\mathbf{x})=\int\diff^3{\mathbf{x}}\;x_ix_j\int \diff{t}\; e^{i\omega t}\rho(\mathbf{x}')\;,
+$$
+e provare a scriverli in termini del momento di inerzia:
+$$
+I_{ij}\equiv \int\diff^3{\mathbf{x}}\; x_ix_j\rho(\mathbf{x})\;.
+$$
+Facendo i conti, si ottiene:
+$$
+D_{11}=\frac{1}{4}(I_{11}-I_{22})\delta(\omega-2\Omega)\;,
+$$
+da cui si evince immediatamente che la frequenza di emissione, in approssimazione di quadrupolo, è doppia rispetto a quella di rotazione. La potenza sarà invece:
+$$
+P=\frac{36}{5}\frac{G\Omega^6}{c^5}(I_{11}-I_{22})^2\;.
+$$
+Per un unico oggetto ruotante, si ha invece:
+$$
+P_{2\Omega}=\frac{32}{5}\frac{G\Omega^6}{c^5}m^2R^4\;,
+$$
+dove $R$ è il raggio dell'oggetto. \\
+I sistemi binari perdono energia per irraggiamento gravitazionale. Dunque, un'evidenza indiretta delle onde gravitazionali è data dalla variazione del periodo di rotazione. Proviamo a stimare questa variazione usando le seguenti relazioni:
+\begin{enumerate}
+\item $\Omega^2R^3=2Gm$ (in regime non relativistico, valgono le leggi di Keplero);
+\item $E=-\dfrac{Gm^2}{2R}$;
+\item $\dfrac{\diff{E}}{\diff{t}}=-P$.
+\end{enumerate}
+Dato che $T$ (periodo) $=2\pi/\Omega$, allora $|\dot{T}|=\dot{\Omega}/\Omega^2$, inoltre:
+\begin{align*}
+E&=-\frac{Gm}{2\left(2\dfrac{Gm}{\Omega^2}\right)^{1/3}}\propto\Omega^{2/3}\;, \\
+\dev{E}{t}&\sim \frac{2}{3}\Omega^{-1/3}\dot{\Omega}\;,
+\end{align*}
+eguagliando quest'ultima relazione a $-P$, possiamo ricavare $\dot{\Omega}$. Risolvendo infine l'equazione si trova la relazione (verificata sperimentalmente):
+$$
+\dot{T}\propto T^{-5/3}\;.
+$$
+\chapter{Cosmologia}
+\section{Modelli cosmologici}
+Le osservazioni dell'universo portarono alla formulazione del cosiddetto \emph{principio cosmologico}, che asserisce che l'universo sia isotropo ed omogeneo (almeno su grandi scale di distanza). Questo principio è ovviamente un'approssimazione, supportata principalmente dalla \emph{radiazione cosmica di background} (una sorta di "fotografia" dell'universo ai primi istanti di vita), che mostra appunto una struttura omogenea ed isotropa. \\
+Un universo siffatto tuttavia non spiegherebbe la dinamica non banale, come ad esempio la legge di Hubble, che afferma che gli oggetti si allontanano dalla Terra con una certa velocità. A $t$ fissato, però, in virtù dell'omogeneità, tutti i punti sono equivalenti e mostrebbero una simile dinamica. Questa velocità di allontanamento è proporzionale alla distanza. \\
+Un modello cosmologico deve quindi tener conto di:
+\begin{enumerate}
+\item principio cosmologico;
+\item legge di Hubble, $v=H\ell$.
+\end{enumerate}
+\subsection{Modello a curvatura positiva}
+Come conseguenza del principio cosmologico, è possibile definire un tempo $t$ tale che a $t$ costante il sistema presenti simmetria per rotazioni e traslazioni. Isolato il tempo, nella metrica non possono figurare termini misti spazio-temporali in virtù di questa invarianza, per cui:
+$$
+\diff{s}^2=\diff{t}^2-\diff{\ell}^2\;,
+$$
+con $\diff{\ell}^2$ tale che a $t$ costante rappresenti uno spazio omogeneo ed isotropo. Per costruirlo, supponiamo che vi sia una quarta dimensione spaziale $x^4$ tale che:
+\begin{equation}
+\diff{\ell_4}^2=\sum_{i=1}^4(\diff{x^i})^2,\qquad\qquad \sum_{i=1}^4(x^i)^2=R^2\;,
+\end{equation}
+con $R$ costante. Ciò descrive l'ipersuperficie tridimensionale di un'ipersfera quadridimensionale. Differenziando il vincolo, otteniamo la relazione:
+\begin{equation}
+\sum_{i=1}^4x^i\diff{x^i}=0\;.
+\end{equation}
+Quindi:
+\begin{equation}
+x^4\diff{x^4}=-\sum_{i=1}^3x^i\diff{x^i},\qquad\qquad (x^4)^2=R^2-\sum_{i=1}^3(x^i)^2\;.
+\end{equation}
+Per cui il $\diff{\ell}^2$ si può scrivere come:
+\begin{equation}
+\diff{\ell}^2=(\diff{x^1})^2+(\diff{x^2})^2+(\diff{x^3})^2+\frac{(x^1\diff{x^1}+x^2\diff{x^2}+x^3\diff{x^3})^2}{R^2-(x^1)^2-(x^2)^2-(x^3)^2}\equiv \gamma_{ij}\diff{x^i}\diff{x^j}\;.
+\end{equation}
+Possiamo adesso calcolare il tensore di Riemann (spaziale) $P_{ijkl}$ in un punto qualunque, visto che sono tutti equivalenti. Ad esempio nell'origine, dove la metrica si semplifica in:
+\begin{equation}
+\diff{\ell}^2=\delta_{ij}-\frac{x_ix_j}{R^2}\;.
+\end{equation}
+Dal tensore di Riemann, ricaviamo quindi la curvatura scalare:
+\begin{equation}
+P=\frac{6}{R^2}>0\;,
+\end{equation}
+da qui si evince che il modello è a curvatura positiva. In presenza di simmetria sferica, conviene tuttavia usare coordinate polari $(r,\theta,\varphi)$:
+\begin{equation}
+\diff{\ell}^2=\frac{\diff{r}^2}{1-r^2/R^2}+r^2\diff{\Omega}^2\;. \label{ch6_polari}
+\end{equation}
+Esiste un altro set di coordinate ancora più convenienti: ponendo $r=R\sin\chi$, $0\le \chi\le \pi$ e lasciando invariante le altre coordinate, la metrica diventa:
+\begin{equation}
+\diff{\ell}^2=R^2\left[\diff{\chi}^2+\sin^2\chi\diff{\Omega}^2\right]\;. \label{ch6_chi}
+\end{equation}
+La coordinata $r$ che figura nella metrica \eqref{ch6_polari} non rappresenta la distanza dall'origine; infatti questa è data da:
+$$
+\int_0^r\frac{\diff{r'}}{\sqrt{1-(r'/R)^2}}=R\arcsin\frac{r}{R}>r\;.
+$$
+Concludiamo che $r$ non è la distanza dall'origine, ma dall'asse di simmetria. Ci chiediamo adesso se in questo modello l'universo sia finito o meno: per rispondere, dobbiamo calcolarne il volume come:
+\begin{equation}
+V=\int_0^{\pi}\diff{\chi}\int_0^{\pi}\diff{\theta}\int_0^{2\pi}\diff{\varphi}\sqrt{-\gamma}\;,
+\end{equation}
+dato che $\sqrt{-\gamma}=R^3\sin^2\chi\sin\theta$, otteniamo:
+\begin{equation}
+V=R^3\int_0^{\pi}\sin^2\chi\;\diff{\chi}\int_0^{\pi}\sin\theta\;\diff{\theta}\int_0^{2\pi}\diff{\varphi}=2\pi^2R^3\;.
+\end{equation}
+Quindi il volume è finito in questo modello.
+\subsection{Modello a curvatura negativa}
+La metrica in questo modello è data, in coordinate polari, da:
+\begin{equation}
+\diff{\ell}^2=\frac{\diff{r}^2}{1+r^2/a^2}+r^2\diff{\Omega}^2\;.
+\end{equation}
+Ancora una volta, siamo in presenza di spazio isotropo ed omogeneo, la cui curvatura scalare è data da:
+\begin{equation}
+P=-\frac{6}{a^2}<0\;,
+\end{equation}
+e quindi si tratta di uno spazio a curvatura negativa. Scrivendo $r=a\sinh\chi$, $\chi\in [0,\infty[$, otteniamo una metrica simile alla \eqref{ch6_chi}:
+\begin{equation}
+\diff{\ell}^2=a^2[\diff{\chi}^2+\sinh^2\chi\diff{\Omega}^2]\;.
+\end{equation}
+Il modello, come si può verificare, ha volume infinito, e la distanza dal centro è data da:
+$$
+\int_0^r\frac{\diff{r'}}{\sqrt{1+(r'/a)^2}}=a\operatorname{arcsinh}\frac{r}{a}<r\;.
+$$
+\subsection{Modello a curvatura zero}
+Un modello intermedio tra i due appena visti è il modello a curvatura zero, la cui metrica è data da:
+\begin{equation}
+\diff{\ell}^2=a^2[\diff{\chi}^2+\chi^2\diff{\Omega}^2]\;.
+\end{equation}
+In questo caso la variazione di $a$ dà luogo alla dinamica prevista da Hubble. Trattandosi di spazio a curvatura zero, è uno spazio piatto ed il suo volume è infinito. \\
+\\
+Ritornando allo spazio-tempo, abbiamo quindi:
+\begin{equation}
+\diff{s}^2=\diff{t}^2-a^2\left[\diff{\chi}^2+\begin{pmatrix}
+\sin^2\chi \\
+\chi^2 \\
+\sinh^2\chi
+\end{pmatrix}\diff{\Omega}^2\right]\qquad\qquad \begin{matrix}
+(k=1) \\
+(k=0)\\
+(k=-1)
+\end{matrix}\;.
+\end{equation}
+La cinematica è pertanto data da una dipendenza $a\equiv a(t)$. Nell'universo è presente la materia, perciò la dinamica è fornita dalle equazioni di Einstein. \\
+Approssimiamo inizialmente la distribuzione di materia come un fluido perfetto:
+\begin{equation}
+T_{\alpha\beta}=(\epsilon+p)u_{\alpha}u_{\beta}-pg_{\alpha\beta}\;.
+\end{equation}
+L'inserimento della materia, tuttavia, deve essere compatibile con le simmetrie dello spazio che abbiamo assunto: in particolare, l'inserimento di un vettore romperebbe qualunque simmetria, quindi imponiamo che $u_{\alpha}=(\sqrt{g_{00}},\mathbf{0})$, affinché $u_{\alpha}u_{\beta}g^{\alpha\beta}=1$. Sappiamo che, in generale, $\epsilon\equiv\epsilon(x^{\mu}),p\equiv p(x^{\mu})$, però anche in questo caso, una dipendenza dalla parte spaziale romperebbe la simmetria. Inoltre possiamo assumere che la materia abbia una pressione bassa (modello a polvere) trascurabile. Alla luce di queste considerazioni ed ipotesi, il tensore energia-impulso diventa:
+\begin{equation}
+T_{\alpha\beta}=\epsilon(t)u_{\alpha}u_{\beta},\qquad\qquad u_{\alpha}=(\sqrt{g_{00}},\mathbf{0})\;.
+\end{equation}
+Introduciamo il \emph{tempo conforme} $\eta$ definito da $\diff{t}=a\diff{\eta}$. Adesso si ha (fissiamo uno spazio chiuso, ossia curvatura positiva):
+\begin{equation}
+\diff{s}^2=a^2[\diff{\eta}^2-\diff{\chi}^2+\sin^2\chi\diff{\Omega}^2]\;.
+\end{equation}
+Con questa metrica, risolviamo le equazioni di Einstein:
+$$
+R_{\alpha\beta}-\frac{1}{2}Rg_{\alpha\beta}=8\pi GT_{\alpha\beta}\;.
+$$
+Delle dieci equazioni, soltanto due sono indipendenti, mentre le altre otto saranno ridondanti. Scegliamo pertanto:
+\begin{align}
+& R^0_{\;\;0}-\frac{1}{2}R=8\pi GT^0_{\;\;0}\qquad &\Longrightarrow\qquad &\frac{3}{a^4}\left[a^2+\dev[2]{a}{\eta}\right]=8\pi G\epsilon\;, \\
+& D_{\alpha}T^{\alpha}_{\;\;0}=0\qquad &\Longrightarrow\qquad &\frac{1}{a^4}\frac{\partial(\epsilon a^4)}{\partial\eta}-\frac{1}{2}\frac{\epsilon}{a^2}\frac{\partial a^2}{\partial\eta}=0\;.
+\end{align}
+Le soluzioni di questo sistema sono date da ($C,D$ costanti):
+\begin{align}
+a(\eta) &= a_0(1-\cos\eta)\;, \notag \\
+\epsilon(\eta) &= D(\eta-\sin\eta) \notag \;,\\
+t(\eta) &= a_0(\eta-\sin\eta)\;.
+\end{align}
+\textbf{Nota.} Il $t$ che figura nelle metriche viste è un vero e proprio tempo, detto \emph{tempo cosmologico}, e corrisponde al tempo misurato da un osservatore solidale al moto. \\
+\\
+Osserviamo che per tempo conforme $0\le \eta\le \pi$, $a$ aumenta, cioè l'universo è in espansione (\emph{Big Bang}), mentre per $\pi\le\eta\le2\pi$, l'universo collassa (\emph{Big Crunch}). La singolarità a $t=0$, cioè il Big Bang, non è eliminabile, quindi andando indietro nel tempo si troverà sempre il Big Bang.\\
+Se adesso risolviamo le equazioni di Einstein, nelle stesse approssimazioni, in uno spazio a curvatura negativa, ritroviamo sempre che $\epsilon a^3=$ costante, e otteniamo come soluzioni:
+\begin{align}
+a &= a_0(\cosh\eta -1) \notag\;, \\
+t &= a_0(\sinh\eta -\eta)\;.
+\end{align}
+$a$ in questo caso non è più periodico, ma cresce indefinitamente. In un modello a curvatura negativa, quindi, l'universo continua ad espandersi. \\
+\section{Legge di Hubble}
+Le osservazioni sperimentali dicono che l'universo è in espansione, ma come si può capire se siamo in uno spazio chiuso oppure in uno aperto? \\
+Nella nostra descrizione dell'universo, abbiamo assunto che la materia sia solidale all'universo, ossia che abbia coordinate costanti. Nonostante ciò, le distanze tra gli oggetti possono variare nel tempo. Il $\diff{\ell}^2$ è dato, in generale, da:
+\begin{equation}
+\diff{\ell}^2=\gamma_{ij}\diff{x^i}\diff{x^j}=a^2\left[\diff{\chi}^2+\left(\begin{matrix}
+\sin^2\chi \\
+\chi^2 \\
+\sinh^2\chi
+\end{matrix}\right)\diff{\Omega}^2\right]\;.
+\end{equation}
+Consideriamo due punti infinitesimamente vicini, e uno di questi lo poniamo nell'origine (possiamo sempre farlo in virtù delle simmetrie dell'universo date dal principio cosmologico). Questa scelta fa sì che, nel calcolo delle distanze, non si debba considerare la parte angolare. Allora la distanza tra i due punti sarà:
+\begin{equation}
+\diff{\ell}=a\diff{\chi}\;.
+\end{equation}
+Nel nostro caso, $\diff{\chi}$ rimane costante e quindi i punti rimangono gli stessi, ma, essendo $a$ funzione del tempo, la distanza fra di essi cambia. Per estendere il discorso a distanze finite, possiamo integrale la relazione infinitesima, ottenendo $\ell=a\chi$; questa integrazione deve essere però istantanea (i.e. la misura fatta allo stesso tempo) e vale per distanze $\ell$ piccole rispetto alle scale di lunghezza caratteristiche dell'universo. Derivando rispetto al tempo cosmologico, otteniamo la velocità di allontanamento:
+\begin{equation}
+v=\dev{\ell}{t}=\frac{\diff}{\diff{t}}(a\chi)=\chi\dev{a}{t}=\underbrace{\chi a}_{\equiv\ell}\underbrace{\frac{1}{a}\dev{a}{t}}_{\equiv H}\equiv H\ell\;,
+\end{equation}
+dove $H$ è la \emph{costante di Hubble} (costante rispetto allo spazio, ma non nel tempo). L'introduzione di $H$ ci consente di asserire che l'estensione al finito è valida fintanto che $\ell\ll H^{-1}$. Quindi $H^{-1}$ rappresenta la scala di lunghezza caratteristica dell'universo e \underline{dipende dal tempo}. Alcuni numeri:
+\begin{align*}
+H^{-1}&\sim 14\cdot 10^9\;\mathrm{anni}\;, \\
+cH^{-1} &\sim 10^{25}\;\mathrm{m}\;.
+\end{align*}
+Assumendo adesso di aver misurato $H$, siamo in grado di distinguere fra spazio aperto e chiuso. Infatti, le soluzioni delle equazioni di Einstein possono essere scritte nella forma:
+\begin{align}
+&\frac{1}{a^2}=\frac{8\pi G}{3}\epsilon -H^2 &\mbox{spazio aperto}\;, \\
+&\frac{1}{a^2}=H^2-\frac{8\pi G}{3}\epsilon &\mbox{spazio chiuso}\;.
+\end{align}
+Dato che $1/a^2>0$, anche il secondo membro, in entrambi i casi, deve essere positivo. Pertanto, dal confronto tra $H$ e $\epsilon$ riusciamo a capire in che tipo di spazio siamo. In particolare, si definisce una densità di energia critica:
+\begin{equation}
+\epsilon_c\equiv \frac{3H^2}{8\pi G}\simeq 4\cdot 10^{-29}\;\mathrm{g}\cdot\mathrm{cm}^{-3}\;,
+\end{equation}
+tale che, se $\epsilon>\epsilon_c$ abbiamo spazio chiuso, se $\epsilon<\epsilon_c$ abbiamo spazio aperto, e se $\epsilon=\epsilon_c$ abbiamo spazio piatto. \\
+Considerando tutta la materia adronica e la materia oscura presente nell'universo, si ottiene un valore della densità di energia dell'universo che è circa il 30\% del valore critico. Questo suggerisce che $\epsilon<\epsilon_c$ e quindi l'universo continuerà ad espandersi indefinitamente. Tuttavia, le evidenze sperimentali suggeriscono che ci troviamo in uno spazio piatto. Il 70\% mancante è probabilmente dovuto a quella che prende il nome di \emph{energia oscura}.
+\section{Red Shift Cosmologico}
+Vogliamo studiare la propagazione della luce tra due punti a coordinate costanti. Per via dell'isotropia, possiamo fissare il primo punto nell'origine e quindi, per quanto riguarda lo studio della propagazione della luce, è sufficiente limitarsi a considerare le coordinate radiali e temporali. In particolare, segue che la propagazione della luce non dipende dalla curvatura dello spazio (che entrava in gioco nella metrica nel termine proporzionale a $\diff{\Omega}^2$. \\
+Sappiamo che l'equazione di un segnale luminoso è data da $\diff{s}^2=0$, cioè:
+\begin{equation}
+\diff{\eta}=\pm \diff{\chi}\;. \label{ch6_ds0}
+\end{equation}
+Se dal punto di coordinate $\chi$ parte un segnale luminoso al tempo (conforme) $\eta_0$ verso l'origine, esso arriverà all'origine al tempo $\eta_0+\chi$, e in generale, integrando la \eqref{ch6_ds0}:
+\begin{equation}
+\eta=\eta_0\pm\chi\;.
+\end{equation}
+Supponiamo adesso che l'oggetto in $\chi$ emetta luce con frequenza $\omega_0$: questa frequenza, se associata al tempo conforme, rimane costante in quanto tutti i picchi del segnale impiegano lo stesso tempo $\chi$ ad arrivare all'origine. Chiamiamo adesso $\eta_0$ il tempo conforme al giorno d'oggi e indichiamo con $\eta_0-\chi$ l'istante di emissione di un fascio luminoso da parte di una sorgente posta a distanza $\chi$ dall'origine. Nonostante in termini di tempo conforme, la frequenza $\omega_0$ rimanga costante tra i due punti, nel tempo cosmologico essa cambia in quanto all'istante di emissione $\eta_0-\chi$ la relazione tra i due tempi è $\diff{t}=a(\eta_0-\chi)\diff{\eta}$, mentre all'istante di ricezione essa è diventata $\diff{t}=a(\eta_0)\diff{\eta}$. Concludiamo allora che:
+\begin{equation}
+\frac{\omega_{\mathrm{oss}}}{\omega_0}=\frac{a(\eta_0-\chi)}{a(\eta_0)}<1\;.
+\end{equation}
+In quanto, in fase espansiva, $\eta<\eta'\;\Longrightarrow\; a(\eta)<a(\eta')$. La radiazione allora risulta sempre spostata verso il rosso. Consideriamo adesso il rapporto $(\omega_0-\omega_{\mathrm{oss}})/\omega_0$, che possiamo scrivere per quanto detto, nel limite $\chi\ll H_0^{-1}$ come:
+\begin{align}
+\frac{\omega_0-\omega_{\mathrm{oss}}}{\omega_0}&= 1-\frac{a(\eta_0-\chi)}{a(\eta_0)}\simeq 1-\frac{1}{a(\eta_0)}\left[a(\eta_0)-\chi\left.\pdev{a}{\eta}\right|_{\eta_0}\right] \notag \\
+&= \underbrace{\chi a(\eta_0)}_{\ell}\underbrace{\frac{1}{a^2(\eta_0)}\left.\pdev{a}{\eta}\right|_{\eta_0}}_{H_0}\;,
+\end{align}
+da cui ritroviamo la legge di Hubble:
+\begin{equation}
+z\equiv \frac{\omega_0-\omega_{\mathrm{oss}}}{\omega_0}=H_0\ell\;.
+\end{equation}
+Se manca la condizione $\chi\ll H_0^{-1}$, allora bisogna usare la formula esatta:
+\begin{equation}
+1+z=\frac{\omega_{\mathrm{em}}}{\omega_{\mathrm{oss}}}=\frac{a(t_{\mathrm{oss}})}{a(t_{\mathrm{em}})}\;.
+\end{equation}
+Nella fase espansiva, l'universo osservabile è solo una frazione di quello totale, sia nel caso di spazio aperto che in quello di spazio chiuso, quindi non è possibile distinguere tra i due spazi.
+\section{Cosmologia moderna}
+Nella cosmologia moderna, i cardini fondamentali sono:
+\begin{enumerate}
+\item assunzione del principio cosmologico. La cinematica sarà pertanto data da:
+\begin{equation}
+\diff{s}^2=\diff{t}^2-a^2(t)\left[\frac{\diff{r}^2}{1-\kappa r^2}+r^2\diff{\Omega}^2\right],\qquad \kappa=\{-1,0,1\}\;;
+\end{equation}
+\item materia modellizzata da un fluido perfetto. Il tensore energia-impulso sarà quindi:
+\begin{equation}
+T_{\mu\nu}=(\epsilon(t)+p(t))u_{\mu}u_{\nu}-p(t)g_{\mu\nu}\;;
+\end{equation}
+\item dinamica fornita dalle equazioni di Einstein lievemente modificate:
+\begin{equation}
+R_{\mu\nu}-\frac{1}{2}Rg_{\mu\nu}=8\pi GT_{\mu\nu}+\Lambda g_{\mu\nu}\;,
+\end{equation}
+dove $\Lambda$ è la \emph{costante cosmologica} (vedremo più in avanti che sarà legata alla dark energy).
+\end{enumerate}
+Maneggiando le equazioni di Einstein, si ricavano delle equazioni note come \emph{equazioni di Friedmann-Lematre}:
+\begin{align}
+H^2 &= \frac{8\pi G}{3}\epsilon_x+\frac{\Lambda}{3}-\frac{\kappa}{a^2}\;, \label{ch6_fried1} \\
+\frac{\ddot{a}}{a}&=\frac{\Lambda}{3}-\frac{4\pi G}{3}(\epsilon_x+3p_x)\;, \label{ch6_fried2}\\
+\dot{\epsilon}_x &= -3H(\epsilon_x+p_x)\;. \label{ch6_continuity}
+\end{align}
+Il pedice $x$ indica eventuali diversi contributi alla densità di materia e alla pressione (i.e. materia ultrarelativistica, cioè radiazione, materia fredda, etc...). Abbiamo già visto nel caso di gas perfetto che la pressione è proporzionale alla densità di energia, possiamo quindi estendere la condizione e scrivere $p(t)=w\epsilon(t)$ con $0\le w\le 1/3$. Distinguiamo quindi i vari tipi di materia a seconda del valore di $w$: per materia fredda $w=0$ e per materia ultrarelativistica $w=1/3$. Possiamo inoltre interpretare localmente il termine $\Lambda g_{\mu\nu}$ come:
+$$
+\left(\begin{matrix}
+\Lambda & 0 & 0 & 0 \\
+0 & -\Lambda & 0 & 0 \\
+0 & 0 & -\Lambda & 0 \\
+0 & 0 & 0 & -\Lambda
+\end{matrix}\right)\;,
+$$
+da confrontare con l'espressione del tensore energia-impulso:
+$$
+T_{\mu\nu}=\left(\begin{matrix}
+\epsilon & 0 & 0 & 0 \\
+0 & w\epsilon & 0 & 0 \\
+0 & 0 & w\epsilon & 0 \\
+0 & 0 & 0 & w\epsilon
+\end{matrix}\right)\;.
+$$
+Possiamo pertanto affermare che il termine $\Lambda g_{\mu\nu}$ rappresenta in qualche modo una sorta di materia che ha pressione negativa, i.e. $w=-1$. Nonostante questa affermazione sia controintuitiva, si evince la necessità della presenza della costante cosmologica nelle equazioni se riscriviamo l'equazione \eqref{ch6_fried2} tenendo conto di $p=w\epsilon$:
+\begin{equation}
+\frac{\ddot{a}}{a}=\frac{\Lambda}{3}-\frac{4\pi G}{3}\sum_x (1+3w_x)\epsilon_x\;.
+\end{equation}
+Se non vi fosse $\Lambda$, allora la precedente equazione implicherebbe $\ddot{a}<0$, cioè l'universo è in fase di decelerazione. Tuttavia, le osservazioni sperimentali ci dicono il contrario, ossia $\ddot{a}>0$, quindi si rende necessaria la presenza di una correzione alle equazioni standard. \\
+L'equazione \eqref{ch6_fried1} può essere riscritta invece come (il pedice $0$ indica che la quantità è calcolata al giorno d'oggi):
+\begin{equation}
+\frac{\kappa}{a_0^2}=H_0^2(\Omega_m+\Omega_r+\Omega_{\Lambda}-1)\;, \label{ch6_friedomega}
+\end{equation}
+dove:
+\begin{align}
+&\Omega_m=\frac{\epsilon_{0,m}}{\epsilon_{0,c}} &\Omega_r=\frac{\epsilon_{0,r}}{\epsilon_{0,c}} \notag\;, \\
+&\Omega_{\Lambda}=\frac{\Lambda}{3H_0^2} &\epsilon_{0,c}=\frac{3H_0^2}{8\pi G}\;.
+\end{align}
+Se una misura dei vari contributi alla densità di massa restituisce dei valori per cui $\Omega_m+\Omega_r+\Omega_{\Lambda}=1$, allora dall'equazione \eqref{ch6_friedomega} segue necessariamente che $\kappa=0$, ossia lo spazio è piatto. \\
+Identificando la costante cosmologica come un tipo di materia avente pressione negativa, possiamo definire un tensore energia-impulso associato:
+\begin{equation}
+T_{\Lambda\;\mu}^{\;\nu}=\frac{\Lambda}{8\pi G}\delta_{\mu}^{\nu}\;,
+\end{equation}
+da questa definizione, si ottiene $T_{\Lambda,\mu\nu}=\dfrac{\Lambda}{8\pi G}g_{\mu\nu}$, che appunto può essere interpretato localmente come il tensore energia-impulso di un tipo di materia avente $p=-\epsilon$, cioè $w=-1$. Questo tipo di materia può essere modellizzato tramite una teoria di campo classica:
+\begin{align}
+\lag &= \frac{1}{2}\partial_{\mu}\phi\partial^{\mu}\phi-V(\phi)\;, \\
+V(\phi) &= V_0+\frac{1}{2}m^2\phi^2+\mu\phi^4+\cdots\;. \notag
+\end{align}
+Il tensore energia-impulso associato è dato da:
+\begin{equation}
+T_{\mu\nu}=\frac{\partial (\sqrt{-g}\lag)}{\partial g^{\mu\nu}}\qquad \Longrightarrow\qquad T_{\mu}^{\nu}=\partial_{\mu}\partial^{\nu}\phi-\delta_{\mu}^{\nu}\left(\frac{1}{2}\partial_{\lambda}\phi\partial^{\lambda}\phi-V(\phi)\right)\;.
+\end{equation}
+Se assumiamo che in un certo lasso di tempo a dominare sia il termine costante del potenziale (termine di vuoto), allora:
+$$
+T_{\mu}^{\nu}\simeq V_0\delta_{\mu}^{\nu}\;,
+$$
+quindi il termine di vuoto $V_0$ gioca il ruolo di costante cosmologica.
+\subsection{Evoluzione dell'universo}
+Cerchiamo adesso soluzioni approssimate alle equazioni di Friedmann-Lematre. La prima approssimazione è quella di cercare soluzioni a tempi piccoli rispetto alle scale tipiche di tempo dell'universo. Allora, dall'equazione:
+\begin{equation}
+\dot{\epsilon}_x=-3H(1+w_x)\epsilon_x\qquad \Longrightarrow\qquad \epsilon_x= a^{-3(1+w_x)}\;.
+\end{equation}
+Quindi abbiamo $\epsilon_x=a^{-3}$ per materia fredda ($w_x=0$) e $\epsilon_x=a^{-4}$ per la radiazione ($w_x=1/3$). Invece, nell'equazione:
+$$
+H^2=\frac{8\pi G}{3}\sum_x\epsilon_x-\frac{\kappa}{a^2}+\frac{\Lambda}{3}\;,
+$$
+per tempi piccoli $a(t)\to 0$, e quindi nel secondo termine domina il primo termine. Trascurando gli altri, e nell'ipotesi $w>-1/3$, risolvendo l'equazione approssimata:
+\begin{equation}
+H^2\equiv \left(\frac{\dot{a}}{a}\right)^2\simeq \frac{8\pi G}{3}a^{-3(1+w_x)}\;,
+\end{equation}
+si ottiene:
+\begin{equation}
+a(t)\simeq t^{2/(3(1+w_x))}\;,
+\end{equation}
+e:
+\begin{equation}
+H(t)=\frac{2}{3(1+w_x)}\frac{1}{t}\;.
+\end{equation}
+Notiamo che la costante di Hubble diverge andando indietro nel tempo. A tempi piccoli, è lecito aspettarsi che domini la radiazione, i.e. $w_x=1/3$, per cui:
+\begin{align}
+a(t) &= t^{1/2}\;, \notag \\
+H(t) &= \frac{1}{2t}\;.
+\end{align}
+Assumiamo che ad un certo punto domini la costante cosmologica nel secondo membro dell'equazione di Friedmann-Lematre. Allora si avrà:
+\begin{align}
+H &= \sqrt{\frac{\Lambda}{3}}\;, \notag \\
+a(t) &= e^{t\sqrt{\Lambda/3}}\;.
+\end{align}
+Adesso la costante di Hubble è costante anche nel tempo e $a(t)$ aumenta esponenzialmente (paradosso dell'inflazione). \\
+Consideriamo adesso la prima delle equazioni di Friedmann-Lematre calcolata al giorno d'oggi, riscritta nella forma \eqref{ch6_friedomega}. Sappiamo che se $\Omega_m+\Omega_R+\Omega_{\Lambda}=1$, allora lo spazio è piatto. Mettiamo un po' di numeri: in unità naturali,
+\begin{equation}
+H_0^{-1}=1.3\times 10^{26}\;\mathrm{m}=14\;\mbox{miliardi di anni}\;,
+\end{equation}
+mentre il valore critico della densità di energia è:
+\begin{equation}
+\epsilon_c\equiv \frac{3H_0^2}{8\pi G}=5\times 10^{-6}\;\mathrm{GeV}\cdot\mathrm{cm}^{-3}\qquad (\sim\;\mbox{cinque protoni per metro cubo})\;.
+\end{equation}
+Per la materia barionica otteniamo, calcolando $\epsilon_m$:
+\begin{equation*}
+\Omega_m=\frac{\epsilon_m}{\epsilon_c}\simeq 0.045\;.
+\end{equation*}
+La materia barionica osservata (cioè quella che interagisce EM, debole e forte) è molto poca rispetto a quella che ci si aspetta studiando ad esempio il moto delle galassie. Esiste quindi un tipo di materia che interagisce solo gravitazionalmente, detta \emph{dark matter}. Il suo contributo a $\Omega_m$ è stato quantificato in uno $0.22$, quindi otteniamo:
+\begin{equation}
+\Omega_m = \underbrace{0.045}_{\mbox{barionica}}+\underbrace{0.22}_{\mbox{dark}}\;.
+\end{equation}
+Per quanto riguarda la radiazione, l'universo può essere considerato come un enorme corpo nero che emette alla temperatura $T=2.7$ K. Da questa temperatura, si può risalire alla densità di energia, ottenendo:
+\begin{equation}
+\Omega_R=\frac{\epsilon_R}{\epsilon_c}\sim 10^{-5}\ll \Omega_m\;,
+\end{equation}
+e quindi il suo contributo è trascurabile. Passando al termine cosmologico, il valore della costante cosmologica si può ricavare dalla misura di $\ddot{a}/a$. Al 2012 si ha quindi:
+\begin{equation}
+\Omega_{\Lambda}=\frac{\Lambda}{3H_0^2}=0.73(3)\;.
+\end{equation}
+In conclusione,
+\begin{equation}
+\sum_x\Omega_x=1.006(6)\;,
+\end{equation}
+cioè $\kappa=0$ con la precisione del per mille. \\
+Questo modello, tuttavia, crea più problemi di quanti ne risolva. Stimiamo, per esempio, la costante cosmologica assumendo che abbia solo origine gravitazionale: date le costanti fondamentali $G,\hbar,c$, l'unica scala di energia che riusciamo a costruire è la massa di Planck:
+\begin{equation}
+M_{\mathrm{Planck}}=\sqrt{\frac{\hbar c}{G}}\sim 10^{19}\;\mathrm{GeV}\;.
+\end{equation}
+Dato che $[\Lambda]=[\mbox{energia}]^2$, concludiamo che $\Lambda\sim M_{\mathrm{Planck}}^2\sim 10^{38}\;\mathrm{GeV}^2$. Dalle misure di $\Omega_{\Lambda}$ possiamo invece ricavare un valore "osservato" della costante cosmologica:
+\begin{equation}
+\Lambda_{\mathrm{oss}}\sim 2.2 H_0^2\sim 10^{-83}\;\mathrm{GeV}^2\;.
+\end{equation}
+I due valori differiscono per 121 ordini di grandezza. Questa discrepanza induce ad abbandonare l'intepretazione di $\Lambda$ come costante cosmologica, in favore di quella legata alla dark energy. In tal caso, dovremo considerare una densità di dark energy data da:
+\begin{equation}
+\epsilon_{\Lambda}=\frac{\Lambda}{8\pi G}\;,
+\end{equation}
+ma anche in questo caso l'errore sarebbe di 80 ordini di grandezza, comunque uno sproposito. \\
+\textbf{Curiosità}. Se assumiamo per la costante cosmologica il valore $\Lambda=M_{\mathrm{Planck}}^2$, usando il principio di indeterminazione per stimare l'età dell'universo $T_U$,
+$$
+\Lambda^{1/2}\sim \frac{\hbar}{T_U}\;,
+$$
+sbagliamo di poco (cose a caso).
+\\
+Possiamo calcolare adesso le dimensioni dell'universo osservabile, cioè lo spazio percorso da un segnale luminoso partito a $t_i=0$. L'equazione della luce è $\diff{\eta}=\pm \diff{\chi}$, da cui $\chi=\eta_0-\eta\equiv\Delta\eta$. Sapendo che $\diff{t}=a(t)\diff{\eta}$ e indicando con $t_0$ il tempo odierno, si ha:
+$$
+\chi=\Delta\eta=\int_0^{t_0}\frac{\diff{t}}{a(t)}\;,
+$$
+da cui:
+\begin{equation}
+\ell_0=a(t_0)\chi=a(t_0)\int_0^{t_0}\frac{\diff{t}}{a(t)}\;.
+\end{equation}
+Questa lunghezza prende il nome di \emph{orizzonte delle particelle} e vale per un generico istante $t$:
+\begin{equation}
+d_h(t)=a(t)\int_0^t\frac{\diff{t'}}{a(t')}\;.
+\end{equation}
+Visto che, per gran parte della sua evoluzione, l'universo è stato dominato da materia fredda, possiamo stimare $a(t)\sim t^{2/3}$, ottenendo:
+\begin{equation}
+d_h(t)=2H^{-1}(t)\;,
+\end{equation}
+al tempo $t$ generico, mentre:
+\begin{equation}
+d_h(t_0)=2H^{-1}(t_0)=2\times 10^{26}\;\mathrm{m}\;,
+\end{equation}
+al tempo odierno. \\
+\textbf{Età dell'universo.} \\
+Stimiamo adesso l'età dell'universo. Partiamo dalla relazione:
+\begin{equation}
+\left|\diff{H^{-1}}\right|=\frac{\dot{H}}{H^2}\diff{t}\qquad \Longrightarrow \qquad \diff{t}=\frac{H^2}{\dot{H}}\diff{H^{-1}}\;,
+\end{equation}
+che integriamo tra gli istanti $t_i=0$ e $t_f=t_0$ (odierno), a cui corrispondono i valori della costante di Hubble $H(t\to 0)=\infty$ e $H(t\to t_0)=H_0$:
+\begin{equation}
+\int_0^{t_0}\diff{t}=\int_0^{H_0^{-1}}\left|\frac{H^2}{\dot{H}}\right|\diff{H^{-1}}\;.
+\end{equation}
+Assumendo spazio piatto ($\kappa=0$) e trascurando la costante cosmologica, dalle equazioni di Friedmann-Lamatre ricaviamo:
+\begin{align*}
+\dot{H}&=\frac{\ddot{a}}{a}-\frac{\dot{a}^2}{a^2}=-4\pi G(1+w_x)\epsilon_x+\frac{\kappa}{a^2}\simeq -4\pi G(1+w_x)\epsilon_x\;, \\
+H^2 &= \frac{8\pi G}{3}\epsilon_x-\frac{\kappa}{a^2}+\frac{\Lambda}{3}\simeq \frac{8\pi G}{3}\epsilon_x\;,
+\end{align*}
+da cui:
+\begin{equation}
+\left|\frac{H^2}{\dot{H}}\right|=\frac{2}{3(1+w_x)}\;,
+\end{equation}
+e quindi:
+\begin{equation}
+t_0=\int_0^{H_0^{-1}}\frac{2}{3(1+w_x)}\diff{H^{-1}}=\frac{2}{3(1+w_x)}H_0^{-1}\;.
+\end{equation}
+Supponendo (ragionevolmente) che nell'evoluzione dell'universo abbia dominato la materia fredda, poniamo $w_x=0$, ottenendo:
+\begin{equation}
+t_0\simeq \frac{2}{3}H_0^{-1}\sim 10^{10}\;\mbox{y}\;.
+\end{equation}
+La stima che abbiamo ottenuto differisce per tre miliardi di anni da quella nota dalle osservazioni. L'errore che abbiamo commesso risiede nell'aver trascurato la costante cosmologica: avevamo visto infatti che il peso di $\Omega_{\Lambda}$ era decisamente più grande di quello di $\Omega_m$. Proviamo quindi a rifare il calcolo tenendoci $\Lambda$. Definiamo dunque:
+\begin{equation}
+A(t)\equiv \frac{a_0}{a(t)},\qquad\qquad \left|\diff{A}\right|=\diff{t}\frac{\dot{a}}{a^2}a_0=\diff{t}A(t)H\;.
+\end{equation}
+Tra gli istanti $t=0$ e $t=t_0$, si ha $A(t=0)=\infty$ e $A(t=t_0)=1$. Quindi:
+$$
+t_0=\int_1^{\infty}\frac{\diff{A}}{AH(A)}\;.
+$$
+Resta quindi da esprimere $H$ in funzione di $A$. Nell'ipotesi $\kappa=0$ si ha:
+$$
+\frac{H^2}{H_0^2}=\frac{8\pi G}{3H_0^2}\epsilon_m(t)+\frac{\Lambda}{3H_0^2}=\frac{\epsilon_m(t)}{\epsilon_c}+\Omega_{\Lambda}\;.
+$$
+Dalla relazione $D_{\mu}T^{\mu 0}=0$ segue che $\epsilon_m(t)a^3(t)=$ costante, quindi $\epsilon_m(t)=\epsilon_m(t_0)(a_0/a)^3$, per cui:
+\begin{equation}
+\frac{H^2}{H_0^2}=\Omega_m^0A^3+\Omega_{\Lambda}\;,
+\end{equation}
+e di conseguenza:
+\begin{equation}
+t_0=H_0^{-1}\int_1^{\infty}\frac{\diff{A}}{A(\Omega_m^0A^3+\Omega_{\Lambda})^{1/2}}\simeq 0.96H_0^{-1}\sim 1.4\times 10^{10}\;\mbox{y}\;,
+\end{equation}
+che è una stima molto più accurata rispetto alla precedente.
+\subsection{Moto di oggetti non solidali}
+Finora, ci siamo limitati a studiare il moto di oggetti che erano solidali al sistema di riferimento che avevamo fissato. Consideriamo adesso un oggetto che ha una velocità iniziale $\mathbf{v}$ rispetto al nostro sistema. Con un cambio di coordinate, possiamo far sì che la velocità abbia solo componente radiale. In questo sistema, il moto dell'oggetto sarà quindi sempre radiale in virtù dell'isotropia, e dunque avremo bisogno di due sole coordinate per descriverlo. Siano esse $t,\chi$. La metrica è data da:
+\begin{equation}
+\diff{s}^2=\diff{t}^2-a^2(t)\diff{\chi}^2\qquad\qquad g_{\mu\nu}=\left(\begin{matrix}
+1 & 0 \\
+0 & a^2
+\end{matrix}\right)\;.
+\end{equation}
+Notiamo che la metrica non dipende esplicitamente dalla coordinate $\chi$, quindi la quantità $p_1$ è conservata, cioè
+\begin{align}
+p_2 &=g_{1\mu}p^{\mu}=a^2p^1=ma^2\dev{\chi}{s} \notag \\
+&= ma\frac{\diff{\ell}}{\diff{t}\sqrt{1-\left(\dfrac{\diff{\ell}}{\diff{t}}\right)^2}} \notag \\
+&= ma\frac{v}{\sqrt{1-v^2}}=\;\mbox{cost}\;,
+\end{align}
+dove $v\equiv \diff{\ell}/\diff{t}$. Nel limite di basse velocità $v\ll 1$, si ha $v\sim 1/a$, quindi l'oggetto ad un certo istante si fermerà e diventerà solidale con il sistema.
+\subsection{Effetti della costante cosmologica}
+Nel limite non relativistico, l'equazione di Einstein deve diventare quella di Netwon, e questo imporrebbe $\Lambda=0$. Il valore di $\Lambda$ però non è nullo, quindi è lecito chiedersi quale effetto abbia il valore di $\Lambda$ nella descrizione del moto dei pianeti. Visto che l'equazione di Newton funziona bene in questo caso, ci aspettiamo che le correzioni dovute a $\Lambda$ siano trascurabili. \\
+Estraiamo quindi dalle equazioni di Friedmann-Lematre qualcosa che rassomigli ad una forza: trascurando il sistema si ha, dalla seconda equazione:
+\begin{equation}
+\frac{\ddot{a}}{a}=\frac{\Lambda}{3}\;.
+\end{equation}
+Le distanze sono date da $\ell=a\chi$, con $\chi$ costante. L'accelerazione è dunque data da:
+\begin{equation}
+\ddot{\ell}=\ddot{a}\chi=\frac{\Lambda}{3}a\chi=\ell\frac{\Lambda}{3}\;,
+\end{equation}
+e la forza sarà:
+\begin{equation}
+m\ddot{\ell}=m\ell\frac{\Lambda}{3}\;.
+\end{equation}
+Correggiamo quindi l'equazione di Newton inserendo quest'ultimo termine:
+\begin{equation}
+m\ddot{\mathbf{r}}=-\frac{GMm}{r^2}\hat{\mathbf{r}}+\frac{1}{3}m\Lambda r\hat{\mathbf{r}}\;.
+\end{equation}
+Siccome la correzione non è mai stata osservata, questa deve essere trascurabile rispetto al primo termine. Ricaviamo allora che deve essere:
+\begin{equation}
+|\Lambda|\ll \frac{3GM}{r^3c^2}\;.
+\end{equation}
+Se prendiamo come $M=M_S$ e come $r$ la distanza Sole-Plutone (fino a Plutone la gravitazione newtoniana funziona), otteniamo:
+$$
+|\Lambda|\ll \frac{3GM_S}{r_{\mathrm{Plut}}^3c^2}\approx 10^{-31}\;\mathrm{cm}^{-2}\;,
+$$
+in accordo con il valore cosmologico di $\sim 10^{-56}\;\mathrm{cm}^{-2}$.
+\subsection{Condizioni iniziali dell'universo e meccanismo dell'inflazione}
+Adesso cerchiamo di capire se le condizioni di omogeneità e di piattezza dell'universo emergano in modo naturale dal sistema. Dopo 300'000 anni dal Big Bang, l'universo era una specie di brodo primordiale termalizzato ad una certa temperature $T$ di corpo nero, in cui la materia e la radiazione interagiscono per mantenere l'equilibrio. Una volta scesa la temperatura, gli elettroni iniziano a formare gli atomi e i fotoni, non essendo più scatterati, partono liberi dando vita alla \emph{radiazione cosmica di background}. La radiazione cosmica di background fornisce un'istantanea dell'universo a 300'000 anni di vita, e mostra una radiazione isotropa di corpo nero a $T=2.73$ K. Esiste un'anisotropia di dipolo dovuta al fatto che gli osservatori terrestri non sono solidali con la radiazione ma, rimossa questa, la radiazione è praticamente isotropa. La radiazione cosmica di background proviene da tutte le direzioni dell'universo: vogliamo quindi capire se le zone dell'universo da cui proviene siano mai state in correlazione causale in modo da aver termalizzato la radiazione. Per far questo, confrontiamo i valori dell'orizzonte delle particelle ai vari istanti significativi: al tempo del disaccoppiamento $t_d=300000$ y, approssimando $a(t)$ con $t^{2/3}$ (materia fredda dominante), si ha:
+\begin{equation}
+d_h(t_d)=a(t_d)\int_0^{t_d}\frac{\diff{t}}{a(t)}\simeq 2H^{-1}(t_d)=3t_d\;.
+\end{equation}
+Ad oggi, le distanze si sono espanse di un fattore $a(t_0)/a(t_d)$, la parte dell'universo che dovrebbe essere omogenea al giorno d'oggi è data allora da:
+\begin{equation}
+3\frac{a(t_0)}{a(t_d)}d_h(t_d)\;.
+\end{equation}
+Dobbiamo perciò confrontare questo valore con l'orizzonte dell'universo al giorno d'oggi, $d_h(t_0)=3t_0$:
+\begin{equation}
+\frac{d_h(t_0)}{3d_h(t_d)\dfrac{a(t_0)}{a(t_d)}}\simeq \left(\frac{t_0}{t_d}\right)^{1/3}\sim 30\;.
+\end{equation}
+Questo ci dice che le zone dell'universo da cui proviene la radiazione cosmica di background non potevano essere in correlazione causale quando la radiazione è partita. Allora come sono state termalizzate? \\
+\\
+Per quanto riguarda la piattezza dell'universo, sappiamo che, dalla prima equazione di Friedmann-Lematre:
+$$
+\frac{\kappa}{a^2H^2}=\Omega_m+\Omega_R+\Omega_{\Lambda}-1\;.
+$$
+Sia $\Omega(t)=\Omega_m(t)+\Omega_R(t)+\Omega_{\Lambda}$, allora:
+\begin{equation}
+\Omega(t)-1=\frac{\kappa}{a^2H^2}=\frac{\kappa}{a_0^2H_0^2}\frac{a_0^2H_0^2}{a^2H^2}=\left[\Omega(t_0)-1\right]\frac{a_0^2H_0^2}{a^2H^2}\;. \label{ch6_omegamenouno}
+\end{equation}
+Confrontiamo il valore di $\Omega(t_0)-1$ con quello passato. Esplicitiamo $(H/H_0)^2$ (sia $A=a_0/a$):
+\begin{align}
+\frac{H^2}{H_0^2}&=\frac{8\pi G}{3H_0^2}\left(\epsilon_m(t_0)\frac{a_0^3}{a^3}+\epsilon_R(t_0)\frac{a_0^4}{a^4}\right)-\frac{\kappa}{a_0^2H_0^2}\frac{a_0^2}{a^2}+\frac{\Lambda}{3H_0^2} \notag \\
+&=\Omega_m(t_0)A^3+\Omega_R(t_0)A^4-(\Omega(t_0)-1)A^2+\Omega_{\Lambda}(t_0)\;.
+\end{align}
+Sostituendo nella \eqref{ch6_omegamenouno} si ha:
+\begin{equation}
+\Omega(t)-1=\frac{\Omega(t_0)-1}{\Omega_m(t_0)A+\Omega_R(t_0)A^2-(\Omega(t_0)-1)+\Omega_{\Lambda}(t_0)A^{-2}}\;.
+\end{equation}
+Se al giorno d'oggi $\Omega(t_0)\sim 1$, andando indietro nel tempo (notando che $A(t\to 0)\to\infty$) si verifica che $\Omega(t)\ll 1$. Questo fa emergere la non naturalità della piattezza dello spazio, infatti da uno spazio superpiatto a $t\simeq 0$, l'universo è evoluto verso una curvatura sempre più "meno nulla". \\
+Questi due problemi che abbiamo riscontrato vengono spiegati da ciò che prende il nome di \emph{meccanismo dell'inflazione}: si suppone che in un certo periodo di tempo abbia dominato un termine costante $V_0$ nell'espansione dell'universo. Questo ha portato ad un'espansione esponenziale $a(t)\sim e^{Ht}$. Se questo $V_0$ ha dominato da $10^{-34}$ s a $10^{-32}$ s, allora le distanze sarebbero aumentate di un fatture $10^{44}$. In questo caso, l'universo osservabile oggi alla fine dell'inflazione aveva una grandezza dell'ordine di $30$ cm e prima dell'inflazione avrebbe avuto una dimensione di $10^{-46}$ m. In queste condizioni, è ragionevole pensare che fosse omogeneo ed in contatto causale. \\
+Per la curvatura, se all'inizio l'universo aveva una curvatura non nulla, dopo l'espansione questa viene ridotta di un fattore $10^{88}$ (proveniente dal denominatore di $\Omega(t)-1=\kappa/(a^2H^2)$) che sicuramente ha ammazzato la curvatura.
+\subsection{Termodinamica dell'universo}
+Andando a ritroso nel tempo, le dimensioni dell'universo osservabile si riducono: aumenta la densità di materia e consequenzialmente aumentano le scale di energia e temperatura. Supponiamo che ad un certo punto vi sia equilibrio termico: in questa situazione, trattando la materia come un gas debolmente interagente, possiamo scrivere le densità di particelle $n$, di energia $\epsilon$ e la pressione $P$ rispettivamente come:
+\begin{align}
+n&=g\int\frac{\diff^3{p}}{(2\pi)^3}f(p)\;,  \\
+\epsilon &= g\int\frac{\diff^3{p}}{(2\pi)^3}E f(p)\;,  \\
+P&=g\int \frac{\diff^3{p}}{(2\pi)^3}\frac{\mathbf{p}^2}{3E}f(p)\;, \\
+f(p) &= \frac{1}{e^{(E-\mu)/kT)}\pm 1}\;, \notag \\
+E&=\sqrt{\mathbf{p}^2+m^2}  \notag\;,
+\end{align}
+dove $g$ indica la degenerazione di spin e $\mu$ è il potenziale chimico. Se adesso prendiamo il limite ultrarelativistico $T\gg m,\mu$, ritroviamo le leggi di Stefan-Boltzmann:
+\begin{align*}
+&\epsilon_b=\frac{\pi^2}{30}gT^4 &\mbox{bosoni}\;, \\
+&\epsilon_f=\frac{7}{8}\frac{\pi^2}{30}gT^4 &\mbox{fermioni}\;,
+\end{align*}
+con $p=\epsilon/3$ in entrambi i casi. Nel limite opposto, $T\ll m,\mu$, invece $\epsilon=m\cdot n$, con $n\propto \exp[-(m-\mu)/T]$, cioè la densità di particelle è soppressa esponenzialmente. Quindi concludiamo che nel calcolo delle varie quantità termodinamiche, il contributo rilevante è dato dalle particelle ultrarelativistiche. \\
+La condizione necessaria affinché vi sia equilibrio termico è che le particelle interagiscano sufficientemente rapidamente. Se definiamo un \emph{rate di interazione} (numero di eventi per unità di tempo) $\Gamma_{\mathrm{int}}=n\bra \sigma v\ket$, dove $\sigma$ è la sezione d'urto, allora questa quantità deve essere molto maggiore delle scale di tempi dell'universo per avere una situazione di quasi equilibrio, quindi $\Gamma_{\mathrm{\int}}\gg H$.\\
+Assumendo di essere in questa condizione, possiamo scrivere la termodinamica. Considerando un volume $V=a^3$, si ha:
+\begin{align}
+&T\diff{S}=\diff{(\epsilon V)}+p\diff{V}\;, \\
+&\diff{p}=\frac{\epsilon+p}{T}\diff{T}\;.
+\end{align}
+L'evoluzione di questo universo è data dalla conservazione del tensore energia-impulso, $D_{\mu}T^{\mu\nu}=0$, che implica l'equazione $\dot{\epsilon}=-3H(\epsilon+p)$. Mettendo insieme in vari pezzi, il risultato è che l'entropia, data da:
+\begin{equation}
+S=a^3\frac{\epsilon+p}{T}\;,
+\end{equation}
+è conservata, $\diff{S}=0$. All'equilibrio, perciò, l'espansione dell'universo è isoentropica, e la densità di entropia decresce come $s=(\epsilon+p)/T\sim a^{-3}$. Calcolando il contributo di tutte le particelle ultrarelativistiche si ottiene:
+\begin{equation}
+s=\frac{2\pi^2}{45}g_T T^3\sim a^{-3}\;,
+\end{equation}
+dove il fattore $g_T$ è la somma su tutte le particelle ultrarelativistiche nel caso bosonico, oppure $7/8$ della somma su tutte le particelle ultrarelativistiche nel caso fermionico e dipende debolmente dalla temperatura. Ricaviamo in conclusione che $T\sim g_T^{-1/3}a^{-1}$. Nel periodo dominato dalla radiazione $a\sim t^{1/2}$ e di conseguenza $T\sim t^{-1/2}$.
+
+\end{document}
