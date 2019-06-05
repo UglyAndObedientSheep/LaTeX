@@ -299,7 +299,7 @@ T_R^{(r)}=\frac{1}{N^2-1}d(r)C_F^{(r)}\;.
 da cui si ottengono le seguenti relazioni:
 \begin{align}
 &\sum_{a=1}^{N^2-1}\left(F_a^{(f)}F_a^{(f)}\right)_{ij}=\frac{N^2-1}{2N}\delta_{ij}\;, \\
-&\sum_{a=1}^{N^2-1}\left(F_a^{(f)}F_b^{(f)}F_c^{(f)}\right)_{ij}=-\frac{1}{2N}\left(F_b^{(f)}\right)_{ij}\;.
+&\sum_{a=1}^{N^2-1}\left(F_a^{(f)}F_b^{(f)}F_a^{(f)}\right)_{ij}=-\frac{1}{2N}\left(F_b^{(f)}\right)_{ij}\;.
 \end{align}
 Queste, unitamente all'algebra, servono per dimostrare che:
 \begin{equation}
@@ -351,7 +351,7 @@ Passiamo quindi a $SU(3)$. Dobbiamo innanzitutto trovare un insieme completo di 
 Notiamo subito che $\{T_1,T_2,T_3\}$ generano un sottogruppo $SU(2)$ detto \emph{sottogruppo di T-spin}. Riscriviamo quindi l'algebra di $SU(3)$ in termini di questi nuovi operatori:
 \begin{subequations}
 \begin{equation}
-[T_3,T_{\pm}]=\pm T_{\pm}\qquad [T_3,U_{\pm}]=\pm\frac{1}{2}U_{\pm}\qquad [T_3,V_{\pm}]=\pm\frac{1}{2}V_{\pm}\;,
+[T_3,T_{\pm}]=\pm T_{\pm}\qquad [T_3,U_{\pm}]=\mp\frac{1}{2}U_{\pm}\qquad [T_3,V_{\pm}]=\pm\frac{1}{2}V_{\pm}\;,
 \end{equation}
 \begin{equation}
 [Y,T_{\pm}]=0\qquad [Y,U_{\pm}]=\pm U_{\pm}\qquad [Y,V_{\pm}]=\pm V_{\pm}\;,
@@ -912,7 +912,7 @@ Sviluppando $U(x+\diff{x})$ e ritenendo solo il primo ordine in $\diff{x}$ otten
 \end{align}
 Dal confronto otteniamo infine:
 \begin{equation}
-A_{\mu}'(x)=U(x)A_{\mu}(x)\adj{U}(x)-\frac{i}{g}(\partial_{\mu}U(x))\adj{U}(x)\;.
+A_{\mu}'(x)=U(x)A_{\mu}(x)\adj{U}(x)+\frac{i}{g}(\partial_{\mu}U(x))\adj{U}(x)\;.
 \end{equation}
 \begin{dfn}
 Il \emph{differenziale covariante} $D\psi$ è definito come:
@@ -2561,11 +2561,11 @@ Adesso notiamo che:
 & Z_{1F}=Z_gZ_2Z_3^{1/2}\;, \\
 & Z_{3A}=Z_gZ_3^{3/2}\;, \\
 & Z_{4A}= Z_g^2Z_3^{3/2}\;, \\
-& Z_{CCA}= Z_g\stackrel{\sim}{Z}_3Z_3^{1/2}\;,
+& Z_{CCA}= Z_g\hat{Z}_3Z_3^{1/2}\;,
 \end{align*}
 da queste si ottiene \emph{una sola costante di rinormalizzazione} per la costante di accoppiamento $g$ tramite l'\emph{identità di Slavnov-Taylor}:
 \begin{equation}
-\frac{Z_{3A}}{Z_3}=\frac{Z_{CCA}}{\stackrel{\sim}{Z}_3}=\frac{Z_{1F}}{Z_2}=\frac{Z_{4A}}{Z_{3A}}\equiv Z_gZ_3^{1/2}=1-\frac{g_R^2}{(4\pi)^2}C_G\left(\frac{3+\alpha_R}{4}\right)\frac{1}{\epsilon}+\mathcal{O}(g_R^4)\;,
+\frac{Z_{3A}}{Z_3}=\frac{Z_{CCA}}{\hat{Z}_3}=\frac{Z_{1F}}{Z_2}=\frac{Z_{4A}}{Z_{3A}}\equiv Z_gZ_3^{1/2}=1-\frac{g_R^2}{(4\pi)^2}C_G\left(\frac{3+\alpha_R}{4}\right)\frac{1}{\epsilon}+\mathcal{O}(g_R^4)\;,
 \end{equation}
 da cui segue:
 \begin{equation}
@@ -3300,7 +3300,7 @@ Promuoviamo quindi $\phi_i$ ad operatore quantistico. Il suo campo coniugato è:
 \begin{equation}
 \Pi_j(y)=\frac{\partial\lag}{\partial(\partial_0\phi_j(y))}\;.
 \end{equation}
-$\phi$ e $Pi$ soddisfano le regole di commutazione canonica $[\psi_i(x),\Pi_j(y)]_{x^0=y^0}=i\delta_{ij}\delta^{(3)}(\mathbf{x}-\mathbf{y})$. Allora:
+$\phi$ e $\Pi$ soddisfano le regole di commutazione canonica $[\psi_i(x),\Pi_j(y)]_{x^0=y^0}=i\delta_{ij}\delta^{(3)}(\mathbf{x}-\mathbf{y})$. Allora:
 \begin{align}
 [J_a^0(x),\phi_i(y)]_{x^0=y^0} &= -\left[\sum_j\Pi_j\delta_a\phi_j(x),\phi_i(y)\right]_{x^0=y^0} \notag \\
 &= -\sum_j[\Pi_j(x),\phi_i(y)]_{x^0=y^0}\delta_a\phi_j(x)-\sum_j\Pi_j(x)\underbrace{[\delta_a\phi_j(x),\phi_i(y)]_{x^0=y^0}}_{=0} \notag \\
@@ -4113,7 +4113,7 @@ e di conseguenza:
 Queste stime sono molto grossolane, però, nonostante tutto, sull'ordine di grandezza ci abbiamo preso.
 \cleardoublepage
 \section{Simmetria $U(1)_A$}
-Questa simmetria non è realizzata alla Wigner-Weyl, per lo stesso motivo della $SU(L)_A$. Possiamo azzardare come prima ipotesi che la $U(1)_A$ sia rotta spontaneamente alla Goldstone. Esisterà pertanto un bosone di Goldstone con gli stessi numeri quantici di $Q_5\Omega\ket$, che è un singoletto mesonico. Il candidato nello spettro è l'$\eta'$. \\
+Questa simmetria non è realizzata alla Wigner-Weyl, per lo stesso motivo della $SU(L)_A$. Possiamo azzardare come prima ipotesi che la $U(1)_A$ sia rotta spontaneamente alla Goldstone. Esisterà pertanto un bosone di Goldstone con gli stessi numeri quantici di $Q_5 |\Omega\ket$, che è un singoletto mesonico. Il candidato nello spettro è l'$\eta'$. \\
 Estendiamo innanzitutto i gradi di libertà della teoria efficace per includere anche il singoletto:
 \begin{equation}
 U=\exp\left(\frac{i}{F_{\pi}}\sum_{a=1}^8\pi_a\lambda_a\right)\in SU(3) \qquad \longrightarrow\qquad  \stackrel{\sim}{U}\equiv Ue^{iS\lambda_0/F_{\pi}}\in U(3)\;,
@@ -4294,8 +4294,8 @@ e cioè:
 \end{equation}
 \underline{Se} la $G$ globale è una simmetria, $\delta_a\lag=0$ e di conseguenza:
 \begin{align*}
-&\partial_{\mu}J^{\mu}_a=0 &\mbox{classico}\;, \\
-&\partial_{\mu}\hat{J}^{\mu}_a-\hat{\mathcal{A}}_a &\mbox{quantistico}\;.
+\partial_{\mu}J^{\mu}_a&=0 &\mbox{classico}\;, \\
+\partial_{\mu}\hat{J}^{\mu}_a &= -\hat{\mathcal{A}}_a & \mbox{quantistico}\;.
 \end{align*}
 \subsection{Anomalia abeliana (simmetria chirale \& teoria di gauge non chirale)}
 Trasformazione dei campi fermionici $\psi(x)$:
@@ -4414,11 +4414,11 @@ $$
 $$
 Eseguiamo uno scaling: $k\to k'M$ e richiamiamo $k'=k$,
 $$
-\mathcal{A}(x)=-2\int\frac{\diff^4{k}}{(2\pi)^4}\tr\left[\gamma_5tf\left([i\slashed{k}+\slashed{D}_x/M]^2\right)\right]\;.
+\mathcal{A}(x)=-2M^4\int\frac{\diff^4{k}}{(2\pi)^4}\tr\left[\gamma_5tf\left([i\slashed{k}+\slashed{D}_x/M]^2\right)\right]\;.
 $$
 Espandiamo l'argomento di $f$:
 $$
-(i\slashed{k}+\slashed{D}_x/M)^2=-k^2+\frac{2ikD_x}{M}+\left(\frac{D_x}{M}\right)^2\equiv -k^2+\Delta\;,
+(i\slashed{k}+\slashed{D}_x/M)^2=-k^2+\frac{2ikD_x}{M}+\left(\frac{\slashed{D}_x}{M}\right)^2\equiv -k^2+\Delta\;,
 $$
 e sviluppiamo $f$ in serie intorno a $-k^2$:
 $$
@@ -4800,7 +4800,7 @@ dove:
 Ricaviamo inoltre la \emph{formula di Witten-Veneziano}:
 \begin{equation}
 \boxed{
-M_{\eta'}^2-M_{\eta^0}^2-2M_K^2=\frac{6A}{F_{\pi}^2}
+M_{\eta'}^2+M_{\eta^0}^2-2M_K^2=\frac{6A}{F_{\pi}^2}
 }\;.
 \end{equation}
 Questa relazione è fondamentale in quanto collega $A$ (che è calcolabile su reticolo) a grandezze sperimentali. I dati sono in accordo con la teoria:
@@ -4813,7 +4813,7 @@ Q(x)=\frac{g^2}{16\pi^2}\tr[F_{\mu\nu}\stackrel{\sim}{F}^{\mu\nu}]=\frac{g^2}{16
 \end{equation}
 con:
 \begin{align}
-K^{\mu} &= \frac{g^2}{16\pi^2}\epsilon^{\mu\nu\rho\sigma}\tr\left[A_{\nu}\left(\partial_{\rho}A_{\sigma}+\frac{2}{3}igA_{\rho}A_{\sigma}\right)\right] \notag \\
+K^{\mu} &= \frac{g^2}{8\pi^2}\epsilon^{\mu\nu\rho\sigma}\tr\left[A_{\nu}\left(\partial_{\rho}A_{\sigma}+\frac{2}{3}igA_{\rho}A_{\sigma}\right)\right] \notag \\
 &= \frac{g^2}{16\pi^2}\epsilon^{\mu\nu\rho\sigma}\tr\left[A_{\nu}\left(F_{\rho\sigma}-\frac{2}{3}ig A_{\rho}A_{\sigma}\right)\right]\;.
 \end{align}
 detta \emph{corrente di Chern-Simons}. Questo fatto rappresenta un problema nella misura in cui, essendo l'anomalia una quadridivergenza, si pensava che questa dovesse sparire ad infinito. Invece, fu dimostrato che esistevano soluzioni euclidee nell'azione finita e topologia non banale chiamate \emph{istantoni},
@@ -4968,7 +4968,7 @@ Notiamo adesso due cose:
 &\theta'=0\;, \\
 &\arg(\det m')=\arg(\det m)+\theta=\theta_{\mathrm{fisico}}\;.
 \end{align*}
-\item con un'oppoertuna trasformazione $U(N_f)\otimes U(N_f)$ si può ottenere:
+\item con un'opportuna trasformazione $U(N_f)\otimes U(N_f)$ si può ottenere:
 $$
 m'=\adj{\stackrel{\sim}{V}}_Rm\stackrel{\sim}{V}_L=m_d=\mathrm{diag}(m_1,\ldots,m_{N_f}),\quad m_1,\ldots,m_{N_f}>0\;,
 $$
