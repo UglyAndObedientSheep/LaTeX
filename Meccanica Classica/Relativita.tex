@@ -1,0 +1,1286 @@
+\section{Introduzione}
+\subsection{Pippone sul perché la relatività è saltata fuori}
+\lipsum
+\subsection{Spaziotempo di Minkowski}
+Un punto dello spaziotempo di Minkowski è detto \textit{evento}, e le traiettorie sono dette \textit{linee d'universo}. La bisettrice 
+indica come si muove la luce, tutti gli altri eventi possono propagarsi nel doppio cono individuato dalle bisettrici. $V_+$ è denominato
+ \textit{cono futuro} e $V_-$ invece \textit{cono passato}. La quantità:
+\begin{equation}
+\Delta\tau =\int_{t_A}^{t_B}\diff{t}\sqrt{1-\frac{\mathbf{v}^2}{c^2}}\;,
+\end{equation}
+è detta \textit{tempo proprio}.
+\section{Trasformazioni di Lorentz}
+\subsection{In 1+1 dimensioni}
+Consideriamo due sistemi di riferimento inerziali, $K, K'$, con $K'$ che si muove rispetto a $K$ con velocità $\beta$. All'istante $t=0$,
+ le origini dei due sistemi coincidono. Il versore dell'asse $ct'$ nel sistema $K$ è $\frac{1}{\sqrt{1+\beta^2}}(\beta,1)$; allora le 
+coordinate in $K$ dei punti $A$ ed $E$ saranno:
+\begin{align}
+A &\equiv \frac{\tau}{\sqrt{1+\beta^2}}(\beta,1)\;, \\
+E &\equiv -\frac{\tau}{\sqrt{1+\beta^2}}(\beta,1)\;.
+\end{align}
+Per costruzione, si ha:
+$$
+A=E+r(1,1)+s(-1,1)\;,
+$$
+da cui si ottiene:
+\begin{align}
+& r=\frac{1+\beta}{\sqrt{1+\beta^2}}\tau\;, & s=\frac{1-\beta}{\sqrt{1+\beta^2}}\tau\;,
+\end{align}
+e di conseguenza le coordinate di $R$ nel sistema di riferimento $K$ saranno:
+\begin{equation}
+R=\frac{\tau}{\sqrt{1+\beta^2}}(1,\beta)\;.
+\end{equation}
+$R$ pertanto giace su una retta simmetrica a $ct'$ rispetto alla bisettrice, che rappresenta l'asse $x'$ nel sistema $K$. Passando da 
+$K'$ a $K$ avremo dunque le seguenti relazioni:
+\begin{align}
+A &= \begin{pmatrix}
+t' \\
+0
+\end{pmatrix}\longmapsto a(\beta)\begin{pmatrix}
+1 \\
+\beta
+\end{pmatrix}t\;, \notag \\
+R &= \begin{pmatrix}
+0 \\
+x'
+\end{pmatrix}\longmapsto b(\beta)\begin{pmatrix}
+\beta \\
+1
+\end{pmatrix}x\;.
+\end{align}
+Se tali trasformazioni sono lineari, allora conoscendo una base dello spazio è possibile sapere come viene trasformato ogni punto. 
+Intanto, osserviamo che mandano rette in rette. La linearità discende direttamente dall'omogeneità dello spazio. In virtù di ciò, 
+possiamo riscrivere le trasformazioni come:
+\begin{equation}
+\begin{cases}
+t' = a(\beta)t+b(\beta)\beta x \\
+\\
+x'=a(\beta)\beta t+b(\beta)x
+\end{cases}\;. \label{ch2_lorentztransf1}
+\end{equation}
+Restano quindi da determinare $a(\beta),b(\beta)$. Osserviamo che se $K'$ si muove rispetto a $K$ con velocità $\beta$, allora $K$ si 
+muoverà rispetto a $K'$ con velocità $-\beta$. Allora le equazioni \eqref{ch2_lorentztransf1} diventano:
+\begin{equation}
+\begin{cases}
+t = a(-\beta)t'-b(\beta)\beta x' \\
+\\
+x = a(-\beta)\beta t'+b(-\beta)x
+\end{cases}\;.
+\end{equation}
+Dato che mandando $\beta$ in $-\beta$ le trasformazioni devono coincidere, si conclude che $a,b$ sono funzioni pari di $\beta$, cioè:
+\begin{align}
+& \begin{cases}
+  t'=a(|\beta|)t+b(|\beta|)\beta x \\
+\\
+x'=a(|\beta|)\beta t+b(|\beta|)x
+ \end{cases}\;,
+&\begin{cases}
+ t=a(|\beta|)t'-b(|\beta|)\beta x' \\
+\\
+x=-a(|\beta|)\beta t'+b(|\beta|)x'
+\end{cases}\;.
+\end{align}
+In forma matriciale:
+\begin{equation}
+\begin{pmatrix}
+t' \\
+x
+\end{pmatrix}=\begin{pmatrix}
+a & \beta b \\
+\beta a & b
+\end{pmatrix}\begin{pmatrix}
+t \\
+x
+\end{pmatrix} = \begin{pmatrix}
+a & \beta b \\
+\beta a & b
+\end{pmatrix}\begin{pmatrix}
+a & -\beta b \\
+-\beta a & b
+\end{pmatrix}\begin{pmatrix}
+t' \\
+x'
+\end{pmatrix}\;.
+\end{equation}
+Allora dovrà essere:
+\begin{equation}
+\begin{pmatrix}
+a & \beta b \\
+\beta a & b
+\end{pmatrix}\begin{pmatrix}
+a & -\beta b \\
+-\beta a & b
+\end{pmatrix}=\begin{pmatrix}
+a^2-\beta^2ab & -\beta ab+\beta b^2 \\
+\beta a^2-\beta ab & -\beta^2ab+b^2
+\end{pmatrix}=\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}\;.
+\end{equation}
+Da ciò si ricava:
+\begin{equation}
+\begin{cases}
+\beta b(a-b) =0\quad \Longrightarrow\quad a=b \\
+\\
+a^2(1-\beta^2)=1\quad \Longrightarrow\quad a^2=\dfrac{1}{1-\beta^2}
+\end{cases}\;.
+\end{equation}
+Dunque, posto $\beta=v/c$, si ha:
+\begin{equation}
+a=b=\frac{1}{\sqrt{1-v^2/c^2}}\equiv \gamma(v)\;.
+\end{equation}
+In conclusione, le equazioni:
+\begin{equation}
+\begin{cases}
+ x'=\gamma(x+\beta t) \\
+\\
+t'=\gamma(t+\beta x)
+\end{cases}\;, \label{ch2_lorentztransf2}
+\end{equation}
+rappresentano le \textit{trasformazioni di Lorentz ortocrone e proprie in 1+1 dimensioni}. In forma matriciale, le trasformazioni 
+saranno:
+\begin{equation}
+L= \begin{pmatrix}
+\gamma & \beta\gamma \\
+\beta\gamma & \gamma
+\end{pmatrix}\;.
+\end{equation}
+Ricaviamo infine la legge di composizione delle velocità. Eseguiamo il differenziale delle trasformazioni \eqref{ch2_lorentztransf2}:
+\begin{equation}
+\begin{cases}
+\diff{x'}=\gamma(\diff{x}+\beta\diff{t}) \\
+\\
+\diff{t'}=\gamma(\diff{t}+\beta\diff{x})
+\end{cases}\;,
+\end{equation}
+e dunque:
+\begin{equation}
+\dev{x'}{t'}=v'=\frac{\diff{x}+\beta\diff{t}}{\diff{t}+\beta\diff{x}}=\frac{\diff{x}/\diff{t}+u}{1+u\diff{x}/\diff{t}}=\frac{u+v}{1+uv/c^2}\;.
+\end{equation}
+La quantità conservata nella metrica di Minkowski è la \textit{lunghezza di Minkowski} $\sqrt{(\Delta x)^2-(c\Delta t)^2}$. \\
+Osserviamo che $\det L=\gamma^2-\beta^2\gamma^2=\gamma^2(1-\beta^2)=1$. Allora esisterà un parametro $\vartheta$, detto \textit{rapidità}, tale che:
+\begin{equation}
+\begin{cases}
+\gamma=\cosh\vartheta \\
+\\
+\beta\gamma=\sinh\vartheta
+\end{cases}\;.
+\end{equation}
+Allora le trasformazioni di Lorentz possono essere scritte nella forma:
+\begin{equation}
+\begin{pmatrix}
+\diff{t'} \\
+\\
+\diff{x'}
+\end{pmatrix}=\begin{pmatrix}
+\cosh\vartheta & \sinh\vartheta \\
+\\
+\sinh\vartheta & \cosh\vartheta
+\end{pmatrix}\begin{pmatrix}
+\diff{t} \\
+\\
+\diff{x}
+\end{pmatrix}\;.
+\end{equation}
+Verifichiamo se vi sono analogie con le rotazioni in $\mathbb{R}^2$. Se applichiamo due trasformazioni con rapidità $\vartheta_1$ e 
+$\vartheta_2$, si ha:
+\begin{align}
+\begin{pmatrix}
+t' \\
+\\
+x'
+\end{pmatrix} &=\begin{pmatrix}
+\cosh\vartheta_1 & \sinh\vartheta_1 \\
+\\
+\sinh\vartheta_1 & \cosh\vartheta_1
+\end{pmatrix}\begin{pmatrix}
+\cosh\vartheta_2 & \sinh\vartheta_2 \\
+\\
+\sinh\vartheta_2 & \cosh\vartheta_2
+\end{pmatrix}\begin{pmatrix}
+t \\
+\\
+x
+\end{pmatrix} \notag \\
+&=\begin{pmatrix}
+\cosh\vartheta_1\cosh\vartheta_2+\sinh\vartheta_1\sinh\vartheta_2 & \cosh\vartheta_2\sinh\vartheta_2+\sinh\vartheta_1\cosh\vartheta_2 \\
+\\
+\sinh\vartheta_1\cosh\vartheta_2+\cosh\vartheta_1\sinh\vartheta_2 & \sinh\vartheta_1\sinh\vartheta_2+\cosh\vartheta_1\cosh\vartheta_2
+\end{pmatrix}\begin{pmatrix}
+t \\
+\\
+x
+\end{pmatrix}\notag \\
+&=\begin{pmatrix}
+\cosh(\vartheta_1+\vartheta_2) & \sinh(\vartheta_1+\vartheta_2) \\
+\\
+\sinh(\vartheta_1+\vartheta_2) & \cosh(\vartheta_1+\vartheta_2)
+\end{pmatrix}\begin{pmatrix}
+t \\
+\\
+x
+\end{pmatrix}\;.
+\end{align}
+Osserviamo che anche in questa forma la lunghezza di Minkowski è conservata:
+\begin{align}
+\diff{\tau}^2= (\diff{t'})^2-(\diff{x'})^2 &= (\cosh\vartheta\diff{t}+\sinh\vartheta\diff{x})^2-(\sinh\vartheta\diff{t}+\cosh\vartheta\diff{x})^2 \notag \\
+&=(\cosh^2\vartheta-\sinh^2\vartheta)\diff{t}^2-(\cosh^2\vartheta-\sinh^2\vartheta)\diff{x}^2 \notag \\
+&= \diff{t}^2-\diff{x}^2\;.
+\end{align}
+Il gruppo di matrici indotte dalle trasformazioni di Lorentz è denominato \textit{gruppo ortogonale speciale} (1,1), e di denota con 
+$SO(1,1)$. Ricaviamo anche in questa forma la legge di composizione delle velocità. Sapendo che:
+\begin{equation}
+\frac{v}{c}=\beta=\frac{\sinh\vartheta}{\cosh\vartheta}=\tanh\vartheta\;,
+\end{equation}
+si ha:
+\begin{equation}
+\beta_1\circ\beta_2=\tanh(\vartheta_1+\vartheta_2)=\frac{\tanh\vartheta_1+\tanh\vartheta_2}{1+\tanh\vartheta_1\tanh\vartheta_2}=
+\frac{\beta_1+\beta_2}{1+\beta_1\beta_2}\;.
+\end{equation}
+Moltiplicando tutto per $c$ otteniamo:
+\begin{equation}
+v_1\circ v_2=\frac{v_1+v_2}{1+v_1v_2/c^2}\;. \label{ch2_velocitycomp}
+\end{equation}
+La legge di composizione delle velocità della meccanica Newtoniana rientra nell'ordine zero di approssimazione per piccole velocità.
+Infatti se $v_1/c,v_2/c\ll 1$, allora, sviluppando in serie di Taylor il denominatore della \eqref{ch2_velocitycomp} si ha:
+\begin{equation}
+v_1\circ v_2 =\frac{v_1+v_2}{1+v_1v_2/c^2}\simeq (v_1+v_2)\left(1-\frac{v_1v_2}{c^2}+\cdots\right)\simeq v_1+v_2\;.
+\end{equation}
+Introduciamo adesso il \textit{tensore metrico} $g_{\mu\nu}$ dato da:
+\begin{equation}
+ g_{\mu\nu}=\left(\begin{matrix}
+                   -1 & {} \\
+{} & \mathbb{I}_n
+                  \end{matrix}\right) \qquad \qquad \mu,\nu=0,1,2,3\;.
+\end{equation}
+In 1+1 dimensioni, cioè nello spaziotempo $\mathbb{M}^2$:
+\begin{equation}
+g_{\mu\nu}=\begin{pmatrix}
+-1 & 0 \\
+0 & 1
+\end{pmatrix}\;,
+\end{equation}
+con $\mu,\nu=0,1$. Le trasformazioni di Lorentz sono date da:
+\begin{align}
+\begin{pmatrix}
+t' \\
+x'
+\end{pmatrix} &= L(\vartheta)\begin{pmatrix}
+t \\
+x
+\end{pmatrix}\;, \\
+(x'_{\mu})^Tg_{\mu\nu}x_{\nu} &= x_{\mu}^TL^T(\vartheta)g_{\mu\nu}L(\vartheta)x_{\nu}\;,
+\end{align}
+da cui $g=L^TgL$. \\
+
+Dato un punto nel cono-luce, è sempre possibile trovare un sistema di riferimento in cui il punto non abbia componenti sugli assi 
+spaziali, cioè in modo tale che:
+\begin{equation}
+\diff{x'}=\gamma(\diff{x}+\beta\diff{t})=0\qquad \Longrightarrow\qquad \dev{x}{t}=-\beta\;,
+\end{equation}
+quindi è sufficiente scegliere un sistema di riferimento che si muova rispetto al primo con velocità $-\beta$. Un vettore dello 
+spaziotempo non avente componenti sugli assi spaziali è detto \textit{vettore-tempo}. Si osserva che il prodotto scalare fra due 
+vettori-tempo è sempre negativo. Da questo si deduce che i coni-luce $V_+$ e $V_-$ sono invarianti per trasformazioni di Lorentz.
+\subsection{In 3+1 dimensioni}
+Il gruppo delle rotazioni in $\mathbb{R}^3$ è un sottogruppo delle matrici di Lorentz. Nello spazio di Minkowski $\mathbb{M}^4$, 
+possiamo generalizzare quanto detto prima a 3+1 dimensioni:
+\begin{equation}
+\begin{pmatrix}
+t' \\
+x' \\
+y' \\
+z'
+\end{pmatrix}=\begin{pmatrix}
+A & B \\
+0 & D
+\end{pmatrix}\begin{pmatrix}
+t \\
+x \\
+y \\
+z
+\end{pmatrix}\;,
+\end{equation}
+con la condizione che la matrice della trasformazione, che denotiamo $\Lambda$ sia tale che $\Lambda^T g\Lambda=g$. Allora i 
+quadrivettori $(x,y,z,t)\in \mathbb{M}_4$ sono tali che:
+\begin{equation}
+\begin{cases}
+x_{\mu}'=\Lambda_{\mu\nu}x_{\nu} \\
+\\
+\Lambda^Tg\Lambda= g \\
+\\
+\langle x', y'\rangle = \langle x, y\rangle
+\end{cases}\qquad\qquad \Lambda\in SO(3,1)\;.
+\end{equation}
+Vi sono particolari forme della matrice di Lorentz $\Lambda$ che danno luogo alle cosidette \textit{inversioni}:
+\begin{itemize}
+ \item se $\Lambda=\left(\begin{matrix}
+                       -1 & {} \\
+{} & \mathbb{I}_3
+                      \end{matrix}\right)$ abbiamo l'\textit{inversione temporale}, cioè:
+\begin{equation}
+\Lambda\begin{pmatrix}
+t \\
+\mathbf{x}
+\end{pmatrix}=\begin{pmatrix}
+-t \\
+\mathbf{x}
+\end{pmatrix}\;;
+\end{equation}
+\item se $\Lambda=\left(\begin{matrix}
+                         1 & {} \\
+{} & -\mathbb{I}_3
+                        \end{matrix}\right)$ abbiamo l'\textit{inversione spaziale}, cioè:
+                        
+\begin{equation}
+\Lambda\begin{pmatrix}
+t \\
+\mathbf{x}
+\end{pmatrix}=\begin{pmatrix}
+t \\
+-\mathbf{x}
+\end{pmatrix}\;;
+\end{equation}
+\item se $\Lambda=\left(\begin{matrix}
+                         -1 & {} \\
+{} & -\mathbb{I}_3
+                        \end{matrix}\right)$ abbiamo l'\textit{inversione dello spaziotempo}, cioè:
+
+\begin{equation}
+\Lambda\begin{pmatrix}
+t \\
+\mathbf{x}
+\end{pmatrix}=\begin{pmatrix}
+-t \\
+-\mathbf{x}
+\end{pmatrix}\;.
+\end{equation}
+\end{itemize}
+Il gruppo costituito dalle matrici indotte da trasformazioni di Lorentz è denominato \textit{gruppo di Lorentz} e si denota con 
+$\mathcal{L}$. Si tratta di un gruppo continuo non compatto ed è unione di quattro sottogruppi:
+$$
+\mathcal{L}=\mathcal{L}^+_{\uparrow}\cup\mathcal{L}^+_{\downarrow}\cup\mathcal{L}^-_{\uparrow}\cup\mathcal{L}^-_{\downarrow}\;.
+$$
+Il sottogruppo $\mathcal{L}^+_{\uparrow}$ è il \textit{gruppo di Lorentz ortocrono}, cioè costituito da trasformazioni che non 
+coinvolgono inversioni.
+\section{Cenni di teoria dei gruppi}
+\subsection{Rappresentazioni di gruppi}
+Consideriamo il gruppo delle rotazioni in $\mathbb{R}^2$, con tensore metrico $g=\left(\begin{matrix}
+                                                                                        1 & 0 \\
+0 & 1
+                                                                                       \end{matrix}\right)$. Una rotazione intorno all'asse $\hat{z}$ è data da:
+\begin{equation}
+R(\hat{z},\theta)=\begin{pmatrix}
+\cos\theta & \sin\theta \\
+-\sin\theta & \cos\theta
+\end{pmatrix}\in SO(2)\;.
+\end{equation}                 
+Le matrici del gruppo delle rotazioni sono tali che $R^T=R^{-1}$. Abbiamo inoltre una rappresentazione del gruppo $(\mathbb{R},+)$ in 
+$R(\theta)$ dotato del prodotto righe per colonne data da:
+\begin{align}
+\theta_1,\theta_2\in (\mathbb{R},+)\quad  &\longmapsto \quad \theta_1+\theta_2\;, \\
+R(\theta_1),R(\theta_2)\in(R(\theta),\circ) \quad & \longmapsto \quad R(\theta_1)R(\theta_2)=R(\theta_1+\theta_2)\;.
+\end{align}
+Introduciamo adesso il \textit{generatore} $L_z$ del sottogruppo delle rotazioni intorno all'asse $\hat{z}$ dato da:
+\begin{equation}
+L_z\equiv \left.\dev{R(\theta)}{\theta}\right|_{\theta=0}=\begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix}\;.
+\end{equation}
+Osserviamo che:
+\begin{equation}
+L_z^2=-\mathbb{I},\qquad L_z^3=-L_z,\qquad L_z^4=\mathbb{I}\;.
+\end{equation}
+Allora, esponenziando il generatore e sviluppando in serie di Taylor otteniamo:
+\begin{align}
+e^{\theta L_z} &= \mathbb{I}+\theta L_z+\frac{1}{2!}\theta^2L_z^2+\frac{1}{3!}\theta^3L_z^3+\frac{1}{4!}\theta^4L_z^4+\cdots \notag \\
+&= \mathbb{I}+\theta L_z-\frac{1}{2}\theta^2\mathbb{I}-\frac{1}{6}\theta^3L_z^3+\frac{1}{24}\theta^4\mathbb{I}+\cdots \notag \\
+&= \left(1-\frac{\theta^2}{2}+\frac{\theta^4}{24}+\cdots\right)\mathbb{I}+\left(\theta-\frac{\theta^3}{6}+\cdots\right)L_z\;.
+\end{align}
+Il termine proporzionale a $\mathbb{I}$ è lo sviluppo di $\cos\theta$, mentre quello proporzionale a $L_z$ è lo sviluppo di $\sin\theta$,
+ dunque si ottiene:
+\begin{equation}
+e^{\theta L_z} =\cos\theta\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}+\sin\theta\begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix}=\begin{pmatrix}
+\cos\theta & \sin\theta \\
+-\sin\theta & \cos\theta
+\end{pmatrix}=R(\theta)\;.
+\end{equation} 
+ Vediamo se adesso troviamo dei generatori del gruppo di Lorentz nello spazio di Minkowski $\mathbb{M}^2$. Il tensore metrico sarà $g=
+\mathrm{diag}(-1,1)$ e consideriamo una trasformazione di rapidità $\vartheta$:
+\begin{equation}
+L(\hat{x},\vartheta)=\begin{pmatrix}
+\cosh\vartheta & \sinh\vartheta \\
+\sinh\vartheta & \cosh\vartheta
+\end{pmatrix}\in SO(1,1)\;.
+\end{equation}
+Anche in questo caso, ricordiamo, abbiamo una rappresentazione del gruppo $(\mathbb{R},+)$ in $\mathcal{L}$ dotato del prodotto righe 
+per colonne del tutto analoga a quella delle rotazioni, cioè:
+\begin{equation}
+L(\hat{x},\vartheta_1)L(\hat{x},\vartheta_2)=L(\hat{x},\theta_1+\theta_2)\;.
+\end{equation}
+Le matrici di Lorentz soddisfano la relazione $L^TgL=g$. Definiamo a questo punto, analogamente al caso delle rotazioni, il 
+\textit{generatore del sottogruppo ad un parametro del boost di Lorentz} (lungo l'asse $\hat{x}$) $M_x$:
+\begin{equation}
+M_x \equiv\left.\dev{L(\vartheta)}{\vartheta}\right|_{\vartheta=0}=\begin{pmatrix}
+0 & 1 \\
+1 &0
+\end{pmatrix}\;.
+\end{equation}
+Si ha che $M_x^2=\mathbb{I}$ e $M_x^3=M_x$, allora, sempre in analogia alle rotazioni, tramite l'esponenziazione del generatore e lo sviluppo in serie di Taylor, troviamo che:
+\begin{equation}
+L(\hat{x},\vartheta)=\begin{pmatrix}
+\cosh\vartheta & \sinh\vartheta \\
+\sinh\vartheta & \cosh\vartheta
+\end{pmatrix}=e^{\vartheta M_x}\;.
+\end{equation}
+Considerando adesso le rotazioni in $\mathbb{R}^3$, otteniamo che, dato che possiamo ruotare intorno a tre assi indipendentemente, 
+abbiamo tre generatori distinti $L_x,L_y,L_z$, dati da:
+\begin{equation}
+L_x = \begin{pmatrix}
+0 & 0 & 0 \\
+0 & 0 & 1 \\
+0 & -1 & 0
+\end{pmatrix},\quad L_y =\begin{pmatrix}
+0 & 0 & -1 \\
+0 & 0 & 0 \\
+1 & 0 & 0
+\end{pmatrix}, \quad L_z=\begin{pmatrix}
+0 & 1 & 0 \\
+-1 & 0 & 0 \\
+0 & 0 & 0
+\end{pmatrix}\;.
+\end{equation}
+Sappiamo che le rotazioni non sono commutative, dunque, introducendo l'operatore \textit{commutatore} $[A,B]=AB-BA$ si ha:
+\begin{equation}
+\begin{cases}
+[L_x,L_y]=-L_z \\
+\\
+[L_a,L_b]=-\epsilon_{abc}L_c
+\end{cases}\quad [L_a]_{bc}=\epsilon_{abc}L_c\;.
+\end{equation}
+In $\mathbb{M}^4$, a seconda degli assi su cui viene eseguito il boost di Lorentz, abbiamo tre generatori di boost $M_x,M_y,M_z$:
+\begin{equation}
+M_x = \begin{pmatrix}
+0 & 1 & 0 & 0 \\
+1 & {} & {} &{} \\
+0 & {} &\mbox{\huge{0}} & {} \\
+0 & {} & {} & {}
+\end{pmatrix},\quad M_y=\begin{pmatrix}
+0 & 0 & 1 & 0 \\
+0 & {} & {} & {} \\
+1 & {} &\mbox{\huge{0}} & {} \\
+0 & {} & {} & {}
+\end{pmatrix}, \quad M_z=\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & {} & {} & {} \\
+0 & {} &\mbox{\huge{0}} & {} \\
+1 & {} & {} & {}
+\end{pmatrix}\;.
+\end{equation}
+Dunque in $\mathbb{M}^4$ si hanno sei generatori, tre di boost e tre di rotazioni per cui valgono le relazioni:
+\begin{equation}
+\begin{cases}
+[L_a,L_b]=-\epsilon_{abk}L_k \\
+\\
+[M_a,M_b]=\epsilon_{abk}L_k \\
+\\
+[L_a,M_b]=\epsilon_{abk}M_k
+\end{cases}\;.
+\end{equation}
+Prendiamo in esame adesso un boost di Lorentz in $\mathbb{M}^4$ sull'asse $\hat{x}$, senza rotazioni sugli altri assi, di rapidità $
+\vartheta$, cioè:
+\begin{equation}
+\begin{pmatrix}
+t' \\
+x' \\
+y' \\
+z'
+\end{pmatrix}= \begin{pmatrix}
+\cosh\vartheta & \sinh\vartheta & 0 & 0 \\
+\sinh\vartheta & \cosh\vartheta & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+t \\
+x \\
+y \\
+z
+\end{pmatrix}\;.
+\end{equation}
+Le trasformazioni di Lorentz in forma differenziale saranno pertanto:
+\begin{equation}
+\begin{cases}
+\diff{t'}=\gamma(\diff{t}+\beta\diff{x}) \\
+\\
+\diff{x'}=\gamma(\diff{x}+\beta\diff{t}) \\
+\\
+\diff{y'}=\diff{y} \\
+\\
+\diff{z'}=\diff{z}
+\end{cases}\;.
+\end{equation}
+Vogliamo adesso scrivere come trasforma la velocità componente per componente. Dividendo ciascuna delle componenti spaziali per la 
+componente temporale si ottengono le relazioni:
+\begin{align}
+\dev{x'}{t'} &= \frac{v+\diff{x}/\diff{t}}{1+\frac{v}{c^2}\diff{x}/\diff{t}}\;, \\
+\dev{y'}{t'} &= \frac{1}{\gamma}\frac{\diff{y}}{\diff{t}+\beta\diff{x}}=\frac{1}{\gamma}\frac{\diff{y}/\diff{t}}{1+\frac{v}{c^2}\diff{x}/\diff{t}}\;, \\
+\dev{z'}{t'} &= \frac{1}{\gamma}\frac{\diff{z}/\diff{t}}{1+\frac{v}{c^2}\diff{x}/\diff{t}}\;.
+\end{align}
+Queste trasformazioni però non sono soddisfacenti, in quanto le componenti $y$ e $z$ della velocità dipendono dalla componente $x$. 
+L'obiettivo è scrivere una trasformazione simile a quella per i quadrivettori. L'unica cosa è pensare la velocità anch'essa come un 
+quadrivettore. Definiamo perciò la velocità $u$:
+\begin{equation}
+u_{\mu}=\dev{x_{\mu}}{\tau}\;,
+\end{equation}
+dove $\diff{\tau}$ è il tempo proprio. Sappiamo che la relazione fra il tempo proprio di un sistema di riferimento e lo stesso tempo misurato in un altro sistema di riferimento è data da $\diff{\tau}=\diff{t}/\gamma$. Allora:
+\begin{equation}
+u_{\mu}=\dev{x_{\mu}}{t}\dev{t}{\tau}=\gamma\dev{x}{t}\;,
+\end{equation}
+da cui:
+\begin{equation}
+ \begin{cases}
+  u_0=\gamma\dfrac{\diff}{\diff{t}}(ct)=\gamma c \\
+\\
+\mathbf{u}=\gamma\dfrac{\diff{\mathbf{x}}}{\diff{t}}=\gamma\mathbf{v}
+ \end{cases}\;.
+\end{equation}
+Per i quadrivettori, sapevamo che il prodotto scalare:
+\begin{equation}
+\sum_{\mu=0}^3x_{\mu}x_{\mu}=x^2-(ct)^2
+\end{equation}
+è invariante per trasformazioni di Lorentz. Per le \textit{quadrivelocità}, la quantità invariante è il modulo, dato da:
+\begin{equation}
+g_{\mu\nu}u_{\mu}u_{\nu}=-\gamma^2c^2+\gamma^2v^2=\frac{v^2-c^2}{1-v^2/c^2}=c^2\frac{v^2-c^2}{c^2-v^2}=-c^2\;,
+\end{equation}
+in questo caso, dato che si tratta del quadrato della velocità della luce, oltre ad essere invariante, è anche costante.
+\subsection{Rappresentazioni irriducibili}
+Trovare dunque una rappresentazione irriducibile, significa trovare l'unica decomposizione dello spazio in sottospazi invarianti non 
+ulteriormente riducibili. Il problema delle rappresentazioni irriducibili può essere riportato a trovare i generatori delle rotazioni.
+Il gruppo delle rotazioni, ricordiamo, è definito da:
+\begin{equation}
+x_i'=R_{ia}x_a\;,\qquad i,a=1,2,3\;.
+\end{equation}
+Le quantità scalari sono tali che $s'=s$, mentre i tensori sono matrici le cui componenti trasformano sotto rotazione nel seguente modo:
+\begin{equation}
+T_{ij}'=R_{ia}R_{jb}T_{ab}\;. \label{ch3_tensor}
+\end{equation}
+Tramite i tensori siamo in grado di trasformare i polinomi omogenei. Rappresentando il tensore $T$ come un vettore colonna di nove 
+componenti, cioè:
+\begin{equation}
+T=\begin{pmatrix}
+T_{11} \\
+T_{12} \\
+T_{13} \\
+\vdots \\
+T_{33}
+\end{pmatrix}\;,
+\end{equation}
+allora la rotazione \eqref{ch3_tensor} può essere espressa come:
+\begin{equation}
+T'=(R\circ R)T\;,
+\end{equation}
+dove $R\in M(9,\mathbb{R})$ è tale che $R_1\circ R_1\cdot R_2\circ R_2=R_1R_2\circ R_1R_2$ e dunque $R_1R_2=R_{1\circ 2}$. In termini 
+di versore $\hat{n}$ e angolo di rotazione $\varphi$ si ha:
+\begin{equation}
+(\hat{n},\varphi)\longmapsto R_{9\times 9}(\hat{n},\varphi),\qquad R_1^{9\times 9}\cdot R_2^{9\times 9}=R_{1\circ 2}^{9\times 9}\;.
+\end{equation}
+Abbiamo dunque una \textit{rappresentazione 9-dimensionale} del gruppo delle rotazioni. Come tensore, data la posizione e l'impulso di 
+una singola particella, possiamo considerare il prodotto esterno $T_{ab}=x_ap_b$. Se un tensore $S$ è simmetrico, cioè $S_{ab}=S_{ba}$, sarà ancora simmetrico in un sistema di riferimento ruotato? Applichiamo una rotazione al tensore $S$:
+\begin{equation}
+S_{ij}'=R_{ia}R_{jb}S_{ab}=R_{ia}R_{jb}S_{ba}=R_{jb}R_{ia}S_{ba}=S_{ji}'\;.
+\end{equation}
+Stessa cosa se il tensore è antisimmetrico. In particolare, ogni tensore a due indici può essere scritto come somma di un tensore 
+simmetrico e di uno antisimmetrico. Allora, lo spazio vettoriale dei tensori è somma diretta del sottospazio vettoriale delle matrici 
+simmetrice e di quello delle matrici antisimmetriche, il primo avente dimensione 6 e il secondo 3:
+\begin{equation}
+T=S+A,\qquad S=\begin{pmatrix}
+s_{11} & s_{12} & s_{13} \\
+s_{12} & s_{22} & s_{23} \\
+s_{13} & s_{23} & s_{33}
+\end{pmatrix},\qquad A=\begin{pmatrix}
+0 & a_{12} & a_{13} \\
+-a_{12} & 0 & a_{23} \\
+-a_{13} & -a_{23} & 0
+\end{pmatrix}\;.
+\end{equation}
+Poiché gli spazi stanno in somma diretta, rappresentando il tensore in forma vettoriale e applicando una rotazione, le componenti 
+provenienti dalla matrice simmetrica non devono mischiarsi con quelle provenienti dalla matrice antisimmetrica. Allora avremo qualcosa 
+della forma:
+\begin{equation}
+\begin{pmatrix}
+R_1^{6\times 6} & 0 \\
+0 & R_1^{3\times 3}
+\end{pmatrix}\begin{pmatrix}
+s_{11} \\
+s_{12} \\
+\vdots \\
+s_{33} \\
+a_{11} \\
+a_{12} \\
+a_{13}
+\end{pmatrix}\;.
+\end{equation}
+Notiamo inoltre che in tre dimensioni, i tensori antisimmetrici possono essere identificati con i vettori tramite la contrazione con 
+l'indice antisimmetrico $\epsilon_{iab}$, $A_{ab}\epsilon_{iab}\equiv L_i$. Dunque bisogna ridurre il sottospazio delle matrici simmetriche. Sia $S$ un tensore simmetrico, e ne considero la traccia:
+\begin{equation}
+s= s_{11}+s_{22}+s_{33}\;.
+\end{equation}
+Allora:
+\begin{equation}
+S=\begin{pmatrix}
+s_{11} & s_{12} & s_{13} \\
+{} & s_{22} & s_{23} \\
+{} & {} & s_{23}
+\end{pmatrix}=\begin{pmatrix}
+s_{11}-s/3 & s_{12} & s_{13} \\
+{} & s_{22}-s/3 & s_{23} \\
+{} & {} & s_{33}-s/3
+\end{pmatrix}\;.
+\end{equation}
+Inoltre:
+\begin{equation}
+\delta_{ij}S'_{ij} = \delta^{ij}R_{ia}R_{jb}S_{ab}=R_{ai}^T\delta_{ij}R_{jb}S_{ab}=R_{ai}^TR_{ib}S_{ab}=\delta_{ab}S_{ab}\;.
+\end{equation}
+Da questa relazione concludiamo che la traccia di un tensore simmetrico è uno scalare (infatti abbiamo provato che è invariante per 
+rotazione). Allora, in quanto sussiste una relazione di dipendenza lineare non banale, abbiamo trovato una rappresentazione irriducibile
+del gruppo delle rotazioni in $\mathbb{R}^3$, costituita dai tensori simmetrici a traccia nulla (cinque parametri liberi), i vettori (matrici 
+antisimmetriche, tre parametri liberi) e uno spazio unidimensionale formato dagli scalari (le tracce dei tensori simmetrici). Abbiamo
+ dunque: $\mathbf{3}\otimes\mathbf{3}=\mathbf{5}\oplus\mathbf{3}\oplus\mathbf{1}$. Passando adesso al gruppo di Lorentz, le quantità invarianti per boost di Lorentz sono i 4-scalari. Avremo similmente i 4-tensori (rango 2: $T_{\{\mu\nu\}},F_{[\mu\nu]},\ldots$).
+\section{Formulazione covariante della Dinamica}
+\subsection{Principi della Dinamica}
+\begin{enumerate}
+ \item Principio d'inerzia. Tutti i sistemi di riferimento inerziali in moto relativo uniforme sono indistinguibili. Questo è un caso 
+particolare del principio di relatività, quindi rimane valido anche nella formulazione relativistica;
+\item l'accelerazione di un corpo è direttamente proporzionale alla forza applicata su di esso;
+\item ad ogni azione corrisponde una reazione uguale e contraria, agente sulla stessa retta.
+\end{enumerate}
+L'introduzione delle trasformazioni di Lorentz ha avuto come conseguenza la perdita del concetto di \textit{simultaneità} degli eventi, 
+infatti se per un osservatore in un determinato sistema di riferimento due eventi accadono nello stesso istante, è immediato verificare 
+che esistono infiniti sistemi di riferimento in cui essi sono sfasati. Questa è una diretta conseguenza della costanza della velocità 
+della luce. Inoltre, i sistemi in cui si lavorava nella meccanica Newtoniana erano \textit{isolati}, cioè in assenza di forze esterne. 
+Con l'introduzione dei campi (gravitazionale, elettromagnetico) che regolano i diversi tipi di interazione, questa ipotesi non è più 
+valida, unitamente all'ipotesi di \textit{istantaneità} della propagazione dell'interazione. Difatti, la velocità della luce è quella 
+massima con cui un segnale può propagarsi, dunque, per esempio, se muovo una carica e di conseguenza modifico il campo elettromagnetico 
+che essa crea, una seconda carica posta a distanza $r$ risentirà delle perturbazioni causate dalla prima al più dopo un tempo $r/c$. 
+Pertanto, vengono meno i presupposti su cui veniva enunciato il terzo principio, e la sua validità non può essere estesa alla 
+formulazione relativistica. Tuttavia, due conseguenze importanti derivanti dal terzo principio, sono la conservazione del \textit{tri-impulso} e del momento angolare, dunque è naturale domandarsi se tali quantità siano ancora costanti nel moto nel limite relativistico o 
+ve ne siano comunque delle altre.
+\subsection{Quantità di moto}
+Ricordiamo la definizione della \textit{quadrivelocità} in un sistema di riferimento $K$:
+\begin{equation}
+ \begin{cases}
+  u_0=\gamma(v)c \\
+\\
+\mathbf{u}=\gamma(v)\mathbf{v}
+ \end{cases}\;,
+\end{equation}
+con il parametro $\gamma$ dipendente esclusivamente dal modulo della velocità. In un sistema di riferimento $K'$ che si muove rispetto a $K$ con velocità $\beta$ lungo l'asse $\hat{x}$, la quadrivelocità $u_{\mu}$ era data dalle trasformazioni di Lorentz:
+\begin{equation}
+ \begin{cases}
+u_0'=\gamma(\beta)(u_0+\beta u_x) \\
+\\
+u_x'=\gamma(\beta)(u_x+\beta u_0) \\
+\\
+u_y'=u_y \\
+\\
+u_z'=u_z  
+ \end{cases}\;.
+\end{equation}
+Supponiamo adesso di avere, in un sistema di riferimento $K_0$, un urto tra due particelle puntiformi di velocità iniziale uguale e di 
+modulo $v$. Per la conservazione della quantità di moto:
+\begin{align}
+&\mathbf{p}_{\mathrm{in}}=\mathbf{p}_1+\mathbf{p}_2=0\;, &\mathbf{p}_{\mathrm{fin}}=\mathbf{p}_1'+\mathbf{p}_2'=0\;.
+\end{align}
+Cerchiamo adesso di scrivere la quantità di moto nel caso generale, fermo restando che essa sia proporzionale alla velocità:
+\begin{equation}
+ \mathbf{p}\stackrel{?}{=}f(v)\mathbf{v}\;. \label{ch4_tobedet}
+\end{equation}
+Il fattore di proporzionalità dev'essere funzione unicamente del modulo di $\vec{v}$, in quanto deve essere invariante per rotazione. 
+Sappiamo che nel limite non relativistico $f(v\ll c)\simeq m$, dove $m$ è la quantità scalare chiamata \textit{massa} del corpo. Inoltre, la funzione $f$ deve essere iniettiva. Assumiamo adesso che esista una \textit{energia cinetica} $T(v)$, funzione scalare del modulo della velocità, anch'essa iniettiva, che si conserva, allora $T(v_1)+T(v_2)=T(v_1')+T(v_2')$. Se inoltre $v_1=v_2=v$ e $v_1'=v_2'=v'$, allora $T(v)=T(v')$. Nel sistema del centro di massa, l'urto può essere descritto dalle seguenti relazioni:
+\begin{equation}
+ \begin{cases}
+  v_x^i=v_x^{i'} \\
+\\
+v_y^i=-v_y^{i'}
+ \end{cases}\qquad i=1,2\;.
+\end{equation}
+Queste relazioni valgono per le tri-velocità anche nel limite relativistico. In termini di quadrivelocità, otteniamo che il modulo delle 
+componenti spaziali è lo stesso, dunque possiamo riscrivere la \eqref{ch4_tobedet} come:
+\begin{equation}
+\mathbf{p}=g(v)\mathbf{u}\;,
+\end{equation}
+in quanto $\mathbf{u}=\gamma(v)\mathbf{v}$. Dalla relazione $\Delta(\mathbf{p}_1+\mathbf{p}_2)_y=0$ segue che $|\Delta \mathbf{p}_1|=|\Delta\mathbf{p}_2|$, cioè:
+\begin{align}
+&|\Delta p_1^y|=g(v_1)|\Delta u_1^y|\;, &|\Delta p_2^y|=g(v_2)|\Delta u_2^y|\;.
+\end{align}
+Sommando le relazioni ed imponendo che $\Delta u_1^y+\Delta u_2^y=0$, troviamo che $g(v_1)=g(v_2)$. Questa relazione è valida in ogni 
+sistema di riferimento inerziale, dunque $g(v_1)=g(v_2)=g(v)$ è una quantità costante, che denotiamo $m$. Pertanto:
+\begin{equation}
+g(v)=\frac{f(v)}{\gamma(v)}=m\qquad \Longrightarrow\qquad f(v)=\gamma(v)m\;.
+\end{equation}
+A questo punto, possiamo definire il \textit{quadri-impulso} $p_{\mu}$ come $p=m\gamma u$, o in altre parole:
+\begin{equation}
+ \begin{cases}
+  p_0=mu_0 \\
+\\
+\mathbf{p}=m\mathbf{u}
+ \end{cases}\;.
+\end{equation}
+Se si conserva il tri-impulso, cioè $\Delta\mathbf{p}=0$, considero le trasformazioni di Lorentz:
+\begin{equation}
+\begin{cases}
+\Delta p_x'=\gamma(\beta)(\Delta p_x+\beta\Delta p_0) \\
+\\
+\Delta p_0'=\gamma(\beta)(\Delta p_0+\beta\Delta p_x)
+\end{cases}\;.
+\end{equation}
+Se $\Delta p_x=0$, allora esso sarà nullo in tutti i sistemi di riferimento inerziali, dunque si avrà anche $\Delta p_x'=0$, e dalla 
+prima trasformazione, segue che anche $\Delta p_0=0$. Il secondo membro della seconda trasformazione è identicamente nullo, dunque sarà anche $\Delta p_0'=0$. Concludiamo che se il tri-impulso si conserva, allora si conserverà anche la componente $p_0$ del 
+quadri-impulso. Vediamo dunque cosa rappresenta. Dalla definizione di quantità di modo appena data:
+\begin{equation}
+p_0=m\gamma c=mc\frac{1}{\left(1-v^2/c^2\right)^{1/2}}\;.
+\end{equation}
+Nel limite non relativistico $v/c\ll 1$ si ottiene, sviluppando in serie di Taylor:
+\begin{equation}
+p_0=\frac{1}{c}mc^2\left(1+\frac{v^2}{2c^2}+\cdots\right)=\frac{1}{c}\left(mc^2+\frac{1}{2}mv^2+\cdots\right)\;:
+\end{equation}
+In termini del problema delle due particelle di massa $m_1$ e $m_2$ e velocità $v_1$ e $v_2$ ciò comporta:
+\begin{equation}
+m_1c^2+\frac{1}{2}m_1v_1^2+m_2c^2+\frac{1}{2}m_2v^2_2=m_1c^2+\frac{1}{2}m_1(v_1')^2+m_2c^2+\frac{1}{2}m_2(v_2')^2\;,
+\end{equation}
+cioè:
+\begin{equation}
+\frac{1}{2}m_1v_1^2+\frac{1}{2}m_2v_2^2=\frac{1}{2}m_1(v_1')^2+\frac{1}{2}m_2(v_2')^2\;,
+\end{equation}
+che è esattamente la legge di conservazione dell'energia cinetica nel limite non relativistico. Concludiamo dunque che la componente 
+$p_0$ rappresenta l'energia cinetica del sistema, e, generalizzando quanto visto, possiamo asserire che energia e tri-impulso sono le 
+componenti di un quadrivettore denominato \textit{quadri-impulso}. Possiamo dunque scrivere l'impulso nella formulazione relativistica:
+\begin{equation}
+ \mathbf{p}=\frac{m\mathbf{v}}{\sqrt{1-v^2/c^2}}=m\gamma\mathbf{v}\;, \label{ch4_relativistic3mom}
+\end{equation}
+dove $m$ è un quadri-scalare. Da questa formula, appare che, all'aumentare della velocità della particella, aumenti proporzionalmente 
+anche la sua massa, cioè $m\gamma=m(v)$. In tal caso, sarebbe giustificato il valore di $c$ come limite superiore di propagazione di un 
+evento.
+\subsection{Secondo principio}
+Nella formulazione di Newton, ricordiamo, il secondo principio era dato da:
+\begin{equation}
+m\dev{\mathbf{v}}{t}=\mathbf{F}\;,
+\end{equation}
+che possiamo riscrivere come:
+\begin{equation}
+\dev{\mathbf{p}}{t}=\mathbf{F}\;,
+\end{equation}
+con $\mathbf{p}$ dato dalla \eqref{ch4_relativistic3mom}. Nel caso di moto unidimensionale con dato iniziale nullo, e assumendo che la massa sia invariante, abbiamo:
+\begin{equation}
+\frac{\diff}{\diff{t}}(\gamma v)=\frac{F}{m}=g\qquad \Longrightarrow\qquad \gamma v = gt\;.
+\end{equation}
+Sostituendo l'espressione di $\gamma$ otteniamo:
+\begin{equation}
+v=\frac{gt}{\gamma}=gt\sqrt{1-\frac{v^2}{c^2}}\;.
+\end{equation}
+Elevando al quadrato e dividendo per $c^2$ ambo i membri ottieniamo:
+\begin{equation}
+\left(\frac{v}{c}\right)^2=\left(\frac{gt}{c}\right)^2\left(1-\frac{v^2}{c^2}\right)\;.
+\end{equation}
+Ricavando da questa relazione il valore di $v/c$, si ha:
+\begin{equation}
+ \left(\frac{v}{c}\right)^2=\frac{(gt/c)^2}{1+(gt/c)^2}\;.
+\end{equation}
+Essendo tutte quantità sempre positive, possiamo osservare che $v/c<1$, che è in accordo con quanto precedentemente detto. Ricavando infine la velocità $v$:
+\begin{equation}
+\dev{x}{t}=v=\frac{gt}{\sqrt{1+(gt/c)^2}}\;,
+\end{equation}
+otteniamo che la linea d'universo descritta dalla particella è un'iperbole. \\
+
+Consideriamo adesso il seguente esempio: in un certo sistema di riferimento, un blocco di massa $M$ è in quiete e due corpi puntiformi, 
+ciascuno di massa $m$ si avvicinando ad esso con velocità uguali e opposte, rispettivamente $\mathbf{u}$ e $-mathbf{u}$ dirette lungo l'asse $\hat{y}$. L'urto è anaelastico. Allora, per la legge di conservazione della quantità di moto della meccanica classica, si ha:
+\begin{equation}
+M\cdot 0+m(u_x+u_y)=0=(M+2m)\cdot 0\;.
+\end{equation}
+Questa relazione deve valere in tutti i sistemi di riferimento inerziali. Consideriamo adesso un secondo sistema di riferimento, in moto 
+rispetto al primo con velocità uniforme $\mathbf{v}$ diretta lungo l'asse $\hat{x}$. Allora, il blocco sarà visto in movimento con velocità 
+$\mathbf{v}$ e le particelle avranno velocità $\mathbf{u}+\mathbf{v}$ e $-\mathbf{u}+\mathbf{v}$. Lungo l'asse $\hat{y}$ vale la relazione descritta nel caso precedente, mentre lungo l'asse $\hat{x}$ si ha:
+\begin{equation}
+(M+2m)v=(M+2m)v'\qquad \Longrightarrow\qquad v=v'\;.
+\end{equation}
+Anche in questo caso, la velocità del blocco rimane immutata lungo gli assi e quindi viene rispettato il principio di conservazione della
+ quantità di moto. Adesso consideriamo il blocco in quiete e mandiamo contro di esso due impulsi luminosi $\epsilon/c$. In questo caso, il blocco assorbirà gli impulsi e rimarrà fermo, in accordo con il principio classico. Se adesso diamo a tutti gli elementi una velocità $\mathbf{v}$ lungo $\hat{x}$ e indichiamo con $\alpha$ l'angolo compreso tra la direzione degli impulsi e $\mathbf{v}$, sfruttando la relatività, otteniamo la seguente relazione:
+ \begin{equation}
+ M\gamma v+2\frac{\epsilon'}{c}\sin\alpha=M\gamma_fv_f\;.
+ \end{equation}
+Questa relazione sembra violare il principio di relatività, in quanto $v_f\ne v$. Questo è un assurdo nato dall'aver assunto che la massa
+ del blocco rimanesse costante nell'evoluzione dell'evento. Imponendo che $v_f=v$, la relazione si modifica in:
+ \begin{equation}
+ M\gamma v+2\frac{\epsilon'}{c}\sin\alpha=M_f\gamma v\qquad \Longleftrightarrow\qquad (M_f-M)\gamma v=2\frac{\epsilon'}{c}\sin\alpha\;.
+ \end{equation}
+Il seno dell'angolo $\alpha$ corrisponde al rapporto $v/c$, per cui:
+\begin{equation}
+(M_f-M)\gamma v=\frac{2\epsilon'}{c}\frac{v}{c}\qquad \Longleftrightarrow\qquad \Delta(M\gamma c^2)=2\epsilon'=\Delta E_{\mathrm{luce}}\;,
+\end{equation}
+con la condizione:
+\begin{equation}
+\frac{\epsilon'}{\gamma}=\epsilon\;.
+\end{equation}
+In conclusione, siamo in grado di preservare la conservazione dell'impulso e dell'energia solo se ammettiamo che la massa non rimanga 
+costante. A questo punto, emerge ancora più chiaramente, nell'equivalenza massa-energia, che l'energia abbia un ruolo primitivo rispetto 
+alla massa. In virtù di queste considerazioni, vogliamo adesso fornire un'espressione del quadri-impulso indipendente dalla massa, ma 
+solamente dall'energia:
+\begin{equation}
+ \begin{cases}
+  p_0=\dfrac{E}{c}=m\gamma c \\
+\\
+\mathbf{p}=m\gamma\mathbf{v}
+ \end{cases}\qquad \Longleftrightarrow\qquad 
+\frac{\mathbf{p}}{E/c^2}=\mathbf{v}\;.
+\end{equation}
+Allora definiamo il quadri-impulso come:
+\begin{equation}
+ p_{\mu}=\left(\frac{E}{c},\mathbf{p}\right)\;.
+\end{equation}
+Adesso consideriamo la quantità $p_{\mu}p_{\mu}$. Con la nuova definizione si ha:
+\begin{equation*}
+ p_{\mu}p_{\mu}=\mathbf{p}^2-\frac{E}{c^2}\;,
+\end{equation*}
+dove si è usata la definizione del prodotto scalare di Minkowski. Usando invece la definizione che coinvolge la quadrivelocità, si ha:
+\begin{equation}
+p_{\mu}p_{\mu}=m^2u_{\mu}u_{\mu}=-(mc)^2\;.
+\end{equation}
+Uguagliando le due espressioni, otteniamo la \textit{relazione energia-impulso}:
+\begin{equation}
+ \frac{E^2}{c^2}-\mathbf{p}^2=m^2c^2\qquad  \Longleftrightarrow \qquad E^2=\mathbf{p}^2c^2+m^2c^4\;,
+\end{equation}
+dove la quantità $mc^2$ è detta \textit{massa a riposo}. Notiamo che questa relazione fornisce una relazione riguardante il quadrato 
+dell'energia, quindi bisogna stare attenti a considerare il doppio segno quando si estrae la radice.
+\begin{exm}[Effetto Compton] 
+Consideriamo un fotone con quadri-impulso dato da:
+\begin{equation}
+ k_{\mu}=\hbar\left(\frac{\omega}{c},\mathbf{k}\right)\;.
+\end{equation}
+Abbiamo che $k^2=0$, il che implica che siamo sul bordo del cono-luce. Trattandosi di un fotone, la cosa ha senso. Ricordando la 
+definizione di quadri-impulso appena data ciò implica che la massa del fotone è nulla, il che ha ancora senso. L'effetto fotoelettrico, d'altra parte, ci garantisce che:
+\begin{equation}
+ \begin{cases}
+  E=\hbar\omega \\
+\\
+\mathbf{p}=\hbar\mathbf{k}
+ \end{cases}\;,
+\end{equation}
+dove $E,\mathbf{p}$ sono l'energia e l'impulso dell'elettrone, soddisfacenti $E^2-\mathbf{p}^2c^2=m^2c^4$. Se adesso consideriamo un elettrone fermo, verso cui mandiamo il fotone di impulso $k_{\mu}$ e lunghezza d'onda $\lambda$, dopo 
+l'assorbimento seguirà un'emissione, che risulterà inclinata di un angolo $\theta$ rispetto alla direzione iniziale e con una lunghezza 
+d'onda $\lambda'\ne\lambda$, e dunque con impulso $k'\ne k$. Imponiamo la conservazione dell'energia sugli indici zero dei quadri-impulsi (lavoriamo in unità $c=1$):
+\begin{equation}
+ \hbar\omega+m=\hbar\omega'+E'\qquad  \Longleftrightarrow\qquad  E'-m=\hbar(\omega-\omega')\;. \label{ch4_sistema1}
+\end{equation}
+Poiché deve essere $\omega-\omega'>0$, da questa relazione otteniamo che la lunghezza d'onda $\lambda'$ è maggiore di quella iniziale. 
+Sugli indici $i=1,2,3$ del quadri-impulso imponiamo che:
+\begin{equation}
+\hbar (k-k')=p'-p\;.
+\end{equation}
+Elevando al quadrato si ottiene:
+\begin{equation}
+\hbar^2(-2k\cdot k')=2m^2-2p\cdot p'\qquad \implies\qquad \hbar^2k\cdot k'=p\cdot p'-m^2\;.
+\end{equation}
+Poiché la quantità $p\cdot p'$ è invariante per trasformazione di Lorentz, ne consideriamo solo la componente zero, quindi:
+\begin{equation}
+\hbar^2k\cdot k'=m(E'-m)\;.
+\end{equation}
+In conclusione, otteniamo la relazione:
+\begin{equation}
+ \hbar^2\omega'\omega(1-\cos\theta)=m(E'-m)\;. \label{ch4_sistema2}
+\end{equation}
+Mettendo a sistema le equazioni \eqref{ch4_sistema1} e \eqref{ch4_sistema2} troviamo:
+\begin{equation}
+ \lambda'-\lambda=\frac{\hbar}{mc}(1-\cos\theta),\qquad \mbox{con}\;\frac{\hbar}{mc}=0,024\stackrel{\circ}{\mathrm{A}}\;.
+\end{equation}
+Inoltre, dopo alcuni passaggi algebrici, otteniamo un'altra relazione:
+\begin{equation}
+ \lambda E=hc\;,
+\end{equation}
+che ci consente di capire che per registrare variazioni bisogna usare lunghezze d'onda sufficientemente piccole.
+\end{exm}
+
+Vogliamo adesso fare qualche considerazione sul momento angolare $\mathbf{L}$. Sappiamo che $\mathbf{L}$ può essere interpretato come un tensore antisimmetrico tale che:
+\begin{equation}
+\epsilon_{ijk}L_k=x_ip_j-x_jp_i\;.
+\end{equation}
+In $\mathbb{M}^4$ estendiamo questo concetto considerando un tensore antisimmetrico $F_{\mu\nu}$ e introducendo il simbolo $\epsilon$ a quattro indici $\epsilon_{\alpha\beta\mu\nu}$. Applicando il simbolo al tensore si ha:
+\begin{equation}
+ \epsilon_{\alpha\beta\mu\nu}F_{\mu\nu}=\hat{F}_{\alpha\beta}\;.
+\end{equation}
+Otteniamo dunque un tensore a due indici antisimmetrico, detto il \textit{duale} di $F$. Se avevevamo completato il tri-impulso con 
+l'energia, possiamo completare le tre componenti del momento angolare (che ricordiamo sono i generatori delle rotazioni) inserendole in
+ un tensore antisimmetrico insieme ai generatori del gruppo di Lorentz:
+\begin{equation}
+\left(\begin{matrix}
+       0 & \mathcal{L}_1 & \mathcal{L}_2 & \mathcal{L}_3 \\
+-\mathcal{L}_1 & 0 & L_3 & -L_2 \\
+-\mathcal{L}_2 & -L_3 & 0 & L_1 \\
+-\mathcal{L}_3 & L_2 & -L_1 & 0
+      \end{matrix}\right)\;.
+\end{equation}
+Possiamo definire dunque il \textit{tensore momento angolare} $M_{\mu\nu}$:
+\begin{equation}
+ M_{\mu\nu}\equiv \epsilon_{\alpha\beta\mu\nu}x_{\alpha}p_{\beta}\;.
+\end{equation}
+Poiché $M_{\mu\nu}$ è antisimmetrico, avrà sei componenti linearmente indipendenti, tre che generano le rotazioni e tre che generano i 
+boost di Lorentz. Questo tensore si conserva.
+
+\subsection{Forze}
+In analogia con il secondo principio:
+\begin{equation}
+\dev{\mathbf{p}}{t}=\mathbf{F}\;,
+\end{equation}
+derivando il quadri-impulso rispetto al tempo proprio otteniamo qualcosa di simile a una quadri-forza:
+\begin{equation}
+\dev{p_{\mu}}{\tau}\equiv G_{\mu}=\dev{p_{\mu}}{t}\dev{t}{\tau}=\begin{cases}
+\gamma\dfrac{\diff}{\diff{t}}\left(\dfrac{E}{c}\right)=\dfrac{\gamma}{c}\mathbf{F}\cdot\mathbf{v}\qquad \mu=0 \\
+\\
+\gamma\mathbf{F}\qquad \mu=1,2,3
+\end{cases}\;.
+\end{equation}
+Poiché $G_{\mu}$ è un quadrivettore, esso deve trasformare secondo le trasformazioni di Lorentz. Consideriamo un sistema di riferimento in cui una particella è a riposo, e scriviamo $G_{\mu}$:
+\begin{equation}
+G^{\mathrm{rest}}_{\mu}=\begin{pmatrix}
+0 \\
+\\
+\mathbf{F}^{\mathrm{rest}}
+\end{pmatrix}\;.
+\end{equation}
+Se invece osserviamo la particella in un sistema di riferimento in moto relativo con velocità $\mathbf{v}$ lungo l'asse $\hat{x}$, allora 
+$G_{\mu}$ sarà data da:
+\begin{equation}
+G^v_{\mu}=\begin{pmatrix}
+\gamma\mathbf{F}\cdot\mathbf{v}/c \\
+\\
+\gamma\mathbf{F}
+\end{pmatrix}\;.
+\end{equation}
+Queste due quantità saranno connesse da una trasformazione di Lorentz: 
+\begin{align}
+G_x^v &=\gamma F_x^v=\gamma(F_x^{\mathrm{rest}}+v\cdot 0)=\gamma F_x^{\mathrm{rest}}\;, \\
+G_y^v &= \gamma F_y^v=G_y^v=G_y^{\mathrm{rest}}=F_y^{\mathrm{rest}}\;.
+\end{align}
+Quindi, indicando con $F_{||}$ la componente parallela al boost e con $F_{\perp}$ quelle ortogonali, otteniamo le seguenti trasformazioni:
+\begin{equation}
+ \begin{cases}
+  F_{||}^v=F_{||}^{\mathrm{rest}} \\
+\\
+F_{\perp}^v =\dfrac{1}{\gamma} F_{\perp}^{\mathrm{rest}}
+ \end{cases}\;.
+\end{equation}
+Allora il secondo principio covariante diventa:
+\begin{equation}
+\dev{\mathbf{p}}{t}=m\frac{\diff}{\diff{t}}(\gamma\mathbf{v})=\mathbf{F}\;.
+\end{equation}
+Esplicitando la derivata:
+\begin{equation}
+m\gamma\mathbf{a}+m\mathbf{v}\dev{\gamma}{t}=\mathbf{F}\;.
+\end{equation}
+Si ha che:
+\begin{equation}
+\frac{\diff}{\diff{t}}\left[\left(1-\frac{v^2}{c^2}\right)^{-1/2}\right]=-\frac{1}{2}\frac{\mathbf{v}\cdot\mathbf{a}}{(1-v^2/c^2)^{3/2}}=\gamma^3\frac{\mathbf{v}\cdot\mathbf{a}}{c^2}\;.
+\end{equation}
+Dunque otteniamo:
+\begin{equation}
+m\gamma\mathbf{a}+m\mathbf{v}\gamma^3\frac{\mathbf{v}\cdot\mathbf{a}}{c^2}=\mathbf{F}\;.
+\end{equation}
+Proiettando tutto nelle direzioni longitudinali ed ortogonali:
+\begin{equation}
+\begin{cases}
+ (m\gamma)\vec{a}_{\perp}=\vec{F}_{\perp} \\
+\\
+m\gamma a_{||}+mv\gamma\dfrac{va_{||}}{c^2}=ma_{||}\gamma\left[1+\dfrac{v^2}{c^2}(1-v^2/c^2)^{-1/2}\right]=ma_{||}\gamma^3= F_{||}
+\end{cases}\;.
+\end{equation}
+La prima relazione implica che $m(v)\equiv m\gamma$, mentre la seconda implica invece $m(v)=m\gamma^3$. Poiché sono contradditorie, non vale la pena considerarle e conviene dunque tenersi la massa come uno scalare.
+\section{Meccanica analitica e relatività}
+In meccanica analitica, l'azione $W$ era definita da:
+\begin{equation}
+ W=\int_{t_A}^{t_B} L[q(t),\dot{q}(t)]\;\diff{t}\;,
+\end{equation}
+dove $L$ è la funzione, detta \textit{Lagrangiana}, tale che $\delta W=0$ e soddisfacente a tal fine le equazioni di Eulero-Lagrange
+\begin{equation}
+\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}}-\pdev{L}{q}=0\;.
+\end{equation}
+In analogia col caso analitico, vogliamo scrivere l'azione per una particella libera in ambito relativistico:
+\begin{equation}
+W=-mc^2\int_{t_A}^{t_B}\diff{\tau}=-mc^2\int_{t_A}^{t_B}\frac{\diff{t}}{\gamma}=-mc^2\int_{t_A}^{t_B}\diff{t}\sqrt{1-\frac{v^2}{c^2}}\;.
+\end{equation}
+Poniamo dunque $L(v)=(1-v^2/c^2)^{-1/2}$. Verifichiamo se questa è una buona definizione:
+\begin{equation}
+\begin{matrix}
+\dfrac{\partial L}{\partial v}=m\gamma v =p \\
+\\
+\dfrac{\partial L}{\partial x}=0
+\end{matrix}\qquad \implies \qquad \dev{p}{t}=0\;.
+\end{equation}
+Quindi è consistente. Scriviamo adesso l'energia:
+\begin{equation}
+E=pv-L=pv+\frac{mc^2}{\gamma}=m\gamma v^2+\frac{mc^2}{\gamma}=m\gamma\left(v^2+\frac{c^2}{\gamma^2}\right)=m\gamma c^2\;.
+\end{equation}
+Eliminando la dipendenza esplicita dalla velocità, cioè esprimendo l'energia in funzione dell'impulso, otteniamo la funzione 
+\textit{Hamiltoniana} $H(p,q)$:
+\begin{equation}
+H=\sqrt{p^2c^2+m^2c^4}\;.
+\end{equation}
+Per una carica in presenza di campo elettromagnetico, abbiamo:
+\begin{align}
+L &= -\frac{mc^2}{\gamma}+q\left(\frac{\mathbf{v}}{c}\cdot \mathbf{A}(\mathbf{r},t)-\varphi(\mathbf{r},t)\right)\;, \\
+H &= \sqrt{c^2\left(\mathbf{p}-\frac{q}{c}\mathbf{A}(\mathbf{r},t)\right)^2+m^2c^4}+q\varphi(\mathbf{r},t)\;.
+\end{align}
+\section{Esercizi}
+\begin{enumerate}
+\item Supponiamo di avere una particella in un sistema di riferimento $K$ con velocità $\mathbf{v}$ e con velocità $\mathbf{v}'$ in un secondo sistema di riferimento $K'$, in velocità relativa $u$ rispetto a $K$. Associo a $\mathbf{v},\mathbf{v}'$ le loro corrispondenti quadrivelocità $\stackrel{\sim}{v}$ e $\stackrel{\sim}{v}'$. Dimostrare che la legge di composizione delle velocità è uguale (sia per i trivettori, che per i quadrivettori). \\
+
+Le trasformazioni di Lorentz sono date da:
+\begin{equation}
+ \begin{cases}
+  \diff{t'}=\gamma_u(\diff{t}+u\diff{x}) \\
+\\
+\diff{x'}=\gamma_u(\diff{x}+u\diff{t})\;,
+ \end{cases}
+\end{equation}
+con $v=\diff{x}/\diff{t}$ e $v'=\diff{x'}/\diff{t'}$. Sostituendo:
+\begin{equation}
+v'=\dev{x'}{t'}=\frac{\diff{x}+u\diff{t}}{\diff{t}+u\diff{x}}=\frac{v+u}{1+uv}\;.
+\end{equation}
+Dunque:
+\begin{equation}
+\stackrel{\sim}{v}'=\begin{pmatrix}
+\gamma_{v'} \\
+\gamma_{v'}v'
+\end{pmatrix}\stackrel{?}{=}\begin{pmatrix}
+\gamma_u & \gamma_uu	 \\
+\gamma_uu & \gamma_u
+\end{pmatrix}\begin{pmatrix}
+\gamma_v \\
+\gamma_vv
+\end{pmatrix}\;.
+\end{equation}
+Svolgendo i prodotti ed eguagliando componente per componente otteniamo:
+\begin{equation}
+\begin{cases}
+\gamma_{v'}=\gamma_u\gamma_v(1+uv) \\
+\\
+\gamma_u\gamma_v(u+v)=\gamma_{v'}v'
+\end{cases}\;.
+\end{equation}
+Elevando al quadrato la prima equazione si ha:
+\begin{equation}
+\gamma_{v'}^2=\left(1-\left(\frac{u+v}{1+uv}\right)^2\right)^{-1}=\frac{(1+uv)^2}{(1+uv)^2-(u+v)^2}=\frac{(1+uv)^2}{(1-u)(1-v)}\;,
+\end{equation}
+da cui semplificando otteniamo l'uguaglianza. La seconda equazione è banalmente vera perché segue direttamente dalla legge di 
+composizione delle velocità, quindi le leggi di composizione sono equivalenti.
+\item Urto tra una particella di velocità $u$ e una parete che si avvicina con velocità $v$. Dire la velocità della particella dopo l'urto. \\
+ 
+In un sistema di riferimento $K'$ in moto rispetto al primo con velocità $-\mathbf{v}$, la parete è in quiete. La velocità della particella 
+in $K'$ sarà data da:
+\begin{equation}
+u'=\frac{u+v}{1+uv}\;.
+\end{equation}
+Dopo l'urto, la particella torna indietro con velocità $u_f'=-u'$. Ritornando adesso al sistema di riferimento $K$:
+\begin{equation}
+u_f=\frac{u_f'-v}{1-u_f'v}=\frac{-u'-v}{1+u'v}=-\left(\frac{\frac{u+v}{1+uv}+v}{1+\frac{u+v}{1+uv}\cdot v}\right)=
+-\frac{u+2v+uv^2}{1+2uv+v^2}\;.
+\end{equation}
+Questa formula è consistente, infatti se $u=1$ (cioè la particella è un fotone), sostituendo nella relazione trovata otteniamo $u_f=-1$, 
+cioè il fotone viene riflesso con velocità di modulo invariato (infatti la velocità della luce è costante) di segno opposto.
+\item Stesso problema del precedente, ma le velocità $\mathbf{u}$ e $\mathbf{v}$ non sono collineari e formano un angolo $\alpha$. \\
+ 
+Poiché $\mathbf{u}\equiv(u_x\cos\alpha,u_y\cos\alpha)$, si ha $\tan\alpha=u_y/u_x$. Dopo l'urto, la particella formerà un angolo 
+$\alpha_f$ con la normale alla superficie dato da:
+\begin{equation}
+\tan\alpha_f=\frac{u_{fy}}{u_{fx}}\;.
+\end{equation}
+La quadrivelocità è $\stackrel{\sim}{u}\equiv(\gamma(u),\gamma(u)u_x,\gamma(u)u_y)$. Possiamo dunque definire gli angoli di incidenza e di riflessione in termini della quadrivelocità:
+\begin{align}
+&\tan\alpha=\frac{\tilde{u}_y}{\tilde{u}_x}\;, &\tan\alpha_f=\frac{\tilde{u}_{fy}}{\tilde{u}_{fx}}\;.
+\end{align}
+In termini matriciali:
+\begin{equation}
+\tilde{u}_f=L^{-1}\begin{pmatrix}
+1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}L\tilde{u}=L^{-1}RL\tilde{u}\;.
+\end{equation}
+La matrice di Lorentz indotta dalla trasformazione è:
+\begin{equation}
+L=\begin{pmatrix}
+\gamma(v) & \gamma(v)v & 0 \\
+\gamma(v)v & \gamma(v) & 0 \\
+0 & 0 & 1
+\end{pmatrix}\;,
+\end{equation}
+quindi:
+\begin{equation}
+\tilde{u}_f=\begin{pmatrix}
+\gamma(u_f) \\
+\gamma(u_f)u_{fx} \\
+\gamma(u_f)u_{fy}
+\end{pmatrix}=\begin{pmatrix}
+\gamma(v) & -\gamma(v)v & 0 \\
+-\gamma(v)v & \gamma(v) & 0 \\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+\gamma(v) & \gamma(v)v & 0 \\
+\gamma(v)v & \gamma(v) & 0 \\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+\gamma(u) \\
+\gamma(u)u_x \\
+\gamma(u)u_y
+\end{pmatrix}\;.
+\end{equation}
+Eseguendo il prodotto matriciale, si ottiene:
+\begin{equation}
+\tilde{u}_f=\gamma^2(v)\begin{pmatrix}
+1+v^2 & 2v & 0 \\
+-2v & -(1+v^2) & 0 \\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}
+\gamma(u) \\
+\gamma(u)u_x \\
+\gamma(u)u_y
+\end{pmatrix}\;,
+\end{equation}
+e dunque scrivendo le componenti di $\tilde{u}_f$ possiamo ricavare l'angolo di rifrazione:
+\begin{equation}
+\tan\alpha_f=\frac{1}{\gamma^2(v)}\frac{\sin\alpha}{(1+v^2)\cos\alpha+2v/u}\;.
+\end{equation}
+Se la parete è ferma, $v=0$ e si ha $\tan\alpha=\tan\alpha_f$, coerente con la meccanica classica.
+\item È possibile che un fotone ``decada'' in due fotoni con velocità formanti un angolo $\theta_{12}$? \\
+
+Ad un fotone è associato un quadri-impulso $p(\gamma)=\hbar(\omega,\mathbf{k})$. Allora, scrivendo la conservazione del 
+quadri-impulso $p=p_1+p_2$ ed elevando al quadrato si ha (ricordando che il modulo del quadri-impulso di un fotone è zero):
+\begin{equation}
+p^2=p_1^2+2p_1\cdot p_2+p_2^2\qquad \Longrightarrow\qquad 0=p_1\cdot p_2=-\omega_1\omega_2(\cos\theta_{12}-1)\;.
+\end{equation}
+Quindi la conservazione è rispettata se e solo se $\theta_{12}=0$, cioè i due fotoni prodotti sono collineari.
+\item  Un protone e un neutrone formano uno stato legato denominato \textit{deutone}. Il difetto di massa $B$ è dato da $B=M_p+M_n-M_d$. Per un protone e un neutrone $M_p = M_n= 940$ MeV e $B=2.2$ MeV. Mostrare che la reazione $p+n\to d$ non è consistente con la conservazione del quadri-impulso. \\
+
+I quadri-impulsi delle due particelle sono dati da:
+\begin{align}
+&p_{1\mu}=(M_p\gamma, M_p\gamma\mathbf{v}), &p_{2\mu}=(M_2\gamma,M_n\gamma\mathbf{v})\;.
+\end{align}
+Ci poniamo nel sistema del centro di massa delle due particelle: il tri-impulso iniziale, così come quello finale, è zero, quindi 
+bisogna scrivere la conservazione dell'energia (componente zero):
+\begin{equation}
+M_d=M_p\gamma(v)+M_n\gamma(v)>M_p+M_n=B+M_d\;,
+\end{equation}
+da cui otteniamo $B<0$, che contraddice l'ipotesi, dunque questa reazione è impossibile.
+\item Consideriamo adesso la reazione $p+n\to d+\gamma$, dove $\gamma$ è un fotone e verifichiamone la consistenza con la conservazione del quadri-impulso. \\
+
+Nel sistema del c.d.m.:
+\begin{equation}
+M_p\gamma(v_p)+M_n\gamma(v_n)=M_d\gamma(v_d)+E_{\gamma}\;,
+\end{equation}
+dove abbiamo considerato anche l'energia del fotone. Supponiamo adesso che $v_p,v_n \ll 1$. Osserviamo che in questo caso, per non 
+violare la conservazione del tri-impulso, il deutone prodotto deve avere una velocità non nulla. Inoltre deve essere soddisfatta:
+\begin{equation}
+M_p\gamma(v_p)\mathbf{v}_p+M_n\gamma(v_n)\mathbf{v}_n=M_d\gamma(v_d)\mathbf{v}_d+\mathbf{p}\;.
+\end{equation}
+Possiamo condensare le due equazioni in una usando il quadri-impulso:
+\begin{equation}
+p_p+p_n=p_d+p_{\gamma}\;.
+\end{equation}
+Elevando questa al quadrato:
+\begin{equation}
+(M_p+M_n)^2=(E_d+E_{\gamma})^2\;.
+\end{equation}
+Da cui otteniamo:
+\begin{equation}
+M_p+M_n=\sqrt{p^2+M_d^2}+p\;.
+\end{equation}
+Isoliamo la radice ed eleviamo al quadrato:
+\begin{equation}
+ p^2+M_d^2 = (M_n+M_p-p)^2 =M_n^2+M_p^2+p^2+2M_nM_p-2M_np-2M_pp\;,
+\end{equation}
+e quindi:
+\begin{equation}
+p=\frac{-M_d^2+(M_n+M_p)^2}{2(M_n+M_p)}=\frac{(M_n+M_p+M_d)(M_n+M_p-M_d)}{2(M_n+M_p)}=B\frac{2(M_n+M_p)-B}{2(M_n+M_p)}\;.
+\end{equation}
+Concludiamo dunque che:
+\begin{equation}
+|\mathbf{p}|=B\left(1-\frac{B}{2(M_n+M_p)}\right)\;.
+\end{equation}
+Il rapporto è di una parte su $10^5$, dunque la differenza di massa $B$ viene quasi interamente assorbita dal fotone. Di conseguenza, il 
+deutone prodotto ha una velocità quasi nulla (non totalmente nulla, altrimenti verrebbe violata la conservazione del tri-impulso).
+\item Consideriamo la reazione $e^-+e^+\to z_0$, con $m_0\simeq 90$ GeV. Vogliamo sapere, in termini di energia, se nel sistema del laboratorio è meno dispendioso tenere fermo l'elettrone e spararvi contro il positrone, oppure accelerare entrambi. \\
+
+Nel sistema del c.d.m. si ha $p_++p_-=p_0$. In termini di energia: $E_++E_-=E_0$ e poiché $E_+=E_-=E$ si ha $2E=E_0$, e quindi $E\simeq
+45$ GeV. Nel sistema del laboratorio, invece, si ha:
+\begin{equation}
+\begin{cases}
+E^+_{\mathrm{lab}}+m_e=M_0\gamma(v_0)\;, \\
+\\
+m\gamma(v_+)v_+=M_0\gamma(v_0)v_0
+\end{cases}\;.
+\end{equation}
+Riprendiamo la relazione dei quadri-impulsi e facciamone il quadrato:
+\begin{equation}
+p_+^2+p_-^2+2p_+\cdot p_-=p_0^2\qquad \Longrightarrow\qquad 2m_e^2+2E^+_{\mathrm{lab}}m_e=M_0^2\;,
+\end{equation}
+da cui:
+\begin{equation}
+E^+_{\mathrm{lab}}=\frac{M_0^2-2m_e^2}{2m_e^2}=\frac{M_0}{2}\left(\frac{M_0}{m_e}-2\frac{m_e}{M_0}\right)=\frac{M_0^2}{2m_e}\left(1-2\left(\frac{m_e}{M_0}\right)^2\right) \simeq 45\cdot 10^4 \mbox{GeV}\;.
+\end{equation}
+Quindi l'energia necessaria in questo caso è molto maggiore che nel caso precedente.
+\item Consideriamo due particelle con quadri-impulsi:
+ \begin{align}
+&p_1=(E_1,\mathbf{p}_1), &p_2=(E_2,\mathbf{p}_2)\;.
+ \end{align}
+Descriviamo nel caso più generale il centro di massa. La formula Newtoniana non è più applicabile in quanto presuppone la validità del 
+terzo principio per sistemi isolati. \\
+
+Il quadri-impulso totale del sistema è dato da:
+\begin{equation}
+P=(E_1+E_2,\mathbf{p}_1+\mathbf{p}_2)\;.
+\end{equation}
+Possiamo sempre trovare un sistema di riferimento in cui la componente spaziale del quadri-impulso totale sia solo lungo $\hat{x}$, cioè:
+\begin{equation}
+P=(E_1+E_2,(\mathbf{p}_1+\mathbf{p}_2)_x,0,0)\;,
+\end{equation}
+e quindi, poiché l'impulso nel sistema del c.d.m. deve essere $P_{cm}=(E_1'+E_2',0,0,0)$, si ottiene:
+\begin{equation}
+p_x'=\gamma(v)\left(p_{1x}+p_{2x}-v(E_1+E_2)\right)=0\;.
+\end{equation}
+La velocità $\mathbf{v}$ sarà dunque data da:
+\begin{equation}
+\mathbf{v}=\frac{\mathbf{p}_1+\mathbf{p}_2}{E_1+E_2}\;.
+\end{equation}
+\item Consideriamo i decadimenti:
+ \begin{align}
+&B\to J/\Psi + K_0\;, &K_0\to \pi^++\pi^-\;.
+ \end{align}
+Calcolare l'energia di $K_0$. \\
+
+$p_B-p_K=p_{J/\Psi}$, elevando al quadrato:
+\begin{equation}
+M_B^2+M_K^2-2M_BE_K=M^2_{J/\Psi}\;,
+\end{equation}
+da cui:
+\begin{equation}
+E_K=\frac{M^2_B+M_K^2-M^2_{J/\Psi}}{2M_B}\;,
+\end{equation}
+e per l'impulso:
+\begin{equation}
+\mathbf{p}_K^2=E_K^2-M_K^2=\frac{(M_B^2-M_K^2-M^2_{J/\Psi})^2}{4M_B^2}\;,
+\end{equation}
+cioè:
+\begin{align}
+|\mathbf{p}_K| &=\frac{M_B^2-M_K^2-M^2_{J/\Psi}}{2M_B}\;, \\
+|\mathbf{v}_K| &=\frac{|\mathbf{p}_K|}{E_K}\ll 1\;.
+\end{align}
+\end{enumerate}

@@ -1,0 +1,97 @@
+\documentclass[12pt]{report}
+\usepackage[pagebackref=true]{hyperref}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{lipsum}
+\theoremstyle{plain}
+\newtheorem{thm}{Teorema}[section]
+\newtheorem{cor}{Corollario}[thm]
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{prop}{Proposizione}[section]
+\newtheorem{rem}{Nota}[section]
+\theoremstyle{definition}
+\newtheorem{defn}{Definizione}[section]
+\newtheorem{exm}{Esempio}[section]
+\theoremstyle{remark}
+\newtheorem{oss}{Osservazione}[section]
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\newcommand{\ham}{\mathcal{H}}
+\newcommand{\lag}{\mathcal{L}}
+\newcommand{\pdev}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}
+\newcommand{\dev}[3][]{\frac{\mathrm{d}^{#1}#2}{\mathrm{d}#3^{#1}}}
+\numberwithin{equation}{section}
+\newcommand{\Div}{\mathrm{div}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand{\diff}[1][]{\mathrm{d}#1}
+\newcommand{\bra}{\langle}
+\newcommand{\ket}{\rangle}
+
+\begin{document}
+\begin{titlepage}
+\centering
+{\Huge Meccanica Classica}\\
+\vspace*{0.5cm}
+{\small Appunti (non rivisti) delle lezioni del professor d'Emilio}
+\vspace*{\stretch{0.5}} \\
+\includegraphics[width=250pt,keepaspectratio=true]{Addons/eigenLibrichiaro}
+\begin{center}
+un progetto di
+\end{center}
+\includegraphics[width=250pt,keepaspectratio=true]{Addons/eigenlabinvertito2.png} \\
+\url{www.eigenlab.org}
+\vspace*{\stretch{1}} \\
+{\small a cura di}\\
+\vspace*{0.5cm}
+{\normalsize Francesco Cicciarella\par}
+\end{titlepage}
+\pagebreak
+
+\section*{Note legali}
+\begin{center}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=1]{Addons/88x31.png}
+\end{figure}
+\vspace{0.5cm}
+Copyright \copyright \; 2011-2012 di Francesco Cicciarella \\
+\textit{Appunti di Meccanica Classica} \\	
+è rilasciato sotto i termini della licenza \\
+Creative Commons Attribuzione - Non commerciale - Condividi allo stesso modo 3.0 Italia. \\
+Per visionare una copia completa della licenza, visita \\
+\url{http://creativecommons.org/licenses/by-nc-sa/3.0/it/legalcode}
+\end{center}
+\section*{Liberatoria, mantenimento e segnalazione errori}
+Questo documento viene pubblicato, in formato elettronico, senza alcuna garanzia di correttezza del suo contenuto. Il testo, nella sua interezza, è opera di \\
+
+\vspace{0.3cm}
+\begin{flushleft}
+\texttt{Francesco Cicciarella}\\
+\texttt{<f[DOT]cicciarella[AT]inventati[DOT]org>}
+\end{flushleft}
+\vspace{0.3cm}
+e viene mantenuto dallo stesso, a cui possono essere inviate eventuali segnalazioni di errori.
+\vspace{1cm}
+\begin{flushright}
+Pisa, 10 Ottobre 2012
+\end{flushright}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\chapter{Meccanica Analitica}
+\include{MeccanicaAnalitica}
+
+\chapter{Relatività Speciale}
+\include{Relativita}
+\chapter{Fisica Statistica}
+\include{Statistica}
+\end{document}

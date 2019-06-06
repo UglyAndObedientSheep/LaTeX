@@ -1,0 +1,51 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {chapter}{\numberline {1}Meccanica Analitica}{4}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Richiami}{5}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}Formalismo Lagrangiano}{7}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Propriet\IeC {\`a} della funzione Lagrangiana}{8}{subsection.1.2.1}% 
+\contentsline {section}{\numberline {1.3}Leggi di conservazione}{9}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}Energia}{9}{subsection.1.3.1}% 
+\contentsline {subsection}{\numberline {1.3.2}Momento}{10}{subsection.1.3.2}% 
+\contentsline {subsection}{\numberline {1.3.3}Centro di massa}{11}{subsection.1.3.3}% 
+\contentsline {subsection}{\numberline {1.3.4}Momento angolare}{12}{subsection.1.3.4}% 
+\contentsline {section}{\numberline {1.4}Elettromagnetismo}{13}{section.1.4}% 
+\contentsline {subsection}{\numberline {1.4.1}Trasformazioni di gauge}{14}{subsection.1.4.1}% 
+\contentsline {section}{\numberline {1.5}Calcolo variazionale}{15}{section.1.5}% 
+\contentsline {section}{\numberline {1.6}Oscillatori armonici}{17}{section.1.6}% 
+\contentsline {subsection}{\numberline {1.6.1}Caso I - Oscillatore libero smorzato}{17}{subsection.1.6.1}% 
+\contentsline {subsection}{\numberline {1.6.2}Caso II - Oscillatore forzato}{18}{subsection.1.6.2}% 
+\contentsline {section}{\numberline {1.7}Piccole oscillazioni}{21}{section.1.7}% 
+\contentsline {subsection}{\numberline {1.7.1}Richiami di algebra lineare}{21}{subsection.1.7.1}% 
+\contentsline {section}{\numberline {1.8}Problema dei due corpi}{25}{section.1.8}% 
+\contentsline {subsection}{\numberline {1.8.1}Potenziale gravitazionale}{28}{subsection.1.8.1}% 
+\contentsline {section}{\numberline {1.9}Trasformazioni}{31}{section.1.9}% 
+\contentsline {section}{\numberline {1.10}Formalismo Hamiltoniano}{32}{section.1.10}% 
+\contentsline {subsection}{\numberline {1.10.1}La funzione di Routh}{32}{subsection.1.10.1}% 
+\contentsline {section}{\numberline {1.11}Trasformazioni canoniche infinitesime}{33}{section.1.11}% 
+\contentsline {section}{\numberline {1.12}Parentesi di Poisson}{35}{section.1.12}% 
+\contentsline {chapter}{\numberline {2}Relativit\IeC {\`a} Speciale}{37}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Introduzione}{38}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Pippone sul perch\IeC {\'e} la relativit\IeC {\`a} \IeC {\`e} saltata fuori}{38}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Spaziotempo di Minkowski}{39}{subsection.2.1.2}% 
+\contentsline {section}{\numberline {2.2}Trasformazioni di Lorentz}{39}{section.2.2}% 
+\contentsline {subsection}{\numberline {2.2.1}In 1+1 dimensioni}{39}{subsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.2.2}In 3+1 dimensioni}{42}{subsection.2.2.2}% 
+\contentsline {section}{\numberline {2.3}Cenni di teoria dei gruppi}{43}{section.2.3}% 
+\contentsline {subsection}{\numberline {2.3.1}Rappresentazioni di gruppi}{43}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.2}Rappresentazioni irriducibili}{46}{subsection.2.3.2}% 
+\contentsline {section}{\numberline {2.4}Formulazione covariante della Dinamica}{48}{section.2.4}% 
+\contentsline {subsection}{\numberline {2.4.1}Principi della Dinamica}{48}{subsection.2.4.1}% 
+\contentsline {subsection}{\numberline {2.4.2}Quantit\IeC {\`a} di moto}{49}{subsection.2.4.2}% 
+\contentsline {subsection}{\numberline {2.4.3}Secondo principio}{51}{subsection.2.4.3}% 
+\contentsline {subsection}{\numberline {2.4.4}Forze}{54}{subsection.2.4.4}% 
+\contentsline {section}{\numberline {2.5}Meccanica analitica e relativit\IeC {\`a}}{55}{section.2.5}% 
+\contentsline {section}{\numberline {2.6}Esercizi}{56}{section.2.6}% 
+\contentsline {chapter}{\numberline {3}Fisica Statistica}{62}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Richiami di Meccanica Classica}{63}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}Sistemi ed ensembles}{64}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Il teorema di Liouville}{65}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Entropia in Meccanica Statistica}{67}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}Esempi elementari di distribuzione di probabilit\IeC {\`a} ed entropia}{68}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}Calcolo dell'entropia di un gas perfetto tramite gli ensemble microcanonici}{72}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}Ensemble canonico}{75}{section.3.7}% 

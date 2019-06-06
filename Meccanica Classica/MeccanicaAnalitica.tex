@@ -1,0 +1,1208 @@
+\section{Richiami}
+\subsection*{Meccanica del punto}
+Dato un punto materiale di massa $m$ e coordinata $\mathbf{r}$, funzione del tempo, $\mathbf{r}\equiv\mathbf{r}(t)$, definiamo la velocità del punto, la sua quantità di moto e la forza agente sul punto rispettivamente come
+\begin{equation}
+\mathbf{v}=\dev{\mathbf{r}}{t},\quad \mathbf{p}=m\mathbf{v},\quad \mathbf{F}=\dev{\mathbf{p}}{t}\;.
+\end{equation}
+Trovare la traiettoria di un punto, vuol dire risolvere l'equazione differenziale del secondo ordine:
+\begin{equation}
+\begin{cases}
+\mathbf{F}(\mathbf{r})=m\dfrac{\diff^2{r}}{\diff{t}^2}=m\mathbf{a} \\
+\\
+\mathbf{r}(0)=\mathbf{r}_0,\quad \mathbf{v}(0)=\mathbf{v}_0
+\end{cases}\;.
+\end{equation}
+Da questa notiamo che $\mathbf{F}\equiv 0$ implica $\mathbf{p}$ costante. Dato un punto materiale dotato di impulso $\mathbf{p}$, definiamo il momento angolare rispetto a un polo $O$:
+\begin{equation}
+\mathbf{L}=\mathbf{r}\times \mathbf{p}\;,
+\end{equation}
+dove $\mathbf{r}$ è la distanza tra il polo e il punto materiale. Osserviamo adesso:
+\begin{equation}
+\mathbf{r}\times \dot{\mathbf{p}}=\frac{\mathrm{d}}{\mathrm{d}t}[\mathbf{r}\times\mathbf{p}]=\dev{\mathbf{L}}{t}=\mathbf{M}\;.
+\end{equation}
+Definiamo dunque il momento della forza come la derivata rispetto al tempo del momento angolare. Il lavoro compiuto da una forza su una particella è dato da:
+\begin{align}
+W_{12}&=\int_1^2 \mathbf{F}\cdot \diff{\mathbf{s}}=\int_1^2 \mathbf{F}\cdot \dev{\mathbf{s}}{t}\mathrm{d}t \notag \\
+&= \int_1^2 m\dot{\mathbf{v}}\cdot\mathbf{v}\mathrm{d}t=\int_1^2 \frac{\mathrm{d}}{\mathrm{d}t}\left[\frac{1}{2}m\mathbf{v}^2\right]\mathrm{d}t
+\notag \\
+&= \frac{1}{2}m\mathbf{v}_2^2-\frac{1}{2}m\mathbf{v}_1^2=T_2-T_1\;,
+\end{align}
+dove abbiamo introdotto l'energia cinetica $T=m\mathbf{v}^2/2$. Se la forza è tale che $\mathbf{F}=-\mathbf{\nabla}U(\mathbf{r})$, cioè è scrivibile come gradiente di un potenziale dipendente solo dalla distanza, allora:
+\begin{equation}
+W_{12}=\int_1^2 -\mathbf{\nabla}U(\mathbf{r})d\mathbf{s}=U_1-U_2\;,
+\end{equation}
+dove abbiamo introdotto l'energia potenziale $U$. Eguagliando le due espressioni del lavoro così trovate, otteniamo il teorema di conservazione dell'energia:
+\begin{equation}
+T_1+U_1=T_2+U_2\;.
+\end{equation}
+\subsection*{Sistemi di punti}
+Per un sistema formato da $N$ punti materiali, le equazioni assumono la forma:
+\begin{equation}
+\dev{\mathbf{p}_{\alpha}}{t}=\mathbf{F}_{\alpha}^{ext}+\sum_{\alpha\ne\beta}\mathbf{F}_{\alpha\beta}\;, 
+\end{equation}
+(che deve essere sommata sull'indice $\alpha=1,\ldots,N$). Ma per il terzo principio di Newton, $\mathbf{F}_{\alpha\beta}=-\mathbf{F}_{\beta\alpha}$, allora:
+\begin{align}
+\sum_{\alpha}\dev{\mathbf{p}_{\alpha}}{t}&=\frac{\mathrm{d}}{\mathrm{d}t} \left[\sum_{\alpha}m_{\alpha}\mathbf{v}_{\alpha}\right]=
+\sum_{\alpha}\mathbf{F}_{\alpha}^{ext}+\frac{1}{2}\sum_{\alpha,\beta}(\mathbf{F}_{\alpha\beta}-\mathbf{F}_{\beta\alpha})= \sum_{\alpha} \mathbf{F}_{\alpha}^{ext} \label{sec1_npoints}
+\end{align}
+Chiamiamo $M=\sum_{\alpha} m_{\alpha}$ e $\mathbf{P}=\sum_{\alpha} m_{\alpha}\mathbf{v}_{\alpha}$. L'equazione \eqref{sec1_npoints} diventa pertanto:
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d}t}\mathbf{P}\equiv M\ddot{\mathbf{R}}=\sum_{\alpha} \mathbf{F}_{\alpha}^{ext}\;,
+\end{equation}
+dove $M\mathbf{R}=\sum_{\alpha}m_{\alpha}\mathbf{r}_{\alpha}$ è la coordinata del baricentro del sistema. Osserviamo che se $\sum_{\alpha} \mathbf{F}_{\alpha}^{ext}=0$, allora $\mathbf{P}$ si conserva. Definiamo il momento angolare totale di un sistema di punti materiali come:
+\begin{equation}
+\mathbf{L}=\sum_{\alpha}(\mathbf{r}_{\alpha}\times \mathbf{p}_{\alpha})\;.
+\end{equation}
+Derivando rispetto al tempo:
+\begin{align}
+\dev{\mathbf{L}}{t}&=\sum_{\alpha} \mathbf{r}_{\alpha}\times \dot{\mathbf{p}}_{\alpha}=\sum_{\alpha} \mathbf{r}_{\alpha}\times \mathbf{F}_{\alpha}^{ext}+\frac{1}{2}\sum_{\alpha,\beta}(\mathbf{r}_{\alpha}\times \mathbf{F}_{\alpha\beta}+\mathbf{r}_{\beta}\mathbf{F}_{\beta\alpha}) \notag \\
+&= \sum_{\alpha} \mathbf{r}_{\alpha}\times \mathbf{F}_{\alpha}^{ext}+\frac{1}{2}\sum_{\alpha,\beta} (\mathbf{r}_{\alpha}\times\mathbf{F}_{\alpha\beta}-\mathbf{r}_{\beta}\mathbf{F}_{\alpha\beta}) \notag \\
+&=\sum_{\alpha} \mathbf{r}_{\alpha}\times \mathbf{F}_{\alpha}^{ext}+\frac{1}{2}\sum_{\alpha,\beta} [( \mathbf{r}_{\alpha}-\mathbf{r}_{\beta})\times \mathbf{F}_{\alpha\beta} \notag \\
+&= \sum_{\alpha} \mathbf{r}_{\alpha}\times \mathbf{F}_{\alpha}^{ext}\;,
+\end{align}
+dove abbiamo usato il fatto che $\mathbf{F}_{\alpha\beta}$ è diretta lungo la congiungente tra i due punti. Definiamo dunque il momento delle forze totale:
+\begin{equation}
+\mathbf{N}=\dev{\mathbf{L}}{t}=\sum_{\alpha} \mathbf{r}_{\alpha}\times \mathbf{F}_{\alpha}^{ext}\;.
+\end{equation}
+\pagebreak
+\section{Formalismo Lagrangiano}
+Consideriamo un certo sistema ad un dato istante $t$ fisso. Vogliamo su di esso eseguire degli \textit{spostamenti virtuali compatibili} $\delta\mathbf{r}_{\alpha}$, cioè tali che siano piccoli e coerenti con i vincoli del sistema e $\delta\dot{\mathbf{r}}_{\alpha}=0$. Allora possiamo esprimere i $\delta\mathbf{r}_{\alpha}$ in termini delle coordinate lagrangiane $q_k$:
+\begin{equation}
+\delta\mathbf{r}_{\alpha}=\sum_k \pdev{\mathbf{r}_{\alpha}}{q_k}\delta q_k\;,
+\end{equation}
+da cui:
+\begin{equation}
+\sum_{\alpha} (\dot{\mathbf{P}}_{\alpha}-\mathbf{F}_{\alpha}^{ext}-\mathbf{F}_{\alpha}^{reaz})\cdot \delta\mathbf{r}_{\alpha}=0\;,
+\end{equation}
+ma $\mathbf{F}_{\alpha}^{reaz}=0$ perché i vincoli non compiono lavoro. Otteniamo dunque il principio di D'Alembert dei lavori virtuali:
+\begin{equation}
+\sum_{\alpha}(\dot{\mathbf{P}}_{\alpha}-\mathbf{F}_{\alpha}^{ext})\cdot\delta\mathbf{r}_{\alpha}=0\;.
+\end{equation}
+I $\delta\mathbf{r}_{\alpha}$ sono linearmente dipendenti. Cerco di esprimerli in funzione delle coordinate lagrangiane $q_k$:
+\begin{align}
+-\mathbf{F}_{\alpha}^{ext}\cdot\delta\mathbf{r}_{\alpha} &= -\left(\mathbf{F}_{\alpha}^{ext}\cdot\pdev{\mathbf{r}_{\alpha}}{q_k}\right)\delta q_k=\nabla_{\mathbf{r}_{\alpha}}U\pdev{\mathbf{r}_{\alpha}}{q_k}\delta q_k \notag \\
+&=\frac{\partial U}{\partial r^i_{\alpha}}\cdot \frac{\partial r^i_{\alpha}}{\partial q_k}\delta q_k=\pdev{U}{q_k}\delta q_k\;. \\
+\dot{\mathbf{P}}_{\alpha}\cdot\delta\mathbf{r}_{\alpha} &= m_{\alpha}\dot{\mathbf{v}}_{\alpha}\cdot\delta\mathbf{r}_{\alpha}=m_{\alpha}\dot{\mathbf{v}}_{\alpha}\cdot\frac{\partial\mathbf{r}_{\alpha}}{\partial q_k}\delta q_k \notag \\
+&=\left[\frac{\diff}{\diff{t}}\left(m_{\alpha}\mathbf{v}_{\alpha}\cdot\frac{\partial\mathbf{r}_{\alpha}}{\partial q_k}\right)-m_{\alpha}\mathbf{v}_{\alpha}\cdot\frac{\partial\mathbf{v}_{\alpha}}{\partial q_k}\right]\delta q_k\;.
+\end{align}
+Poiché $\partial\mathbf{r}_{\alpha}/\partial q_k=\partial\mathbf{v}_{\alpha}/\partial\dot{q}_k$, si ha:
+\begin{align}
+\dot{\mathbf{P}}_{\alpha}\cdot\delta\mathbf{r}_{\alpha}&=\left[\frac{\mathrm{d}}{\mathrm{d}t}\left(m_{\alpha}\mathbf{v}_{\alpha} 
+\cdot \pdev{\mathbf{v}_{\alpha}}{\dot{q}_k}\right)-m_{\alpha}\mathbf{v}_{\alpha}\cdot \pdev{\mathbf{v}_{\alpha}}{q_k}\right]\delta q_k \notag \\
+&= \left[\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial\dot{q}_k}\left(\frac{1}{2}m_{\alpha}\mathbf{v}_{\alpha}^2\right)-\frac{\partial}{\partial q_k}\left(\frac{1}{2} m_{\alpha}\mathbf{v}_{\alpha}^2\right)\right]\delta q_k \notag \\
+&= \left[\frac{\mathrm{d}}{\mathrm{d}t}\pdev{T}{\dot{q}_k}-\pdev{T}{q_k}\right]\delta q_k\;.
+\end{align}
+Quindi il principio di D'Alembert in termini delle coordinate lagrangiane diventa:
+\begin{equation}
+\delta q_k \left[\left(\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial \dot{q}_k}- \frac{\partial}{\partial q_k}\right)T+\frac{\partial}{\partial q_k}U\right]=\delta q_k\left[\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial \dot{q}_k}(T-U)-\frac{\partial}{\partial q_k}(T-U)\right]=0, \quad k=1,\ldots, N\;.
+\end{equation}
+Definiamo a questo punto la funzione \textit{Lagrangiana} $L=T-U$. Avremo a questo punto le equazioni di Eulero-Lagrange per il sistema:
+\begin{equation}
+\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_k}-\pdev{L}{q_k}=0,\qquad k=1,\ldots, N\;,
+\end{equation}
+che restituiscono direttamente le equazioni del moto.
+\subsection{Proprietà della funzione Lagrangiana}
+Consideriamo due Lagrangiane $L(q,\dot{q})$ e $L'(q,\dot{q})$ che differiscono per la derivata totale rispetto al tempo di una funzione $F\equiv F(q,t)$:
+\begin{equation}
+L' = L+\dev{F}{t}=L+\pdev{F}{q_{\alpha}}\dot{q}_{\alpha}+\pdev{F}{t}\;.
+\end{equation}
+Definiamo il \textit{momento canonico generalizzato} $p_{\alpha}\equiv\partial L/\partial\dot{q}_{\alpha}$. Allora si ha:
+\begin{equation}
+\pdev{L'}{\dot{q}_{\alpha}}=p_{\alpha}'=p_{\alpha}+\pdev{F}{q_{\alpha}}\;.
+\end{equation}
+Derivando entrambi i membri rispetto al tempo:
+\begin{equation}
+\frac{\mathrm{d}}{\mathrm{d}t}\pdev{L'}{\dot{q}_{\alpha}}=\dot{p}_{\alpha}+\frac{\mathrm{d}}{\mathrm{d}t}\pdev{F}{q_{\alpha}}= \frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_{\alpha}}+\frac{\diff}{\diff{t}}\pdev{F}{q_{\alpha}}\;.
+\end{equation}
+Ma:
+\begin{align}
+\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_{\alpha}}&=\pdev{L}{q_{\alpha}}\;, \\
+\frac{\diff}{\diff{t}}\pdev{F}{q_{\alpha}} &= \frac{\partial}{\partial q_{\alpha}}\dev{F}{t}\;.
+\end{align}
+Allora:
+\begin{equation}
+\frac{\diff}{\diff{t}}\pdev{L'}{\dot{q}_{\alpha}}=\pdev{L}{q_{\alpha}}+\frac{\partial}{\partial q_{\alpha}}\dev{F}{t}=\frac{\partial}{\partial q_{\alpha}}\left(L+\dev{F}{t}\right)=\pdev{L'}{q_{\alpha}}\;.
+\end{equation}
+Dunque concludiamo che le equazioni del moto generate da $L'$ sono le stesse di quelle generate da $L$. In generale, \textit{due Lagrangiane che differiscono per la derivata totale di una certa funzione generano le stesse equazioni del moto}. \\
+
+Se la Lagrangiana non dipende da una certa coordinata $q_{\alpha}$, detta \textit{coordinata ciclica}, (può tuttavia dipendere dalle sue derivate), allora:
+\begin{equation}
+\pdev{L}{q_{\alpha}}=0\;.
+\end{equation}
+Dalle equazioni di Eulero-Lagrange segue che il momento canonico $p_{\alpha}$ si conserva, infatti:
+\begin{equation}
+\dot{p}_{\alpha}=\frac{\mathrm{d}}{\mathrm{d}t}p_{\alpha}=\frac{\mathrm{d}}{\mathrm{d}t}\pdev{L}{\dot{q}_{\alpha}}=\pdev{L}{q_{\alpha}}=0\;.
+\end{equation}
+\pagebreak
+\section{Leggi di conservazione}
+Durante il moto di un sistema meccanico, le $2n$ quantità $q_i$ e $\dot{q}_i$ $(i=1,\ldots,n)$ che caratterizzano lo stato del sistema variano nel tempo. Tuttavia, esistono funzioni di queste quantità che rimangono costanti durante il moto, e dipendono solamente dalle condizioni iniziali. Tali funzioni sono chiamate \textit{integrali primi del moto}. Il numero di integrali primi indipendenti per un sistema con $n$ gradi di libertà è $2n-1$.
+\subsection{Energia}
+La prima legge di conservazione discende dall'omogeneità del tempo. In virtù di tale omogeneità, la Lagrangiana di un sistema chiuso non dipende esplicitamente dal tempo. La derivata totale rispetto al tempo della Lagrangiana può essere quindi scritta come:
+\begin{equation}
+\dev{L}{t}=\sum_i\pdev{L}{q_i}\dot{q}_i+\sum_i\pdev{L}{\dot{q}_i}\ddot{q}_i\;.
+\end{equation}
+Sostituendo $\partial L/\partial q_i$ in accordo con le equazioni di Eulero-Lagrange, otteniamo:
+\begin{equation}
+\dev{L}{t} =\sum_i\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_i}+\sum_i\pdev{L}{\dot{q}_i}\ddot{q}_i=\sum_i\frac{\diff}{\diff{t}}\left(\dot{q}_i\pdev{L}{\dot{q}_i}\right)\;,
+\end{equation}
+ovvero, per linearità dell'operatore derivata:
+\begin{equation}
+\frac{\diff}{\diff{t}}\left(\sum_i\dot{q}_i\pdev{L}{\dot{q}_i}-L\right)=0\;.
+\end{equation}
+Notiamo che la quantità:
+\begin{equation}
+E\equiv \sum_i \dot{q}_i\pdev{L}{\dot{q}_i}-L \label{sec3_energy}
+\end{equation}
+rimane costante durante il moto, cioè è un integrale primo del moto; essa è detta \textit{energia} del sistema. Sappiamo che in un sistema chiuso la Lagrangiana è della forma $L=T(q,\dot{q})-U(q)$, con $T$ funzione quadratica delle velocità, data da:
+\begin{align}
+T &= \sum_{\alpha}\frac{1}{2}m_{\alpha}\dot{r}_{\alpha}^2=\frac{1}{2}\sum_{\alpha,k,l}m_{\alpha}\pdev{r_{\alpha}}{q_l}\dot{q}_k\dot{q}_l=\sum_{k,l}F_{kl}(q_1,\ldots,q_N)\dot{q}_k\dot{q}_l\;.
+\end{align}
+Allora:
+\begin{align}
+\sum_i\pdev{L}{\dot{q}_i}\dot{q}_i =\sum_i\pdev{T}{\dot{q}_i}\dot{q}_i &= \sum_{k,l}\sum_i\dot{q}_i\frac{\partial}{\partial \dot{q}_i}(F_{kl}\dot{q}_k\dot{q}_l)=\sum_{k,l}F_{kl}\sum_i\dot{q}_i\frac{\partial}{\partial \dot{q}_i}(\dot{q}_k\dot{q}_l)\notag \\
+&=\sum_{k,l}F_{kl}\sum_i\left(\delta_{ik}\dot{q}_i\dot{q}_l+\delta_{il}\dot{q}_i\dot{q}_k\right)=\sum_{k,l}(F_{kl}\dot{q}_k\dot{q}_l+F_{kl}\dot{q}_k\dot{q}_l) \notag \\
+&=T+T=2T\;.
+\end{align}
+Da ciò concludiamo che $T$ è omogenea di grado 1. Dunque, sostituendo quanto trovato nella \eqref{sec3_energy}:
+\begin{equation}
+E=\sum_i \pdev{L}{\dot{q}_i}\dot{q}_i-L=\sum_i \pdev{L}{\dot{q}_i}\dot{q}_i-L=2T-(T-U)=T(q,\dot{q})+U(q)\;,
+\end{equation}
+che coincide con la nota espressione dell'energia meccanica di un sistema.
+\subsection{Momento}
+Una seconda legge di conservazione deriva dall'omoegeneità dello spazio. In virtù di tale omigeneità, le proprietà meccaniche di un sistema chiuso rimangono invariante per ogni spostamento congruo dell'intero sistema. Consideriamo uno spostamento infinitesimo $\boldsymbol{\epsilon}$ e ricaviamo la condizione per cui la Lagrangiana rimane invariata. Uno spostamento congruo è una trasformazione in cui ogni punto del sistema è spostato della stessa quantità e nella stessa direzione, e quindi il raggio vettore $\mathbf{r}$ diventa $\mathbf{r}+\boldsymbol{\epsilon}$. La variazione della Lagrangiana per una variazione infinitesima delle coordinate, le velocità delle particelle rimanenti fisse, è
+\begin{equation}
+\delta L=\sum_{\alpha} \pdev{L}{\mathbf{r}_{\alpha}}\cdot\delta\mathbf{r}_{\alpha}=\boldsymbol{\epsilon}\cdot \sum_{\alpha}\pdev{L}{\mathbf{r}_{\alpha}}\;.
+\end{equation}
+Dato che $\boldsymbol{\epsilon}$ è arbitrario, la condizione $\delta L=0$ è equivalente a:
+\begin{equation}
+\sum_{\alpha}\pdev{L}{\mathbf{r}_{\alpha}}=0\;. \label{sec3_dldra}
+\end{equation}
+Dalle equazioni di Eulero-Lagrange segue che:
+\begin{equation}
+\sum_{\alpha}\frac{\diff}{\diff[t]}\pdev{L}{\mathbf{v}_{\alpha}}=\frac{\diff}{\diff[t]}\sum_{\alpha}\pdev{L}{\mathbf{v}_{\alpha}}=0.
+\end{equation}
+Concludiamo quindi che, in un sistema meccanico chiuso, il vettore:
+\begin{equation}
+\mathbf{P}\equiv \sum_{\alpha}\pdev{L}{\mathbf{v}_{\alpha}}\;,
+\end{equation}
+rimane costante durante il moto; $\mathbf{P}$ è detto \textit{momento} o \textit{quantità di moto} del sistema. Differenziando la Lagrangiana $L=\sum_{\alpha}\frac{1}{2}m_{\alpha}\mathbf{v}_{\alpha}^2-U(\mathbf{r}_1,\ldots,\mathbf{r}_n)$, troviamo che il momento è dato in termini delle velocità delle particelle da:
+ \begin{equation}
+ \mathbf{P}\equiv \sum_{\alpha}m_{\alpha}\mathbf{v}_{\alpha}\;.
+ \end{equation}
+L'additività del momento è evidente. In più, a differenza dell'energia, il momento del sistema è uguale alla somma dei momenti $\mathbf{p}_{\alpha}=m_{\alpha}\mathbf{v}_{\alpha}$ delle singole particelle. \\
+L'equazione \eqref{sec3_dldra} ha un semplice significato fisico. La derivata $\partial L/\partial\mathbf{r}_{\alpha}=-
+\partial U/\partial\mathbf{r}_{\alpha}$ è la forza $\mathbf{F}_{\alpha}$ che agisce sulla particella $\alpha$-esima. Quindi l'equazione \eqref{sec3_dldra} significa che la somma delle forze agenti su tutte le particelle in un sistema chiuso è zero\footnote{In particolare, per un sistema di sole due particelle, $\mathbf{F}_1+\mathbf{F}_2=0$, che coincide con la \textit{terza legge di Newton}.}.
+\begin{equation}
+\sum_{\alpha} \mathbf{F}_{\alpha}=0\;.
+\end{equation}
+Se il moto è descritto per mezzo di coordinate generalizzate $q_i$, le derivate della Lagrangiana rispetto alle velocità generalizzate:
+\begin{equation}
+p_i=\pdev{\lag}{\dot{q}_i}\;,
+\end{equation}
+sono chiamate \textit{momenti generalizzati}, e le derivate della Lagrangiana rispetto alle coordinate generalizzate:
+\begin{equation}
+F_i=\pdev{\lag}{q_i}\;,
+\end{equation}
+sono chiamate \textit{forze generalizzate}. In questa notazione, le equazioni di Eulero-Lagrange diventano:
+\begin{equation}
+\dot{p}_i=F_i\;.
+\end{equation}
+In coordinate cartesiane, i momenti generalizzati sono le componenti dei vettori $\mathbf{p}_{\alpha}$. In generale, tuttavia, le $p_i$ sono funzioni omogenee lineari delle velocità generalizzate $\dot{q}_i$ e non si riducono a prodotti di massa e velocità.
+\subsection{Centro di massa}
+Il momento di un sistema meccanico chiuso assume valori diversi in diversi sistemi di riferimento inerziali. Se un sistema di riferimento $K'$ si muove con velocità $\mathbf{V}$ relativamente a un altro sistema di riferimento $K$, allora le velocità $\mathbf{v}_{\alpha}'$ e $\mathbf{v}_{\alpha}$ delle particelle relative ai due sistemi di riferimento sono tali che $\mathbf{v}_{\alpha}=\mathbf{v}_{\alpha}'+\mathbf{V}$. I momenti $\mathbf{P}$ e $\mathbf{P}'$ nei due sistemi di riferimento sono dunque legati da:
+\begin{equation}
+\mathbf{P}=\sum_{\alpha} m_{\alpha}\mathbf{v}_{\alpha}=\sum_{\alpha}m_{\alpha}\mathbf{v}_{\alpha}'+\mathbf{V}\sum_{\alpha}m_{\alpha}\;,
+\end{equation}
+oppure:
+\begin{equation}
+\mathbf{P}=\mathbf{P}'+\mathbf{V}\sum_{\alpha}m_{\alpha}\;.
+\end{equation}
+In particolare, esiste sempre un sistema di riferimento $K'$ in cui il momento totale è zero. Imponendo $\mathbf{P}'=0$ troviamo dunque la velocità di tale sistema di riferimento:
+\begin{equation}
+\mathbf{V}=\frac{\mathbf{P}}{\sum_{\alpha}m_{\alpha}}=\frac{\sum_{\alpha}m_{\alpha}\mathbf{v}_{\alpha}}{\sum_{\alpha}m_{\alpha}}\;. \label{sec3_cdmvel}
+\end{equation}
+Questa formula mostra che la relazione fra il momento $\mathbf{P}$ e la velocità $\mathbf{V}$ del sistema è la stessa di quella che sussiste fra il momento e la velocità di una singola particella di massa $M=\sum m_{\alpha}$, la somma delle masse delle particelle del sistema. Il secondo membro della \eqref{sec3_cdmvel} può essere scritto come la derivata totale rispetto al tempo della quantità:
+\begin{equation}
+\mathbf{R}\equiv \frac{\sum_{\alpha} m_{\alpha}\mathbf{r}_{\alpha}}{\sum_{\alpha} m_{\alpha}}\;.
+\end{equation}
+Possiamo affermare che la velocità del sistema nel suo complesso è la variazione della posizione nello spazio del punto il cui raggio vettore è $\mathbf{R}$. Questo punto è chiamato \textit{centro di massa} del sistema. La legge di conservazione del momento per un sistema chiuso può essere riformulata dicendo che il centro di massa del sistema si muove di moto rettilineo uniforme. \\
+
+L'energia di un sistema meccanico che è nel complesso a riposo è solitamente chiamata \textit{energia interna} $E_i$. L'energia totale di un sistema che si muove nel complesso con velocità $V$ può essere scritta:
+\begin{equation}
+E=\frac{1}{2}MV^2+E_i\;. \label{sec3_totalenergy}
+\end{equation}
+Infatti le energie $E$ e $E'$ di un sistema in due sistemi di riferimento $K$ e $K'$ sono legate da:
+\begin{align}
+E &= \frac{1}{2}\sum_{\alpha}m_{\alpha}v_{\alpha}^2+U \notag \\
+&= \frac{1}{2}\sum_{\alpha}m_{\alpha}(\mathbf{v}_{\alpha}'+\mathbf{V})^2+U \notag \\
+&= \frac{1}{2}MV^2+\mathbf{V}\cdot\sum_{\alpha} m_{\alpha}\mathbf{v}_{\alpha}'+\frac{1}{2}\sum_{\alpha} m_{\alpha}v_{\alpha}'^2+U \notag \\
+&=E'+\mathbf{V}\cdot\mathbf{P}'+\frac{1}{2}MV^2\;.
+\end{align}
+Se il centro di massa è a riposo in $K'$, allora $\mathbf{P}'=0$, $E=E_i$ e si ottiene la \eqref{sec3_totalenergy}.
+\subsection{Momento angolare}
+Deriviamo adesso la legge di conservazione che discende dall'isotropia dello spazio. Questa isotropia implica che le proprietà meccaniche di un sistema chiuso non cambiano quando esso è ruotato interamente in qualunque maniera nello spazio. Consideriamo quindi una rotazione infinitesima del sistema, e otteniamo la condizione affinché la Lagrangiana rimanga invariata. \\
+
+Usiamo il vettore $\delta\boldsymbol{\phi}$ per indicare una rotazione infinitesima, il cui modulo è l'angolo di rotazione $\delta\phi$ e la cui direzione è quella dell'asse di rotazione. Ricaviamo innanzitutto la variazione del raggio vettore da un'origine sull'asse a una qualunque particella del sistema. Lo spostamento è collegata alla rotazione da $|\delta\mathbf{r}|=r\sin\theta\delta\phi$, dove $\theta$ è l'angolo compreso fra l'asse di rotazione e $\mathbf{r}$. La direzione di $\delta\mathbf{r}$ è perpendicolare al piano individuato dai vettori $\mathbf{r}$ e $\delta\boldsymbol{\phi}$. Risulta chiaro dunque che:
+\begin{equation}
+\delta\mathbf{r}=\delta\boldsymbol{\phi}\times\mathbf{r}\;. \label{sec3_deltar}
+\end{equation}
+Inoltre, quando il sistema ruota, anche le velocità delle particelle variano in direzione secondo la relazione:
+\begin{equation}
+\delta\mathbf{v}=\delta\boldsymbol{\phi}\times \mathbf{v}\;. \label{sec3_deltav}
+\end{equation}
+Scriviamo a questo punto la condizione che la variazione della Lagrangiana sia nulla:
+\begin{equation}
+\delta L =\sum_{\alpha}\left(\pdev{L}{\mathbf{r}_{\alpha}}\cdot\delta\mathbf{r}_{\alpha}+\pdev{L}{\mathbf{v}_{\alpha}}\cdot\delta\mathbf{v}_{\alpha}\right)=0\;. \label{sec3_deltalag}
+\end{equation}
+Sostituendo la \eqref{sec3_deltar} e la \eqref{sec3_deltav} nella \eqref{sec3_deltalag}, e ricordando che $\partial L/\partial\mathbf{v}_{\alpha}=\mathbf{p}_{\alpha}$ e $\partial L/\partial\mathbf{r}_{\alpha} =\dot{\mathbf{p}}_{\alpha}$, otteniamo:
+\begin{equation}
+\sum_{\alpha}(\dot{\mathbf{p}}_{\alpha}\cdot\delta\boldsymbol{\phi}\times\mathbf{r}_{\alpha} + \mathbf{p}_{\alpha}\cdot\delta\boldsymbol{\phi}\times\mathbf{v}_{\alpha})=0\;.
+\end{equation}
+Permutando ciclicamente i fattori e portando $\delta\boldsymbol{\phi}$ fuori dalla sommatoria:
+\begin{equation}
+\delta\boldsymbol{\phi}\cdot\sum_{\alpha}(\mathbf{r}_{\alpha}\times\dot{\mathbf{p}}_{\alpha}+\mathbf{v}_{\alpha}\times\mathbf{p}_{\alpha})= \delta\boldsymbol{\phi}\cdot\frac{\diff}{\diff[t]}\sum_{\alpha}\mathbf{r}_{\alpha}\times\mathbf{p}_{\alpha}=0\;.
+\end{equation}
+Dato che $\delta\boldsymbol{\phi}$ è arbitrario, segue che $(\diff/\diff[t])\sum\mathbf{r}_{\alpha}\times\mathbf{p}_{\alpha}=0$, e concludiamo che il vettore:
+\begin{equation}
+\mathbf{L}\equiv \sum_{\alpha}\mathbf{r}_{\alpha}\times\mathbf{p}_{\alpha}\;,
+\end{equation}
+chiamato \textit{momento angolare} del sistema, è conservato durante il moto in un sistema chiuso. Come il momento, esso è additivo.
+\pagebreak
+\section{Elettromagnetismo}
+L'equazione del moto in presenza di campi elettrico e magnetico è data da
+\begin{equation}
+m\dev{\mathbf{v}}{t}=e\left(\mathbf{E}+\frac{\mathbf{v}}{c}\times\mathbf{B}\right)\;,
+\end{equation}
+dove $e$ è la carica dell'elettrone, $\mathbf{v}$ è la sua velocità, $\mathbf{E}$ è il campo elettrico, $\mathbf{B}$ il campo magnetico e $c=1/\sqrt{\varepsilon_0\mu_0}$ è la velocità della luce nel vuoto. Il secondo membro rappresenta la \textit{forza di Lorentz generalizzata}. Dalle equazioni di Maxwell, sappiamo che $\nabla\times\mathbf{E}=-\partial\mathbf{B}/\partial t$. Poiché $\nabla\cdot\mathbf{B}=0$, allora $\mathbf{B}=\nabla\times\mathbf{A}$, dove $\mathbf{A}$ è il potenziale vettore del campo magnetico. Introduciamo il simbolo di Ricci $\epsilon_{ijk}$:
+\begin{equation}
+\epsilon_{ijk}\equiv
+\begin{cases}
++1 \quad\mbox{se}\; (i,j,k)=(1,2,3),(2,3,1),(3,1,2) \\
+-1 \quad\mbox{se}\; (i,j,k)=(3,2,1),(1,3,2),(2,1,3) \\
+0 \quad\mbox{se due indici sono uguali}
+\end{cases}\;.
+\end{equation}
+Tramite il simbolo di Ricci è possibile esprimere i prodotti vettoriali: $(\mathbf{a}\times\mathbf{b})_i=\epsilon_{ijk}a_jb_k$ \footnote{In queste espressioni si usa la notazione di Einstein, ovvero sono omesse le sommatorie sugli indici ripetuti, i.e. $(\mathbf{a}\times\mathbf{b})_i=\sum_{j,k}\epsilon_{ijk}a_jb_k$.}. Vale inoltre la relazione $\epsilon_{ijk}\epsilon_{abk}=\delta_{ia}\delta_{jb}-\delta_{ib}\delta_{ja}$. L'espressione della divergenza del campo magnetico può essere allora riscritta come:
+\begin{equation}
+\nabla\cdot\mathbf{B}=\partial_iB_i=\partial_i(\nabla\times\mathbf{A})_i=\partial_i\epsilon_{ijk}\partial_jA_k=
+\epsilon_{ijk}\partial_i\partial_jA_k=0\;.
+\end{equation}
+E parimenti, l'espressione del rotore del campo elettrico diventa:
+\begin{equation}
+\nabla\times\mathbf{E}=-\pdev{\mathbf{B}}{t}=-\frac{\partial}{\partial t}(\nabla\times\mathbf{A})\;,
+\end{equation}
+cioè:
+\begin{equation}
+\nabla\times\left(\mathbf{E}+\pdev{\mathbf{A}}{t}\right)=0\;.
+\end{equation}
+Se un vettore ha rotore nullo, allora esso può essere scritto come il gradiente di una funzione scalare cambiato di segno, quindi:
+\begin{equation}
+\mathbf{E}+\pdev{\mathbf{A}}{t}=-\nabla\Phi\;.
+\end{equation}
+$\Phi$ rappresenta il potenziale scalare del campo elettrico. Allora, sostituendo nell'espressione della forza di Lorentz i valori dei campi, otteniamo:
+\begin{align}
+F_i&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(\epsilon_{ijk}v_j(\nabla\times\mathbf{A})_k)\right] \notag \\
+&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(\epsilon_{ijk}\epsilon_{lkm}v_j\partial_lA_m)\right] \notag \\
+&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}((\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})v_j\partial_lA_m)\right] \notag \\
+&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(v_j\partial_jA_i-v_l\partial_lA_i)\right] \notag \\
+&=e\left[-\partial_i\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)-\left(\frac{\partial}{\partial t}+\frac{1}{c}\nabla\cdot\mathbf{v}\right)A_i\right] \notag \\
+&=e\left[-\partial_i\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)-\frac{\diff}{\diff[t]}\frac{\partial}{\partial v_i}\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)\right]\;.
+\end{align}
+Pertanto la Lagrangiana di un elettrone che si muove in presenza di campi elettrico e magnetico sarà:
+\begin{equation}
+L=\frac{1}{2}m\dot{\mathbf{r}}^2-e\left(\Phi(\mathbf{r},t)-\frac{1}{c}\dot{\mathbf{r}}\cdot\mathbf{A}(\mathbf{r},t)\right)\;.
+\end{equation}
+\subsection{Trasformazioni di gauge}
+Una \textit{trasformazione di gauge} è una particolare trasformazione dei potenziali $\mathbf{A}$ e $\Phi$ così definita:
+\begin{equation}
+\begin{cases}
+\mathbf{A}_1\to\mathbf{A}_2=\mathbf{A}_1+\nabla\Lambda(\mathbf{r},t) \\
+\\
+\Phi_1\to\Phi_2=\Phi_1-\dfrac{1}{c}\dfrac{\partial}{\partial t}\Lambda(\mathbf{r},t)
+\end{cases}\;,
+\end{equation}
+dove $\Lambda(\mathbf{r},t)$ è una generica funzione scalare. Osserviamo che:
+\begin{equation}
+\mathbf{B}_2=\nabla\times \mathbf{A}_2=\nabla\times(\mathbf{A}+\nabla\Lambda)=\nabla\times\mathbf{A}_1+\nabla\times\nabla\Lambda\;,
+\end{equation}
+ma il rotore di un gradiente è nullo, dunque si ottiene $\mathbf{B}_2=\mathbf{B}_1$, cioè il campo magnetico è invariante per trasformazioni di gauge. Inoltre:
+\begin{align}
+\mathbf{E}_2&=-\nabla\Phi_2-\frac{1}{c}\pdev{\mathbf{A}_2}{t}=-\nabla\Phi_1+\frac{1}{c}\nabla\pdev{\Lambda}{t}-\frac{1}{c}\pdev{\mathbf{A}_1}{t}-\frac{1}{c}\frac{\partial}{\partial t}\nabla\Lambda \notag \\
+&=-\nabla\Phi_1-\frac{1}{2}\pdev{\mathbf{A}_1}{t}=\mathbf{E}_1\;.
+\end{align}
+Dunque i potenziali ottenuti tramite una trasformazione di gauge generano i medesimi campi $\mathbf{E}$ e $\mathbf{B}$. Ci aspettiamo similmente che la Lagrangiana scritta in termini dei potenziali $\mathbf{A}_2,\Phi_2$ sia la stessa di quella scritta in termini di $\mathbf{A}_1,\Phi_1$. Infatti, si ha:
+\begin{align}
+L_2 &= \frac{1}{2}m\dot{\mathbf{r}}^2-e\left(\Phi_2-\frac{\dot{\mathbf{r}}}{c}\cdot\mathbf{A}_2\right) \\
+&=\frac{1}{2}m\dot{\mathbf{r}}^2-e\left(\Phi_1-\frac{1}{c}\pdev{\Lambda}{t}-\frac{\dot{\mathbf{r}}}{c}\cdot \mathbf{A}_1-\frac{\dot{\mathbf{r}}}{c}\cdot\nabla\Lambda\right) \notag \\
+&= \frac{1}{2}m\dot{\mathbf{r}}^2-e\left(\Phi_1-\frac{\dot{\mathbf{r}}}{c}\cdot\mathbf{A}_1\right)+\frac{e}{c}\left(\pdev{\Lambda}{t}+\dot{\mathbf{r}}\cdot\nabla\Lambda\right)\notag \\
+&= L_1+\frac{e}{c}\dev{\Lambda}{t}\;.
+\end{align}
+Poiché le due Lagrangiane differiscono per la derivata totale rispetto al tempo di $\Lambda(\mathbf{r},t)$, esse generano le stesse equazioni del moto. Dunque si conclude che la Lagrangiana è invariante per trasformazione di gauge.
+\pagebreak
+\section{Calcolo variazionale}
+Consideriamo un sistema costituito da una particella di massa $m$ che si muove sotto l'effetto del campo gravitazionale fra due punti di coordinate $(x_0,y_0)$ e $(x_1,y_1)$. Vogliamo trovare la traiettoria che congiunge i due punti per cui il tempo di percorrenza è minimo. Sappiamo che in generale è $\diff[t]=\diff[s]/v$. Allora il tempo di percorrenza $\tau$ è dato da:
+\begin{align}
+\tau &=\int_0^{\tau}\diff{t}=\int_{x_0}^{x_1}\frac{\sqrt{\diff{x}^2+\diff{y}^2}}{\sqrt{2gx}}=\frac{1}{\sqrt{2g}}\int_{x_0}^{x_1}\sqrt{\frac{1+(y')^2}{x}}\diff{x}\equiv\tau[y(x)]^{x_1}_{x_0}\;.
+\end{align}
+Dunque si tratta di minimizzare il funzionale $\tau[y(x)]$ nell'intervallo $[x_0,x_1]$. Se $y(x)$ è la funzione che lo minimizza, allora per ogni incremento $\delta y(x)$ si ha $\tau[y(x)]<\tau[y(x)+\delta y(x)]$. In generale, si ha:
+\begin{equation}
+I[y(x)]=\int_{x_0}^{x_1} F(y,y',x)\diff[x]\;.
+\end{equation}
+Eseguiamo la trasformazione:
+\begin{equation}
+\begin{cases}
+y(x)\longmapsto y(x)+\delta y(x) \\
+\\
+y'(x)\longmapsto y'(x)+\dfrac{\diff}{\diff[x]}\delta y(x)=y'(x)+\delta y'(x)
+\end{cases}\;.
+\end{equation}
+L'incremento del funzionale $I$ sarà allora dato da:
+\begin{align}
+I[y(x)+\delta y(x)]&=\int_{x_0}^{x_1} F(y+\delta y, y'+\delta y',x) \notag \\
+&= \int_{x_0}^{x_1} \left[F(y,y',x)+\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\delta y'\right)\right]\diff[x] \notag \\
+&= \int_{x_0}^{x_1} F(y,y',x)\diff[x]+\int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff[x] \notag \\
+&=I[y(x)]+\int_{x_0}^{x_1} \left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff[x]\;.
+\end{align}
+A questo punto imponiamo che la variazione del funzionale $\delta I=I[y+\delta y]-I[y]$ sia nulla, a condizione che la variazione di $y$ si annulli agli estremi, ossia $\delta y(x_1)=\delta y(x_0)=0$:
+\begin{align}
+\delta I&= \int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff[x]=
+\int_{x_0}^{x_1} \pdev{F}{y}\delta y\;\diff[x]+\int_{x_0}^{x_1} \pdev{F}{y'}\dev{\delta y}{x}\;\diff[x]= \notag \\
+&=\int_{x_0}^{x_1}\pdev{F}{y}\delta y\;\diff[x]+\left.\pdev{F}{y'}\delta y\right|_{x_0}^{x_1}-\int_{x_0}^{x_1} \frac{\diff}{\diff[x]}\pdev{F}{y'}\delta y\;\diff[x]=0\;.
+\end{align}
+Il secondo termine è identicamente nullo in quanto abbiamo supposto che la variazione $\delta y$ si annulli agli estremi. Abbiamo dunque:
+\begin{equation}
+\delta I=\int_{x_0}^{x_1} \left(\frac{\diff}{\diff[x]}\pdev{F}{y'}-\pdev{F}{y}\right)\delta y\;\diff[x]=0\;.
+\end{equation}
+Poiché $\delta y$ è arbitrario, dobbiamo imporre che il termine in parentesi sia identicamente nullo, ottenendo così le ben note equazioni di Eulero-Lagrange:
+\begin{equation}
+\frac{\diff}{\diff[x]}\pdev{F}{y'}-\pdev{F}{y}=0\;.
+\end{equation}
+Nel nostro caso, $F$ non dipende esplicitamente da $y$ ($F=\sqrt{(1+y'^2)/x}$), quindi $y$ è una coordinata ciclica e di conseguenza il momento generalizzato coniugato $\partial F/\partial y'$ è costante:
+\begin{equation}
+\pdev{F}{y'}=\frac{y'}{\sqrt{x(1+y'^2)}}=c\;.
+\end{equation}
+Da questa espressione ricaviamo il valore di $y'$ in funzione di $x$ (ponendo $c^2=C$):
+\begin{equation}
+y'=\sqrt{\frac{Cx}{1-Cx}}\;.
+\end{equation}
+Integrando, infine, troviamo l'equazione della traiettoria che minimizza il tempo di percorrenza:
+\begin{equation}
+\int \diff[y]=\int \sqrt{\frac{Cx}{1-Cx}}\diff[x]\qquad \Longrightarrow\qquad  y-K=\int \sqrt{\frac{Cx}{1-Cx}}\diff[x]\;.
+\end{equation}
+Effettuando la sostituzione $x=\cos^2\theta/C$, $\diff[x]=-\frac{2}{C}\cos\theta\sin\theta\diff[\theta]$ troviamo:
+\begin{align}
+y-K&=\int -\frac{\cos\theta}{\sin\theta}\frac{2}{C}\cos\theta\sin\theta\;\diff[\theta] \notag \\
+&= -\frac{2}{C}\int \cos^2\theta\;\diff[\theta]=-\frac{2}{C}\int \frac{1+\cos(2\theta)}{2}\diff[\theta] \notag \\
+&=\frac{1}{C}\int \diff[\theta]-\frac{1}{C}\cos (2\theta)\;\diff[\theta]=-\frac{1}{C}\theta+\frac{1}{2C}\sin(2\theta)\;.
+\end{align}
+Posto $2\theta=t$, troviamo le equazioni parametriche della curva che minimizza il tempo di percorrenza:
+\begin{equation}
+\begin{cases}
+x=\dfrac{1}{2C}(1+\cos t) \\
+\\
+y=K+\dfrac{1}{2C}(t+\sin t)
+\end{cases}\;,
+\end{equation}
+che rappresentano una cicloide.
+\pagebreak
+\section{Oscillatori armonici}
+Un oscillatore armonico, nella forma più generale, è descritto da un'equazione del tipo:
+\begin{equation}
+m\ddot{q}(t)=-\beta\dot{q}(t)-kq(t)+f(t), \qquad \beta,k>0\;.
+\end{equation}
+\subsection{Caso I - Oscillatore libero smorzato}
+Nell'oscillatore libero smorzato si ha $f(t)\equiv 0$, quindi l'equazione del moto è:
+\begin{equation}
+m\ddot{q}+\beta\dot{q}+kq=0\;. \label{sec5_damped}
+\end{equation}
+Dividendo per $m$ e ponendo $\omega_0^2=k/m$, $\gamma=\beta/m$ si ottiene:
+\begin{equation}
+\ddot{q}+\gamma\dot{q}+\omega_0^2q=0\qquad  \Longleftrightarrow\qquad  \left(\frac{\diff^2}{\diff[t]^2}+\gamma\frac{\diff}{\diff[t]}+\omega_0^2\right)q=0\;.
+\end{equation}
+Cerchiamo una soluzione della forma $q(t)=Ae^{i\alpha t}$. Sostituendo, si ottiene:
+\begin{equation}
+(-\alpha^2+i\alpha\gamma+\omega_0^2)e^{i\alpha t}=0\;.
+\end{equation}
+Poiché $e^{i\alpha t}\ne 0$ sempre, si ha che l'uguaglianza è verificata per i valori di $\alpha$ che verificano l'equazione:
+\begin{equation}
+\alpha^2-i\alpha\gamma-\omega_0^2=0\;,
+\end{equation}
+le cui soluzioni sono:
+\begin{equation}
+\alpha=\frac{i\gamma}{2}\pm\frac{1}{2}\sqrt{4\omega_0^2-\gamma^2}\;.
+\end{equation}
+Definiamo il \textit{fattore di qualità} dell'oscillatore $Q$ come $Q=1/\gamma$. Abbiamo dunque:
+\begin{equation}
+\alpha=\frac{i}{2Q}\pm\frac{1}{2}\sqrt{4\omega_0^2-\frac{1}{Q^2}}\;.
+\end{equation}
+Esaminiamo i vari casi. Se $\omega_0^2>1/Q^2$, le soluzioni della \eqref{sec5_damped} saranno:
+\begin{equation}
+q(t)=e^{i\left(\frac{i}{2Q}\pm\Omega\right)t}=e^{-t/2Q}e^{\pm i\Omega t}, \qquad \Omega=\omega_0\sqrt{1-\frac{1}{(2Q\omega_0)^2}}\;.
+\end{equation}
+Osserviamo che la presenza del fattore $e^{-t/2Q}$ implica sottosmorzamento delle oscillazioni. Nel caso in cui $\omega_0^2\gg 1/4Q^2$, avremo un oscillatore lievemente smorzato. Scriviamo le due soluzioni indipendenti nella forma:
+\begin{equation}
+q(t)=A_ce^{-t/2Q}\cos(\Omega t)+A_se^{-t/2Q}(\sin\Omega t)\;.
+\end{equation}
+Nell'approssimazione di smorzamento lieve, $A_ce^{-t/2Q}\simeq A_se^{-t/2Q} = A$. L'energia dell'oscillatore sarà data da:
+\begin{equation}
+E=\frac{1}{2}kA^2\simeq A_{c,s}^2e^{-t/Q}\;,
+\end{equation}
+dunque l'energia diminuisce seguendo un decadimento esponenziale. Nel caso $\omega_0^2<1/Q^2$, abbiamo l'oscillatore \textit{sovrasmorzato}. Le soluzioni in questo caso, entrambi reali, saranno:
+\begin{equation}
+q(t)=e^{i\left(\frac{i}{2Q}\pm i\Omega\right)t}=e^{-t/2Q}e^{\pm\Omega t}, \qquad \Omega=\omega_0\sqrt{1-\frac{1}{(2Q\omega_0)^2}}\;.
+\end{equation}
+Nel caso $\omega_0^2=1/4Q^2$, avremo l'oscillatore \textit{criticamente smorzato}. Avremo una sola soluzione indipendente:
+\begin{equation}
+q_1(t)=e^{-t/2Q}\;.
+\end{equation}
+Per trovare la seconda soluzione indipendente, la cerchiamo nella forma $q_2=q_1(t)g(t)$. La sostituzione nell'equazione dell'oscillatore restituisce:
+\begin{equation}
+\ddot{q}_1f+2\dot{q}_1\dot{g}+q_1\ddot{g}+\frac{1}{Q}\dot{q}_1g+\frac{1}{Q}q_1\dot{g}+\omega_0^2q_1g=0\;.
+\end{equation}
+cioè:
+\begin{equation}
+g\left(\ddot{q}_1+\frac{1}{Q}\dot{q}_1+\omega_0^2q_1\right)+\dot{g}\left(2\dot{q}_1+\frac{1}{Q}q_1\right)+q_1\ddot{g}=0\;.
+\end{equation}
+Il coefficiente di $g$ è nullo in quanto $q_1$ è soluzione dell'equazione. Rimane pertanto:
+\begin{equation}
+\dot{g}\left(2\dot{q}_1+\frac{1}{Q}q_1\right)+q_1\ddot{g}=0 \Longleftrightarrow \dot{g}\left(-\frac{1}{Q}e^{-t/2Q}+\frac{1}{Q}e^{-t/2Q}\right)+q_1\ddot{g}=0\;.
+\end{equation}
+E dunque:
+\begin{equation}
+q_1\ddot{g}=0\qquad  \Longrightarrow \qquad \ddot{g}=0\;,
+\end{equation}
+in quanto $q_1\ne 0$. Integrando due volte troviamo infine $g(t)=at+b$. Quindi la soluzione generale per l'oscillatore criticamente smorzato sarà:
+\begin{equation}
+q(t)=q_1(t)+q_2(t)=e^{-t/2Q}+(at+b)e^{-t/2Q}=(at+b+1)e^{-t/2Q}\;.
+\end{equation}
+\subsection{Caso II - Oscillatore forzato}
+Inseriamo adesso un termine di sorgente $f(t)$ (non consideriamo però in prima analisi il termine di smorzamento, i.e $\gamma=0$). L'equazione sarà allora:
+\begin{equation}
+\ddot{q}+\omega_0^2q=f(t)\;, \label{sec5_forced}
+\end{equation}
+ovvero:
+\begin{equation}
+Oq=f(t), \qquad O\equiv\frac{\diff^2}{\diff[t^2]}+\omega_0^2\;.
+\end{equation}
+Scomponiamo la sorgente in sorgenti puntiformi e cerchiamo una funzione $G(t)$ tale che:
+\begin{equation}
+OG(t)=\delta(t)\;,
+\end{equation}
+dove $\delta(t)$ è la \textit{delta di Dirac}. Effettuando una traslazione otteniamo:
+\begin{equation}
+\frac{\diff^2}{\diff[t^2]}G(t-t')+\omega_0^2G(t-t')=\delta(t-t')
+\end{equation}
+Allora la funzione:
+\begin{equation}
+q(t)\equiv \int_{-\infty}^{\infty} \diff[t']G(t-t')f(t')\;,
+\end{equation}
+è soluzione della \eqref{sec5_forced}. Infatti:
+\begin{equation}
+O_tq(t)=O_t\int_{-\infty}^{+\infty}\diff{t'}G(t-t')f(t')=\int_{-\infty}^{+\infty}\diff{t'}O_tG(t-t')f(t')=\int_{-\infty}^{+\infty}\diff{t'}\delta(t-t')f(t')=f(t)\;.
+\end{equation}
+Indicando con $G_R$ la funzione tale che $OG_R=\delta$, allora $\forall \alpha,\beta$ la funzione $G(t)=G_R(t)+\alpha\cos(\omega_0 t)+\beta\sin(\omega_0 t)$ è soluzione dell'equazione, dove $\alpha\cos(\omega_0 t)+\beta\sin(\omega_0 t)$ è soluzione dell'omogenea associata $OG=0$. Abbiamo come condizioni iniziali $G(0)=0$ e $\dot{G}(0)=1$. Imponendole troviamo:
+\begin{align}
+&\alpha=0, &\beta=\frac{1}{\omega_0}\;.
+\end{align}
+Dunque la funzione:
+\begin{equation}
+G_R=\frac{1}{\omega_0}\sin(\omega_0 t)\qquad (t>0)\;,
+\end{equation}
+risolve $OG_R=\delta$, e pertanto:
+\begin{align}
+q(t) &=\int_{-\infty}^{\infty}\diff{t'}G_R(t-t')f(t')\;, \notag \\
+G_R(t-t') &=\begin{cases}
+0\qquad \mbox{se}\; t-t'<0 \\
+\\
+\dfrac{1}{\omega_0}\sin(\omega_0(t-t'))\quad \mbox{se}\;t-t'>0\;.
+\end{cases}\;,
+\end{align}
+risolve $Oq=f(t)$. In particolare, poiché $t-t'<0$ per $t'>t$, l'espressione di $q$ si riduce a:
+\begin{equation}
+q(t)=\frac{1}{\omega_0}\int_{-\infty}^t\diff[t']\sin(\omega_0(t-t'))f(t')\;.
+\end{equation}
+Riprendiamo in esame l'equazione dell'oscillatore smorzato e forzato:
+\begin{equation}
+\ddot{q}+\frac{1}{Q}\dot{q}+\omega_0^2q=f(t)\;,
+\end{equation}
+ed applichiamo lo stesso ragionamento: cerchiamo una funzione $G$ che risolve:
+\begin{equation}
+\ddot{G}+\frac{1}{Q}\dot{G}+\omega_0^2G=\delta(t)\;.
+\end{equation}
+Si ha, pertanto:
+\begin{equation}
+G_R(t)=\frac{e^{-t/2Q}}{\Omega}\sin(\Omega t),\qquad \Omega=\sqrt{\omega_0^2-\frac{1}{4Q^2}}\;.
+\end{equation}
+Indicando con $q_{om}$ la soluzione dell'equazione omogenea associata si ottiene:
+\begin{equation}
+q(t)=\int_{-\infty}^{\infty}\frac{e^{-(t-t')/2Q}}{\Omega}\sin(\Omega(t-t'))f(t')\diff[t']+q_{om}\;.
+\end{equation}
+Se $\omega_0^2\gg 1/4Q^2$, allora $\Omega \sim \omega_0$. Scriviamo inoltre $f(t)=f_0\sin(\omega t)$. Quindi abbiamo:
+\begin{align}
+q(t) &= f_0\int_0^t\frac{e^{-(t-t')/2Q}}{\omega_0}\sin(\omega_0(t-t'))\sin(\omega t')\diff{t'}+q_{om} \notag \\
+&=\frac{f_0}{2i\omega_0}e^{-t/2Q}\int_0^te^{t'/2Q}(e^{i\omega_0t}e^{-i\omega_0t'}-e^{-i\omega_0t}e^{i\omega_0t'})\left(\frac{e^{i\omega t}-e^{-i\omega t}}{2i}\right)\diff{t'}+q_{om}
+\end{align}
+Se $t\gg Q$, $q_{om}\simeq 0$:
+\begin{align}
+q(t) &= -\frac{f_0}{4\omega_0}e^{-t/2Q}\int_{-\infty}^{\infty}\left\{\left[e^{(i(\omega-\omega_0-i/2Q)t'}-e^{i(-\omega-\omega_0-i/2Q)t'}\right]e^{i\omega_0t}+\right. \notag \\
+&+\left.\left[e^{i(-\omega+\omega_0-i/2Q)t'}-e^{i(\omega+\omega_0-i/2Q)t'}\right]e^{-i\omega_0t}\right\}\diff{t'}\;.
+\end{align}
+I termini aventi $\omega$ e $\omega_0$ di segno concorde tendono a zero e possono essere trascurati:
+\begin{equation}
+q(t)=-\frac{f_0}{4\omega_0}e^{-t/2Q}\int_{-\infty}^{\infty}\left[e^{t'/2Q+i[(\omega-\omega_0)t'+\omega_0t]}+e^{t'/2Q-i[(\omega-\omega_0)t'+\omega_0t]}\right]\diff{t'}\;.
+\end{equation}
+Poiché sto sommando un numero e il suo complesso coniugato (c.c), prendo due volte la parte reale:
+\begin{align}
+q(t)&\simeq -\frac{f_0}{4\omega_0}e^{-t/2Q}\left[\frac{e^{i\omega_0t}\cdot \left. e^{i(\omega-\omega_0-i/2Q)t'}\right|_0^t}{i(\omega-\omega_0-i/2Q)}+\mbox{c.c.}\right] \notag \\
+&=-\frac{f_0}{4\omega_0}e^{-t/2Q}\left[e^{i\omega_0t}\frac{e^{i(\omega-\omega_0-i/2Q)t}-1}{i(\omega-\omega_0-i/2Q)}+\mbox{c.c.}\right]\;.
+\end{align}
+Per $t\gg Q$, si ha $e^{-t/Q}\ll 1$, quindi il termine può essere trascurato per tempi lunghi:
+\begin{align}
+q(t)&= -\frac{f_0}{4\omega_0}\left[\frac{e^{i\omega_0t}e^{i(\omega-\omega_0)t}}{i(\omega-\omega_0-i/2Q)}+\mbox{c.c.}\right] \notag \\
+&= -\frac{f_0}{4\omega_0}\frac{e^{i\omega t}}{i(\omega-\omega_0-i/2Q)}+\mbox{c.c.}\;.
+\end{align}
+Questa rappresenta l'espressione della soluzione generale dell'equazione del moto. L'energia dell'oscillatore infine sarà data da:
+\begin{equation}
+E(\omega)=|q(t)|^2=\frac{1}{(\omega-\omega_0)^2+1/4Q^2}\;.
+\end{equation}
+Osserviamo che l'energia si distribuisce, in funzione della frequenza, secondo una Lorentziana.
+\pagebreak
+\section{Piccole oscillazioni}
+\subsection{Richiami di algebra lineare}
+Sia $V$ uno spazio vettoriale sul corpo complesso e $u,v,w$ i suoi elementi, denotati $| u\ket,|v\ket,|w\ket$. Un \textit{prodotto scalare} su $V$ è un'applicazione $({},{}):V\times V\to\mathbb{C}$ denotata con $(u,v)=\bra u|\cdot|v\ket=\bra u|v\ket$ che gode delle seguenti proprietà:
+\begin{enumerate}
+\item $\bra u|\lambda v+\mu w\ket=\lambda\bra u|v\ket+\mu \bra u|w\ket$ (linearità nella seconda variabile);
+\item $\bra u|v\ket=\bra v|u\ket^*$ (sesquilinearità nella prima variabile);
+\item $\bra u|v\ket=0\; \forall v\qquad  \Longleftrightarrow \qquad u= 0$ (non degenerazione del prodotto scalare).
+\end{enumerate}
+Un prodotto scalare non degenere induce una \textit{norma} $||u||^2=\bra u|u\ket$ con le seguenti proprietà:
+\begin{enumerate}
+\item $||\lambda u||=|\lambda|||u||\; \forall \lambda\in \mathbb{C}$;
+\item $||u+v||\le||u||+||v||$ (disuguaglianza triangolare);
+\item $||u||=0 \quad \Longleftrightarrow\quad  u\equiv 0$.
+\end{enumerate}
+\subsection*{Trasformazioni lineari Hermitiane}
+Sia $T$ un operatore lineare e $u,v\in V$. Consideriamo il seguente prodotto scalare:
+\begin{equation}
+(u,Tv)=u_i^*T_{ij}v_j=T_{ij}u_i^*v_j=({}^tT_{ij}^*u_i)^*v_j=(T^{\dagger}u,v)
+\end{equation}
+dove:
+\begin{equation}
+(T^{\dagger})_{ij}\equiv ({}^tT)_{ij}^*
+\end{equation}
+è l'operatore \textit{aggiunto} di $T$. In particolare, un operatore $T$ si dice \textit{hermitiano} se è autoaggiunto, cioè $T=T^{\dagger}$. \\
+
+Introducendo la \textit{notazione di Dirac}:
+\begin{equation}
+\bra Tu|v\ket=\bra u|Tv\ket\equiv \bra u|T|v\ket\;.
+\end{equation}
+Un operatore ammette un \textit{sistema completo di autovalori} quando:
+\begin{equation}
+T|k\ket=\lambda_k|k\ket,\qquad k=1,\ldots,n\;.
+\end{equation}
+Un'osservazione significativa è che \textit{gli autovalori di un operatore Hermitiano sono tutti reali}. Infatti:
+\begin{equation}
+\bra k|T|k\ket=\begin{cases}
+\lambda_k\bra k|k\ket\quad \mbox{se $T$ agisce a destra} \\
+\\
+\lambda_k^*\bra k|k\ket\quad \mbox{se $T$ agisce a sinistra}
+\end{cases}\;.
+\end{equation}
+Allora $(\lambda_k-\lambda_k^*)\bra k|k\ket=0$. Ma $\bra k|k\ket=||k||^2$ è sicuramente diverso da zero, dunque risulta $\lambda_k=\lambda_k^*$ e quindi $\lambda_k\in\mathbb{R}$.
+\\
+
+Se un operatore $T$ è Hermitiano, allora:
+\begin{itemize}
+\item $T$ ha tutti gli autovalori reali;
+\item autovettori relativi ad autovalori diversi sono ortogonali.
+\end{itemize}
+Abbiamo dunque:	
+\begin{align}
+&|k\ket\bra k|l\ket=0,\qquad |k\ket\bra k|k\ket=|k\ket\;, \\
+&|k\ket\bra k|\left(\alpha|k\ket+\sum_{l\ne k}\beta_l|l\ket\right)=\alpha|k\ket\;.
+\end{align}
+Si definisce di conseguenza un \textit{operatore di proiezione} o \textit{proiettore}:
+\begin{equation}
+P_k\equiv |k\ket\bra k|\;.
+\end{equation}
+Valgono i seguenti fatti:
+\begin{itemize}
+\item $P_k^2=P_k$;
+\item i proiettori sono operatori Hermitiani;
+\item $\sum_k |k\ket\bra k|=\mathbb{I}_{n\times n}$.
+\end{itemize}
+Se un operatore $T$ è Hermitiano, quindi ammette un set completo di autovettori, allora la sua \textit{decomposizione spettrale} sarà:
+\begin{equation}
+T=\sum_k |k\ket\lambda_k\bra k|\;.
+\end{equation}
+Si verificha che l'operatore inverso $T^{-1}$ ammette un set completo di autovettori, e la sua decomposizione spettrale sarà:
+\begin{equation}
+T^{-1}=\sum_l |l\ket\frac{1}{\lambda_l}\bra l|\;.
+\end{equation}
+Infatti:
+\begin{equation}
+TT^{-1}=\sum_{k,l}|k\ket\lambda_k\bra k|l\ket\frac{1}{\lambda_l}\bra l|=\sum_{k,l}|k\ket\lambda_k\delta_{kl}\frac{1}{\lambda_l}\bra l|=\sum_k|k\ket\bra k|=\mathbb{I}_{n\times n}\;.
+\end{equation}
+A partire dalla decomposizione spettrale di un operatore $T$, è possibile definire una \textit{funzione di operatori}:
+\begin{equation}
+f(T)=\sum_k |k\ket f(\lambda_k)\bra k|\;.
+\end{equation}
+Se $f(\lambda_k)\in\mathbb{R}$ per ogni $k$, allora $f$ è Hermitiano. \\
+\\
+Consideriamo adesso un sistema descritto da $N$ coordinate generalizzate $\xi_1,\ldots,\xi_N$, con cui è possibile esprimere le coordinate cartesiane $\mathbf{r}_{a}$ tramite espressioni indipendenti dal tempo, i.e. $\mathbf{r}_a=\mathbf{r}_a(\xi)$, dove $\xi=\{\xi_1,\ldots,\xi_N\}$. La Lagrangiana del sistema sarà data da:
+\begin{equation}
+L(\xi,\dot{\xi})=\sum_a\frac{1}{2}m_a\dot{\mathbf{r}}_a\cdot\dot{\mathbf{r}}_a-U(\mathbf{r}_a)=\sum_{i,j}\frac{1}{2}A_{ij}(\xi)\dot{\xi}_i\dot{\xi}_j-V(\xi)\;,
+\end{equation}
+dove:
+\begin{equation}
+A_{ij}(\xi)=\sum_a m_a\pdev{\mathbf{r}_a}{\xi_i}\cdot\pdev{\mathbf{r}_a}{\xi_j}\;.
+\end{equation}
+Sia $\bar{\xi}$ un punto di equilibrio stabile del sistema, cioè tale che:
+\begin{align}
+&\left.\frac{\partial}{\partial\xi_i}V(\xi)\right|_{\xi=\bar{\xi}_i}=0,\qquad i=1,\ldots, N\;, \\
+&\left.\frac{\partial^2}{\partial\xi_i\partial\xi_j}V(\xi)\right|_{\xi_i=\bar{\xi}_i}\equiv V_{ij}=V_{ji}>0\; \forall i,j\;,
+\end{align}
+allora, sviluppando la Lagrangiana intorno al punto $\xi=\bar{\xi}$ e introducendo il nuovo set di coordinate generalizzate $q_i\equiv \xi_i-\bar{\xi}_i$ otteniamo:
+\begin{equation}
+L(q,\dot{q})=\frac{1}{2}T_{ij}\dot{q}_i\dot{q}_j-\frac{1}{2}V_{ij}q_iq_j\;.
+\end{equation}
+Le equazioni del moto generate da questa Lagrangiana saranno:
+\begin{equation}
+T_{ij}\ddot{q}_j+V_{ij}q_j=0\;,
+\end{equation}
+che costituiscono un sistema differenziale lineare omogeneo nella variabile $q(t)\equiv\{q_1(t),\ldots,q_N(t)\}$. Cercando la soluzione nella forma $q_i(t)=q_i(0)e^{i\omega t}$ troviamo che, posto $q(0)=\{q_1(0),\ldots,q_N(0)\}$:
+\begin{equation}
+(-\omega^2T+V)q(0)=0\;. \label{sec7_eqsecolare}
+\end{equation}
+In questa equazione le incognite sono i valori che $\omega^2$ deve assumere affinché l'unica soluzione non sia quella identicamente nulla e le componenti dei vettori $q(0)$. Di quest'ultimi, essendo il sistema lineare ed omogeneo, si potranno trovare unicamente i rapporti fra le componenti di ciascun vettorie $q_a(0)/q_b(0)$ per $a,b=1,\ldots, N$. Il problema è del tutto analogo a quello della diagonalizzazione di una matrice $(-\lambda \mathbb{I}_N+A)a=0$, in cui $\lambda$ sono gli autovalori e $a$ i corrispondenti autovettori della matrice $A$. Il problema \eqref{sec7_eqsecolare} non è perfettamente identico alla diagonalizzazione di una matrice, ed in più vi è il problema di garantire la positività degli $\omega^2$. Se trovassimo un valore $\omega^2<0$, il moto corrispondente sarebbe del tipo $q(t)=ce^{|\omega|t}+de^{-|\omega|t}$ che non si svolge in un intorno del punto di equilibrio stabile $\bar{\xi}$ precedentemente determinato. Tuttavia, il problema \eqref{sec7_eqsecolare} può essere ricondotto a quello della diagonalizzazione di una matrice. Osserviamo innanzitutto che $T$ è una matrice Hermitiana (infatti è reale e simmetrica) e definita positiva:
+\begin{equation}
+\bra \dot{q}|\mathcal{T}|\dot{q}\ket=\sum_{i,j}\dot{q}_i\mathcal{T}_{ij}\dot{q}_j>0\qquad \forall \dot{q}\;.
+\end{equation}
+A questo punto è sufficiente riscrivere l'equazione \eqref{sec7_eqsecolare} nella forma:
+\begin{equation}
+\frac{1}{\sqrt{T}}(-\omega^2T+V)\frac{1}{\sqrt{T}}\sqrt{T}q(0)=\left(-\omega^2\mathbb{I}_N+\frac{1}{\sqrt{T}}V\frac{1}{\sqrt{T}}\right)\sqrt{T}q(0)\;,
+\end{equation}
+che ha esattamente la forma del problema di diagonalizzazione, con $A=T^{-1/2}VT^{1/2}$. Notiamo che:
+\begin{itemize}
+\item $A$ è simmetrica: ${}^tA={}^tT^{-1/2}{}^tV{}^tT^{-1/2}=T^{-1/2}VT^{-1/2}=A$, in quanto sia $T$ (e le sue funzioni) che $V$ sono simmetrice;
+\item $A$ è definita positiva: $\bra u|A|u\ket=\bra u|T^{-1/2}VT^{-1/2}|u\ket=\bra v|V|v\ket>0$, con $|v\ket=T^{-1/2}|u\ket$.
+\end{itemize}
+La matrice $A$ avrà autovalori positivi e autovettori "a sufficienza" che chiameremo $Q_i$ (vettori colonna con $N$ componenti reali corrispondenti agli autovalori $\omega^2_i$) normalizzabili a $1$: $\bra Q_i|Q_j\ket=\delta_{ij}$. La più generale soluzione reale corrispondente all'autovalore $\omega_i^2$ di $A$ è quindi:
+\begin{equation}
+\alpha_iQ_i\cos(\omega_it)+\beta_iQ_i\sin(\omega_it)\;,
+\end{equation}
+e la soluzione generale dell'equazione delle piccole oscillazioni è:
+\begin{equation}
+q(t)=\sum_{i=1}^N\left(\alpha_iQ_i\cos(\omega_it)+\beta_iQ_i\sin(\omega_it)\right),\qquad \alpha_i,\beta_i\in\mathbb{R}\;.
+\end{equation}
+Resta da calcolare l'unica soluzione che evolve nel tempo con dati iniziali $q(0),\dot{q}(0)$. Ponendo $t=0$ nell'equazione precedente si ottiene:
+\begin{equation}
+q(0)=\sum_{i=1}^N \alpha_iQ_i\qquad \implies\qquad \alpha_i = \bra Q_i|q(0)\ket\;.
+\end{equation}
+Mentre, derivando la soluzione e imponendo $t=0$ troviamo:
+\begin{equation}
+\dot{q}(0)=\sum_{i=1}^N\omega_i\beta_iQ_i\qquad \implies\qquad \beta_i=\omega_i^{-1}\bra Q_i|\dot{q}(0)\ket\;.
+\end{equation}
+\pagebreak
+\section{Problema dei due corpi}
+Consideriamo il moto di due corpi di massa $m_1$, $m_2$ descritto in coordinate Cartesiane dalla Lagrangiana:
+\begin{equation}
+L=\frac{1}{2}m_1\dot{\mathbf{r}}_1^2+\frac{1}{2}m_2\dot{\mathbf{r}}_2^2-V_1(\mathbf{r}_1)-V_2(\mathbf{r}_2)-V_{12}(\mathbf{r}_1,\mathbf{r}_2)\;,
+\end{equation}
+dove $V_{12}$ è il potenziale di interazione. Se questo è nullo, i sistemi sono disaccoppiati e possono essere trattati singolarmente. Supponiamo che sul sistema non agiscano campi esterni, i.e. $V_1=V_2\equiv 0$. Notiamo che il potenziale di interazione deve essere invariante per traslazione, quindi non può dipendere separatamente da $\mathbf{r}_1$ e $\mathbf{r}_2$. Allora $V(\mathbf{r}_1,\mathbf{r}_2)\equiv V(\mathbf{r}_1-\mathbf{r}_2)$, dove $\mathbf{r}_1-\mathbf{r}_2$ è la \textit{distanza relativa} fra i due corpi. Allora la Lagrangiana sarà:
+\begin{equation}
+L=\frac{1}{2}m_1\dot{\mathbf{r}}_1^2+\frac{1}{2}m_2\dot{\mathbf{r}}_2^2-V(\mathbf{r}_1-\mathbf{r}_2)\;.
+\end{equation}
+Se applichiamo al sistema una variazione continua, allora il moto dei due corpi sarà descritto dalle medesime equazioni, i.e. la Lagrangiana deve rimanere invariata. Applichiamo al sistema la trasformazione continua:
+\begin{equation}
+\begin{cases}
+\mathbf{r}_i\longmapsto\mathbf{r}_i+\epsilon\mathbf{n}\\
+\\
+\dot{\mathbf{r}}_i\longmapsto\dot{\mathbf{r}}_i
+\end{cases}\;.
+\end{equation}
+La variazione della Lagrangiana sarà data da:
+\begin{equation*}
+\delta L=\pdev{T}{\dot{r}_{1k}}\delta\dot{r}_{1k}+\pdev{T}{\dot{r}_{2k}}\delta\dot{r}_{2k}-\pdev{V}{r_{1k}}\delta r_{1k}-\pdev{V}{r_{2k}}\delta r_{2k}=0\;.
+\end{equation*}
+Poiché nella trasformazione in questione le velocità non cambiano, $\delta\dot{r}_{1k}=\delta\dot{r}_{2k}=0$. Dunque:
+\begin{align*}
+\delta\lag&=-\pdev{V}{r_{1k}}\delta r_{1k}-\pdev{V}{r_{2k}}\delta r_{2k}=\mbox{(Eulero-Lagrange)} \\
+&=\frac{\diff}{\diff[t]}\left(\pdev{\lag}{\dot{r}_{1k}}+\pdev{\lag}{\dot{r}_{2k}}\right) \\
+&=\frac{\diff}{\diff[t]}(m_1\dot{\mathbf{r}}_1+m_2\dot{\mathbf{r}}_2)=0\;.
+\end{align*}
+Da cui deduciamo che la quantità:
+\begin{equation}
+\mathbf{P}\equiv m_1\dot{\mathbf{r}}_1+m_2\dot{\mathbf{r}}_2\;,
+\end{equation}
+detta \textit{impulso totale}, è un integrale primo del moto. A questo punto, definiamo il nuovo set di coordinate generalizzate:
+\begin{equation}
+\begin{cases}
+\mathbf{r}\equiv \mathbf{r}_1-\mathbf{r}_2 \\
+\\
+\mathbf{R}\equiv \dfrac{m_1\mathbf{r}_1+m_2\mathbf{r}_2}{m_1+m_2}
+\end{cases}\;.
+\end{equation}
+Invertendo, ricaviamo le espressioni di $\mathbf{r}_1,\mathbf{r}_2$ in funzione delle nuove coordinate $\mathbf{r},\mathbf{R}$, ottenendo:
+\begin{equation*}
+\begin{cases}
+\mathbf{r}_1=\mathbf{R}+\dfrac{m_2}{M}\mathbf{r} \\
+\\
+\mathbf{r}_2=\mathbf{R}-\dfrac{m_1}{M}\mathbf{r}
+\end{cases}, \qquad
+\begin{cases}
+\dot{\mathbf{r}}_1=\dot{\mathbf{R}}+\dfrac{m_2}{M}\dot{\mathbf{r}} \\
+\\
+\dot{\mathbf{r}}_2=\dot{\mathbf{R}}-\dfrac{m_1}{M}\dot{\mathbf{r}}
+\end{cases}\;,
+\end{equation*}
+dove si è posto $M=m_1+m_2$. Allora la Lagrangiana, nelle nuove coordinate, diventa:
+\begin{align}
+L &= \frac{1}{2}m_1\left(\dot{\mathbf{R}}+\frac{m_2}{M}\dot{\mathbf{r}}\right)^2+\frac{1}{2}m_2\left(\dot{\mathbf{R}}-\frac{m_1}{M}\dot{\mathbf{r}}\right)^2-V(\mathbf{r})\notag  \\
+&= \frac{1}{2}m_1\dot{\mathbf{R}}^2+\frac{m_1m_2}{M}\dot{\mathbf{R}}\cdot\dot{\mathbf{r}}+\frac{m_1m_2^2}{2M^2}\dot{\mathbf{r}}^2+\frac{1}{2}m_2\dot{\mathbf{R}}^2-\frac{m_1m_2}{M}\dot{\mathbf{R}}\cdot\dot{\mathbf{r}}+\frac{m_2m_1^2}{2M^2}\dot{\mathbf{r}}^2-V(\mathbf{r})\notag \\
+&=\frac{1}{2}(m_1+m_2)\dot{\mathbf{R}}^2+\frac{m_1m_2}{m_1+m_2}\dot{\mathbf{r}}^2-V(\mathbf{r})\;.
+\end{align}
+Poniamo $\mu\equiv m_1m_2/(m_1+m_2)$, detta \textit{massa ridotta}, ottenendo:
+\begin{equation}
+L=\frac{1}{2}M\dot{\mathbf{R}}^2+\frac{1}{2}\mu\dot{\mathbf{r}}^2-V(\mathbf{r})\;.
+\end{equation}
+Osserviamo che $L=L_{cdm}(\mathbf{R},\dot{\mathbf{R}})+L_{rel}(\mathbf{r},\dot{\mathbf{r}})$, dunque nel nuovo set di coordinate, riusciamo a scomporre il sistema in due sistemi disaccoppiati. \\
+
+Consideriamo adesso la Lagrangiana del sistema del centro di massa (i.e. $\dot{\mathbf{R}}\equiv0$):
+\begin{equation}
+L_{rel}=\frac{1}{2}\mu\dot{\mathbf{r}}^2-V(\mathbf{r})\;.
+\end{equation}
+Notiamo che se $V$ è funzione del modulo di $\mathbf{r}$, allora non esistono direzioni privilegiate per il moto. Applichiamo adesso una rotazione infinitesima:
+\begin{equation}
+\begin{cases}
+\mathbf{r}\longmapsto\mathbf{r}'=\mathbf{r}+\delta\mathbf{r} \\
+\\
+\delta\mathbf{r}=-\mathbf{n}\times\mathbf{r}\cdot\epsilon=\epsilon\mathbf{r}\times\mathbf{n} \\
+\\
+\delta\dot{\mathbf{r}}=\epsilon\dot{\mathbf{r}}\times\mathbf{n}
+\end{cases}\;,
+\end{equation}
+e scriviamo la variazione della Lagrangiana:
+\begin{align}
+\delta L_{rel} &=\pdev{L_{rel}}{r_{\alpha,k}}\delta r_{\alpha,k}+\pdev{L_{rel}}{\dot{r}_{\alpha,k}}\delta\dot{r}_{\alpha,k} \notag \\
+&=\pdev{L_{rel}}{r_{\alpha,k}}\delta r_{\alpha,k}+\pdev{L_{rel}}{\dot{r}_{\alpha,k}}\frac{\diff}{\diff{t}}\delta r_{\alpha,k} \notag \\
+&=\left(\frac{\diff}{\diff{t}}\pdev{L_{rel}}{\dot{r}_{\alpha,k}}\right)\delta r_{\alpha,k}+\pdev{L_{rel}}{r_{\alpha,k}}\left(\frac{\diff}{\diff{t}}\delta r_{\alpha,k}\right) \notag \\
+&= \frac{\diff}{\diff{t}}\left(\pdev{L_{rel}}{\dot{r}_{\alpha,k}}\delta r_{\alpha,k}\right)\;.
+\end{align}
+Allora se $\delta L_{rel}=0$, i.e. la Lagrangiana è invariante per rotazioni, la quantità:
+\begin{equation}
+\pdev{L_{rel}}{\dot{r}_{\alpha,k}}\delta r_{\alpha,k}
+\end{equation}
+è un integrale primo del moto. Si ha in particolare:
+\begin{equation}
+\pdev{L_{rel}}{\dot{r}_{\alpha,k}}\delta r_{\alpha,k}=\mu\dot{r}_{\alpha,k}\epsilon(\mathbf{r}^a\times\mathbf{n})_k=\;\mbox{costante}\;.
+\end{equation}
+da cui, per l'arbitrarietà di $\epsilon$, si conclude che:
+\begin{equation}
+\mu\dot{r}_{\alpha,k}(\mathbf{r}^a\times\mathbf{n})_k=\;\mbox{costante}\;.
+\end{equation}
+Allora:
+\begin{equation}
+\mu\dot{r}_{\alpha,k}(\mathbf{r}^a\times\mathbf{n})_k=\mu\dot{r}_{\alpha,k}\epsilon_{kij}r_{\alpha,i} n_j=n_j\epsilon_{jki}(\mu\dot{r}_{\alpha,k})r_{\alpha,i}=-n_j(\epsilon_{jik}r_{\alpha,i} \mu\dot{r}_{\alpha,k})=-\mathbf{n}\cdot\mathbf{L}\;,
+\end{equation}
+dove:
+\begin{equation}
+\mathbf{L}\equiv \mathbf{r}\times\mu\dot{\mathbf{r}}
+\end{equation}
+è il momento angolare totale del sistema. \\
+
+Data dunque la Lagrangiana:
+\begin{equation}
+L_{rel}=\frac{1}{2}\mu\dot{\mathbf{r}}^2-V(|\mathbf{r}|)\;,
+\end{equation}
+e la variazione infinitesima $\delta\mathbf{r}=\mathbf{n}\times\mathbf{r}\delta\varphi$, sappiamo che sotto queste condizioni $\delta\lag_{rel}=\delta\phi n_a(\epsilon_{abc}r_b\mu\dot{r}_c)=\delta\phi\mathbf{n}\cdot\mathbf{L}=0$. Calcoliamo adesso:
+\begin{equation}
+\mathbf{L}\cdot\mathbf{r}(t)=r_aL_a=\epsilon_{abc}r_ar_b\mu\dot{r}_c=0 \qquad \forall t\;.
+\end{equation}
+Deduciamo dunque che, fissato $\mathbf{L}$, l'orbita in ogni istante è perpendicolare a $\mathbf{L}$, dunque il moto è piano. Calcoliamo adesso l'area spazzata dal raggio vettore tra gli istanti $t$ e $t+\delta t$:
+\begin{equation}
+\delta A=r\cdot r\dev{\varphi}{t}\delta t=r^2\dot{\varphi}\delta t\;.
+\end{equation}
+Definiamo dunque la \textit{velocità areolare}:
+\begin{equation}
+\dev{A}{t}=r^2\dot{\varphi}\;.
+\end{equation}
+Poiché, in coordinate sferiche, $|\mathbf{L}|=\mu r^2\dot{\varphi}$, possiamo esprimere la velocità areolare in termini del momento angolare come:
+\begin{equation}
+\dev{A}{t}=\frac{|\mathbf{L}|}{\mu}\;.
+\end{equation}
+Scriviamo adesso la Lagrangiana $L_{rel}$ in coordinate sferiche:
+\begin{equation}
+L_{rel}=\frac{1}{2}\mu(\dot{r}^2+r^2\dot{\theta}^2+r^2\sin^2\theta\dot{\varphi}^2)-V(r)\;.
+\end{equation}
+Fissiamo $\theta=\pi/2$ e $\dot{\theta}=0$:
+\begin{equation}
+L_{rel}=\frac{1}{2}\mu(\dot{r}^2+r^2\dot{\varphi}^2)-V(r)\;.
+\end{equation}
+Se sostituiamo adesso $\dot{\varphi}=L/(\mu r^2)$, otteniamo:
+\begin{equation}
+L_{rel}=\frac{1}{2}\mu\dot{r}^2+\frac{L^2}{2\mu r^2}-V(r)\;.
+\end{equation}
+Tuttavia questa espressione risulta sostanzialmente errata in quanto le variazioni che abbiamo effettuato non sono indipendenti. Passiamo dunque a considerare l'energia:
+\begin{equation}
+E=\frac{1}{2}(\mu\dot{r}^2+\mu r^2\dot{\varphi}^2)+V(r)\;.
+\end{equation}
+Possiamo adesso sostituire $\dot{\varphi}=L^2/(\mu r^2)$, ottenendo:
+\begin{equation}
+E=\frac{1}{2}\mu\dot{r}^2+\frac{L^2}{2\mu r^2}+V(r)\equiv \frac{1}{2}\mu\dot{r}^2+V_{\mathrm{eff}}(r)\;,
+\end{equation}
+dove:
+\begin{equation}
+V_{\mathrm{eff}}=\frac{L^2}{2\mu r^2}+V(r)\;,
+\end{equation}
+è detto \textit{potenziale efficace}.
+\subsection{Potenziale gravitazionale}
+Fissiamo adesso $V(r)=-k/r$, $k>0$. Questa è la tipica espressione di un potenziale di tipo gravitazionale. Si ha dunque:
+\begin{equation}
+\dot{\varphi}=\frac{L}{\mu r^2}\qquad \Longrightarrow\qquad \diff{\varphi}=\frac{L}{\mu r^2}\diff{t}\;,
+\end{equation}
+ossia:
+\begin{equation}
+\frac{\mu r^2}{L}\diff{\varphi}=\diff{t}\qquad \Longleftrightarrow\qquad \frac{L}{\mu r^2}\frac{\diff}{\diff{\varphi}}=\frac{\diff}{\diff{t}}\;.
+\end{equation}
+Poniamo $u=1/r$, ottenendo:
+\begin{equation}
+\frac{1}{u^2}\frac{\diff}{\diff[t]}=\frac{L}{\mu}\frac{\diff}{\diff[\varphi]}\;.
+\end{equation}
+Allora risulta:
+\begin{equation}
+\dev{r}{t}=-\frac{1}{u^2}\dev{u}{t}=-\frac{L}{\mu}\dev{u}{\varphi}\;.
+\end{equation}
+Scriviamo adesso l'energia in funzione di $u$:
+\begin{align}
+E&=\frac{1}{2}\mu\left(\dev{r}{t}\right)^2+\frac{L^2}{2\mu r^2}-\frac{k}{r} \notag \\
+&= \frac{1}{2}\mu \frac{L^2}{\mu^2}\left(\dev{u}{\varphi}\right)^2+\frac{L^2}{2\mu}u^2-ku \notag \\
+&= \frac{L^2}{2\mu}\left[\left(\dev{u}{\varphi}\right)^2+u^2\right]-ku\;.
+\end{align}
+Imponendo $\diff[E]/\diff[\varphi]=0$, otteniamo l'equazione:
+\begin{equation}
+\dev[2]{u}{\varphi}+u=\frac{\mu k}{L^2}\;,
+\end{equation}
+che è l'equazione di un oscillatore armonico soggetto ad una forza esterna costante. Le soluzioni saranno date da:
+\begin{equation}
+u(\varphi)=A\cos(\varphi+\varphi_0)+\frac{\mu k}{L^2}\;.
+\end{equation}
+Possiamo fissare $\varphi_0=0$ e sostituire $u=1/r$:
+\begin{equation}
+\frac{1}{r(\varphi)}=\frac{1}{p}+A\cos\varphi\;, \label{sec8_orbit}
+\end{equation}
+dove $p=L^2/(\mu k)$. Osserviamo che si ha $r(\varphi)=r(\varphi+2\pi)$, quindi l'orbita è chiusa e il moto è periodico. Riscriviamo la \eqref{sec8_orbit} nella forma:
+\begin{equation}
+\frac{p}{r}=pA\cos\varphi +1\;.
+\end{equation}
+Poniamo $pA=e$:
+\begin{equation}
+p=r+re\cos\varphi\;.
+\end{equation}
+In coordinate Cartesiane si ha:
+\begin{align}
+p &=\sqrt{x^2+y^2}+ex \notag \\
+p-ex &= \sqrt{x^2+y^2} \notag \\
+p^2-2pex+e^2x^2&=x^2+y^2\;.
+\end{align}
+Ovvero:
+\begin{equation}
+p^2=(1-e^2)x^2+2pex+y^2=(1-e^2)\left[x^2+2\frac{pe}{1-e^2}x+\left(\frac{ep}{1-e^2}\right)^2\right]-\frac{e^2p^2}{1-e^2}+y^2\;,
+\end{equation}
+dove abbiamo aggiunto e sottratto la quantità $e^2 p^2/(1-e^2)$ per completare il quadrato:
+\begin{equation}
+\left(1+\frac{e^2}{1-e^2}\right)p^2=(1-e^2)\left(x+\frac{ep}{1-e^2}\right)^2+y^2\;.
+\end{equation}
+Posto $x_C=-e p/(1-\varepsilon^2)$ otteniamo:
+\begin{equation}
+(1-e^2)(x-x_C)^2+y^2=\frac{p^2}{1-e^2}\;,
+\end{equation}
+cioè:
+\begin{equation}
+\frac{(x-x_C)^2}{\dfrac{p^2}{(1-e^2)^2}}+\frac{y^2}{\dfrac{p^2}{1-e^2}}=1\;,
+\end{equation}
+che, a seconda del valore di $e$, detto \textit{eccentricità}, può rappresentare le seguenti orbite:
+\begin{equation}
+\begin{cases}
+e <1 \Longrightarrow \;\mbox{l'orbita è un'ellisse} \\
+\\
+e = 0 \Longrightarrow\;\mbox{l'orbita è una circonferenza} \\
+\\
+e >1 \Longrightarrow\;\mbox{l'orbita è un'iperbole}
+\end{cases}\;.
+\end{equation}
+Adesso costruiamo un'altra costante del moto nel caso del potenziale gravitazionale. Sappiamo che:
+\begin{equation}
+E=\frac{\mathbf{p}^2}{2m}-\frac{k}{r}=\;\mbox{costante}\;.
+\end{equation}
+Definiamo il \textit{vettore di Lenz}:
+\begin{equation}
+\mathbf{A}=\mathbf{p}\times\mathbf{L}+km\frac{\mathbf{r}}{r}\;.
+\end{equation}
+Osserviamo innanzitutto che il vettore di Lenz è perpendicolare al momento angolare:
+\begin{equation}
+\mathbf{A}\cdot\mathbf{L}=\mathbf{p}\times\mathbf{L}\cdot\mathbf{L}+\frac{km}{r}\mathbf{r}\cdot\mathbf{L}=0\;,
+\end{equation}
+in quanto $\mathbf{p}\times \mathbf{L}\perp \mathbf{L}$ per definizione di prodotto vettoriale e $\mathbf{r}\perp \mathbf{L}$ per lo stesso motivo, in quanto $\mathbf{L}=\mathbf{r}\times\mathbf{p}$. Calcoliamo adesso il modulo quadro di $\mathbf{A}$:
+\begin{align}
+A^2&= p^2L^2+k^2m^2+2\frac{mk}{r}\mathbf{r}\cdot(\mathbf{p}\times\mathbf{L}) \notag \\
+&= 2m\left(E-\frac{k}{r}\right)L^2+k^2m^2+\frac{2km}{r}\mathbf{L}\cdot (\mathbf{r}\times\mathbf{p}) \notag \\
+&= 2mEL^2-\frac{2mkL^2}{r}+k^2m^2+\frac{2kmL^2}{r}=2mEL^2+k^2m^2\;.
+\end{align}
+Consideriamo infine la quantità:
+\begin{align}
+\frac{\diff}{\diff{t}}(\mathbf{p}\times\mathbf{L}) &= \dot{\mathbf{p}}\times\mathbf{L}=\mathbf{F}\times \mathbf{L}=-\frac{k}{r^3}\mathbf{r}\times\mathbf{L} \notag \\
+&=-\frac{km}{r^3}\mathbf{r}\times(\mathbf{r}\times\dot{\mathbf{r}})=-\frac{km}{r^3}\left(r^2\dot{\mathbf{r}}-(\mathbf{r}\cdot\dot{\mathbf{r}})\mathbf{r}\right) \notag \\
+&= -km\left(\frac{\dot{\mathbf{r}}}{r}-\mathbf{r}\frac{\dot{r}}{r^2}\right)=-km\frac{\diff}{\diff{t}}\left(\frac{\mathbf{r}}{r}\right)\;.
+\end{align}
+Allora:
+\begin{equation}
+0=\frac{\diff}{\diff{t}}(\mathbf{p}\times\mathbf{L})+km\frac{\diff}{\diff{t}}\left(\frac{\mathbf{r}}{r}\right)=\frac{\diff}{\diff{t}}\left(\mathbf{p}\times\mathbf{L}+km\frac{\mathbf{r}}{r}\right)\equiv \dev{\mathbf{A}}{t}\;,
+\end{equation}
+e questo dimostra che il vettore di Lenz è una costante del moto.
+\pagebreak
+\section{Trasformazioni}
+Consideriamo un generico sistema descritto in un sistema di coordinate generalizzate $q=\{q_1,\ldots,q_N\}$ dalla Lagrangiana $L(q,\dot{q},t)$. Le equazioni del moto si otterrano dalle equazioni di Eulero-Lagrange:
+\begin{equation}
+\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}}-\pdev{L}{q}=0\;.
+\end{equation}
+In un secondo set di coordinate generalizzate $Q=\{Q_1,\ldots,Q_N\}$, legato al primo dalla relazione $q=q(Q,t)$, si ha:
+\begin{equation}
+L'(Q,\dot{Q},t)\qquad \implies\qquad \frac{\diff}{\diff{t}}\pdev{L'}{\dot{Q}}-\pdev{L'}{Q}=0\;.
+\end{equation}
+Inoltre, per il principio di invarianza in valore:
+\begin{equation}
+L'(Q,\dot{Q},t)=L(q(Q,t),\dot{q}(Q,\dot{Q},t),t)\;.
+\end{equation}
+Allora si ha:
+\begin{align}
+\frac{\diff}{\diff{t}}\pdev{L'}{\dot{Q}_i}-\pdev{L'}{Q_i} &= \frac{\diff}{\diff{t}}\left(\pdev{L}{\dot{q}_k}\pdev{\dot{q}_k}{\dot{Q}_i}\right)-\pdev{L}{q_k}\pdev{q_k}{Q_i}-\pdev{L}{\dot{q}_k}\pdev{\dot{q}_k}{Q_i} \notag \\
+&= \left(\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_k}\right)\pdev{\dot{q}_k}{\dot{Q}_i}+\pdev{L}{\dot{q}_k}\frac{\diff}{\diff{t}}\pdev{\dot{q}_k}{\dot{Q}_i}-\pdev{L}{q_k}\pdev{q_k}{Q_i}-\pdev{L}{q_k}\pdev{\dot{q}_k}{Q_i}\;.
+\end{align}
+Ricordando che $\partial\dot{q}_k/\partial\dot{Q}_i=\partial q_k/\partial Q_i$, si ottiene:
+\begin{equation}
+\frac{\diff}{\diff{t}}\pdev{L'}{\dot{Q}_i}-\pdev{L'}{Q_i} = \left(\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_k}-\pdev{L}{q_k}\right)\pdev{q_k}{Q_i}+\pdev{L}{\dot{q}_k}\left(\frac{\diff}{\diff{t}}\pdev{q_k}{Q_i}-\frac{\partial}{\partial Q_i}\dev{q_k}{t}\right)\;.
+\end{equation}
+Il secondo termine è identicamente nullo per la commutatività delle derivate. Allora otteniamo la relazione tra le equazioni di Eulero-Lagrange generate da $L$ e quelle generate da $L'$:
+\begin{equation}
+\frac{\diff}{\diff{t}}\pdev{L'}{\dot{Q}_i}-\pdev{L'}{Q_i}=\pdev{q_k}{Q_i}\left(\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_k}-\pdev{L}{q_k}\right)\;.
+\end{equation}
+$\partial q_k/\partial Q_i$ rappresenta l'elemento di posto $(k,i)$ della matrice Jacobiana della trasformazione. Poiché la trasformazione può essere invertita, la Jacobiana risulterà invertibile.
+\pagebreak
+\section{Formalismo Hamiltoniano}
+Si definisce \textit{Hamiltoniana} la funzione:
+\begin{equation}
+H(q,\dot{q},p,t)\equiv p\dot{q}-L(q,\dot{q},t)\;.
+\end{equation}
+Vogliamo adesso che $H$ non dipenda dalle velocità generalizzare $\dot{q}$: differenziando, si ha:
+\begin{align}
+\diff{H} &= \dot{q}\diff{p}+p\diff{\dot{q}}-\pdev{L}{q}\diff{q}-\pdev{L}{\dot{q}}\diff{\dot{q}}-\pdev{L}{t}\diff{t} \notag \\
+&=\left(p-\pdev{L}{\dot{q}}\right)\diff{\dot{q}}+\dot{q}\diff{p}-\pdev{L}{q}\diff{q}-\pdev{L}{t}\diff{t}\;.
+\end{align}
+Se imponiamo $p=\partial L/\partial\dot{q}$, $H$ non dipende da $\dot{q}$. Si ha dunque:
+\begin{align}
+\diff{H} &= \dot{q}\diff{p}-\pdev{L}{q}\diff{q}-\pdev{L}{t}\diff{t}\;, \\
+\diff{H} &= \pdev{H}{q}\diff{q}+\pdev{H}{p}\diff{p}+\pdev{H}{t}\diff{t}\;.
+\end{align}
+Dal confronto si ottengono pertanto le seguenti relazioni:
+\begin{align}
+\pdev{H}{t} &=-\pdev{L}{t}\;, \\
+\pdev{H}{q} &=-\pdev{L}{q}=-\frac{\diff}{\diff{t}}\pdev{L}{\dot{q}}=-\dev{p}{t}=-\dot{p}\;, \\
+\pdev{H}{p} &= \dot{q}\;.
+\end{align}
+Da queste ricaviamo le \textit{equazioni di Hamilton}:
+\begin{align}
+&\dot{q}_k=\pdev{H}{p_k}, &\dot{p}_k=-\pdev{H}{q_k}\,.
+\end{align}
+Il vantaggio del formalismo Hamiltoniano consiste nel dover risolvere, per un sistema con $n$ gradi di libertà, $2n$ equazioni differenziali del prim'ordine anziché $n$ del secondo ordine del formalismo Lagrangiano.
+\subsection{La funzione di Routh}
+In certi casi è conveniente, nel cambio di variabili, sostituire solo alcune delle velocità generalizzate con i rispettivi momenti, invece che tutte. Supponiamo di avere solo due coordinate $q$ e $\xi$ e trasformiamo le variabili $q,\xi,\dot{q},\dot{\xi}$ in $q,\xi,p,\dot{\xi}$, dove $p$ è il momento generalizzato corrispondente a $q$. Il differenziale della Lagrangiana è:
+\begin{align}
+\diff{L} &= \pdev{L}{q}\diff{q}+\pdev{L}{\dot{q}}\diff{\dot{q}}+\pdev{L}{\xi}\diff{\xi}+\pdev{L}{\dot{\xi}}\diff{\dot{\xi}} \notag \\
+&=\dot{p}\diff{q}+p\diff{\dot{q}}+\pdev{L}{\xi}\diff{\xi}+\pdev{L}{\dot{\xi}}\diff{\dot{\xi}}\;.
+\end{align}
+Quindi:
+\begin{equation}
+\diff{(L-p\dot{q})}=\dot{p}\diff{q}-\dot{q}\diff{p}+\pdev{L}{\xi}\diff{\xi}+\pdev{L}{\dot{\xi}}\diff{\dot{\xi}}\;.
+\end{equation}
+Definiamo la \emph{Routhiana} come:
+\begin{equation}
+R(q,p,\xi,\dot{\xi})\equiv p\dot{q}-L\;,
+\end{equation}
+dove la velocità $\dot{q}$ è espressa in termini di $p$ tramite l'equazione $p=\partial L/\partial\dot{q}$. Il differenziale di $R$ è:
+\begin{equation}
+\diff{R}=-\dot{p}\diff{q}+\dot{q}\diff{p}-\pdev{L}{\xi}\diff{\xi}-\pdev{L}{\dot{\xi}}\diff{\dot{\xi}}\;.
+\end{equation}
+Otteniamo pertanto:
+\begin{align}
+&\dot{q}=\pdev{R}{p}, &\dot{p}=-\pdev{R}{q}\;, \\
+&\pdev{L}{\xi} =-\pdev{R}{\xi}, &\pdev{L}{\dot{\xi}}=-\pdev{R}{\dot{\xi}}\;.
+\end{align}
+Se sostituiamo queste equazioni nella Lagrangiana per la coordinate $\xi$, abbiamo:
+\begin{equation}
+\frac{\diff}{\diff{t}}\pdev{R}{\dot{\xi}}=\pdev{R}{\xi}\;.
+\end{equation}
+Pertanto la Routhiana è un'Hamiltoniana rispetto alla coordinata $q$ e una Lagrangiana rispetto alla coordinata $\xi$. L'energia del sistema è:
+\begin{equation}
+E=\dot{q}\pdev{L}{\dot{q}}+\dot{\xi}\pdev{L}{\dot{\xi}}-L=p\dot{q}+\dot{\xi}\pdev{L}{\dot{\xi}}-L\;.
+\end{equation}
+In termini della Routhiana:
+\begin{equation}
+E=R-\dot{\xi}\pdev{R}{\dot{\xi}}\;.
+\end{equation}
+L'uso della Routhiana è conveniente in particolare quando alcune delle coordinate sono cicliche.
+\section{Trasformazioni canoniche infinitesime}
+Consideriamo una generica Hamiltoniana $H(q,p,t)$ e la trasformazione:
+\begin{equation}
+\begin{cases}
+q_i\longmapsto Q_i\equiv q_i+\epsilon f_i(q,p,t) \\
+\\
+p_i \longmapsto P_i\equiv p_i+\epsilon g_i(q,p,t)
+\end{cases}\;.
+\end{equation}
+Sia infine $K(Q,P,t)$ l'Hamiltoniana scritta in termini delle nuove coordinate. Vogliamo ricavare delle condizioni sulle funzioni $h(q,p,t)$ tali che:
+\begin{align}
+H(q,p,t)+\epsilon h(q,p,t) &= K(Q,P,t)\;, \notag \\
+q &\equiv q(Q,P,t)\;, \notag \\
+p &\equiv p(Q,P,t)\;.
+\end{align}
+Si ha innanzitutto che:
+\begin{equation}
+h(q,p,t)=\frac{1}{\epsilon}[K(Q,P,t)-H(q,p,t)]\;.
+\end{equation}
+Deriviamo rispetto a $q_i$:
+\begin{align}
+\pdev{h}{q_i} &= \frac{1}{\epsilon}\left(\pdev{K}{Q_k}\pdev{Q_k}{q_i}+\pdev{K}{p_k}\pdev{P_k}{q_i}-\pdev{H}{q_i}\right) \notag \\
+&= \frac{1}{\epsilon}\left(-\dot{P}_k\pdev{Q_k}{q_i}+\dot{Q}_k\pdev{P_k}{q_i}+\dot{p}_i\right) \notag \\
+&=\frac{1}{\epsilon}\left[-\left(\dot{p}_k+\epsilon\dev{g_k}{t}\right)\left(\delta_{ki}+\epsilon\pdev{f_k}{q_i}\right)+\left(\dot{q}_k+\epsilon\dev{f_k}{t}\right)\epsilon\pdev{g_k}{q_i}+\dot{p}_i\right] \notag \\
+&= \frac{1}{\epsilon}\left(-\dot{p}_i-\epsilon\dot{p}_k\pdev{f_k}{q_i}-\epsilon\dev{g_i}{t}-\epsilon^2\dev{g_k}{t}\pdev{f_k}{q_i}+\epsilon\dot{q}_k\pdev{g_k}{q_i}+\epsilon^2\dev{f_k}{t}\pdev{g_k}{q_i}+\dot{p}_i\right)
+\end{align}
+Semplificando e trascurando i termini in $\epsilon^2$, rimaniamo con:
+\begin{align}
+\pdev{h}{q_i}&\simeq -\dot{p}_k\pdev{f_k}{q_i}-\dev{g_i}{t}+\dot{q}_k\pdev{g_k}{q_i} \notag \\
+&=-\pdev{g_i}{t}-\pdev{g_i}{q_k}\dot{q}_k-\pdev{g_i}{p_k}\dot{p}_k-\pdev{f_k}{g_i}\dot{p}_k+\pdev{g_k}{q_i}\dot{q}_k\;.
+\end{align}
+Dunque si ha 
+\begin{equation}
+\pdev{h}{q_i}\simeq -\pdev{g_i}{t}+\dot{q}_k\left(\pdev{g_k}{q_i}-\pdev{g_i}{q_k}\right)-\dot{p}_k\left(\pdev{g_i}{p_k}+\pdev{f_k}{q_i}\right)\;,
+\end{equation}
+e similmente
+\begin{equation}
+\pdev{h}{p_i}\simeq \pdev{f_i}{t}+\dot{q}_k\left(\pdev{f_i}{q_k}+\pdev{g_k}{q_i}\right)+\dot{p}_k\left(\pdev{f_k}{p_i}-\pdev{f_i}{q_k}\right)\;.
+\end{equation}
+Per garantire la compatibilità delle soluzioni, imponiamo le condizioni:
+\begin{equation}
+\begin{cases}
+\partial g_k/\partial q_i=\partial g_i/\partial q_k \\
+\\
+\partial f_k/\partial p_i=\partial f_i/\partial p_k \\
+\\
+\partial g_i/\partial p_k+\partial f_k/\partial q_i=0
+\end{cases}\qquad \Longrightarrow \qquad
+\begin{cases}
+g_i=\partial g/\partial q_i \\
+\\
+f_i=\partial f/\partial p_i
+\end{cases}\;,
+\end{equation}
+per ogni $i,k$. Si ha inoltre:
+\begin{equation}
+\frac{\partial^2 f}{\partial p_k\partial q_i}+\frac{\partial^2 g}{\partial q_i\partial p_k}=0\;,
+\end{equation}
+da cui segue che deve essere necessariamente $g=-f$. Si ottengono dunque le condizioni:
+\begin{equation}
+\begin{cases}
+\dfrac{\partial h}{\partial q_i}=\dfrac{\partial}{\partial t}\dfrac{\partial f}{\partial q_i} \\
+\\
+\dfrac{\partial h}{\partial p_i}=\dfrac{\partial}{\partial t}\dfrac{\partial f}{\partial p_i}
+\end{cases}\qquad \implies \qquad h=\pdev{f}{t}\;.
+\end{equation}
+Allora le \textit{trasformazioni canoniche infinitesime} saranno della forma:
+\begin{equation}
+H(q,p,t)+\epsilon\pdev{f}{t}(q,p,t)=K(Q,P,t)\;.
+\end{equation}
+Vogliamo adesso sapere quale trasformazione canonica si ottiene scegliendo $f(q,p,t)\equiv H(q,p,t)$. In questo caso, si ottiene:
+\begin{equation}
+\begin{cases}
+q_k\longmapsto q_k+\epsilon\dfrac{\partial H}{\partial p_k}=q_k(t)+\epsilon\dot{q}_k\simeq q_k(t+\epsilon) \\
+\\
+p_k\longmapsto p_k-\epsilon\dfrac{\partial H}{\partial q_k}=p_k(t)+\epsilon\dot{p}_k\simeq p_k(t+\epsilon)
+\end{cases}\;.
+\end{equation}
+Allora
+\begin{equation}
+K(Q,P,t) = \begin{cases}
+H(q,p,t)+\epsilon\dfrac{\partial f}{\partial t} \\
+\\
+K\left(q+\epsilon\dfrac{\partial f}{\partial p},p-\epsilon\dfrac{\partial f}{\partial q},t\right)=H(q,p,t)+\epsilon\dfrac{\partial H}{\partial q_k}\dfrac{\partial f}{\partial p_k}-\epsilon\dfrac{\partial H}{\partial p_k}\dfrac{\partial f}{\partial q_k}
+\end{cases}\;.
+\end{equation}
+Dal confronto otteniamo che:
+\begin{align}
+&\pdev{f}{t}=\pdev{H}{q_k}\pdev{f}{p_k}-\pdev{H}{p_k}\pdev{f}{q_k}=-\dot{p}_k\pdev{f}{p_k}-\dot{q}_k\pdev{f}{q_k}\;,
+\end{align}
+da cui:
+\begin{equation}
+\pdev{f}{t}+\pdev{f}{q_k}\dot{q}_k+\pdev{f}{p_k}\dot{p}_k\equiv \dev{f}{t}=0\;.
+\end{equation}
+In particolare, si osserva che tutte le funzioni generatrici di trasformazioni canoniche sono costanti del moto.
+\section{Parentesi di Poisson}
+Sia $f(p,q,t)$ una funzione delle coordinate, momenti e tempo. La sua derivata totale rispetto al tempo è data da:
+\begin{equation}
+\dev{f}{t}=\pdev{f}{t}+\sum_k\left(\pdev{f}{q_k}\dot{q}_k+\pdev{f}{p_k}\dot{p}_k\right)\;.
+\end{equation}
+Sostituendo le equazioni di Hamilton per $\dot{q}_k,\dot{p}_k$ otteniamo:
+\begin{equation}
+\dev{f}{t}=\pdev{f}{t}+\{H,f\}\;,
+\end{equation}
+dove:
+\begin{equation}
+\{H,f\}\equiv \sum_k\left(\pdev{H}{p_k}\pdev{f}{q_k}-\pdev{H}{q_k}\pdev{f}{p_k}\right)
+\end{equation}
+è detta \emph{parentesi di Poisson} delle quantità $H$ e $f$. Osserviamo che una quantità $f$ è un intergrale primo del moto se:
+\begin{equation}
+\dev{f}{t}=\pdev{f}{t}+\{H,f\}=0\;.
+\end{equation}
+In particolare, se l'integrale primo non dipende esplicitamente dal tempo, la condizione diventa:
+\begin{equation}
+\{H, f\}=0\;.
+\end{equation}
+Per qualunque coppia di funzioni $f,g$ la parentesi di Poisson è definita in modo simile:
+\begin{equation}
+\{f,g\} \equiv \sum_k\left(\pdev{f}{p_k}\pdev{g}{q_k}-\pdev{f}{q_k}\pdev{g}{p_k}\right)\;.
+\end{equation}
+Le parentesi di Poisson godono delle seguenti proprietà:
+\begin{itemize}
+\item $\{f,g\}=-\{g,f\}$;
+\item se $c$ è una costante $\{f,c\}=0$;
+\item sono lineari in entrambi gli argomenti;
+\item $\{f_1f_2,g\}=f_1\{f_2,g\}+f_2\{f_1,g\}$.
+\end{itemize}
+Prendendo la derivata parziale della parentesi di Poisson rispetto al tempo, troviamo:
+\begin{equation}
+\frac{\partial}{\partial t}\{f,g\}=\left\{\pdev{f}{t},g\right\}+\left\{f,\pdev{g}{t}\right\}\,.
+\end{equation}
+Se una delle funzioni $f,g$ è uno dei momenti o delle coordinate, la parentesi di Poisson si riduce ad una derivata parziale:
+\begin{align}
+\{f,q_k\} &= \pdev{f}{p_k}\;, \\
+\{f,p_k\} &= -\pdev{f}{q_k}\;.
+\end{align}
+Scegliendo nelle formule precedenti $f=q_i$ o $f=p_i$, otteniamo le \emph{parentesi di Poisson} canoniche:
+\begin{align}
+\{q_i,q_k\} =\{p_i,p_k\} &=0\;, \\
+\{p_i,q_k\} &=\delta_{ik}\;.
+\end{align}
+Inoltre, vale la seguente relazione, chiamata \emph{identità di Jacobi}:
+\begin{equation}
+\{f,\{g,h\}\}+\{g,\{h,f\}\}+\{h,\{f,g\}\}=0\;.
+\end{equation}
+Un'altra importante proprietà delle parentesi di Poisson è il \emph{teorema di Poisson}: se $f,g$ sono due integrali del moto, allora la loro parentesi di Poisson è ancora un integrale del moto. Se $f,g$ non dipendono dal tempo, allora fissando $h=H$ nell'identità di Jacobi si ottiene:
+\begin{equation}
+\{H,\{f,g\}\}+\{f,\{g,H\}\}+\{g,\{H,f\}\}=0\;.
+\end{equation}
+Quindi, se $\{H,g\}=\{H,f\}=0$ per ipotesi, allora $\{H,\{f,g\}\}=0$ e quindi la tesi è dimostrata. Se invece $f,g$ dipendono esplicitamente dal tempo, allora partiamo da:
+\begin{align}
+\frac{\diff}{\diff{t}}\{f,g\} &= \left\{\pdev{f}{t},g\right\}+\left\{f,\pdev{g}{t}\right\}-\{f,\{g,H\}\}-\{g,\{H,f\}\} \notag \\
+&= \left\{\pdev{f}{t}+\{H,f\},g\right\}+\left\{f,\pdev{g}{t}+\{H,g\}\right\}\notag \\
+&=\left\{\dev{f}{t},g\right\}+\left\{f,\dev{g}{t}\right\}=0\;.
+\end{align}

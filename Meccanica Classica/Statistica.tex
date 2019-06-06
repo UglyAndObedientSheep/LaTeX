@@ -1,0 +1,555 @@
+\section{Richiami di Meccanica Classica}
+Consideriamo un sistema conservativo classico con $n$ gradi di libertà. Per $N$ punti materiali, $n$ sarà uguale a  $3N$. Supponiamo di 
+avere un set di coordinate generalizzate per il sistema $q_1,q_2,\ldots,q_n$, che possono essere Cartesiane, polari o qualunque set 
+conveniente di coordinate. Le velocità generalizzate associate a queste coordinate sono $\dot{q}_1,\dot{q}_2,\ldots, \dot{q}_n$. \\
+L'espressione della seconda legge di Newton tramite le equazioni di moto di Eulero-Lagrange è:
+\begin{equation}
+\label{sec1_eulerolagrange}
+\frac{\diff}{\diff{t}}\pdev{L}{\dot{q_i}}-\pdev{L}{q_i}=0\;,
+\end{equation}
+dove per un semplice sistema non relativistico la \textit{Lagrangiana} $L$ è data da:
+\begin{equation}
+L(q_i,\dot{q}_i)=T-V\;.
+\end{equation}
+$T$ è l'energia cinetica e $V$ è l'energia potenziale. L'equazione \eqref{sec1_eulerolagrange} è facilmente verificata se le $q_i$ sono coordinate cartesiane, infatti si ha:
+\begin{equation}
+L(q_i,\dot{q}_i)=\frac{1}{2}\sum_j M_j\dot{q}_j^2 - V\;.
+\end{equation}
+e, posto $q_i=x$ si ha:
+\begin{equation}
+ M\ddot{x}=-\pdev{V}{x}\;.
+\end{equation}
+Ma $-\partial V\partial x$ altri non è che la componente $x$ della forza $\mathbf{F}$; pertanto si ha semplicemente:
+\begin{equation}
+ F_x=M\ddot{x}\;.
+\end{equation}
+La forma Hamiltoniana delle equationi del moto sostituisce le $n$ equazioni differenziali del second'ordine \eqref{sec1_eulerolagrange} con $2n$ equazioni differenziali del prim'ordine. Definiamo i \textit{momenti generalizzati} come:
+\begin{equation}
+\label{sec1_generalizedmomenta}
+ p_i=\pdev{L}{\dot{q}_i}\;.
+\end{equation}
+La funzione \textit{Hamiltoniana} $H$ è data da:
+\begin{equation}
+H(p_i,q_i)=\sum_i p_i\dot{q}_i - L(q_i,\dot{q}_i)\;.
+\end{equation}
+Allora
+\begin{align}
+\diff{H} &= \sum_i\left(\pdev{H}{p_i}\diff{p_i}+\pdev{H}{q_i}\diff{q_i}\right) \notag \\
+&=\sum_i(p_i\diff{\dot{q}_i}+\dot{q}_i\diff{p_i})-\sum_i\left(\pdev{L}{q_i}\diff{q_i}+\pdev{L}{\dot{q}_i}\diff{\dot{q}_i}\right)\;. \label{sec1_diffham}
+\end{align}
+I termini in $\diff{\dot{q}_i}$ si eliminano per la definizione \eqref{sec1_generalizedmomenta} delle $p_i$. Inoltre, dalle equazioni di Eulero-Lagrange \eqref{sec1_eulerolagrange} si vede che:
+\begin{equation}
+\pdev{L}{q_i}=\dot{p}_i\;.
+\end{equation}
+Quindi, dalla \eqref{sec1_diffham}, si deve avere:
+\begin{align}
+&\pdev{H}{p_i}=\dot{q}_i\;, &\pdev{H}{q_i}=-\dot{p}_i\;.
+\end{align}
+Queste sono le equazioni di moto di Hamilton.
+\pagebreak
+\section{Sistemi ed ensembles}
+Lo sviluppo di un sistema composto da $N$ atomi nel tempo è noto quando si conoscono i valori delle $6N$ coordinate e momenti $p$ e $q$ 
+come funzioni del tempo. È possibile rappresentare graficamente tale evoluzione come un'unica orbita nello spazio $6N$-dimensionale 
+delle $p$ e delle $q$. Tale spazio è detto \textit{spazio delle fasi} o \textit{spazio} $\Gamma$ del sistema. \\
+
+Le quantità fisiche di particolare interesse negli equilibri termodinamici sono quasi sempre le medie temporali su un segmento della 
+traiettoria nello spazio delle fasi del sistema, con la media presa su un appropriato intervallo di tempo. Il problema è che per 
+determinati sistemi, un intervallo di tempo appropriato può essere anche diversi anni. L'\textit{idoneità} dell'intervallo di tempo su 
+cui eseguire le misure e le medie dipende da un tempo caratteristico detto \textit{tempo di rilassamento}. Il tempo di rilassamento 
+descrive approssimativamente il tempo necessario a smorzarsi per una fluttuazione (spontanea o indotta) delle proprietà del sistema. 
+Il valore del tempo di rilassamento dipende dalle particolari condizioni iniziali. J. Willard Gibbs fece un significativo passo avanti 
+nella risoluzione del problema di calcolare valori medi di quantità fisiche. Egli suggerì, anzichè usare medie temporali, di immaginare 
+un insieme di sistemi simili, ma opportunamente casuali, e di eseguire delle medie su questo insieme ad un istante fissato. Il gruppo 
+di sistemi simili è chiamato \textit{ensemble}. \\
+
+Un ensemble è composto da una moltitudine di sistemi costruiti l'uno simile all'altro. Ogni sistema nell'ensemble è una replica esatta 
+del sistema attuale che si sta studiando ed è equivalente, ai fini pratici, ad esso. L'ensemble è opportunamente causale nel senso che 
+ogni configurazione di coordinate e velocitè accessibile all'attuale sistema nel corso del tempo è rappresentato nell'ensemble da uno o 
+più sistemi in ogni istante. Si dice che l'ensemble rappresenti il sistema. Gibbs propose di sostituire le medie temporali con le medie 
+sugli ensemble, che sono medie su tutti i sistemi appartenenti all'ensemble ad un istante fissato. L'incertezza che si ha nella 
+conoscenza delle condizioni iniziali di un sistema e le conseguenti incertezze sulle medie temporali sono perfettamente descritte dalla 
+media sull'ensemble. \\
+Il prossimo problema è stabilire come costruire opportunamente gli ensemble. Se il sistema da rappresentare è in equilibrio termico, 
+possiamo ragionevolmente richiedere che la media sull'ensemble sia indipendente dal tempo. Le proprietà fisiche medie macroscopiche di 
+un sistema in equilibrio termico non cambiano col tempo; quindi l'ensemble rappresentativo deve essere tale che le medie non dipendano 
+dal particolare istante in cui esse sono state misurate.
+\pagebreak
+\section{Il teorema di Liouville}
+Un ensemble può essere descritto dando il numero di sistemi:
+\begin{equation}
+P(\mathbf{p},\mathbf{q})\diff{\mathbf{p}}\diff{\mathbf{q}}\;,
+\end{equation}
+nell'elemento di volume $\diff{\mathbf{p}}\diff{\mathbf{q}}$ dello spazio delle fasi. Per $N$ punti materiali:
+\begin{align}
+\diff{\mathbf{p}}&=\prod_{i=1}^{3N}\diff{p_i}\;,\notag \\
+\diff{\mathbf{q}} &=\prod_{i=1}^{3N}\diff{q_i}\;,
+\end{align}
+cioè, specifichiamo un ensemble dando la densità di sistemi nello spazio delle fasi (spazio $\Gamma$). Diremo che i sistemi 
+sono rappresentati in senso statistico dall'ensemble $P(\mathbf{p},\mathbf{q})$. \\
+
+La media sull'ensemble di una certa quantità $f(\mathbf{p},\mathbf{q})$ è dunque definita come:
+\begin{equation}
+\bar{f}=\frac{\int f(\mathbf{p},\mathbf{q})P(\mathbf{p},\mathbf{q})\diff{\mathbf{p}}\diff{\mathbf{q}}}{\int P(\mathbf{p},\mathbf{q})\diff{\mathbf{p}}\diff{\mathbf{q}}}\;.
+\end{equation}
+Volendo soddisfare la richiesta che la media sull'ensemble non dipenda dal tempo, bisogna imporre che $\partial P/\partial t=0$. 
+Inoltre, vogliamo anche che il numero di stati sia costante lungo la traiettoria nello spazio delle fasi; per questo scriviamo un'equazione di continuità per $P$:
+\begin{equation}
+ \pdev{P}{t}+\vec{\nabla}\cdot (P\mathbf{v})=0\;,
+\end{equation}
+dove $\mathbf{v}$ è la velocità e $\vec{\nabla}\cdot$ denota l'operatore divergenza nello spazio delle fasi $6N$-dimensionale. Esplicitando la divergenza troviamo:
+\begin{equation}
+ \pdev{P}{t}+\sum_{i=1}^{3N}\left[\frac{\partial}{\partial q_i}(P\dot{q}_i)+\frac{\partial}{\partial p_i}(P\dot{p}_i)\right]=0\;,
+\end{equation}
+ed esplicitando le derivate dentro la sommatoria:
+\begin{equation}
+ \pdev{P}{t}=\sum_i \left[\pdev{P}{q_i}\dot{q}_i+\pdev{P}{p_i}\dot{p}_i+P\left(\frac{\partial}{\partial q_i}\dot{q}_i+\frac{\partial}
+ {\partial p_i}\dot{p_i}\right)\right]=0\;.
+\end{equation}
+Il termine in parentesi tonde è identicamente nullo; infatti, dalle equazioni di Hamilton:
+\begin{equation}
+ \frac{\partial}{\partial q_i}\dot{q}_i+\frac{\partial}{\partial p_i}\dot{p}_i=\frac{\partial}{\partial q_i}\pdev{H}{p_i}-
+ \frac{\partial}{\partial p_i}\pdev{H}{q_i}=0\;,
+\end{equation}
+poiché:
+\begin{equation}
+\frac{\partial^2 H}{\partial q_i\partial p_i}=\frac{\partial^2 H}{\partial p_i\partial q_i}\;.
+\end{equation}
+Sostituendo otteniamo il \textit{teorema di Liouville}:
+\begin{equation}
+ \pdev{P}{t}+\sum_i \left[\pdev{P}{q_i}\dot{q}_i+\pdev{P}{p_i}\dot{p}_i\right]\equiv \dev{P}{t}=0\;. \label{sec2_liouville}
+\end{equation}
+Il teorema di Liouville afferma sostanzialmente che il tasso di variazione di $P$ lungo una linea di flusso è zero. Avevamo precedentemente richiesto, affinché un ensemble fosse una soddisfacente rappresentazione di un sistema in equilibrio, che il valore della densità della funzione $P(\mathbf{p},\mathbf{q})$ fosse indipendente dal tempo in ogni punto dello spazio delle fasi. Imponendo $\partial P/\partial t=0$ in accordo con questa richiesta nella \eqref{sec2_liouville} si ottiene:
+\begin{equation}
+ \sum_{i=1}^{3N}\left(\pdev{P}{q_i}\dot{q}_i+\pdev{P}{p_i}\dot{p}_i\right)=0\;,
+\end{equation}
+o:
+\begin{equation}
+ \mathbf{v}\cdot\vec{\nabla}\;P=0\;. \label{sec2_grad}
+\end{equation}
+cioè il sistema di muove su una superficie a $P$ costante. \\
+
+Un modo semplice di costruire un ensemble in equilibrio è di avere $P$ inizialmente distribuito uniformemente in tutto lo spazio delle 
+fasi. In questo modo, si ha che $\partial P/\partial q_i$ e $\partial P/\partial p_i$ sono ambedue singolarmente nulli e, dalla \eqref{sec2_liouville}, si ottiene che l'ensemble così scelto è uniforme. \\
+Una condizione ancora più generale per l'equilibrio statistico è di prendere $P$ come funzione solamente di certe quantità che sono 
+costanti del moto del sistema. Sia $\alpha$ una quantità, come ad esempio l'energia, costante del moto, cioè tale che $\partial\alpha/
+\partial t=0$. Se $\alpha(\mathbf{p},\mathbf{q})$ è una costante del moto, il sistema si muove lungo una superficie con $\alpha$ 
+costante e, poichè $P$ è stata scelta come funzione unicamente di $\alpha$, ciò implica che il sistema si muove lungo una superficie con 
+$P$ costante. Dunque la \eqref{sec2_grad} è verificata, e $\partial P/\partial t=0$ è consistente con il teorema di Liouville.
+\pagebreak
+\section{Entropia in Meccanica Statistica}
+Dai principi della termodinamica sappiamo che l'entropia $S$ ha le seguenti proprietà:
+\begin{enumerate}
+ \item $\diff{S}$ è un differenziale esatto ed è uguale a $\delta Q/T$ per un processo reversibile, dove $\delta Q$ è la quantità di calore 
+ scambiata dal sistema;
+ \item l'entropia è additiva: $S=S_1+S_2$. L'entropia di un sistema combinato è la somma delle entropie delle singole parti;
+ \item $\Delta S\ge 0$. Se lo stato di un sistema chiuso è dato macroscopicamente ad un certo istante, lo stato più probabile ad un 
+ certo istante successivo è uno con entropia maggiore od uguale.
+ \end{enumerate}
+Definiamo l'entropia $\sigma$ di un sistema (in Meccanica Statistica classica) in equilibrio come:
+\begin{equation}
+ \sigma=\log \Delta\Gamma\;,
+\end{equation}
+dove $\Delta\Gamma$ è il volume dello spazio delle fasi accessibile al sistema, per esempio il volume corrispondente a valori dell'energia compresi tra $E_0$ e $E_0+\delta E$. Notiamo che le variazioni di entropia sono indipendenti dalle unità usate per misurare 
+$\Delta\Gamma$. Poichè $\Delta\Gamma$ è un volume nello spazio delle fasi di $N$ punti materiali, esso ha le dimensioni:
+$$
+(\mbox{Momento}\times \mbox{Lunghezza})^{3N}=(\mbox{Azione})^{3N}\;.
+$$
+Sia $h$ l'unità di azione; allora $\Delta\Gamma/h^{3N}$ è una quantità adimensionale. Se definiamo:
+\begin{equation}
+ \sigma=\log\frac{\Delta\Gamma}{h^{3N}}=\log\Delta\Gamma-3N\log h\;,
+\end{equation}
+osserviamo che per le variazioni si ha:
+\begin{equation}
+ \delta\sigma=\delta\log\Delta\Gamma\;,
+\end{equation}
+indipendentemente dalle unità di misura. Osserviamo immediatamente che $\sigma$ è additiva. Consideriamo un sistema costituito da due parti, uno con $N_1$ punti materiali, l'altro con $N_2$ punti materiali. Allora:
+\begin{equation}
+N=N_1+N_2\;,
+\end{equation}
+e lo spazio delle fasi del sistema combinato è il prodotto degli spazi delle fasi delle singole parti:
+\begin{equation}
+ \Delta\Gamma=\Delta\Gamma_1\Delta\Gamma_2\;.
+\end{equation}
+L'additività dell'entropia segue direttamente:
+\begin{equation}
+ \sigma=\log\Delta\Gamma=\log(\Delta\Gamma_1\Delta\Gamma_2)=\log\Delta\Gamma_1+\log\Delta\Gamma_2=\sigma_1+\sigma_2\;.
+\end{equation}
+\pagebreak
+\section{Esempi elementari di distribuzione di probabilità ed entropia}
+Consideriamo un sistema di $N$ particelle indipendenti, aventi ciascuna un momento magnetico $\mu$ che può essere parallelo o 
+antiparallelo rispetto ad un campo magnetico esterno $H$. L'energia di ogni particella è $E=\pm \mu H$, a seconda dell'orientazione 
+dei momenti magnetici. Calcoliamo la distribuzione di probabilità del momento magnetico totale $M$ del sistema in assenza di campo 
+magnetico esterno. In queste condizioni, la proiezione di ogni momento può essere con uguale probabilità $\pm \mu$. Siamo interessati 
+alle configurazioni che risultano in $\frac{1}{2}(N+n)$ momenti positivi e $\frac{1}{2}(N-n)$ momenti negativi. Osserviamo innanzitutto 
+che la probabilità (normalizzata) di uno specifico microstato è $(1/2)^N$, poiché per ogni singolo momento c'è una probabilità 
+di $1/2$ che abbia l'orientamento richiesto, e ci sono $N$ particelle indipendenti. Inoltre, le $N$ particelle possono essere 
+riordinate fra di loro in $N!$ modi, molti dei quali non risultano in configurazioni distinte nei gruppi di $\frac{1}{2}(N+n)$ e $
+\frac{1}{2}(N-n)$ particelle. I riordinamenti interni a questi due gruppi, infatti, non sono considerati distinti e sono 
+rispettivamente $[\frac{1}{2}(N+n)]!$ e $[\frac{1}{2}(N-n)]!$. Perciò, il numero totale $W(n)$ di configurazioni indipendenti che 
+risultano in un momento netto $M=n\mu$ è:
+\begin{equation}
+\label{sec5_configurations}
+ W(n)=\frac{N!}{[\frac{1}{2}(N+n)]![\frac{1}{2}(N-n)]!}\;,
+\end{equation}
+e la probabilità $w(M)$ di un momento netto $M=n\mu$ è ottenuta moltiplicando la \eqref{sec5_configurations} per la probabilità $(1/2)^N$ di una specifica configurazione, cioè:
+\begin{equation}
+\label{sec5_probability}
+ w(M)=w(n\mu)=\left(\frac{1}{2}\right)^N\frac{N!}{[\frac{1}{2}(N+n)]![\frac{1}{2}(N-n)]!}\;.
+\end{equation}
+Per grandi valori dei fattoriali si può usare l'approssimazione di Stirling:
+\begin{align}
+x! &\simeq \sqrt{2\pi x}x^xe^{-x}\;, \notag \\
+\log x! &\simeq \frac{1}{2}\log(2\pi x)+x\log x-x=\frac{1}{2}\log(2\pi)+\left(x+\frac{1}{2}\right)\log x -x\;. \label{sec5_stirling}
+\end{align}
+Dunque, prendendo i logaritmi di entrambi i membri e usando la \eqref{sec5_stirling}, la \eqref{sec5_probability} diventa:
+\begin{align}
+ \log w(M)&\simeq -N\log 2-\frac{1}{2}\log 2\pi+\left(N+\frac{1}{2}\right)\log N \notag \\
+ &- \frac{1}{2}(N+n+1)\log\left[\frac{N}{2}\left(1+\frac{n}{N}\right)\right] \notag \\
+ &- \frac{1}{2}(N-n+1)\log\left[\frac{N}{2}\left(1-\frac{n}{N}\right)\right]\;.
+\end{align}
+Per $n\ll N$, possiamo sviluppare in serie di Taylor:
+\begin{equation}
+ \log\left(1\pm\frac{n}{N}\right)=\pm\frac{n}{N}-\frac{n^2}{2N^2}+\cdots
+\end{equation}
+e dunque:
+\begin{align}
+ \log w(M) &\simeq -\frac{1}{2}\log 2\pi-N\log 2+\left(N+\frac{1}{2}\right)\log N \\
+ &-\frac{1}{2}(N+n+1)\left[\log N-\log 2+\frac{n}{N}-\frac{n^2}{2N^2}\right] \notag \\
+ &-\frac{1}{2}(N-n+1)\left[\log N-\log 2-\frac{n}{N}-\frac{n^2}{2N^2}\right]\;. \\
+\end{align}
+Sommando i termini simili, otteniamo:
+\begin{equation}
+\log w(M)\simeq -\frac{1}{2}\log N+\log 2-\frac{1}{2}\log(2\pi)-\frac{n^2}{2N}+\frac{n^2}{2N^2}\;.
+\end{equation}
+Il termine $n^2/2N^2$ è un infinitesimo di ordine superiore rispetto agli altri termini, e dunque può essere trascurato. Otteniamo perciò:
+\begin{equation}
+ \log w(M) \simeq -\frac{1}{2}\log\left(\frac{\pi N}{2}\right)-\frac{n^2}{2N}\;,
+\end{equation}
+e dunque:
+\begin{equation}
+ w(M)\simeq \left(\frac{2}{\pi N}\right)^{1/2}e^{-n^2/2n}\;.
+\end{equation}
+Osserviamo da questo risultato che la magnetizzazione ha una distribuzione Gaussiana centrata nello zero. Pertanto il valor medio 
+della magnetizzazione in assenza di campo esterno è zero. La distribuzione di probabilità ha il suo unico  massimo in questo punto, per 
+cui il valore più probabile coincide con il valor medio. Riprendiamo in considerazione l'espressione della distribuzione di probabilità \eqref{sec5_probability} e calcoliamo $\sum_{n=-N}^N w(n)$: posto $\frac{1}{2}(N-n)=k$ si ha
+\begin{equation}
+\sum_{n=-N}^N w(n)=\sum_{k=0}^N \frac{N!}{(N-k)!k!}\left(\frac{1}{2}\right)^k\left(\frac{1}{2}\right)^{N-k}= \left(\frac{1}{2}+\frac{1}{2}\right)^N=1\;.
+\end{equation}
+Concludiamo che la distribuzione di probabilità risulta già normalizzata. Per calcolarne media e varianza, introduciamo la \textit{funzione generatrice} di una distribuzione di probabilità. Se $p(k)$ è una distribuzione di probabilità normalizzata, si definisce funzione generatrice di $p(k)$:
+\begin{equation}
+F(x)=\sum_{k=0}^N p(k)x^k\;.
+\end{equation}
+Si hanno le seguenti relazioni:
+\begin{itemize}
+ \item $F(1)=1$ (condizione di normalizzazione);
+ \item $F'(1)=\bar{k}$;
+ \item $F''(1)=\bar{k(k-1)}=\bar{k^2-k}$.
+\end{itemize}
+Nel caso della $w(k)$ data da \eqref{sec5_probability} generalizzata a $p,q$ qualunque (purché $q=1-p$), si ha:
+\begin{equation}
+F(x)=\sum_{k=0}^N \binom{N}{k}(px)^k(1-p)^{N-k}=(px-p+1)^N\;,
+\end{equation}
+e dunque:
+\begin{align}
+\bar{k}&=F'(1)=Np\;, \\
+\Delta k &= \sqrt{Npq}\;.
+\end{align}
+Allora l'entropia $\sigma$, definita come $\sigma(k)=\log w(k)$ sarà:
+\begin{equation}
+\sigma(k)=\log N!-\log k! -\log(N-k)!+k\log p+(N-k)\log(1-p)\;.
+\end{equation}
+Lo stato più probabile corrisponde a quello caratterizzato da entropia massima (il che giustifica l'uso del 
+logaritmo, in quanto è iniettivo e dunque il punto di massimo di $w(k)$ coincide col punto di massimo di $\sigma(k)$). Imponiamo pertanto che $\sigma'(k)=0$, riscrivendo prima l'entropia usando l'approssimazione di Stirling \eqref{sec5_stirling}:
+\begin{equation}
+\sigma(k)=\log N!-\log k!-k+(k-N)\log(N-k)-(N-k)+k\log p+(N-k)\log(1-p)\;.
+\end{equation}
+Dunque:
+\begin{equation}
+\sigma'(k)=-\log k-1-1+\log(N-k)+1+1+\log p-\log(1-p)=\log\frac{p}{1-p}-\log\frac{k}{1-k}\stackrel{!}{=}0\;,
+\end{equation}
+da cui:
+\begin{equation}
+\frac{p}{1-p}=\frac{k}{1-k}\qquad  \Longrightarrow\qquad k_{\mathrm{max}}=Np=\bar{k}\;.
+\end{equation}
+Dunque il valore in cui l'entropia è massima coincide con il valor medio della distribuzione $w(k)$. Sviluppiamo adesso l'entropia in serie di Taylor intorno al punto $k=\bar{k}$:
+\begin{equation}
+\sigma(k)=\sigma(\bar{k})+\frac{1}{2}\sigma''(\bar{k})(k-\bar{k})^2+\cdots
+\end{equation}
+dove non figura la derivata prima perché abbiamo imposto che $\bar{k}$ sia un massimo di $\sigma(k)$. Allora la probabilità $w(k)$, sarà:
+\begin{equation}
+w(k)=e^{\sigma(k)}=A\exp\left[\frac{1}{2}\sigma''(\bar{k})(k-\bar{k})^2\right]\;,
+\end{equation}
+dove:
+\begin{equation}
+\sigma''(\bar{k})=\left. -\frac{1}{N-k}-\frac{1}{k}\right|_{k=\bar{k}}=-\frac{1}{Npq}\;.
+\end{equation}
+Quindi, in conclusione:
+\begin{equation}
+w(k)=Ae^{-{(k-\bar{k})^2/2Npq}}\;.
+\end{equation}
+$A$ è la costante di normalizzazione. Sapendo che $\int_{-\infty}^{\infty} e^{-x^2}\;dx=\sqrt{\pi}$ si trova:
+\begin{equation}
+A=\sqrt{\frac{1}{2\pi Npq}}\;,
+\end{equation}
+che sostituita in $w(k)$ restituisce:
+\begin{equation}
+w(k)=\sqrt{\frac{1}{2\pi Npq}}\exp\left(-\frac{(k-Np)^2}{2Npq}\right)\;.
+\end{equation}
+Nel caso degli spin magnetici, se il campo magnetico esterno $H$ è zero, il valore del momento magnetico totale netto $n$ più probabile è zero, che può essere raggiunto in $w(0)$ modi possibili, cioè:
+\begin{equation}
+w(0)=\frac{N!}{\left[\left(\frac{N}{2}\right)!\right]^2}\;.
+\end{equation}
+In questo caso, l'entropia sarà data da:
+\begin{equation}
+\sigma(0)=\log(w(0))=N\log 2\;.
+\end{equation}
+\pagebreak
+\section{Calcolo dell'entropia di un gas perfetto tramite gli ensemble microcanonici}
+Supponiamo di avere un ensemble microcanonico di $N$ punti materiali non interagenti di massa $M$ confinati nel volume $V$ aventi energia compresa tra $U-\delta U$ e $U$. Il volume nello spazio delle fasi sarà dato da:
+\begin{equation}
+\Delta\Gamma =\int \diff{q_1}\cdots \diff{q_{3N}}\int\diff{p_1}\cdots\diff{p_{3N}}=V^N\int\diff{p_1}\cdots\diff{p_{3N}}\;,
+\end{equation}
+dove l'integrale dei momenti è da calcolare tenendo presente il vincolo:
+\begin{equation}
+U-\delta U\le \frac{1}{2M}\sum_{i=1}^{3N} p_i^2\le U\;, \label{sec6_constraint}
+\end{equation}
+per come l'ensemble è stato costruito. Il volume accessibile nello spazio dei momenti è quello di un guscio di spessore $(\delta U)(M/2U)^{1/2}$ in una ipersfera di raggio $(2MU)^{1/2}$. È possibile provare che per un sistema costituito da un numero abbastanza grande di punti materiali il valore di $\log\Delta\Gamma$ non dipende dal valore di $\delta U$ (se lo fosse, avremmo il problema di decidere un valore di $\delta U$). Dimostriamo questo fatto. Scriviamo:
+\begin{equation}
+V(R)=CR^{\nu}\;,
+\end{equation}
+per indicare il volume di una sfera $\nu$-dimensionale di raggio $R$. Il volume di un guscio di spessore $s$ alla superficie dell'ipersfera è:
+\begin{equation}
+V_s=V(R)-V(R-s)=C[R^{\nu}-(R-s)^{\nu}]=CR^{\nu}\left[1-\left(1-\frac{s}{R}\right)^{\nu}\right]\;,
+\end{equation}
+o, per definizione della funzione esponenziale:
+\begin{equation}
+V_s\simeq CR^{\nu}[1-e^{-s\nu/R}]\;.
+\end{equation}
+Pertanto se $\nu$ è sufficientemente grande, e $s\nu\gg R$, $V_s$ è praticamente il volume $V(R)$ dell'intera ipersfera. Possiamo pertanto sostituire il vincolo \eqref{sec6_constraint} con la condizione di rilassamento:
+\begin{equation}
+0\le \frac{1}{2M}\sum_{i=1}^{3N} p_i^2\le U\;.
+\end{equation}
+In altre parole, vogliamo valutare il volume di una sfera $3N$-dimensionale di raggio $(2MU)^{1/2}$. Consideriamo l'integrale:
+\begin{align}
+I &= \int_{-\infty}^{\infty}e^{-(x_1^2+x_2^2+\cdots +x_{\nu}^2)}\diff{x_1}\diff{x_2}\cdots\diff{x_{\nu}} \notag \\
+&=\left(\int_{-\infty}^{\infty}e^{-x^2}\diff{x}\right)^{\nu}=\pi^{\nu/2}\;.
+\end{align}
+Possiamo inoltre scrivere (usando coordinate polari):
+\begin{align}
+I =\int_0^{\infty}e^{-r^2}r^{\nu-1}\Omega_{\nu}\,\diff{r}=\frac{\Omega_{\nu}}{2}\int_0^{\infty}e^{-t}t^{(\nu-2)/2}\,\diff{t}=\frac{1}{2}\Omega_{\nu}\left(\frac{\nu}{2}-1\right)!\;,
+\end{align}
+dove $r^{\nu-1}\Omega_{\nu}$ denota la superficie della sfera $\nu$-dimensionale (in particolare, $\Omega_{\nu}$ denota l'angolo solido $\nu$-dimensionale) e l'ultima eguaglianza sussiste perché si tratta della funzione $\Gamma$ di Eulero. Uguagliando le due espressioni trovate per $I$ troviamo:
+\begin{equation}
+\Omega_{\nu}=\frac{2\pi^{\nu/2}}{\left(\frac{\nu}{2}-1\right)!}\;, %% Questo è l'elemento di angolo solido %%
+\end{equation}
+così che il volume della sfera è:
+\begin{equation}
+\mathcal{V}=\int_0^R \Omega_{\nu}\diff{R}=\frac{\pi^{\nu/2}}{(\nu/2)!}R^{\nu}\;.
+\end{equation}
+Quindi, con sufficiente precisione:
+\begin{equation}
+\Delta\Gamma=V^N\mathcal{V}=V^{\nu/3}\frac{\pi^{\nu/2}}{(\nu/2)!}R^{\nu}\;,
+\end{equation}
+e, usando l'approssimazione di Stirling per il fattoriale:
+\begin{equation}
+\sigma=\log\Delta\Gamma=N\log[V\pi^{3/2}(2MU)^{3/2}]-\frac{3N}{2}\log\frac{3N}{2}+\frac{3N}{2}\;, \label{sec6_entropy}
+\end{equation}
+dove nell'espressione di $\mathcal{V}$ abbiamo posto $\nu=3N$ e $R=(2MU)^{1/2}$. \\
+
+Vogliamo adesso porre $\sigma$ in una forma in cui possiamo esaminare l'additività. Possiamo riscrivere la \eqref{sec6_entropy} nella forma:
+\begin{equation}
+\sigma=N\log\left[V\left(\frac{4\pi M}{3}\right)^{3/2}\left(\frac{U}{N}\right)^{3/2}\right]+\frac{3N}{2}\;,
+\end{equation}
+ma questa non è additiva in quanto il volume $V$ appare nell'argomento del logaritmo. In effetti, se gli $N$ punti materiali sono indistinguibili, non dobbiamo considerare differenti gli stati che differiscono solo per uno scambio di particelle identiche fra loro nello spazio delle fasi, cioè abbiamo sovrastimato il volume dello spazio delle fasi di un fattore $N!$ rispetto alle condizioni classiche. Prendendo in considerazione questo fattore si ha:
+\begin{equation}
+\sigma=\log\frac{\Delta\Gamma}{N!}=N\log\left[\frac{V}{N}\left(\frac{4\pi M}{3}\right)^{3/2}\left(\frac{U}{N}\right)^{3/2}e\right]+\frac{3}{2}N\;.
+\end{equation}
+Questa formula è effettivamente additiva, in quanto solo il volume e l'energia per particella compaiono nell'argomento del logaritmo. Per completare la formula resta solo da introdurre $h^{3N}$ come unità di volume dello spazio delle fasi, così che:
+\begin{equation}
+\sigma=\log\frac{\Delta\Gamma}{N!h^{3N}}=N\log\left[\frac{(2M)^{3/2}\pi^{3/2}e(V/N)(U/N)^{3/2}}{(\frac{3}{2})^{3/2}h^3}\right]+\frac{3}{2}N\;.
+\end{equation}
+Qui $h$ è la costante di Planck. Dunque l'entropia $S$ sarà:
+\begin{equation}
+S=k\sigma \simeq kN\log\left[\frac{(2M)^{3/2}\pi^{3/2}e(V/N)(U/N)^{3/2}}{(\frac{3}{2})^{3/2}h^3}\right]+\frac{3}{2}kN\;,
+\end{equation}
+dove $k$ è la costante di Boltzmann. Osserviamo che:
+\begin{align}
+\left.\pdev{S}{U}\right|_{V=\mbox{cost}} &=\frac{3}{2U}kN\stackrel{!}{=}\frac{1}{T}\;, \\
+\left.\pdev{S}{V}\right|_{U=\mbox{cost}} &= \frac{kN}{V}\stackrel{!}{=}\frac{p}{T}\;.
+\end{align}
+Dunque la $S$ che abbiamo ricavato è sostanzialmente corretta, infatti ritroviamo $U=3N_AkT/2$, cioè l'energia cinetica media di un gas perfetto e $(\partial U/\partial T)=3R/2$, cioè il calore molare.
+\pagebreak
+\section{Ensemble canonico}
+Nonostante il ragionamento sugli ensemble microcanonici porti ad una formula sostanzialmente corretta, sorge il problema di fissare l'energia di un certo gas (in generale non sarà proporzionale alla temperatura come nel caso dei gas perfetti). Vogliamo fissare un ensemble a partire dalla temperatura. Sappiamo che, in un sistema $t$ composto da due parti $R,S$, di cui $S$ è una parte molto ridotta:
+\begin{equation}
+\diff[w]_t=C\diff[\Gamma_t]=c\diff[\Gamma_S]\times\diff[\Gamma_R]\;.
+\end{equation}
+Questa relazione vale nell'approssimazione $E_S\ll E_t$. Fissato il sistema $S$ in un particolare microstato, esistono più microstati di $R$ che corrispondo a quel dato microstato di $S$. L'obbiettivo è trovare la distribuzione di probabilità:
+\begin{equation}
+\diff{w_s}=C\diff{\Gamma_s}\times\Delta\Gamma_R\;.
+\end{equation}
+Dobbiamo supporre che i due sistemi siano debolmente accoppiati, cioè il termine di interazione fra i due sistemi porti un contributo trascurabile, ossia, in termini di Hamiltoniane $H_t=H_R+H_S$. Per quanto detto prima, $\Delta\Gamma_R=\mathrm{exp}(\sigma_R)$. In termini di energia $E_R=E_t-E_S$ e, per l'additività dell'entropia:
+\begin{equation}
+\sigma_R(E_R)=\sigma_R(E_t-E_s)\simeq \sigma_R(E_t)+\left.\pdev{\sigma_R}{E}\right|_{E=E_t}(-E_S)+\cdots\;,
+\end{equation}
+in quanto $E_S/E_t\ll 1$. Ricordando che $\partial S/\partial E=1/T$, abbiamo, per l'entropia matematica $\partial\sigma/\partial E=1/kT$:
+\begin{equation}
+\sigma_R(E_R)=\sigma_R(E_t)-\frac{E_S}{kT}+\cdots
+\end{equation}
+Dunque:
+\begin{equation}
+\diff{w_s}=Ce^{\sigma_R(E_t)}e^{-E_S/kT}\diff{\Gamma_S}=Ae^{-E_S/kT}\diff{\Gamma_S}\;.
+\end{equation}
+In generale:
+\begin{equation}
+\diff{w}=Ae^{-E/kT}\diff{\Gamma}\;.
+\end{equation}
+$A$ è una costante di normalizzazione che si ricava imponendo $\int\diff{w}=1$:
+\begin{equation}
+\frac{1}{A}=\int_{-\infty}^{\infty} e^{-E/kT}\diff{\Gamma}=\int_{-\infty}^{\infty} e^{-E/kT}\frac{\diff{p}\diff{q}}{h^{3N}N!}\;.
+\end{equation}
+Posto $\beta=1/kT$, definiamo dunque la funzione di partizione di Boltzmann:
+\begin{equation}
+Z(\beta)\equiv\int_{-\infty}^{\infty} e^{-\beta E}\diff{\Gamma}\;.
+\end{equation}
+Dunque la distribuzione di probabilità può essere scritta come:
+\begin{equation}
+\diff[w]=\frac{1}{Z(\beta)}e^{-\beta E}\frac{\diff[p]\diff[q]}{h^{3N}N!}\;.
+\end{equation}
+Per la trattazione termodinamica del sistema, non è necessario tenere in considerazione tutte le variabili dello spazio delle fasi, perciò vogliamo arrivare ad un'espressione del tipo:
+\begin{equation}
+\diff[w]=p(E)\diff[E]\;,
+\end{equation}
+dove $p(E)$ è una densità di probabilità. Allora si ha:
+\begin{equation}
+\diff[w]=p(E)\diff[E]=Ae^{-E/kT}\dev{\Gamma}{E}\diff[E]\;. \label{sec7_diffw}
+\end{equation}
+La quantità $\diff[\Gamma]/\diff[E]$ rappresenta il numero di stati la cui energia è compresa tra i valori $E$ e $E+\diff[E]$. \footnote{O equivalentemente, tra 0 ed $E$.} Il numero di stati macroscopici si potrà scrivere come:
+\begin{equation}
+\Delta\Gamma\simeq \left.\dev{\Gamma}{E}\right|_{\bar{E}}\delta E\;.
+\end{equation}
+Insieme alla condizione $p(\bar{E})\delta E\sim 1$, otteniamo la fluttuazione dell'energia del sistema dal valore medio $\bar{E}$.
+Ci aspettiamo che valutando la \eqref{sec7_diffw} in $E=\bar{E}$ si ritrovi lo stesso valore:
+\begin{equation}
+p(\bar{E})\delta E=Ae^{-\bar{E}/kT}\left.\dev{\Gamma}{E}\right|_{E=\bar{E}}\delta E\;.
+\end{equation}
+Sostituendo si ottiene:
+\begin{equation}
+1=Ae^{-\bar{E}/kT}\Delta\Gamma=Ae^{-\bar{E}/kT}e^{\sigma}=\frac{1}{Z}e^{-\bar{E}/kT} e^{\sigma}\;,
+\end{equation}
+ricordando che $\log\Delta\Gamma=\sigma$. Da questo ricaviamo $Z(\beta)$:
+\begin{align}
+Z(\beta)&=e^{-\bar{E}/kT+\sigma}= \mathrm{exp}\left(\frac{-kT\sigma+\bar{E}}{kT}\right)= \mathrm{exp}\left(-\frac{\bar{E}-TS}{kT}\right) =  \mathrm{exp}(-\beta F)\;.
+\end{align}
+Dove abbiamo introdotto l'\textit{energia libera di Helmotz}:
+\begin{align}
+F(T,V) &\equiv U(S,V)-TS\;, \\
+\left.\pdev{U}{S}\right|_V&=\frac{1}{T}\;.
+\end{align}
+Data la funzione di partizione $Z(\beta)$ è possibile calcolare l'energia media come:
+\begin{equation}
+U=-\frac{\partial}{\partial \beta}\log Z(\beta)=\frac{\int\diff[\Gamma]\;H e^{-\beta H}}{\int\diff[\Gamma]\;e^{-\beta H}}\;.
+\end{equation}
+Dalla termodinamica sappiamo che:
+\begin{equation}
+F(T,V) = U-TS = U-\tau\sigma\qquad \implies \qquad \begin{cases}
+k\sigma = -\left.\dfrac{\partial F}{\partial T}\right|_V\;, \\
+\\
+P = -\left.\dfrac{\partial F}{\partial V}\right|_T\;.
+\end{cases}
+\end{equation}
+Ma $F(T,V)=-kT\log Z(V,T)=\tau\log Z$. Invertendo la seconda relazione, si ha:
+\begin{equation}
+\sigma=-\frac{F}{\tau}+\frac{U}{\tau}\;.
+\end{equation}
+E quindi:
+\begin{align}
+\sigma=-\left.\pdev{F}{\tau}\right|_V=\frac{\partial}{\partial\tau}(\tau\log Z) &= \log Z+\tau\frac{\partial}{\partial\tau}\log Z \notag \\
+&= \log Z-\beta\frac{\partial}{\partial\beta}\log Z  \notag \\
+&= \log Z-\beta\frac{1}{Z}\pdev{Z}{\beta} \notag \\
+&=-\frac{F}{\tau}+\frac{1}{\tau}\frac{1}{Z}\int \diff[\Gamma]\; H e^{-\beta H}\;.
+\end{align}
+Consideriamo la funzione di partizione $Z(\beta)$ e un gas descritto dall'Hamiltoniana:
+\begin{equation}
+H=\sum_{i=1}^N H_1^{(i)}\;,
+\end{equation}
+cioè la somma delle Hamiltoniane di singole particelle. Allora la funzione di partizione, se trascuriamo i termini di interazione:
+\begin{equation}
+Z(\beta)\simeq \int\diff[p]_1\diff[q]_1e^{-\beta H_1^{(1)}} \cdots \int \diff[p]_N\diff[q]_N e^{-\beta H_1^{(N)}}\simeq Z_1\cdot Z_2 \cdots Z_N \cdot C\;,
+\end{equation}
+dove $C$ è una costante moltiplicativa che non dipende dalla temperatura. In particolare, se come in un gas, tutte le particelle sono fra loro identiche:
+\begin{equation}
+Z(\beta)\simeq C(Z_1)^N\;.
+\end{equation}
+Per un gas composto da $N$ molecole che non interagiscono fra loro, si ha per una singola molecola:
+\begin{equation}
+H_1=\sum_{j=1}^{P} a_i p_i^2\;.
+\end{equation}
+In particolare, se la molecola è monoatomica, $H_1=p^2/2M$ e $P=3$ e si ha $U=3kT/2$. Se invece è biatomica :
+\begin{equation}
+H_i=\frac{\mathbf{p}^2}{2M}+\frac{p_{\xi}^2}{2I_{\xi}}+\frac{p_{\chi}^2}{2I_{\chi}}\;.
+\end{equation}
+$I_{\xi},I_{\chi}$ rappresentano le componenti del momento di inerzia della molecola. In questo caso, i gradi di libertà sono $5$ e quindi $U=5kT/2$. In generale, si è osservato sperimentalmente che a basse temperature tutti i gas si comportano come monoatomici, cioè caratterizzati da un calore specifico $3R/2$. Aumentando la temperatura, però, per molecole poliatomiche, avviene che il calore specifico passa da $3R/2$ a $5R/2$ e poi a $7R/2$, come se i gradi di libertà della molecola venissero "scongelati" dall'aumento della temperatura. Quindi si pone il problema della non costanza del numero di gradi di libertà. \\
+
+Riassumendo, data la funzione di partizione di Boltzmann:
+\begin{equation}
+Z(\beta,v)=\int \diff[\Gamma]_N e^{-\beta H(p,q)}\;,
+\end{equation}
+possiamo ricavare le quantità principali della termodinamica:
+\begin{align}
+U(\beta, v) &= -\pdev{\log Z}{\beta}\;, \\
+c_v &= \left.\pdev{U}{T}\right|_V\;.
+\end{align}
+\begin{exm}
+Consideriamo un cristallo unidimensionale costituito da $N$ particelle materiali di massa $m$ nelle posizioni $x_1,x_2,\ldots,x_N$. L'Hamiltoniana del sistema è:
+$$
+H=\sum_{i=1}^N \frac{p_i^2}{2m}+\sum_{i\ne j} V(r_{ij})\;.
+$$
+dove $V(r_{ij})$ è il potenziale di interzione fra le particelle. Possiamo approssimare il sistema affermando che la particella $i$-esima interagisca solo con le particelle immediatamente adiacenti, cioè:
+\begin{equation}
+H\simeq \sum_{i} \frac{p_i^2}{2m}+\sum_i V(|r_i-r_{i+1}|)\;.
+\end{equation}
+Inoltre, poiché sappiamo che il potenziale ha un certo minimo corrispondente alla posizione di equilibrio, possiamo approssimarlo sviluppando in serie di Taylor:
+\begin{equation}
+V(|r_i+r_{i+1}|)\simeq -V_0+\frac{1}{2}k(r_i-r_{i+1})^2\;.
+\end{equation}
+Alla luce di ciò, l'Hamiltoniana diventa:
+\begin{equation}
+H \simeq \sum_i \frac{p_i^2}{2m}+\sum_i \frac{1}{2}k(x_i-x_{i+1})^2\;.
+\end{equation}
+Otteniamo così una forma quadratica per l'Hamiltoniana. Diagonalizzando la matrice e trovando le autofrequenze, possiamo scindere il sistema in un sistema di $N$ oscillatori armonici disaccoppiati, per cui la Hamiltoniana vale:
+\begin{equation}
+H = \sum_{\alpha=1}^N \left[\frac{P_{\alpha}^2}{2m}+\frac{1}{2}m\omega_{\alpha}^2 X_{\alpha}^2\right]=\sum_{\alpha=1}^N H_{\alpha}\;.
+\end{equation}
+Per ogni $\alpha$, la funzione di partizione è data da:
+\begin{equation}
+Z_{\alpha}=\int\diff[p]_{\alpha} \mathrm{exp}\left(-\beta\frac{P_{\alpha}^2}{2m}\right)\int_{-\infty}^{\infty} \diff[q]_{\alpha} \mathrm{exp}\left(-\beta\frac{m\omega_{\alpha}^2}{2}q_{\alpha}^2\right)
+\end{equation}
+Allora $H=\sum_{\alpha} H_{\alpha}=\sum_{\alpha}p_{\alpha}^2/2m+H_{\alpha}'$, dove $H_{\alpha}'$ può assumere solo un certo numero discreto di valori. Supponiamo che tale numero sia due; chiamati $E_1,E_2$ suddetti possibili valori, poniamo $\Delta=E_2-E_1$. Dato che i punti materiali sono identici, avremo $Z=(Z_1)^N$, dove:
+\begin{equation}
+Z_1=\int \diff[p]\diff[q] \mathrm{exp}\left(-\beta\frac{p^2}{2m}\right)\sum \mathrm{exp}\left(-\beta H'\right)=Z_1^{cl}\times Z'\;,
+\end{equation}
+avendo posto $\int \diff[p]\diff[q] \sum \mathrm{exp}(-\beta\ham')\equiv Z'$, in cui la somma è fatta sugli stati discreti possibili, nel nostro caso si ha:
+\begin{equation}
+Z'=\mathrm{exp}(-\beta E_1)+\mathrm{exp}(-\beta E_2)\;.
+\end{equation}
+Calcoliamo adesso l'energia media:
+\begin{equation}
+U= -\frac{\partial}{\partial\beta} \log Z=\frac{E_1e^{-\beta E_1}+E_2e^{-\beta E_2}}{e^{-\beta E_1}+e^{-\beta E_2}}=E_1P_1+E_2P_2\;.
+\end{equation}
+In generale:
+\begin{equation*}
+P_i=\frac{e^{-\beta E_i}}{\sum e^{-\beta E_i}}\qquad  \Longrightarrow\qquad  N_i=N\frac{e^{-\beta E_i}}{Z}\;,
+\end{equation*}
+e dunque:
+\begin{equation}
+\frac{N_2}{N_1}=\frac{e^{-\beta E_2}}{e^{-\beta E_1}}=e^{-(E_2-E_1)/kT}=e^{-\Delta/kT}\;.
+\end{equation}
+Inoltre:
+\begin{align*}
+\pdev{U}{T}=\pdev{\beta}{T}\pdev{U}{\beta}&= \frac{1}{kT^2}\frac{\Delta E_2e^{-\beta\Delta}(1+e^{-\beta\Delta})-\Delta e^{-\beta\Delta}(E_1+E_2e^{-\beta\Delta}}{(1+e^{-\beta\Delta})^2} \\
+&= \frac{N_A}{kT^2}\frac{\Delta^2 e^{-\beta\Delta}}{(1+e^{-\beta\Delta})^2} \\
+&= N_Ak \left(\frac{\Delta}{kT}\right)^2 \frac{e^{-\beta\Delta}}{(1+e^{-\beta\Delta})^2} \\
+&= R \frac{e^{-\beta\Delta}}{(1+e^{-\beta\Delta})^2}\;.
+\end{align*}
+\end{exm}

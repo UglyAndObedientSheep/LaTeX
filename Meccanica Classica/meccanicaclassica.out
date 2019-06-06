@@ -1,0 +1,49 @@
+\BOOKMARK [0][-]{chapter.1}{Meccanica Analitica}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Richiami}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Formalismo Lagrangiano}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Propriet\340 della funzione Lagrangiana}{section.1.2}% 4
+\BOOKMARK [1][-]{section.1.3}{Leggi di conservazione}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.3.1}{Energia}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.2}{Momento}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.3}{Centro di massa}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.4}{Momento angolare}{section.1.3}% 9
+\BOOKMARK [1][-]{section.1.4}{Elettromagnetismo}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.4.1}{Trasformazioni di gauge}{section.1.4}% 11
+\BOOKMARK [1][-]{section.1.5}{Calcolo variazionale}{chapter.1}% 12
+\BOOKMARK [1][-]{section.1.6}{Oscillatori armonici}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.6.1}{Caso I - Oscillatore libero smorzato}{section.1.6}% 14
+\BOOKMARK [2][-]{subsection.1.6.2}{Caso II - Oscillatore forzato}{section.1.6}% 15
+\BOOKMARK [1][-]{section.1.7}{Piccole oscillazioni}{chapter.1}% 16
+\BOOKMARK [2][-]{subsection.1.7.1}{Richiami di algebra lineare}{section.1.7}% 17
+\BOOKMARK [1][-]{section.1.8}{Problema dei due corpi}{chapter.1}% 18
+\BOOKMARK [2][-]{subsection.1.8.1}{Potenziale gravitazionale}{section.1.8}% 19
+\BOOKMARK [1][-]{section.1.9}{Trasformazioni}{chapter.1}% 20
+\BOOKMARK [1][-]{section.1.10}{Formalismo Hamiltoniano}{chapter.1}% 21
+\BOOKMARK [2][-]{subsection.1.10.1}{La funzione di Routh}{section.1.10}% 22
+\BOOKMARK [1][-]{section.1.11}{Trasformazioni canoniche infinitesime}{chapter.1}% 23
+\BOOKMARK [1][-]{section.1.12}{Parentesi di Poisson}{chapter.1}% 24
+\BOOKMARK [0][-]{chapter.2}{Relativit\340 Speciale}{}% 25
+\BOOKMARK [1][-]{section.2.1}{Introduzione}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.1.1}{Pippone sul perch\351 la relativit\340 \350 saltata fuori}{section.2.1}% 27
+\BOOKMARK [2][-]{subsection.2.1.2}{Spaziotempo di Minkowski}{section.2.1}% 28
+\BOOKMARK [1][-]{section.2.2}{Trasformazioni di Lorentz}{chapter.2}% 29
+\BOOKMARK [2][-]{subsection.2.2.1}{In 1+1 dimensioni}{section.2.2}% 30
+\BOOKMARK [2][-]{subsection.2.2.2}{In 3+1 dimensioni}{section.2.2}% 31
+\BOOKMARK [1][-]{section.2.3}{Cenni di teoria dei gruppi}{chapter.2}% 32
+\BOOKMARK [2][-]{subsection.2.3.1}{Rappresentazioni di gruppi}{section.2.3}% 33
+\BOOKMARK [2][-]{subsection.2.3.2}{Rappresentazioni irriducibili}{section.2.3}% 34
+\BOOKMARK [1][-]{section.2.4}{Formulazione covariante della Dinamica}{chapter.2}% 35
+\BOOKMARK [2][-]{subsection.2.4.1}{Principi della Dinamica}{section.2.4}% 36
+\BOOKMARK [2][-]{subsection.2.4.2}{Quantit\340 di moto}{section.2.4}% 37
+\BOOKMARK [2][-]{subsection.2.4.3}{Secondo principio}{section.2.4}% 38
+\BOOKMARK [2][-]{subsection.2.4.4}{Forze}{section.2.4}% 39
+\BOOKMARK [1][-]{section.2.5}{Meccanica analitica e relativit\340}{chapter.2}% 40
+\BOOKMARK [1][-]{section.2.6}{Esercizi}{chapter.2}% 41
+\BOOKMARK [0][-]{chapter.3}{Fisica Statistica}{}% 42
+\BOOKMARK [1][-]{section.3.1}{Richiami di Meccanica Classica}{chapter.3}% 43
+\BOOKMARK [1][-]{section.3.2}{Sistemi ed ensembles}{chapter.3}% 44
+\BOOKMARK [1][-]{section.3.3}{Il teorema di Liouville}{chapter.3}% 45
+\BOOKMARK [1][-]{section.3.4}{Entropia in Meccanica Statistica}{chapter.3}% 46
+\BOOKMARK [1][-]{section.3.5}{Esempi elementari di distribuzione di probabilit\340 ed entropia}{chapter.3}% 47
+\BOOKMARK [1][-]{section.3.6}{Calcolo dell'entropia di un gas perfetto tramite gli ensemble microcanonici}{chapter.3}% 48
+\BOOKMARK [1][-]{section.3.7}{Ensemble canonico}{chapter.3}% 49
