@@ -74,33 +74,32 @@ da cui:
 \begin{equation}
 \sum_{\alpha} (\dot{\mathbf{P}}_{\alpha}-\mathbf{F}_{\alpha}^{ext}-\mathbf{F}_{\alpha}^{reaz})\cdot \delta\mathbf{r}_{\alpha}=0\;,
 \end{equation}
-ma $\mathbf{F}_{\alpha}^{reaz}=0$ perché i vincoli non compiono lavoro. Otteniamo dunque il principio di D'Alembert dei lavori virtuali:
+ma $\sum_{\alpha}\mathbf{F}_{\alpha}^{reaz}\cdot\delta\mathbf{r}_{\alpha}=0$ perché i vincoli non compiono lavoro. Otteniamo dunque il principio di D'Alembert dei lavori virtuali:
 \begin{equation}
 \sum_{\alpha}(\dot{\mathbf{P}}_{\alpha}-\mathbf{F}_{\alpha}^{ext})\cdot\delta\mathbf{r}_{\alpha}=0\;.
 \end{equation}
-I $\delta\mathbf{r}_{\alpha}$ sono linearmente dipendenti. Cerco di esprimerli in funzione delle coordinate lagrangiane $q_k$:
+I $\delta\mathbf{r}_{\alpha}$ sono linearmente dipendenti. Cerchiamo di esprimerli in funzione delle coordinate lagrangiane $q_k$:
 \begin{align}
--\mathbf{F}_{\alpha}^{ext}\cdot\delta\mathbf{r}_{\alpha} &= -\left(\mathbf{F}_{\alpha}^{ext}\cdot\pdev{\mathbf{r}_{\alpha}}{q_k}\right)\delta q_k=\nabla_{\mathbf{r}_{\alpha}}U\pdev{\mathbf{r}_{\alpha}}{q_k}\delta q_k \notag \\
-&=\frac{\partial U}{\partial r^i_{\alpha}}\cdot \frac{\partial r^i_{\alpha}}{\partial q_k}\delta q_k=\pdev{U}{q_k}\delta q_k\;. \\
-\dot{\mathbf{P}}_{\alpha}\cdot\delta\mathbf{r}_{\alpha} &= m_{\alpha}\dot{\mathbf{v}}_{\alpha}\cdot\delta\mathbf{r}_{\alpha}=m_{\alpha}\dot{\mathbf{v}}_{\alpha}\cdot\frac{\partial\mathbf{r}_{\alpha}}{\partial q_k}\delta q_k \notag \\
-&=\left[\frac{\diff}{\diff{t}}\left(m_{\alpha}\mathbf{v}_{\alpha}\cdot\frac{\partial\mathbf{r}_{\alpha}}{\partial q_k}\right)-m_{\alpha}\mathbf{v}_{\alpha}\cdot\frac{\partial\mathbf{v}_{\alpha}}{\partial q_k}\right]\delta q_k\;.
+-\mathbf{F}^{ext}_{\alpha}\cdot\delta\mathbf{r}_{\alpha} &= \sum_k\left(-\mathbf{F}^{ext}_{\alpha}\cdot \pdev{\mathbf{r}_{\alpha}}{q_k}\right)\delta q_k=\sum_k \nabla_{\mathbf{r}_{\alpha}}U\pdev{\mathbf{r}_{\alpha}}{q_k}\delta q_k \notag \\
+&=\sum_{k,i}\frac{\partial U}{\partial r_{\alpha}^i}\frac{\partial r_{\alpha}^i}{q_k}\delta q_k=\sum_k\pdev{U}{q_k}\delta q_k\;, \\
+\dot{\mathbf{P}}_{\alpha}\cdot\delta\mathbf{r}_{\alpha} &= m_{\alpha}\dot{\mathbf{v}}_{\alpha}\delta\mathbf{r}_{\alpha}=\sum_k m_{\alpha}\dot{\mathbf{v}}_{\alpha}\cdot \pdev{\mathbf{r}_{\alpha}}{q_k}\delta q_k \notag \\
+&=\sum_k\left[\frac{\diff}{\diff{t}}\left(m_{\alpha}\mathbf{v}_{\alpha}\cdot\pdev{\mathbf{r}_{\alpha}}{q_k}\right)-m_{\alpha}\mathbf{v}_{\alpha}\cdot\pdev{\mathbf{v}_{\alpha}}{q_k}\right]\delta q_k\;.
 \end{align}
 Poiché $\partial\mathbf{r}_{\alpha}/\partial q_k=\partial\mathbf{v}_{\alpha}/\partial\dot{q}_k$, si ha:
 \begin{align}
-\dot{\mathbf{P}}_{\alpha}\cdot\delta\mathbf{r}_{\alpha}&=\left[\frac{\mathrm{d}}{\mathrm{d}t}\left(m_{\alpha}\mathbf{v}_{\alpha} 
-\cdot \pdev{\mathbf{v}_{\alpha}}{\dot{q}_k}\right)-m_{\alpha}\mathbf{v}_{\alpha}\cdot \pdev{\mathbf{v}_{\alpha}}{q_k}\right]\delta q_k \notag \\
-&= \left[\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial\dot{q}_k}\left(\frac{1}{2}m_{\alpha}\mathbf{v}_{\alpha}^2\right)-\frac{\partial}{\partial q_k}\left(\frac{1}{2} m_{\alpha}\mathbf{v}_{\alpha}^2\right)\right]\delta q_k \notag \\
-&= \left[\frac{\mathrm{d}}{\mathrm{d}t}\pdev{T}{\dot{q}_k}-\pdev{T}{q_k}\right]\delta q_k\;.
+\dot{\mathbf{P}}_{\alpha}\cdot \delta\mathbf{r}_{\alpha} &= \sum_k\left[\frac{\diff}{\diff{t}}\left(m_{\alpha}\mathbf{v}_{\alpha}\cdot \frac{\partial \mathbf{v}_{\alpha}}{\partial \dot{q}_k}\right)-m_{\alpha}\mathbf{v}_{\alpha}\cdot\pdev{\mathbf{v}_{\alpha}}{q_k}\right]\delta q_k  \notag \\
+&=\sum_k \left[\frac{\diff}{\diff{t}}\frac{\partial}{\partial \dot{q}_k}\left(\frac{1}{2}m_{\alpha}\mathbf{v}_{\alpha}^2\right)-\frac{\partial}{\partial q_k}\left(\frac{1}{2}m_{\alpha}\mathbf{v}_{\alpha}^2\right)\right]\delta q_k \notag \\
+&= \sum_k\left(\frac{\diff}{\diff{t}}\frac{\partial T}{\partial \dot{q}_k}-\pdev{T}{q_k}\right)\delta q_k\;.
 \end{align}
 Quindi il principio di D'Alembert in termini delle coordinate lagrangiane diventa:
 \begin{equation}
-\delta q_k \left[\left(\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial \dot{q}_k}- \frac{\partial}{\partial q_k}\right)T+\frac{\partial}{\partial q_k}U\right]=\delta q_k\left[\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial \dot{q}_k}(T-U)-\frac{\partial}{\partial q_k}(T-U)\right]=0, \quad k=1,\ldots, N\;.
+\sum_k\delta q_k \left[\left(\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial \dot{q}_k}- \frac{\partial}{\partial q_k}\right)T+\frac{\partial}{\partial q_k}U\right]=\sum_k\delta q_k\left[\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial}{\partial \dot{q}_k}(T-U)-\frac{\partial}{\partial q_k}(T-U)\right]=0\;.
 \end{equation}
-Definiamo a questo punto la funzione \textit{Lagrangiana} $L=T-U$. Avremo a questo punto le equazioni di Eulero-Lagrange per il sistema:
+Definiamo a questo punto la funzione \textit{Lagrangiana} $L=T-U$. Dato che i $\delta q_k$ sono linearmente indipendenti, otterremo le equazioni:
 \begin{equation}
 \frac{\diff}{\diff{t}}\pdev{L}{\dot{q}_k}-\pdev{L}{q_k}=0,\qquad k=1,\ldots, N\;,
 \end{equation}
-che restituiscono direttamente le equazioni del moto.
+dette \emph{equazioni di Eulero-Lagrange} del sistema, le quali restituiscono direttamente le equazioni del moto.
 \subsection{Proprietà della funzione Lagrangiana}
 Consideriamo due Lagrangiane $L(q,\dot{q})$ e $L'(q,\dot{q})$ che differiscono per la derivata totale rispetto al tempo di una funzione $F\equiv F(q,t)$:
 \begin{equation}
@@ -197,7 +196,7 @@ L'equazione \eqref{sec3_dldra} ha un semplice significato fisico. La derivata $\
 \end{equation}
 Se il moto è descritto per mezzo di coordinate generalizzate $q_i$, le derivate della Lagrangiana rispetto alle velocità generalizzate:
 \begin{equation}
-p_i=\pdev{\lag}{\dot{q}_i}\;,
+p_i=\pdev{L}{\dot{q}_i}\;,
 \end{equation}
 sono chiamate \textit{momenti generalizzati}, e le derivate della Lagrangiana rispetto alle coordinate generalizzate:
 \begin{equation}
@@ -301,12 +300,12 @@ Se un vettore ha rotore nullo, allora esso può essere scritto come il gradiente
 \end{equation}
 $\Phi$ rappresenta il potenziale scalare del campo elettrico. Allora, sostituendo nell'espressione della forza di Lorentz i valori dei campi, otteniamo:
 \begin{align}
-F_i&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(\epsilon_{ijk}v_j(\nabla\times\mathbf{A})_k)\right] \notag \\
-&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(\epsilon_{ijk}\epsilon_{lkm}v_j\partial_lA_m)\right] \notag \\
-&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}((\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})v_j\partial_lA_m)\right] \notag \\
-&=e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(v_j\partial_jA_i-v_l\partial_lA_i)\right] \notag \\
-&=e\left[-\partial_i\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)-\left(\frac{\partial}{\partial t}+\frac{1}{c}\nabla\cdot\mathbf{v}\right)A_i\right] \notag \\
-&=e\left[-\partial_i\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)-\frac{\diff}{\diff[t]}\frac{\partial}{\partial v_i}\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)\right]\;.
+F_i &= e\left(-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}\epsilon_{ijk}\epsilon_{klm}v_j\partial_lA_m\right) \notag \\
+&= e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(\delta_{il}\delta_{jm}-\delta_{im}\delta_{jl})v_j\partial_lA_m\right] \notag \\
+&= e\left[-\partial_i\Phi-\pdev{A_i}{t}+\frac{1}{c}(\partial_iv_jA_j-v_j\partial_jA_i)\right] \notag \\
+&= e\left[-\partial_i\Phi+\frac{1}{c}\partial_iv_jA_j-\pdev{A_i}{t}-\frac{1}{c}v_j\partial_jA_i\right] \notag  \\
+&= e\left[-\partial_i\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)-\left(\frac{\partial}{\partial t}+\frac{1}{c}\mathbf{v}\cdot\nabla\right)A_i\right] \notag \\
+&= e\left[-\partial_i\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)-\frac{\diff}{\diff{t}}\frac{\partial}{\partial v_i}\left(\Phi-\frac{1}{c}\mathbf{v}\cdot\mathbf{A}\right)\right]\;.
 \end{align}
 Pertanto la Lagrangiana di un elettrone che si muove in presenza di campi elettrico e magnetico sarà:
 \begin{equation}
@@ -358,16 +357,16 @@ y'(x)\longmapsto y'(x)+\dfrac{\diff}{\diff[x]}\delta y(x)=y'(x)+\delta y'(x)
 \end{equation}
 L'incremento del funzionale $I$ sarà allora dato da:
 \begin{align}
-I[y(x)+\delta y(x)]&=\int_{x_0}^{x_1} F(y+\delta y, y'+\delta y',x) \notag \\
-&= \int_{x_0}^{x_1} \left[F(y,y',x)+\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\delta y'\right)\right]\diff[x] \notag \\
-&= \int_{x_0}^{x_1} F(y,y',x)\diff[x]+\int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff[x] \notag \\
-&=I[y(x)]+\int_{x_0}^{x_1} \left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff[x]\;.
+I[y(x)+\delta y(x)] &= \int_{x_0}^{x_1}F(y+\delta y, y'+\delta y', x)\diff{x} \notag \\
+&= \int_{x_0}^{x_1}\left[F(y,y',x)+\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\delta y'\right)\right]\diff{x} \notag \\
+&= \int_{x_0}^{x_1}F(y,y',x)\diff{x}+\int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff{x} \notag \\
+&= I[y(x)]+\int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff{x}\;.
 \end{align}
 A questo punto imponiamo che la variazione del funzionale $\delta I=I[y+\delta y]-I[y]$ sia nulla, a condizione che la variazione di $y$ si annulli agli estremi, ossia $\delta y(x_1)=\delta y(x_0)=0$:
 \begin{align}
-\delta I&= \int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff[x]=
-\int_{x_0}^{x_1} \pdev{F}{y}\delta y\;\diff[x]+\int_{x_0}^{x_1} \pdev{F}{y'}\dev{\delta y}{x}\;\diff[x]= \notag \\
-&=\int_{x_0}^{x_1}\pdev{F}{y}\delta y\;\diff[x]+\left.\pdev{F}{y'}\delta y\right|_{x_0}^{x_1}-\int_{x_0}^{x_1} \frac{\diff}{\diff[x]}\pdev{F}{y'}\delta y\;\diff[x]=0\;.
+\delta I &= \int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\pdev{F}{y'}\dev{\delta y}{x}\right)\diff{x} \notag \\
+&= \int_{x_0}^{x_1}\left(\pdev{F}{y}\delta y+\frac{\diff}{\diff{x}}\left(\pdev{F}{y'}\delta y\right)-\frac{\diff}{\diff{x}}\left(\pdev{F}{y'}\right)\delta y\right)\diff{x} \notag \\
+&= \int_{x_0}^{x_1}\left(\pdev{F}{y}-\frac{\diff}{\diff{x}}\pdev{F}{y'}\right)\delta y \diff{x}+\left.\pdev{F}{y'}\delta y\right|^{x_1}_{x_0}\;.
 \end{align}
 Il secondo termine è identicamente nullo in quanto abbiamo supposto che la variazione $\delta y$ si annulli agli estremi. Abbiamo dunque:
 \begin{equation}
@@ -435,7 +434,7 @@ Definiamo il \textit{fattore di qualità} dell'oscillatore $Q$ come $Q=1/\gamma$
 \begin{equation}
 \alpha=\frac{i}{2Q}\pm\frac{1}{2}\sqrt{4\omega_0^2-\frac{1}{Q^2}}\;.
 \end{equation}
-Esaminiamo i vari casi. Se $\omega_0^2>1/Q^2$, le soluzioni della \eqref{sec5_damped} saranno:
+Esaminiamo i vari casi. Se $\omega_0^2>1/4Q^2$, le soluzioni della \eqref{sec5_damped} saranno:
 \begin{equation}
 q(t)=e^{i\left(\frac{i}{2Q}\pm\Omega\right)t}=e^{-t/2Q}e^{\pm i\Omega t}, \qquad \Omega=\omega_0\sqrt{1-\frac{1}{(2Q\omega_0)^2}}\;.
 \end{equation}
@@ -447,9 +446,9 @@ Nell'approssimazione di smorzamento lieve, $A_ce^{-t/2Q}\simeq A_se^{-t/2Q} = A$
 \begin{equation}
 E=\frac{1}{2}kA^2\simeq A_{c,s}^2e^{-t/Q}\;,
 \end{equation}
-dunque l'energia diminuisce seguendo un decadimento esponenziale. Nel caso $\omega_0^2<1/Q^2$, abbiamo l'oscillatore \textit{sovrasmorzato}. Le soluzioni in questo caso, entrambi reali, saranno:
+dunque l'energia diminuisce seguendo un decadimento esponenziale. Nel caso $\omega_0^2<1/4Q^2$, abbiamo l'oscillatore \textit{sovrasmorzato}. Le soluzioni in questo caso, entrambi reali, saranno:
 \begin{equation}
-q(t)=e^{i\left(\frac{i}{2Q}\pm i\Omega\right)t}=e^{-t/2Q}e^{\pm\Omega t}, \qquad \Omega=\omega_0\sqrt{1-\frac{1}{(2Q\omega_0)^2}}\;.
+q(t)=e^{i\left(\frac{i}{2Q}\pm i\Omega\right)t}=e^{-t/2Q}e^{\pm\Omega t}, \qquad \Omega=\omega_0\sqrt{\frac{1}{(2Q\omega_0)^2}-1}\;.
 \end{equation}
 Nel caso $\omega_0^2=1/4Q^2$, avremo l'oscillatore \textit{criticamente smorzato}. Avremo una sola soluzione indipendente:
 \begin{equation}
