@@ -1226,7 +1226,7 @@ Osserviamo inoltre che (assumendo $\bra \Omega|\Omega\ket=1$):
 \end{align}
 Facendo il rapporto tra le ultime due equazioni, i fattori moltiplicativi si elidono. La funzione di Green sarà pertanto data da:
 \begin{align}
-\bra\Omega|T\{\hat{Q}_A(x_A)\cdots \}|\Omega\ket &= \lim_{T\to\infty}\lim_{\epsilon\to 0^+}\frac{\bra q';Te^{-i\epsilon}|T\{\hat{Q}_A(x_A)\cdots\}|q;-Te^{-i\epsilon}\ket}{\bra q';Te^{-i\epsilon}|q;-Te^{-i\epsilon}\ket} \notag \\
+\bra\Omega|T\{\hat{Q}_A(x_A)\cdots \}|\Omega\ket &= \lim_{\epsilon\to 0^+} \lim_{T\to\infty} \frac{\bra q';Te^{-i\epsilon}|T\{\hat{Q}_A(x_A)\cdots\}|q;-Te^{-i\epsilon}\ket}{\bra q';Te^{-i\epsilon}|q;-Te^{-i\epsilon}\ket} \notag \\
 &=\frac{\int\prod_{\tau,m,\mathbf{x}}\diff{q}_m(\mathbf{x},\tau)q_A(x_A)q_B(x_B)\cdots\exp\left\{i\int_{-\infty e^{-i\epsilon}}^{\infty e^{-i\epsilon}}\diff{\tau}L[q(\tau),\dot{q}(\tau)]\right\}}{\int\prod_{\tau,m,\mathbf{x}}\diff{q}_m(\mathbf{x},\tau)\exp\left\{i\int_{-\infty e^{-i\epsilon}}^{\infty e^{-i\epsilon}}\diff{\tau}L[q(\tau),\dot{q}(\tau)]\right\}}\;,
 \end{align}
 con condizioni al contorno $q_m(\mathbf{x},t)=q_m(\mathbf{x}),q_m(\mathbf{x},t')=q_m'(\mathbf{x})$. Queste sono del tutto arbitrarie (purché $\bra q'|\Omega\ket,\bra\Omega|q\ket\ne 0$). È conveniente fissare condizioni al contorno periodiche, i.e. $q'=q$ e integrare su tutte le $q$. In tal caso otterremo:
